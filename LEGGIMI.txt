@@ -189,7 +189,14 @@ Due tipi di blocchi:
   mailto:… o tel:… (javascript: ecc. viene rifiutato). I testi «semplici» (con accanto parti fisse:
   frecce, numeri, icone, campi del modulo, colori dei fogli) cambiano solo il testo, su
   una riga.
-  Non si cambiano da qui: menu in alto e piè di pagina (uguali in tutte le pagine), il
+  MENU (sottomenu della navbar): scheda «Menu» in fondo alla prima riga. Foto e scritte
+  dei riquadri di Servizi, Prodotti e Collezioni (computer) e voci dell'elenco a tendina
+  (tablet e telefono, con le linee degli album). Voci con "pagina": "menu" in
+  data/immagini.json (menu-sposi…, "decorativa": true = senza «Cosa si vede», alt vuoto)
+  e data/testi.json (menu-t001…menu-t029); nelle pagine data-slot / data-testo uguali in
+  tutte le intestazioni, e lo script le scrive in TUTTE le pagine del sito.
+  Non si cambiano da qui: le voci principali del menu (Servizi, Prodotti…) e il piè di
+  pagina (uguali in tutte le pagine), il
   titolo «Grafica & Stampa» della Home (ha la & in uno stile a parte), i numeri animati
   della Home (57 anni, oltre 100, oltre 30.000: li calcola js/script.js da data-since e
   data-count), il titolo e la descrizione per Google (<title>, meta description), i testi
@@ -201,7 +208,7 @@ Due tipi di blocchi:
   «testo» o «semplice», testo, e «link» se è un <a>).
 Non si gestiscono dall'area riservata (si cambiano a mano, come prima): le tre foto
 grandi che scorrono in cima alla Home (nella scheda Home c'è una nota che lo dice), le
-foto del menu a tendina, le anteprime per i social (og:image) e il logo. Le regole di
+anteprime per i social (og:image) e il logo. Le regole di
 inquadratura in css/style.css legate al nome di un file (object-position) non valgono
 per le foto caricate dal cliente, che sono centrate.
 Ogni salvataggio apre subito una finestra con una barra che avanza; si completa quando
@@ -1549,3 +1556,13 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                    dell'area riservata (52 px di margine a destra della fila di voci, e lo
                    stesso a sinistra perché il logo resti al centro), in css/style.css?v=182
                    (aggiornato in tutte le pagine).
+
+3.16 (18/11/2026)  Area riservata: nuova scheda «Menu» per i sottomenu della navbar. Il
+                   cliente cambia le 10 foto dei riquadri (Servizi, Prodotti, Collezioni) e
+                   le loro scritte, e le 25 voci dell'elenco a tendina (linee comprese); le
+                   voci principali e gli indirizzi restano fissi. Una modifica vale per tutte
+                   le pagine: voci con "pagina": "menu" in data/immagini.json e
+                   data/testi.json, data-slot / data-testo nell'intestazione di ogni pagina,
+                   scripts/genera_contenuti.py le applica a tutte le pagine. Worker: ammesse
+                   le foto in una sottocartella di images/ (images/comune/menu/). Guida: nuova
+                   sezione «Cambiare foto e scritte dei menu».

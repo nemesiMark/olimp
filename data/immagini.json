@@ -730,5 +730,135 @@
       "album-eventi-t003",
       "album-eventi-t004"
     ]
+  },
+  {
+    "id": "menu-sposi",
+    "pagina": "menu",
+    "sezione": "Menu Servizi · Sezione sposi",
+    "descrizione": "Riquadro con foto nel menu che si apre dalla barra in alto (si vede sul computer). Vale per tutte le pagine del sito.",
+    "foto": "images/comune/menu/sposi-bacio-campo.jpg",
+    "alt": "",
+    "testi": [
+      "menu-t003",
+      "menu-t001"
+    ],
+    "decorativa": true
+  },
+  {
+    "id": "menu-fotografi",
+    "pagina": "menu",
+    "sezione": "Menu Servizi · Sezione fotografi",
+    "descrizione": "Riquadro con foto nel menu che si apre dalla barra in alto (si vede sul computer). Vale per tutte le pagine del sito.",
+    "foto": "images/comune/menu/fotografo-videocamera.jpg",
+    "alt": "",
+    "testi": [
+      "menu-t004",
+      "menu-t002"
+    ],
+    "decorativa": true
+  },
+  {
+    "id": "menu-fotolibro",
+    "pagina": "menu",
+    "sezione": "Menu Prodotti · Fotolibro professionale",
+    "descrizione": "Riquadro con foto nel menu che si apre dalla barra in alto (si vede sul computer). Vale per tutte le pagine del sito.",
+    "foto": "images/comune/menu/fotolibro-aperto-coppia-mare.jpg",
+    "alt": "",
+    "testi": [
+      "menu-t009",
+      "menu-t005"
+    ],
+    "decorativa": true
+  },
+  {
+    "id": "menu-tradizionale",
+    "pagina": "menu",
+    "sezione": "Menu Prodotti · Album tradizionale professionale",
+    "descrizione": "Riquadro con foto nel menu che si apre dalla barra in alto (si vede sul computer). Vale per tutte le pagine del sito.",
+    "foto": "images/comune/menu/album-tradizionale-sposi-bianco-nero.jpg",
+    "alt": "",
+    "testi": [
+      "menu-t010",
+      "menu-t006"
+    ],
+    "decorativa": true
+  },
+  {
+    "id": "menu-studio",
+    "pagina": "menu",
+    "sezione": "Menu Prodotti · Prodotti per il tuo studio fotografico",
+    "descrizione": "Riquadro con foto nel menu che si apre dalla barra in alto (si vede sul computer). Vale per tutte le pagine del sito.",
+    "foto": "images/comune/menu/studio.jpg",
+    "alt": "",
+    "testi": [
+      "menu-t011",
+      "menu-t007"
+    ],
+    "decorativa": true
+  },
+  {
+    "id": "menu-custodie",
+    "pagina": "menu",
+    "sezione": "Menu Prodotti · Custodie per album",
+    "descrizione": "Riquadro con foto nel menu che si apre dalla barra in alto (si vede sul computer). Vale per tutte le pagine del sito.",
+    "foto": "images/comune/menu/cofanetto-legno-the-wedding.jpg",
+    "alt": "",
+    "testi": [
+      "menu-t012",
+      "menu-t008"
+    ],
+    "decorativa": true
+  },
+  {
+    "id": "menu-matrimoniali",
+    "pagina": "menu",
+    "sezione": "Menu Collezioni · Album matrimoniali",
+    "descrizione": "Riquadro con foto nel menu che si apre dalla barra in alto (si vede sul computer). Vale per tutte le pagine del sito.",
+    "foto": "images/comune/menu/album-matrimoniali-curve.jpg",
+    "alt": "",
+    "testi": [
+      "menu-t026",
+      "menu-t013"
+    ],
+    "decorativa": true
+  },
+  {
+    "id": "menu-bambini",
+    "pagina": "menu",
+    "sezione": "Menu Collezioni · Album bambini",
+    "descrizione": "Riquadro con foto nel menu che si apre dalla barra in alto (si vede sul computer). Vale per tutte le pagine del sito.",
+    "foto": "images/comune/menu/album-bambini-soffietto.jpg",
+    "alt": "",
+    "testi": [
+      "menu-t027",
+      "menu-t020"
+    ],
+    "decorativa": true
+  },
+  {
+    "id": "menu-comunione",
+    "pagina": "menu",
+    "sezione": "Menu Collezioni · Album comunione",
+    "descrizione": "Riquadro con foto nel menu che si apre dalla barra in alto (si vede sul computer). Vale per tutte le pagine del sito.",
+    "foto": "images/comune/menu/album-comunione-emma.jpg",
+    "alt": "",
+    "testi": [
+      "menu-t028",
+      "menu-t024"
+    ],
+    "decorativa": true
+  },
+  {
+    "id": "menu-eventi",
+    "pagina": "menu",
+    "sezione": "Menu Collezioni · Album eventi",
+    "descrizione": "Riquadro con foto nel menu che si apre dalla barra in alto (si vede sul computer). Vale per tutte le pagine del sito.",
+    "foto": "images/comune/menu/album-eventi-festa-palloncini.jpg",
+    "alt": "",
+    "testi": [
+      "menu-t029",
+      "menu-t025"
+    ],
+    "decorativa": true
   }
 ]

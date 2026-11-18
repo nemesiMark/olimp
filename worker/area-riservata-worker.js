@@ -47,8 +47,9 @@ const MAX_PER_GALLERIA = 80;
 const DURATA_ACCESSO_S = 30 * 24 * 3600;  // 30 giorni
 const PW_ITERAZIONI = 100000;              // massimo consentito da Cloudflare per PBKDF2
 const PW_MIN = 8, PW_MAX = 128;
-// foto del sito: una cartella di images/ (non guida e non-usate), eventualmente con ?v=N
-const FOTO_VALIDA = /^images\/(?!guida\/|non-usate\/)[a-z0-9-]{1,60}\/[A-Za-z0-9][A-Za-z0-9._-]{0,120}\.(jpe?g|png|webp|svg)(\?v=\d{1,4})?$/;
+// foto del sito: una cartella di images/ (non guida e non-usate), anche con una sottocartella
+// (es. images/comune/menu/ per i sottomenu della navbar), eventualmente con ?v=N
+const FOTO_VALIDA = /^images\/(?!guida\/|non-usate\/)[a-z0-9-]{1,60}\/(?:[a-z0-9-]{1,60}\/)?[A-Za-z0-9][A-Za-z0-9._-]{0,120}\.(jpe?g|png|webp|svg)(\?v=\d{1,4})?$/;
 
 export default {
   async fetch(request, env) {

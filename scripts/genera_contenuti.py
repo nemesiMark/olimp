@@ -96,27 +96,32 @@ def immagini(pagine):
         if not foto or (not esiste(foto) and not (prov and esiste(prov))):
             print(f"avviso: immagine {v.get('id')} saltata, la foto {foto} non esiste", file=sys.stderr)
             continue
-        nome = v["pagina"]
-        s = pagine.leggi(nome)
-        segno = f'<img data-slot="{v["id"]}" '
-        a = s.find(segno)
-        if a < 0:
-            print(f"avviso: in {nome} manca l'immagine {v['id']}", file=sys.stderr)
-            continue
-        b = s.index(">", a)
-        tag = s[a:b]
-        tag = re.sub(r' src="[^"]*"', f' src="{att(foto)}"', tag, count=1)
-        tag = re.sub(r' alt="[^"]*"', f' alt="{att(str(v.get("alt") or "").strip())}"', tag, count=1)
-        if prov:
-            if " data-fallback=" in tag:
-                tag = re.sub(r' data-fallback="[^"]*"', f' data-fallback="{att(prov)}"', tag, count=1)
-            else:
-                tag = tag.replace(' alt="', f' data-fallback="{att(prov)}" alt="', 1)
+        for nome in pagine.di(v["pagina"]):
+            s = pagine.leggi(nome)
+            segno = f'<img data-slot="{v["id"]}" '
+            a = s.find(segno)
+            if a < 0:
+                print(f"avviso: in {nome} manca l'immagine {v['id']}", file=sys.stderr)
+                continue
+            immagine(pagine, nome, s, a, foto, prov, v)
+
+
+def immagine(pagine, nome, s, a, foto, prov, v):
+    b = s.index(">", a)
+    tag = s[a:b]
+    tag = re.sub(r' src="[^"]*"', f' src="{att(foto)}"', tag, count=1)
+    tag = re.sub(r' alt="[^"]*"', f' alt="{att(str(v.get("alt") or "").strip())}"', tag, count=1)
+    if prov:
+        if " data-fallback=" in tag:
+            tag = re.sub(r' data-fallback="[^"]*"', f' data-fallback="{att(prov)}"', tag, count=1)
         else:
-            tag = re.sub(r' data-fallback="[^"]*"', "", tag, count=1)
-        pagine.scrivi(nome, s[:a] + tag + s[b:])
+            tag = tag.replace(' alt="', f' data-fallback="{att(prov)}" alt="', 1)
+    else:
+        tag = re.sub(r' data-fallback="[^"]*"', "", tag, count=1)
+    pagine.scrivi(nome, s[:a] + tag + s[b:])
 
 
+MENU = "menu"  # voci di immagini.json e testi.json che stanno nei sottomenu della navbar di tutte le pagine
 LINK_VALIDO = re.compile(r"^(https?://[^\s<>\"']+|mailto:[^\s<>\"']+|tel:\+?[0-9 ()./-]+|#[A-Za-z0-9_-]*|(?!.*\.\.)[A-Za-z0-9][A-Za-z0-9._/-]*(#[A-Za-z0-9_-]*)?)$")
 MARCHE = re.compile(r"\[([^\]\n]+)\]\(([^)\s]+)\)|\*\*(.+?)\*\*|==(.+?)==|`(.+?)`", re.S)
 
@@ -201,32 +206,44 @@ def testi(pagine):
         if not t:
             print(f"avviso: testo {vid} vuoto, lasciato com'era", file=sys.stderr)
             continue
-        s = pagine.leggi(nome)
-        pos = elemento(s, vid)
-        if not pos:
-            print(f"avviso: in {nome} manca il testo {vid}", file=sys.stderr)
-            continue
-        a, c, e, tag = pos
-        if v.get("tipo") == "semplice":
-            nuovo = solo_testo_diretto(s[c:e], " ".join(t.split()))
-            if nuovo is None:
-                print(f"avviso: testo {vid} non sostituibile", file=sys.stderr)
-                continue
+        for nome in pagine.di(v["pagina"]):
+            testo(pagine, nome, v, vid, t)
+
+
+def testo(pagine, nome, v, vid, t):
+    s = pagine.leggi(nome)
+    pos = elemento(s, vid)
+    if not pos:
+        print(f"avviso: in {nome} manca il testo {vid}", file=sys.stderr)
+        return
+    a, c, e, tag = pos
+    if v.get("tipo") == "semplice":
+        nuovo = solo_testo_diretto(s[c:e], " ".join(t.split()))
+        if nuovo is None:
+            print(f"avviso: testo {vid} non sostituibile", file=sys.stderr)
+            return
+    else:
+        nuovo = html_testo(t, tag != "a")
+    apertura = s[a:c]
+    if "link" in v:
+        u = str(v.get("link") or "").strip()
+        if link_ok(u):
+            apertura = re.sub(r' href="[^"]*"', f' href="{att(u)}"', apertura, count=1)
         else:
-            nuovo = html_testo(t, tag != "a")
-        apertura = s[a:c]
-        if "link" in v:
-            u = str(v.get("link") or "").strip()
-            if link_ok(u):
-                apertura = re.sub(r' href="[^"]*"', f' href="{att(u)}"', apertura, count=1)
-            else:
-                print(f"avviso: link non valido per {vid}: {u}", file=sys.stderr)
-        pagine.scrivi(nome, s[:a] + apertura + nuovo + s[e:])
+            print(f"avviso: link non valido per {vid}: {u}", file=sys.stderr)
+    pagine.scrivi(nome, s[:a] + apertura + nuovo + s[e:])
 
 
 class Pagine:
     def __init__(self):
         self.testi, self.originali = {}, {}
+
+    def di(self, pagina):
+        """le pagine a cui va una voce: "menu" (sottomenu della navbar) vale per tutte"""
+        if pagina != MENU:
+            return [pagina]
+        return [f for f in sorted(os.listdir(RADICE)) if f.endswith(".html") and f != "area-riservata.html"
+                and not f.startswith(("_", "prova-", "zz-"))]
 
     def leggi(self, nome):
         if nome not in self.testi:

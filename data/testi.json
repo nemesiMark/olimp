@@ -2906,5 +2906,256 @@
     "tipo": "semplice",
     "testo": "Scrivici",
     "link": "index.html#contatti"
+  },
+  {
+    "id": "menu-t001",
+    "pagina": "menu",
+    "sezione": "Servizi · elenco",
+    "descrizione": "Voce dell'elenco del menu, che si vede su tablet e telefono.",
+    "tipo": "semplice",
+    "testo": "Sezione sposi",
+    "link": "sezione-sposi.html"
+  },
+  {
+    "id": "menu-t002",
+    "pagina": "menu",
+    "sezione": "Servizi · elenco",
+    "descrizione": "Voce dell'elenco del menu, che si vede su tablet e telefono.",
+    "tipo": "semplice",
+    "testo": "Sezione fotografi",
+    "link": "sezione-fotografi.html"
+  },
+  {
+    "id": "menu-t003",
+    "pagina": "menu",
+    "sezione": "Servizi · riquadri con foto",
+    "descrizione": "Scritta sotto la foto nel menu, che si vede sul computer.",
+    "tipo": "semplice",
+    "testo": "Sezione sposi"
+  },
+  {
+    "id": "menu-t004",
+    "pagina": "menu",
+    "sezione": "Servizi · riquadri con foto",
+    "descrizione": "Scritta sotto la foto nel menu, che si vede sul computer.",
+    "tipo": "semplice",
+    "testo": "Sezione fotografi"
+  },
+  {
+    "id": "menu-t005",
+    "pagina": "menu",
+    "sezione": "Prodotti · elenco",
+    "descrizione": "Voce dell'elenco del menu, che si vede su tablet e telefono.",
+    "tipo": "semplice",
+    "testo": "FOTOLIBRO PROFESSIONALE",
+    "link": "fotolibro-professionale.html"
+  },
+  {
+    "id": "menu-t006",
+    "pagina": "menu",
+    "sezione": "Prodotti · elenco",
+    "descrizione": "Voce dell'elenco del menu, che si vede su tablet e telefono.",
+    "tipo": "semplice",
+    "testo": "ALBUM TRADIZIONALE PROFESSIONALE",
+    "link": "album-tradizionale-professionale.html"
+  },
+  {
+    "id": "menu-t007",
+    "pagina": "menu",
+    "sezione": "Prodotti · elenco",
+    "descrizione": "Voce dell'elenco del menu, che si vede su tablet e telefono.",
+    "tipo": "semplice",
+    "testo": "PRODOTTI PER IL TUO STUDIO FOTOGRAFICO",
+    "link": "prodotti-studio-fotografico.html"
+  },
+  {
+    "id": "menu-t008",
+    "pagina": "menu",
+    "sezione": "Prodotti · elenco",
+    "descrizione": "Voce dell'elenco del menu, che si vede su tablet e telefono.",
+    "tipo": "semplice",
+    "testo": "CUSTODIE PER ALBUM",
+    "link": "custodie-per-album.html"
+  },
+  {
+    "id": "menu-t009",
+    "pagina": "menu",
+    "sezione": "Prodotti · riquadri con foto",
+    "descrizione": "Scritta sotto la foto nel menu, che si vede sul computer.",
+    "tipo": "semplice",
+    "testo": "Fotolibro professionale"
+  },
+  {
+    "id": "menu-t010",
+    "pagina": "menu",
+    "sezione": "Prodotti · riquadri con foto",
+    "descrizione": "Scritta sotto la foto nel menu, che si vede sul computer.",
+    "tipo": "semplice",
+    "testo": "Album tradizionale professionale"
+  },
+  {
+    "id": "menu-t011",
+    "pagina": "menu",
+    "sezione": "Prodotti · riquadri con foto",
+    "descrizione": "Scritta sotto la foto nel menu, che si vede sul computer.",
+    "tipo": "semplice",
+    "testo": "Prodotti per il tuo studio fotografico"
+  },
+  {
+    "id": "menu-t012",
+    "pagina": "menu",
+    "sezione": "Prodotti · riquadri con foto",
+    "descrizione": "Scritta sotto la foto nel menu, che si vede sul computer.",
+    "tipo": "semplice",
+    "testo": "Custodie per album"
+  },
+  {
+    "id": "menu-t013",
+    "pagina": "menu",
+    "sezione": "Collezioni · elenco",
+    "descrizione": "Voce dell'elenco del menu, che si vede su tablet e telefono.",
+    "tipo": "semplice",
+    "testo": "ALBUM MATRIMONIALI",
+    "link": "album-matrimoniali.html"
+  },
+  {
+    "id": "menu-t014",
+    "pagina": "menu",
+    "sezione": "Collezioni · elenco › Album matrimoniali",
+    "descrizione": "Voce dell'elenco del menu, che si vede su tablet e telefono.",
+    "tipo": "semplice",
+    "testo": "LINEA FASHION",
+    "link": "linea-fashion.html"
+  },
+  {
+    "id": "menu-t015",
+    "pagina": "menu",
+    "sezione": "Collezioni · elenco › Album matrimoniali",
+    "descrizione": "Voce dell'elenco del menu, che si vede su tablet e telefono.",
+    "tipo": "semplice",
+    "testo": "LINEA GLAMOUR",
+    "link": "linea-glamour.html"
+  },
+  {
+    "id": "menu-t016",
+    "pagina": "menu",
+    "sezione": "Collezioni · elenco › Album matrimoniali",
+    "descrizione": "Voce dell'elenco del menu, che si vede su tablet e telefono.",
+    "tipo": "semplice",
+    "testo": "LINEA TRENDY",
+    "link": "linea-trendy.html"
+  },
+  {
+    "id": "menu-t017",
+    "pagina": "menu",
+    "sezione": "Collezioni · elenco › Album matrimoniali",
+    "descrizione": "Voce dell'elenco del menu, che si vede su tablet e telefono.",
+    "tipo": "semplice",
+    "testo": "LINEA CUOIO FIORENTINO",
+    "link": "linea-cuoio-fiorentino.html"
+  },
+  {
+    "id": "menu-t018",
+    "pagina": "menu",
+    "sezione": "Collezioni · elenco › Album matrimoniali",
+    "descrizione": "Voce dell'elenco del menu, che si vede su tablet e telefono.",
+    "tipo": "testo",
+    "testo": "LINEA CUOIO AMARCORD &\nCUOIO ISLANDESE PERSONALIZZATO",
+    "link": "linea-cuoio-amarcord-islandese-personalizzato.html"
+  },
+  {
+    "id": "menu-t019",
+    "pagina": "menu",
+    "sezione": "Collezioni · elenco › Album matrimoniali",
+    "descrizione": "Voce dell'elenco del menu, che si vede su tablet e telefono.",
+    "tipo": "testo",
+    "testo": "LINEA CUOIO AMARCORD &\nCUOIO ISLANDESE",
+    "link": "linea-cuoio-amarcord-islandese.html"
+  },
+  {
+    "id": "menu-t020",
+    "pagina": "menu",
+    "sezione": "Collezioni · elenco",
+    "descrizione": "Voce dell'elenco del menu, che si vede su tablet e telefono.",
+    "tipo": "semplice",
+    "testo": "ALBUM BAMBINI",
+    "link": "album-bambini.html"
+  },
+  {
+    "id": "menu-t021",
+    "pagina": "menu",
+    "sezione": "Collezioni · elenco › Album bambini",
+    "descrizione": "Voce dell'elenco del menu, che si vede su tablet e telefono.",
+    "tipo": "semplice",
+    "testo": "LINEA DELUXE",
+    "link": "album-bambini-deluxe.html"
+  },
+  {
+    "id": "menu-t022",
+    "pagina": "menu",
+    "sezione": "Collezioni · elenco › Album bambini",
+    "descrizione": "Voce dell'elenco del menu, che si vede su tablet e telefono.",
+    "tipo": "semplice",
+    "testo": "LINEA BABY",
+    "link": "album-bambini-baby.html"
+  },
+  {
+    "id": "menu-t023",
+    "pagina": "menu",
+    "sezione": "Collezioni · elenco › Album bambini",
+    "descrizione": "Voce dell'elenco del menu, che si vede su tablet e telefono.",
+    "tipo": "semplice",
+    "testo": "LINEA NEW BORN",
+    "link": "album-bambini-new-born.html"
+  },
+  {
+    "id": "menu-t024",
+    "pagina": "menu",
+    "sezione": "Collezioni · elenco",
+    "descrizione": "Voce dell'elenco del menu, che si vede su tablet e telefono.",
+    "tipo": "semplice",
+    "testo": "ALBUM COMUNIONE",
+    "link": "album-comunione.html"
+  },
+  {
+    "id": "menu-t025",
+    "pagina": "menu",
+    "sezione": "Collezioni · elenco",
+    "descrizione": "Voce dell'elenco del menu, che si vede su tablet e telefono.",
+    "tipo": "semplice",
+    "testo": "ALBUM EVENTI",
+    "link": "album-eventi.html"
+  },
+  {
+    "id": "menu-t026",
+    "pagina": "menu",
+    "sezione": "Collezioni · riquadri con foto",
+    "descrizione": "Scritta sotto la foto nel menu, che si vede sul computer.",
+    "tipo": "semplice",
+    "testo": "Album matrimoniali"
+  },
+  {
+    "id": "menu-t027",
+    "pagina": "menu",
+    "sezione": "Collezioni · riquadri con foto",
+    "descrizione": "Scritta sotto la foto nel menu, che si vede sul computer.",
+    "tipo": "semplice",
+    "testo": "Album bambini"
+  },
+  {
+    "id": "menu-t028",
+    "pagina": "menu",
+    "sezione": "Collezioni · riquadri con foto",
+    "descrizione": "Scritta sotto la foto nel menu, che si vede sul computer.",
+    "tipo": "semplice",
+    "testo": "Album comunione"
+  },
+  {
+    "id": "menu-t029",
+    "pagina": "menu",
+    "sezione": "Collezioni · riquadri con foto",
+    "descrizione": "Scritta sotto la foto nel menu, che si vede sul computer.",
+    "tipo": "semplice",
+    "testo": "Album eventi"
   }
 ]
