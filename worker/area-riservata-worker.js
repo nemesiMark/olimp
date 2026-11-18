@@ -30,6 +30,16 @@ const MAX_TESTO = 4000;
 // indirizzi ammessi per i testi cliccabili (gli stessi di scripts/genera_contenuti.py)
 const LINK_VALIDO = /^(https?:\/\/[^\s<>"']+|mailto:[^\s<>"']+|tel:\+?[0-9 ()./-]+|#[A-Za-z0-9_-]*|(?!.*\.\.)[A-Za-z0-9][A-Za-z0-9._\/-]*(#[A-Za-z0-9_-]*)?)$/;
 const LINK_NEL_TESTO = /\[([^\]\n]+)\]\(([^)\s]+)\)/g;
+// grassetto, evidenziato, codice e link nel testo (le stesse regole di genera_contenuti.py)
+const MARCHE = /\[([^\]\n]+)\]\(([^)\s]+)\)|\*\*([\s\S]+?)\*\*|==([\s\S]+?)==|`([\s\S]+?)`/g;
+// la formattazione di un testo (quali parti sono in grassetto, evidenziate, cliccabili e dove portano):
+// dall'area riservata si cambiano solo le parole, la formattazione deve restare uguale
+function formattazione(t) {
+  const out = [];
+  for (const m of t.matchAll(MARCHE))
+    out.push(m[1] != null ? `L${m[2]}(${formattazione(m[1])})` : m[3] != null ? `B(${formattazione(m[3])})` : m[4] != null ? `M(${formattazione(m[4])})` : "C");
+  return out.join(",");
+}
 const CARTELLA_FOTO = "images/caricate/";
 const MAX_FOTO_BYTES = 4 * 1024 * 1024;   // dopo il ridimensionamento nel browser sono ~0,3–0,6 MB
 const MAX_FOTO_PER_SALVATAGGIO = 12;
@@ -172,7 +182,7 @@ async function leggiJson(env, percorso, sha) {
  *          solo le gallerie che già esistono in data/gallerie.json),
  *         immagini: [ {id, foto, alt} ] (facoltativo), testi: [ {id, testo, link?} ] (facoltativo),
  *         nuoveFoto: { "nuova:ID": "base64…" }, messaggio }
- * Dei testi si cambiano solo il testo e (per i testi cliccabili) l'indirizzo: quali sono, in che
+ * Dei testi si cambia solo il testo (l'indirizzo dei testi cliccabili resta com'è): quali sono, in che
  * pagina e sezione lo decide data/testi.json sul sito.
  * Nel campo foto di una foto nuova c'è "nuova:ID": qui diventa il percorso vero della foto caricata.
  * Delle immagini fisse si cambiano solo foto e testo alternativo: quali sono, in che pagina e
@@ -237,13 +247,7 @@ async function salva(request, env, cors) {
     if (!testo) throw errore("Il testo non può essere vuoto", 400);
     for (const m of testo.matchAll(LINK_NEL_TESTO))
       if (!LINK_VALIDO.test(m[2])) throw errore(`Indirizzo del link non valido: ${m[2].slice(0, 60)}`, 400);
-    const o = { testo };
-    if (t.link !== undefined) {
-      const link = String(t.link || "").trim();
-      if (!LINK_VALIDO.test(link)) throw errore(`Indirizzo non valido: ${link.slice(0, 60) || "vuoto"}`, 400);
-      o.link = link;
-    }
-    testiScelti[t.id] = o;
+    testiScelti[t.id] = { testo }; // l'indirizzo dei testi cliccabili non si cambia dall'area riservata
   }
 
   const giorno = new Date().toISOString().slice(0, 10);
@@ -267,7 +271,7 @@ async function salva(request, env, cors) {
       const n = testiScelti[v.id];
       if (!n) return v;
       const o = { ...v, testo: v.tipo === "semplice" ? n.testo.replace(/\s+/g, " ") : n.testo };
-      if ("link" in v && n.link !== undefined) o.link = n.link;
+      if (formattazione(o.testo) !== formattazione(String(v.testo || ""))) throw errore("Si possono cambiare solo le parole, non grassetto e testi cliccabili", 400);
       return o;
     });
     for (const nome of Object.keys(gallerie || {}))

@@ -351,11 +351,22 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
 .etichetta-ant{font-size:14px;font-weight:500;margin-bottom:6px}
 #d-testo textarea{width:100%;min-height:52px;padding:12px 14px;border:1px solid #b9b9b3;border-radius:3px;background:#fff;font:16px/1.5 var(--testo);resize:vertical}
 #d-testo textarea:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px rgba(0,0,0,.08)}
-#d-testo .strumenti{display:flex;gap:6px;margin-bottom:6px;flex-wrap:wrap}
-#d-testo .strumenti .btn{min-height:36px;font-size:14px;padding:0 12px}
+#d-testo .parte+.parte,.testi-foto .parte+.parte{margin-top:8px}
+.nome-parte{display:block;font-size:12px;color:var(--mute);margin-bottom:3px}
+.nome-parte.speciale{color:var(--acc);font-weight:600}
+.testi-foto textarea{margin:0}
 #d-testo .aiuto{font-size:13px;color:var(--mute);margin-top:6px;line-height:1.45}
 #d-testo .aiuto code{background:#fff;border:1px solid var(--line);padding:0 4px;border-radius:2px}
 #tx-dove{margin:-6px 0 14px}
+#tx-link[readonly]{background:#ecece8;color:var(--mute);cursor:default;box-shadow:none;border-color:#cfcfca}
+.testi-foto{border:0;border-top:1px solid var(--line);padding:14px 0 0;margin:4px 0 8px}
+.testi-foto legend{font:600 15px/1 var(--head);text-transform:uppercase;letter-spacing:.04em;padding-right:8px}
+.testi-foto .aiuto{font-size:13px;color:var(--mute);margin:4px 0 10px;line-height:1.45}
+.testi-foto .aiuto code{background:#fff;border:1px solid var(--line);padding:0 4px;border-radius:2px}
+.testi-foto .campo{margin-bottom:12px}
+.testi-foto textarea{width:100%;padding:10px 12px;border:1px solid #b9b9b3;border-radius:3px;background:#fff;font:16px/1.45 var(--testo);resize:vertical}
+.testi-foto textarea:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px rgba(0,0,0,.08)}
+.testi-foto .campo .aiuto{margin:4px 0 0;word-break:break-all}
 @media (max-width:480px){.testo{grid-template-columns:1fr}.testo .btn{justify-self:start}}
 </style>
 </head>
@@ -430,6 +441,11 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
       <label for="img-alt">Cosa si vede nella foto <span class="facoltativo">(serve a Google e a chi non vede)</span></label>
       <input type="text" id="img-alt" maxlength="200" placeholder="Es. Album con copertina bianca aperto su un tavolo">
     </div>
+    <fieldset class="testi-foto" id="img-testi-box">
+      <legend>Testi accanto alla foto</legend>
+      <p class="aiuto">Puoi cambiare solo le parole. Per andare a capo premi Invio.</p>
+      <div id="img-testi"></div>
+    </fieldset>
     <p class="errore" id="err-img" role="alert"></p>
     <div class="azioni">
       <button class="btn" type="button" id="img-annulla">Annulla</button>
@@ -443,18 +459,14 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     <h2 id="tx-t"></h2>
     <p class="nota-pw" id="tx-dove"></p>
     <div class="campo">
-      <label for="tx-testo">Testo</label>
-      <div class="strumenti" id="tx-strumenti">
-        <button class="btn" type="button" id="tx-grassetto" title="Metti in grassetto le parole selezionate"><b>G</b> Grassetto</button>
-        <button class="btn" type="button" id="tx-link-btn" title="Rendi cliccabili le parole selezionate">Testo cliccabile</button>
-      </div>
-      <textarea id="tx-testo" rows="4" maxlength="4000" spellcheck="true"></textarea>
-      <p class="aiuto" id="tx-aiuto">Per andare a capo premi Invio. Le parole tra <code>**</code> vengono in <b>grassetto</b><span id="tx-aiuto-l">; <code>[parole](indirizzo)</code> diventa un testo cliccabile</span>.</p>
+      <p class="etichetta-ant" id="tx-etichetta">Testo</p>
+      <div id="tx-parti"></div>
+      <p class="aiuto" id="tx-aiuto">Puoi cambiare solo le parole: grassetto, parti evidenziate e testi cliccabili restano come sono. Per andare a capo premi Invio.</p>
       <p class="aiuto" id="tx-aiuto-semplice" hidden>Qui va solo il testo, su una riga: le parti fisse accanto (icone, frecce, numeri) restano come sono.</p>
     </div>
     <div class="campo" id="tx-campo-link" hidden>
-      <label for="tx-link">Dove porta il clic <span class="facoltativo">(una pagina del sito come collezioni.html, oppure https://…, mailto:… o tel:…)</span></label>
-      <input type="text" id="tx-link" maxlength="500" spellcheck="false" autocapitalize="off" autocomplete="off">
+      <label for="tx-link">Dove porta il clic <span class="facoltativo">(non si cambia da qui)</span></label>
+      <input type="text" id="tx-link" readonly tabindex="-1">
     </div>
     <p class="etichetta-ant">Come si vedrà</p>
     <div class="anteprima-testo grande" id="tx-ant" aria-live="polite"></div>
@@ -542,14 +554,14 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     <section class="g-sez" id="g-fisse" aria-labelledby="g-fisse-t">
       <h3 id="g-fisse-t">Cambiare le foto fisse</h3>
       <div class="g-passo"><span class="num">1</span><p>Le altre foto delle pagine (la foto principale accanto al testo, i riquadri delle linee e dei prodotti, le strisce delle collezioni) hanno un posto fisso: clicca <b>Cambia foto</b> accanto a quella da cambiare.</p><a href="images/guida/fissa.jpg" class="g-zoom" data-punti="18.20,64.25,10.47,6.25" aria-label="Ingrandisci la schermata"><img src="images/guida/fissa.jpg" alt="Una foto fissa con il pulsante Cambia foto" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
-      <div class="g-passo"><span class="num">2</span><p>Nella finestra clicca <b>Cambia foto</b> e scegli quella nuova. Scrivi in breve cosa si vede (serve a Google) e clicca <b>Salva</b>.</p><a href="images/guida/fissa-scheda.jpg" class="g-zoom" data-punti="53.91,54.12,10.86,6.25;59.92,77.50,6.95,7.00" aria-label="Ingrandisci la schermata"><img src="images/guida/fissa-scheda.jpg" alt="La finestra per cambiare una foto, con Cambia foto e Salva evidenziati" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">2</span><p>Nella finestra clicca <b>Cambia foto</b> e scegli quella nuova. Scrivi in breve cosa si vede (serve a Google). Più sotto, in <b>Testi accanto alla foto</b>, puoi cambiare anche i testi che stanno vicino a quella foto nella pagina (titolo, descrizione…). Poi clicca <b>Salva</b>.</p><a href="images/guida/fissa-scheda.jpg" class="g-zoom" data-punti="53.91,41.88,10.86,6.25;33.12,72.62,33.75,12.88" aria-label="Ingrandisci la schermata"><img src="images/guida/fissa-scheda.jpg" alt="La finestra per cambiare una foto, con Cambia foto e i testi accanto alla foto evidenziati" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
       <p class="g-nota">Ogni pagina è indipendente: una foto cambiata in una pagina resta uguale in tutte le altre (per esempio la striscia «Album eventi» della Home e quella di Collezioni si cambiano separatamente).</p>
     </section>
     <section class="g-sez" id="g-testi" aria-labelledby="g-testi-t">
       <h3 id="g-testi-t">Cambiare i testi</h3>
       <div class="g-passo"><span class="num">1</span><p>Nella pagina clicca <b>Testi</b> (accanto a Foto). I testi sono divisi per sezione, nell'ordine in cui si vedono sul sito: clicca quello da cambiare.</p><a href="images/guida/testi.jpg" class="g-zoom" data-punti="12.42,27.25,8.91,6.75;6.56,65.00,86.88,13.25" aria-label="Ingrandisci la schermata"><img src="images/guida/testi.jpg" alt="Il pulsante Testi e l'elenco dei testi della Home divisi per sezione" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
-      <div class="g-passo"><span class="num">2</span><p>Scrivi il testo nuovo. Per andare a capo premi Invio. Per il <b>grassetto</b> seleziona le parole e clicca <b>Grassetto</b>; per rendere cliccabili delle parole selezionale, clicca <b>Testo cliccabile</b> e scrivi l'indirizzo al posto di https://. Sotto vedi come si vedrà; poi clicca <b>Salva</b>.</p><a href="images/guida/testo-modifica.jpg" class="g-zoom" data-punti="33.12,34.50,33.75,13.75;59.92,75.62,6.95,7.00" aria-label="Ingrandisci la schermata"><img src="images/guida/testo-modifica.jpg" alt="La finestra del testo con il campo da scrivere, l'anteprima e il pulsante Salva" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
-      <div class="g-passo"><span class="num">3</span><p>Nei pulsanti e nei testi cliccabili puoi cambiare anche <b>Dove porta il clic</b>: una pagina del sito (per esempio collezioni.html), un sito (https://…), un'email (mailto:…) o un numero di telefono (tel:…).</p><a href="images/guida/testo-link.jpg" class="g-zoom" data-punti="33.12,30.12,33.75,13.75;33.12,56.88,33.75,7.50" aria-label="Ingrandisci la schermata"><img src="images/guida/testo-link.jpg" alt="La finestra di un pulsante con il testo e il campo Dove porta il clic" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">2</span><p>Scrivi il testo nuovo (per andare a capo premi Invio). Si cambiano solo le parole: se nel testo ci sono parti in grassetto o cliccabili, ognuna ha il suo campo e resta com'è. Sotto vedi come si vedrà; poi clicca <b>Salva</b>.</p><a href="images/guida/testo-modifica.jpg" class="g-zoom" data-punti="33.12,31.87,33.75,13.75;59.92,73.00,6.95,7.00" aria-label="Ingrandisci la schermata"><img src="images/guida/testo-modifica.jpg" alt="La finestra del testo con il campo da scrivere, l'anteprima e il pulsante Salva" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">3</span><p>Nei pulsanti e nei testi cliccabili cambi le parole; sotto vedi anche <b>Dove porta il clic</b>, che invece resta com'è.</p><a href="images/guida/testo-link.jpg" class="g-zoom" data-punti="33.12,28.88,33.75,13.75;59.92,76.00,6.95,7.00" aria-label="Ingrandisci la schermata"><img src="images/guida/testo-link.jpg" alt="La finestra di un pulsante con il testo da cambiare, il campo Dove porta il clic in grigio e il pulsante Salva" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
       <p class="g-nota">Alcuni testi hanno accanto parti fisse (frecce, numeri, icone, i campi del modulo contatti): lì si cambia solo il testo, su una riga. Il menu in alto, il piè di pagina e i numeri animati della Home («57 anni», «oltre 100», «oltre 30.000») non si cambiano da qui: per quelli chiedi a chi cura il sito.</p>
     </section>
   </div>
@@ -859,6 +871,10 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
       i = re.lastIndex;
     }
     return out + esc(t.slice(i)).replace(/\n/g, '<br>');
+  }
+  function normTesto(t, semplice) {
+    t = String(t).replace(/\r\n?/g, '\n').split('\n').map(function (r) { return r.replace(/[ \t]+/g, ' ').trim(); }).join('\n').replace(/\n{3,}/g, '\n\n').trim();
+    return semplice ? t.replace(/\s+/g, ' ') : t;
   }
   function linkSbagliati(t) { var r = [], m, re = /\[([^\]\n]+)\]\(([^)\s]+)\)/g; while ((m = re.exec(t))) if (!LINK_VALIDO.test(m[2])) r.push(m[2]); return r; }
   function cartaTesto(v) {
@@ -1181,7 +1197,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
   };
 
   /* ---------- immagini fisse delle pagine ---------- */
-  var dimg = $('d-img'), immAperta = null, fotoImm = null;
+  var dimg = $('d-img'), immAperta = null, fotoImm = null, imgEd = [];
   function apriImmagine(id) {
     immAperta = immagini.filter(function (v) { return v.id === id; })[0]; if (!immAperta) return;
     fotoImm = null;
@@ -1189,6 +1205,18 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     $('img-dove').textContent = immAperta.descrizione || ''; $('img-dove').hidden = !immAperta.descrizione;
     $('img-alt').value = immAperta.alt || ''; $('err-img').textContent = '';
     var im = $('img-ant'); riserva(im, immAperta.foto, immAperta.provvisoria); im.src = sorgente(immAperta.foto); im.alt = 'Foto attuale';
+    var box = $('img-testi'); box.innerHTML = '';
+    var vicini = (immAperta.testi || []).map(function (id) { return testi.filter(function (v) { return v.id === id; })[0]; }).filter(Boolean);
+    $('img-testi-box').hidden = !vicini.length;
+    imgEd = vicini.map(function (v) {
+      var c = document.createElement('div'); c.className = 'campo';
+      var l = document.createElement('p'); l.className = 'etichetta-ant'; l.textContent = v.descrizione;
+      var box2 = document.createElement('div'); c.appendChild(l); c.appendChild(box2);
+      var ed = editore(box2, v);
+      if ('link' in v) { var k = document.createElement('p'); k.className = 'aiuto'; k.textContent = 'Porta a: ' + v.link + ' (non si cambia da qui)'; c.appendChild(k); }
+      box.appendChild(c);
+      return { v: v, ed: ed };
+    });
     dimg.showModal();
   }
   function fotoImmagine(f) {
@@ -1203,61 +1231,120 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     e.preventDefault();
     var alt = $('img-alt').value.trim();
     if (!alt) { $('err-img').textContent = 'Scrivi in poche parole cosa si vede nella foto'; $('img-alt').focus(); return; }
-    if (!fotoImm && alt === (immAperta.alt || '')) { dimg.close(); return; }
+    // testi accanto alla foto: controllati prima di toccare qualcosa
+    var cambiati = [], sbaglio = null;
+    imgEd.forEach(function (x) {
+      if (sbaglio) return;
+      var r = x.ed.valore();
+      if (r.errore) sbaglio = [x.ed.primo, x.v.descrizione + ': ' + r.errore.charAt(0).toLowerCase() + r.errore.slice(1)];
+      else if (r.testo !== x.v.testo) cambiati.push([x.v, r.testo]);
+    });
+    if (sbaglio) { $('err-img').textContent = sbaglio[1]; sbaglio[0].focus(); return; }
+    if (!fotoImm && alt === (immAperta.alt || '') && !cambiati.length) { dimg.close(); return; }
+    cambiati.forEach(function (c) { c[0].testo = c[1]; });
     var nuove = null;
     if (fotoImm) {
       var id = 'nuova:' + Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
       anteprimeLocali[id] = fotoImm.anteprima; nuove = {}; nuove[id] = fotoImm.b64; immAperta.foto = id; delete immAperta.provvisoria;
     }
+    var altCambiato = alt !== (immAperta.alt || '');
     immAperta.alt = alt;
     dimg.close(); disegna();
-    salva((fotoImm ? 'Cambiata la foto «' : 'Cambiata la descrizione «') + immAperta.sezione + '» (' + immAperta.pagina + ')', nuove);
+    var cosa = fotoImm ? 'Cambiata la foto' : altCambiato ? 'Cambiata la descrizione' : 'Cambiati i testi';
+    if (fotoImm && cambiati.length) cosa = 'Cambiati foto e testi';
+    salva(cosa + ' «' + immAperta.sezione + '» (' + immAperta.pagina + ')', nuove);
   };
 
   /* ---------- testi: finestra per modificarli ---------- */
   var dtx = $('d-testo'), txAperto = null;
+  /* il cliente cambia solo le parole: un testo con grassetto, evidenziato o link si divide in parti,
+     ognuna nel suo campo; i segni (** == ` [](…)) restano fuori dai campi e non si toccano */
+  var NOMI_SEGNI = { '**': 'in grassetto', '==': 'evidenziata', '`': 'codice' };
+  function parti(t) {
+    var out = [], re = new RegExp(MARCHE.source, 'g'), i = 0, m;
+    function semplice(x) {
+      if (!x) return;
+      if (!x.trim()) { out.push({ fisso: x }); return; }
+      var a = x.match(/^\s*/)[0], b = x.match(/\s*$/)[0];
+      out.push({ pre: a, testo: x.trim(), post: b, nome: 'normale' });
+    }
+    while ((m = re.exec(t))) {
+      semplice(t.slice(i, m.index));
+      var pre, post, dentro, nomi = [];
+      if (m[1] != null) { pre = '['; post = '](' + m[2] + ')'; dentro = m[1]; nomi.push('cliccabile, porta a ' + m[2]); }
+      else { var w = m[3] != null ? '**' : m[4] != null ? '==' : '`'; pre = post = w; dentro = m[3] != null ? m[3] : m[4] != null ? m[4] : m[5]; nomi.push(NOMI_SEGNI[w]); }
+      var g;
+      while ((g = dentro.match(/^(\*\*|==|`)([\s\S]+)\1$/)) && !/\*\*|==|`/.test(g[2])) { pre += g[1]; post = g[1] + post; dentro = g[2]; nomi.push(NOMI_SEGNI[g[1]]); }
+      out.push({ pre: pre, testo: dentro, post: post, nome: nomi.join(', ') });
+      i = re.lastIndex;
+    }
+    semplice(t.slice(i));
+    return out;
+  }
+  // la «firma» è la formattazione del testo: deve restare la stessa (lo controlla anche il Worker)
+  function firma(t) {
+    var out = [], re = new RegExp(MARCHE.source, 'g'), m;
+    while ((m = re.exec(t))) out.push(m[1] != null ? 'L' + m[2] + '(' + firma(m[1]) + ')' : m[3] != null ? 'B(' + firma(m[3]) + ')' : m[4] != null ? 'M(' + firma(m[4]) + ')' : 'C');
+    return out.join(',');
+  }
+  function editore(box, v, alCambio) {
+    box.innerHTML = '';
+    var ps = parti(v.testo), campi = [], semplice = v.tipo === 'semplice', piu = ps.filter(function (p) { return p.fisso == null; }).length > 1 || ps.some(function (p) { return p.nome && p.nome !== 'normale'; });
+    ps.forEach(function (p, k) {
+      if (p.fisso != null) return;
+      var c = document.createElement('div'); c.className = 'parte';
+      var ta = document.createElement('textarea'); ta.maxLength = 4000; ta.value = p.testo; ta.dataset.k = k;
+      ta.rows = semplice ? 1 : Math.min(10, Math.max(piu ? 1 : 3, Math.ceil(p.testo.length / 60) + (p.testo.split('\n').length - 1)));
+      if (piu) { var l = document.createElement('span'); l.className = 'nome-parte' + (p.nome !== 'normale' ? ' speciale' : ''); l.textContent = 'Parte ' + (campi.length + 1) + ' · ' + p.nome; c.appendChild(l); ta.setAttribute('aria-label', l.textContent); }
+      ta.oninput = alCambio || null;
+      c.appendChild(ta); box.appendChild(c); campi.push(ta);
+    });
+    return {
+      primo: campi[0], campi: campi,
+      valore: function () {
+        var vuota = false;
+        var t = ps.map(function (p, k) {
+          if (p.fisso != null) return p.fisso;
+          var ta = campi.filter(function (x) { return +x.dataset.k === k; })[0];
+          var x = normTesto(ta.value, semplice);
+          if (!x && p.nome !== 'normale') vuota = true;
+          return x ? p.pre + x + p.post : (p.nome === 'normale' ? (p.pre || p.post ? ' ' : '') : '');
+        }).join('');
+        t = normTesto(t, semplice);
+        if (vuota) return { errore: 'Non lasciare vuote le parti in grassetto, evidenziate o cliccabili' };
+        if (!t) return { errore: 'Il testo non può essere vuoto' };
+        if (firma(t) !== firma(v.testo)) return { errore: 'Puoi cambiare solo le parole: togli i simboli ** == ` e le parentesi [ ]( )' };
+        return { testo: t };
+      }
+    };
+  }
+  var txEd = null;
   function apriTesto(id) {
     txAperto = testi.filter(function (v) { return v.id === id; })[0]; if (!txAperto) return;
     var semplice = txAperto.tipo === 'semplice', link = 'link' in txAperto;
     $('tx-t').textContent = txAperto.descrizione;
     $('tx-dove').textContent = (NOME[txAperto.pagina] || txAperto.pagina) + ' · ' + txAperto.sezione;
-    $('tx-testo').value = txAperto.testo; $('tx-testo').rows = semplice ? 2 : Math.min(12, Math.max(3, Math.ceil(txAperto.testo.length / 60) + 1));
-    $('tx-strumenti').hidden = semplice; $('tx-aiuto').hidden = semplice; $('tx-aiuto-semplice').hidden = !semplice;
-    $('tx-link-btn').hidden = link; $('tx-aiuto-l').hidden = link; // dentro un testo che è già un link non si mettono altri link
+    txEd = editore($('tx-parti'), txAperto, anteprimaTesto);
+    if (txEd.campi.length === 1) txEd.primo.id = 'tx-testo';
+    $('tx-etichetta').textContent = txEd.campi.length > 1 ? 'Testo (diviso in parti)' : 'Testo';
+    $('tx-aiuto').hidden = semplice; $('tx-aiuto-semplice').hidden = !semplice;
     $('tx-campo-link').hidden = !link; $('tx-link').value = link ? txAperto.link : '';
     $('err-tx').textContent = ''; anteprimaTesto();
-    dtx.showModal(); $('tx-testo').focus();
+    dtx.showModal(); txEd.primo.focus();
   }
   function anteprimaTesto() {
-    if (!txAperto) return;
-    var t = $('tx-testo').value; if (txAperto.tipo === 'semplice') t = t.replace(/\s+/g, ' ');
-    $('tx-ant').innerHTML = htmlTesto(t.trim(), txAperto.tipo !== 'semplice' && !('link' in txAperto)) || '<span class="vuoto">(vuoto)</span>';
+    if (!txAperto || !txEd) return;
+    var r = txEd.valore();
+    $('tx-ant').innerHTML = r.testo ? htmlTesto(r.testo, txAperto.tipo !== 'semplice' && !('link' in txAperto)) : '<span class="vuoto">(vuoto)</span>';
   }
-  $('tx-testo').oninput = anteprimaTesto;
-  function avvolgi(prima, dopo, segnaposto) { // mette le regole attorno alle parole selezionate
-    var ta = $('tx-testo'), a = ta.selectionStart, b = ta.selectionEnd, v = ta.value, dentro = v.slice(a, b) || segnaposto;
-    ta.value = v.slice(0, a) + prima + dentro + dopo + v.slice(b);
-    ta.focus(); ta.setSelectionRange(a + prima.length, a + prima.length + dentro.length); anteprimaTesto();
-  }
-  $('tx-grassetto').onclick = function () { avvolgi('**', '**', 'parole in grassetto'); };
-  $('tx-link-btn').onclick = function () {
-    var ta = $('tx-testo'), a = ta.selectionStart, b = ta.selectionEnd, dentro = ta.value.slice(a, b) || 'testo cliccabile';
-    var ins = '[' + dentro + '](https://)';
-    ta.value = ta.value.slice(0, a) + ins + ta.value.slice(b);
-    var u = a + dentro.length + 3; ta.focus(); ta.setSelectionRange(u, u + 8); anteprimaTesto();
-  };
   $('tx-annulla').onclick = function () { dtx.close(); };
   $('f-testo').onsubmit = function (e) {
     e.preventDefault();
-    var t = $('tx-testo').value.replace(/\r\n?/g, '\n').split('\n').map(function (r) { return r.replace(/[ \t]+/g, ' ').trim(); }).join('\n').replace(/\n{3,}/g, '\n\n').trim();
-    if (txAperto.tipo === 'semplice') t = t.replace(/\s+/g, ' ');
-    if (!t) { $('err-tx').textContent = 'Il testo non può essere vuoto'; $('tx-testo').focus(); return; }
-    var sb = linkSbagliati(t);
-    if (sb.length) { $('err-tx').textContent = 'Questo indirizzo non va bene: ' + sb[0] + ' (deve iniziare con https://, mailto: o tel:, oppure essere una pagina del sito come contatti.html)'; return; }
-    var link = 'link' in txAperto ? $('tx-link').value.trim() : null;
-    if (link !== null && !LINK_VALIDO.test(link)) { $('err-tx').textContent = 'L\'indirizzo del link non va bene: deve iniziare con https://, mailto: o tel:, oppure essere una pagina del sito (es. collezioni.html)'; $('tx-link').focus(); return; }
-    if (t === txAperto.testo && (link === null || link === txAperto.link)) { dtx.close(); return; }
-    txAperto.testo = t; if (link !== null) txAperto.link = link;
+    var r = txEd.valore();
+    if (r.errore) { $('err-tx').textContent = r.errore; txEd.primo.focus(); return; }
+    var t = r.testo;
+    if (t === txAperto.testo) { dtx.close(); return; }
+    txAperto.testo = t;
     dtx.close(); disegna();
     var corto = t.replace(/\[([^\]\n]+)\]\([^)\s]*\)/g, '$1').replace(/\*\*|==|`/g, '').replace(/\s+/g, ' '); if (corto.length > 40) corto = corto.slice(0, 40) + '…';
     salva('Modificato il testo «' + corto + '» (' + (NOME[txAperto.pagina] || txAperto.pagina) + ' · ' + txAperto.sezione + ')');

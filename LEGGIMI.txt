@@ -168,17 +168,25 @@ Due tipi di blocchi:
   finché non si sceglie «Conferma» o «Annulla»: un clic altrove fa solo lampeggiare la
   barra in basso. Massimo 80 foto per galleria.
 - Foto fisse (61, tutte le altre immagini delle pagine): «Cambia foto» e il testo che
-  dice cosa si vede (per Google e per chi non vede).
+  dice cosa si vede (per Google e per chi non vede). Nella stessa finestra, in «Testi
+  accanto alla foto», si cambiano anche i testi vicini a quella foto nella pagina (titolo
+  e descrizione del riquadro, paragrafi accanto alla foto principale…): sono gli id
+  elencati in «testi» della voce in data/immagini.json, gli stessi della scheda Testi.
 - Testi (362, in tutte le 26 pagine, anche Area download e Privacy): in ogni pagina si
   sceglie Foto o Testi; i testi sono divisi per sezione (il titolo della sezione del sito,
   «Intestazione» per la parte in alto, «Presentazione» per il testo che la segue) e
-  nell'ordine in cui si vedono. «Modifica» apre una finestra con il testo, i pulsanti
-  Grassetto e Testo cliccabile e l'anteprima «Come si vedrà». Regole nel testo: a capo =
-  a capo, **parole** = grassetto, [parole](indirizzo) = testo cliccabile (anche
-  ==parole== = evidenziato e `parole` = codice, usate nella bozza della Privacy). Nei
-  pulsanti e nei testi cliccabili si cambia anche «Dove porta il clic»: una pagina del
-  sito (es. collezioni.html, downloads/guida.pdf), https://…, mailto:… o tel:…; altro
-  (javascript: ecc.) viene rifiutato. I testi «semplici» (con accanto parti fisse:
+  nell'ordine in cui si vedono. «Modifica» apre una finestra con il testo e l'anteprima
+  «Come si vedrà». Il cliente cambia SOLO LE PAROLE (e gli a capo): niente grassetto o
+  link nuovi. Nei JSON la formattazione è scritta così: **parole** = grassetto,
+  [parole](indirizzo) = testo cliccabile, ==parole== = evidenziato, `parole` = codice
+  (usate nella bozza della Privacy e in pochi altri testi); un testo che ne ha si vede
+  nell'area riservata diviso in parti (normale / in grassetto / cliccabile…), ognuna nel
+  suo campo, senza i simboli. Il Worker rifiuta un salvataggio che cambia la formattazione
+  (simboli aggiunti o tolti, indirizzi dei link). Nei
+  pulsanti e nei testi cliccabili «Dove porta il clic» si vede ma non si cambia (anche il
+  Worker tiene sempre l'indirizzo che c'è in data/testi.json); nei link scritti dentro
+  un testo con [parole](indirizzo) vanno bene solo una pagina del sito, https://…,
+  mailto:… o tel:… (javascript: ecc. viene rifiutato). I testi «semplici» (con accanto parti fisse:
   frecce, numeri, icone, campi del modulo, colori dei fogli) cambiano solo il testo, su
   una riga.
   Non si cambiano da qui: menu in alto e piè di pagina (uguali in tutte le pagine), il
@@ -1523,3 +1531,16 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                    formattazione restino identici), testi in scripts/genera_contenuti.py e
                    nel Worker (da ripubblicare su Cloudflare). Guida: nuova sezione «Cambiare
                    i testi» con 3 schermate, rifatte le altre 12 (c'è il pulsante Foto/Testi).
+
+3.13 (18/11/2026)  Area riservata: nella finestra di una foto fissa ci sono anche i «Testi
+                   accanto alla foto» (titolo e descrizione del riquadro, paragrafi vicini alla
+                   foto principale), da cambiare insieme alla foto; in data/immagini.json ogni
+                   voce ha l'elenco «testi». Nei pulsanti e nei testi cliccabili «Dove porta il
+                   clic» resta visibile ma non si cambia più (bloccato anche nel Worker).
+                   Guida aggiornata (testi e 2 schermate).
+
+3.14 (18/11/2026)  Area riservata: tolti i pulsanti Grassetto e Testo cliccabile; il cliente
+                   cambia solo le parole. I testi con grassetto, evidenziato o link si vedono
+                   divisi in parti, una per campo, senza simboli; il grassetto e i link restano
+                   com'erano (controllo anche nel Worker). Vale anche per i «Testi accanto alla
+                   foto». Guida aggiornata (testo e 4 schermate).
