@@ -1620,3 +1620,10 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                    menu; nel Menu le voci restano a coppie Computer / Tablet e telefono.
                    Guida aggiornata. Aggiungere o eliminare testi e voci del menu: no, si
                    cambiano solo le parole.
+
+3.21 (18/11/2026)  Area riservata, Cambia password: dopo «Cambia password» si apre la stessa
+                   finestra del salvataggio, con la barra che avanza («Cambio della password
+                   in corso…», almeno 1,5 secondi) e alla fine «Password cambiata
+                   correttamente» in verde con «OK». Se non riesce (es. password attuale
+                   sbagliata) «Password non cambiata» con il motivo e il pulsante «Correggi»,
+                   che riapre la finestra della password con quanto scritto.

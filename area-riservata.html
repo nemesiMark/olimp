@@ -1158,22 +1158,24 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     err: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 7v6M12 17h.01"/></svg>'
   };
   function barra(v) { svVal = v; $('sv-bar').style.width = v + '%'; $('sv-barra').setAttribute('aria-valuenow', Math.round(v)); }
-  function inizioSalva() {
+  function inizioSalva(titolo) {
     svAttivo = true; clearInterval(svGiro);
     $('sv').className = 'sv'; $('sv-ico').innerHTML = ICO.lav;
-    $('sv-t').textContent = 'Salvataggio in corso…'; $('sv-p').textContent = 'Non chiudere la pagina.';
+    $('sv-t').textContent = titolo || 'Salvataggio in corso…'; $('sv-p').textContent = 'Non chiudere la pagina.';
     $('sv-ok').hidden = true; $('sv-riprova').hidden = true;
     barra(4); if (!dsv.open) dsv.showModal();
     svGiro = setInterval(function () { barra(svVal + (90 - svVal) * 0.07); }, 150);
   }
-  function fineSalva(riuscito, testo, riprova) {
+  // t = testi diversi da quelli del salvataggio: { ok, okP, no } (per il cambio password)
+  function fineSalva(riuscito, testo, riprova, t) {
+    t = t || {};
     clearInterval(svGiro); svAttivo = false;
     barra(100);
     $('sv').className = 'sv ' + (riuscito ? 'ok' : 'err'); $('sv-ico').innerHTML = riuscito ? ICO.ok : ICO.err;
-    $('sv-t').textContent = riuscito ? 'Salvataggio riuscito correttamente' : 'Salvataggio non riuscito';
-    $('sv-p').textContent = riuscito ? 'Le modifiche saranno visibili sul sito tra qualche minuto.' : testo;
+    $('sv-t').textContent = riuscito ? (t.ok || 'Salvataggio riuscito correttamente') : (t.no || 'Salvataggio non riuscito');
+    $('sv-p').textContent = riuscito ? (t.okP || 'Le modifiche saranno visibili sul sito tra qualche minuto.') : testo;
     $('sv-ok').textContent = riuscito ? 'OK' : 'Chiudi'; $('sv-ok').hidden = false;
-    $('sv-riprova').hidden = !riprova; $('sv-riprova').onclick = riprova || null;
+    $('sv-riprova').hidden = !riprova; $('sv-riprova').onclick = riprova || null; $('sv-riprova').textContent = 'Riprova';
     if (!dsv.open) dsv.showModal();
     $('sv-ok').focus();
   }
@@ -1634,12 +1636,19 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     var err = !att ? ['Scrivi la password attuale', 'pw-att'] : nuova.length < 8 ? ['La password nuova deve avere almeno 8 caratteri', 'pw-nuova']
       : nuova !== rip ? ['Le due password nuove non sono uguali', 'pw-ripeti'] : nuova === att ? ['La password nuova è uguale a quella attuale', 'pw-nuova'] : null;
     if (err) { $('err-pw').textContent = err[0]; $(err[1]).focus(); return; }
-    $('pw-ok').disabled = true; $('pw-ok').textContent = 'Salvataggio…'; $('err-pw').textContent = '';
-    chiama('/password', { attuale: att, nuova: nuova }).then(function (d) {
-      token = d.token; mem.set('ar-token', { token: d.token, scade: d.scade });
-      dpw.close(); stato('ok', 'Password cambiata');
-    }).catch(function (er) { $('err-pw').textContent = er.message; })
-      .then(function () { $('pw-ok').disabled = false; $('pw-ok').textContent = 'Cambia password'; });
+    // stessa finestra del salvataggio: la barra avanza e alla fine avvisa se è andata bene
+    $('err-pw').textContent = ''; dpw.close(); inizioSalva('Cambio della password in corso…');
+    var T = { ok: 'Password cambiata correttamente', okP: 'Da ora entra con la password nuova. Su questo dispositivo resti dentro; sugli altri bisogna entrare di nuovo.', no: 'Password non cambiata' };
+    var minimo = new Promise(function (r) { setTimeout(r, 1500); }); // la barra si vede scorrere anche se il servizio risponde subito
+    Promise.all([chiama('/password', { attuale: att, nuova: nuova }), minimo]).then(function (a) {
+      var d = a[0]; token = d.token; mem.set('ar-token', { token: d.token, scade: d.scade });
+      $('f-pw').reset(); fineSalva(true, '', null, T);
+    }).catch(function (er) {
+      minimo.then(function () { // si torna alla finestra della password con quello che era scritto
+        fineSalva(false, er.message, function () { dsv.close(); $('err-pw').textContent = er.message; dpw.showModal(); $('pw-att').focus(); }, T);
+        $('sv-riprova').textContent = 'Correggi';
+      });
+    });
   };
 
   /* ---------- avvio ---------- */
