@@ -6,6 +6,11 @@
       "alt": "Modello Curve della Linea Fashion, con pannello bianco «Elisa & Andrea», profilo ondulato e foto in bianco e nero"
     },
     {
+      "foto": "images/linea-fashion/modello-vision.jpg",
+      "titolo": "Modello Vision",
+      "alt": "Modello Vision della Linea Fashion, in suede tortora con targhetta «Wedding Day»"
+    },
+    {
       "foto": "images/linea-fashion/modello-flower.jpg",
       "titolo": "Modello Flower",
       "alt": "Modello Flower della Linea Fashion, in suede beige con foto degli sposi e pannello bianco con rami traforati"
@@ -19,11 +24,6 @@
       "foto": "images/linea-fashion/modello-mood.jpg",
       "titolo": "Modello Mood",
       "alt": "Modello Mood della Linea Fashion, nero con linee geometriche grigie e nomi «Andrea & Alessia» al centro"
-    },
-    {
-      "foto": "images/linea-fashion/modello-vision.jpg",
-      "titolo": "Modello Vision",
-      "alt": "Modello Vision della Linea Fashion, in suede tortora con targhetta «Wedding Day»"
     },
     {
       "foto": "images/linea-fashion/modello-onda.jpg",
