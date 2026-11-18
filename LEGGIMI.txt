@@ -141,6 +141,109 @@ Poi inviare la sitemap da Google Search Console:
 https://www.esempio.it/sitemap.xml
 
 
+AREA RISERVATA (FOTO GESTITE DAL CLIENTE)
+-----------------------------------------
+Il cliente cambia da solo le foto del sito da area-riservata.html (lucchetto in fondo
+alla navbar di tutte le pagine, rel="nofollow"; la pagina non è indicizzata). Entra con
+una password e trova una scheda per ogni pagina del sito (24), con i blocchi numerati
+nell'ordine in cui si vedono e, per ogni foto, una descrizione di dove sta. Le foto di
+ogni pagina sono indipendenti: cambiare la foto di Linea Fashion nella sua pagina non
+tocca quella della stessa linea in Album matrimoniali o nel menu.
+Due tipi di blocchi:
+- Gallerie (9: Linea Fashion, Glamour, Trendy, Cuoio Fiorentino, Album bambini Deluxe,
+  Baby, New Born, Album comunione, Album eventi). Tocco su una foto = la si seleziona:
+  diventa rossa e lampeggia, le altre schiariscono, in basso compare una barra. La si
+  trascina dove si vuole (solo la selezionata si muove), poi «Conferma» salva il nuovo
+  posto, «Annulla» la rimette dov'era, «Modifica o elimina» apre la scheda (foto e
+  titolo, cioè il nome del modello scritto sotto la foto; in Album eventi il titolo
+  non si vede e fa solo da descrizione). Il riquadro + in fondo aggiunge una foto: foto
+  e titolo; compare in fondo già selezionata, la si sposta e si tocca «Conferma e
+  salva». Dopo uno spostamento (o con una foto nuova) il resto della pagina è bloccato
+  finché non si sceglie «Conferma» o «Annulla»: un clic altrove fa solo lampeggiare la
+  barra in basso. Massimo 80 foto per galleria.
+- Foto fisse (61, tutte le altre immagini delle pagine): «Cambia foto» e il testo che
+  dice cosa si vede (per Google e per chi non vede).
+Non si gestiscono dall'area riservata (si cambiano a mano, come prima): le tre foto
+grandi che scorrono in cima alla Home (nella scheda Home c'è una nota che lo dice), le
+foto del menu a tendina, le anteprime per i social (og:image) e il logo. Le regole di
+inquadratura in css/style.css legate al nome di un file (object-position) non valgono
+per le foto caricate dal cliente, che sono centrate.
+Ogni salvataggio apre subito una finestra con una barra che avanza; si completa quando
+il salvataggio è davvero riuscito e compare «Salvataggio riuscito correttamente» in
+verde, da chiudere con «OK»; il sito si aggiorna da solo in qualche minuto.
+Guida: pulsante «Guida» in alto (dopo l'accesso). Spiega passo passo, con testo e
+schermate, come aggiungere, riordinare, rinominare ed eliminare le foto delle gallerie
+e come cambiare quelle fisse. Si apre da sola la prima volta che si entra da un
+dispositivo (ricordato nel browser con olimp-ar-guida-vista). Le schermate sono in
+images/guida/ (JPEG 1600×1000, prese a 1280×800 con gli anelli viola sui punti da
+cliccare; un clic le ingrandisce). Ingrandita, i punti evidenziati lampeggiano: le
+loro posizioni (in % della schermata) stanno in data-punti su ogni immagine della
+guida; se si rifà una schermata vanno aggiornate anche quelle. Se l'aspetto dell'area
+riservata cambia molto le schermate vanno rifatte.
+La foto viene rimpicciolita nel telefono prima dell'invio (lato lungo 1600 px, JPEG
+qualità 85) e perde i dati EXIF, compresa la posizione GPS.
+Le voci in localStorage hanno il prefisso olimp- (sullo stesso indirizzo
+nemesimark.github.io c'è anche l'area riservata di inkubo).
+File:
+- area-riservata.html    La pagina del cliente. In testa: <meta name="ar-api"> con
+                         l'indirizzo del Worker (oggi INSERIRE-INDIRIZZO-WORKER: finché
+                         resta così la pagina dice «non ancora attivata»). Nello script,
+                         PAGINE elenca schede e blocchi (pagina, nome della scheda,
+                         titolo, blocchi con gli id delle foto fisse o la galleria).
+- worker/area-riservata-worker.js
+                         Il servizio che sta in mezzo (Cloudflare Worker, gratuito):
+                         controlla la password e salva su GitHub, un solo commit per ogni
+                         salvataggio; cancella le foto caricate che nessuno usa più. Non
+                         contiene chiavi: stanno nelle impostazioni del Worker (vedi le
+                         istruzioni in testa al file). Non viene pubblicato sul sito.
+- data/gallerie.json     Le 9 gallerie: per ogni pagina l'elenco {foto, titolo, alt?,
+                         provvisoria?} nell'ordine del sito. «provvisoria» è la foto
+                         mostrata finché il file vero non c'è (data-fallback).
+- data/immagini.json     Le foto fisse: id, pagina, sezione, descrizione (quello che il
+                         cliente legge nell'area riservata), foto e testo alternativo.
+                         Nell'HTML ogni immagine gestita ha data-slot="id". Per renderne
+                         gestibile un'altra: data-slot nell'<img>, una voce qui e l'id
+                         nel blocco giusto di PAGINE in area-riservata.html.
+- images/caricate/       Foto caricate dal cliente (nascerà al primo caricamento).
+- scripts/genera_contenuti.py
+                         Scrive le gallerie nelle pagine (fra <!-- galleria:inizio --> e
+                         <!-- galleria:fine -->: quel tratto non si modifica a mano) e
+                         aggiorna src e alt delle <img data-slot> da data/immagini.json.
+                         In locale, dopo aver cambiato i JSON:
+                           python3 scripts/genera_contenuti.py   (--check per solo controllo)
+- .github/workflows/pubblica.yml
+                         A ogni modifica del ramo main GitHub Actions esegue lo script e
+                         pubblica il sito (senza data, scripts e worker). GitHub Pages va
+                         impostato su «GitHub Actions».
+- js/vendor/sortable/    SortableJS 1.15.6 (licenza MIT): trascinamento per riordinare.
+- worker/wrangler.toml   Impostazioni per pubblicare il Worker dal Terminale (nome
+                         olimp-area-riservata, REPO/BRANCH/ORIGINS, KV DATI). Senza chiavi.
+Il Worker è già attivo: https://olimp-area-riservata.nemesi-mark.workers.dev (account
+Cloudflare di Mark), con KV olimp-area-riservata e tutti i secret già messi. Dopo una
+modifica a area-riservata-worker.js, dalla cartella worker/:  npx wrangler deploy
+(serve wrangler login). Per cambiare un secret (es. un token GitHub nuovo):
+  npx wrangler secret put GITHUB_TOKEN   (o ADMIN_PASSWORD, SESSION_SECRET)
+Attivazione (una volta sola, fatta così la prima volta):
+1. GitHub → Settings → Developer settings → Fine-grained tokens: token solo per il
+   repository trama, permesso «Contents: Read and write».
+2. Cloudflare (account gratuito) → Workers → crea un Worker, incolla il contenuto di
+   worker/area-riservata-worker.js e pubblica (Deploy).
+3. Nel Worker, Settings → Variables: secret ADMIN_PASSWORD, SESSION_SECRET (stringa
+   casuale lunga), GITHUB_TOKEN; testo REPO = nemesiMark/trama, BRANCH = main,
+   ORIGINS = https://nemesimark.github.io
+4. Nel Worker, Settings → Bindings → Add → KV namespace, nome della variabile DATI, con
+   un namespace nuovo (es. olimp-area-riservata): serve al cambio password.
+5. GitHub → repository trama → Settings → Pages → Source: «GitHub Actions».
+6. In area-riservata.html mettere l'indirizzo del Worker in <meta name="ar-api">.
+7. Al cliente: indirizzo della pagina (da aggiungere alla schermata Home del telefono)
+   e password. Per far uscire tutti si cambia SESSION_SECRET.
+Cambio password (tasto «Cambia password» in alto): la nuova si salva nel KV solo come
+impronta (PBKDF2), mai in chiaro; da quel momento ADMIN_PASSWORD non vale più. Si resta
+dentro sul dispositivo usato, sugli altri bisogna rientrare. Se il cliente la
+dimentica: su Cloudflare, KV → il namespace → cancellare la voce «password»; torna a
+valere ADMIN_PASSWORD.
+
+
 VERSIONI
 --------
 Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
@@ -1340,3 +1443,14 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                    pagine; aggiornate le descrizioni (alt) e le regole di inquadratura in
                    css/style.css?v=179 (aggiornato in tutte le pagine). La foto precedente è in
                    images/non-usate (album-eventi-diciottesimo-vecchia.jpg e -menu-vecchia.jpg).
+
+3.08 (18/11/2026)  Area riservata (copia di quella di inkubo, adattata): area-riservata.html
+                   con una scheda per ognuna delle 24 pagine, 9 gallerie (data/gallerie.json)
+                   e 61 foto fisse (data/immagini.json, data-slot sulle <img>), guida con
+                   12 schermate in images/guida/, worker/area-riservata-worker.js,
+                   scripts/genera_contenuti.py, .github/workflows/pubblica.yml e
+                   js/vendor/sortable/. Lucchetto «Area riservata» in fondo alla navbar di
+                   tutte le pagine (css/style.css?v=180 in tutte le pagine). Worker pubblicato
+                   su Cloudflare (olimp-area-riservata.nemesi-mark.workers.dev, impostazioni
+                   in worker/wrangler.toml) con tutti i secret, e scritto in
+                   <meta name="ar-api">. Vedi la sezione AREA RISERVATA.

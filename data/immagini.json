@@ -1,0 +1,502 @@
+[
+  {
+    "id": "home-coll-matrimoniali",
+    "pagina": "index.html",
+    "sezione": "Collezioni · Album matrimoniali",
+    "descrizione": "Prima striscia della sezione Collezioni.",
+    "foto": "images/index/album-matrimoniali-curve.jpg",
+    "alt": "Album matrimoniale, modello Curve della Linea Fashion"
+  },
+  {
+    "id": "home-coll-bambini",
+    "pagina": "index.html",
+    "sezione": "Collezioni · Album bambini",
+    "descrizione": "Seconda striscia della sezione Collezioni.",
+    "foto": "images/index/album-bambini-soffietto.jpg",
+    "alt": "Album bambini, modello Soffietto della Linea New Born"
+  },
+  {
+    "id": "home-coll-comunione",
+    "pagina": "index.html",
+    "sezione": "Collezioni · Album comunione",
+    "descrizione": "Terza striscia della sezione Collezioni.",
+    "foto": "images/index/album-comunione-emma.jpg",
+    "alt": "Album comunione, modello Emma"
+  },
+  {
+    "id": "home-coll-eventi",
+    "pagina": "index.html",
+    "sezione": "Collezioni · Album eventi",
+    "descrizione": "Quarta striscia della sezione Collezioni.",
+    "foto": "images/index/album-eventi-festa-palloncini.jpg",
+    "alt": "Album eventi aperto sulla foto di amici che festeggiano tra palloncini blu e oro"
+  },
+  {
+    "id": "home-grafica",
+    "pagina": "index.html",
+    "sezione": "Grafica & Stampa",
+    "descrizione": "Foto accanto alle quattro fasi della sezione Grafica & Stampa.",
+    "foto": "images/index/colore.jpg",
+    "alt": "Campionario colore e lente per il controllo della stampa"
+  },
+  {
+    "id": "home-chisiamo",
+    "pagina": "index.html",
+    "sezione": "Chi siamo",
+    "descrizione": "Foto larga in cima alla sezione Chi siamo.",
+    "foto": "images/index/chisiamo.jpg",
+    "alt": "Artigiano che taglia a mano la pelle per la copertina di un album"
+  },
+  {
+    "id": "servizi-sposi",
+    "pagina": "servizi.html",
+    "sezione": "Sezione sposi",
+    "descrizione": "Primo riquadro della pagina.",
+    "foto": "images/servizi/sposi-bacio-campo.jpg",
+    "alt": "Sposi che si baciano in un campo al tramonto, immagine illustrativa"
+  },
+  {
+    "id": "servizi-fotografi",
+    "pagina": "servizi.html",
+    "sezione": "Sezione fotografi",
+    "descrizione": "Secondo riquadro della pagina.",
+    "foto": "images/servizi/fotografo-videocamera.jpg",
+    "alt": "Fotografo con videocamera professionale, immagine illustrativa"
+  },
+  {
+    "id": "sposi-principale",
+    "pagina": "sezione-sposi.html",
+    "sezione": "Foto principale",
+    "descrizione": "In alto, accanto al testo di presentazione.",
+    "foto": "images/sezione-sposi/sposi-bacio-campo.jpg",
+    "alt": "Sposi che si baciano in un campo al tramonto, immagine illustrativa"
+  },
+  {
+    "id": "fotografi-principale",
+    "pagina": "sezione-fotografi.html",
+    "sezione": "Foto principale",
+    "descrizione": "In alto, accanto al testo di presentazione. È verticale.",
+    "foto": "images/sezione-fotografi/fotografo-videocamera.jpg",
+    "alt": "Fotografo con videocamera professionale, immagine illustrativa"
+  },
+  {
+    "id": "grafica-principale",
+    "pagina": "grafica-stampa.html",
+    "sezione": "Foto principale",
+    "descrizione": "In alto, accanto al titolo della pagina.",
+    "foto": "images/grafica-stampa/colore.jpg",
+    "alt": "Campionario colore e lente per il controllo della stampa"
+  },
+  {
+    "id": "grafica-selezione",
+    "pagina": "grafica-stampa.html",
+    "sezione": "Selezione degli scatti",
+    "descrizione": "Prima fase.",
+    "foto": "images/grafica-stampa/selezione.jpg?v=2",
+    "alt": "Selezione degli scatti"
+  },
+  {
+    "id": "grafica-sviluppo",
+    "pagina": "grafica-stampa.html",
+    "sezione": "Sviluppo RAW",
+    "descrizione": "Seconda fase.",
+    "foto": "images/grafica-stampa/sviluppoRaw.jpg",
+    "alt": "Sviluppo RAW"
+  },
+  {
+    "id": "grafica-fotoritocco",
+    "pagina": "grafica-stampa.html",
+    "sezione": "Fotoritocco",
+    "descrizione": "Terza fase.",
+    "foto": "images/grafica-stampa/fotoritocco.jpg?v=2",
+    "alt": "Fotoritocco"
+  },
+  {
+    "id": "grafica-impaginazione",
+    "pagina": "grafica-stampa.html",
+    "sezione": "Impaginazione",
+    "descrizione": "Quarta fase.",
+    "foto": "images/grafica-stampa/impaginazione.jpg",
+    "alt": "Impaginazione"
+  },
+  {
+    "id": "prodotti-fotolibro",
+    "pagina": "prodotti.html",
+    "sezione": "Fotolibro professionale",
+    "descrizione": "Primo riquadro.",
+    "foto": "images/prodotti/fotolibro-aperto-coppia-mare.jpg",
+    "alt": "Fotolibro aperto con le foto di una coppia al mare"
+  },
+  {
+    "id": "prodotti-tradizionale",
+    "pagina": "prodotti.html",
+    "sezione": "Album tradizionale professionale",
+    "descrizione": "Secondo riquadro.",
+    "foto": "images/prodotti/album-tradizionale-sposi-bianco-nero.jpg",
+    "alt": "Album tradizionale con copertina in pelle marrone aperto, con tre foto di sposi in bianco e nero"
+  },
+  {
+    "id": "prodotti-studio",
+    "pagina": "prodotti.html",
+    "sezione": "Prodotti per il tuo studio fotografico",
+    "descrizione": "Terzo riquadro.",
+    "foto": "images/prodotti/fotografo-studio-1.jpg",
+    "alt": "Fotografo al lavoro in studio, immagine illustrativa"
+  },
+  {
+    "id": "prodotti-custodie",
+    "pagina": "prodotti.html",
+    "sezione": "Custodie per album",
+    "descrizione": "Quarto riquadro.",
+    "foto": "images/prodotti/cofanetto-legno-the-wedding.jpg",
+    "alt": "Cofanetto per album effetto legno con scritta The Wedding, immagine illustrativa"
+  },
+  {
+    "id": "fotolibro-principale",
+    "pagina": "fotolibro-professionale.html",
+    "sezione": "Foto principale",
+    "descrizione": "In alto, accanto al testo di presentazione.",
+    "foto": "images/fotolibro-professionale/fotolibro-aperto-coppia-mare.jpg",
+    "alt": "Fotolibro aperto su un piano in graniglia, con le foto di una coppia al mare: lei sulla spiaggia, i due sdraiati sulla sabbia e in riva all'acqua"
+  },
+  {
+    "id": "tradizionale-principale",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Foto principale",
+    "descrizione": "In alto, accanto al testo di presentazione.",
+    "foto": "images/album-tradizionale-professionale/album-tradizionale-sposi-bianco-nero.jpg",
+    "alt": "Album tradizionale con copertina in pelle marrone aperto su un tavolo di legno, con tre foto di sposi in bianco e nero"
+  },
+  {
+    "id": "studio-principale",
+    "pagina": "prodotti-studio-fotografico.html",
+    "sezione": "Foto principale",
+    "descrizione": "In alto, accanto al testo di presentazione.",
+    "foto": "images/prodotti-studio-fotografico/fotografo-studio-1.jpg",
+    "alt": "Fotografo al lavoro in studio, immagine illustrativa"
+  },
+  {
+    "id": "studio-raccoglitori",
+    "pagina": "prodotti-studio-fotografico.html",
+    "sezione": "Raccoglitori per foto amatoriali",
+    "descrizione": "I nostri accessori, primo riquadro.",
+    "foto": "images/prodotti-studio-fotografico/studio-raccoglitori.jpg",
+    "alt": "Raccoglitori per foto amatoriali",
+    "provvisoria": "images/prodotti-studio-fotografico/album-spirale.jpg"
+  },
+  {
+    "id": "studio-albumini",
+    "pagina": "prodotti-studio-fotografico.html",
+    "sezione": "Albumini per foto amatoriali",
+    "descrizione": "I nostri accessori, secondo riquadro.",
+    "foto": "images/prodotti-studio-fotografico/studio-albumini.jpg",
+    "alt": "Albumini per foto amatoriali",
+    "provvisoria": "images/prodotti-studio-fotografico/album-bianco-nero.jpg"
+  },
+  {
+    "id": "studio-portafoto",
+    "pagina": "prodotti-studio-fotografico.html",
+    "sezione": "Portafoto in plastica",
+    "descrizione": "I nostri accessori, terzo riquadro.",
+    "foto": "images/prodotti-studio-fotografico/studio-portafoto.jpg",
+    "alt": "Portafoto in plastica",
+    "provvisoria": "images/prodotti-studio-fotografico/stampa-2.jpg"
+  },
+  {
+    "id": "studio-porta-tessera",
+    "pagina": "prodotti-studio-fotografico.html",
+    "sezione": "Porta tessera",
+    "descrizione": "I nostri accessori, quarto riquadro.",
+    "foto": "images/prodotti-studio-fotografico/studio-porta-tessera.jpg",
+    "alt": "Porta tessera",
+    "provvisoria": "images/prodotti-studio-fotografico/stampa-3.jpg"
+  },
+  {
+    "id": "studio-porta-carta",
+    "pagina": "prodotti-studio-fotografico.html",
+    "sezione": "Porta carta di credito",
+    "descrizione": "I nostri accessori, quinto riquadro.",
+    "foto": "images/prodotti-studio-fotografico/studio-porta-carta-di-credito.jpg",
+    "alt": "Porta carta di credito",
+    "provvisoria": "images/prodotti-studio-fotografico/fotoritocco-3.jpg"
+  },
+  {
+    "id": "studio-nastro",
+    "pagina": "prodotti-studio-fotografico.html",
+    "sezione": "Dispenser e nastri biadesivi",
+    "descrizione": "I nostri accessori, sesto riquadro.",
+    "foto": "images/prodotti-studio-fotografico/studio-nastro-biadesivo.jpg",
+    "alt": "Dispenser e nastri biadesivi",
+    "provvisoria": "images/prodotti-studio-fotografico/stampa-1.jpg"
+  },
+  {
+    "id": "custodie-principale",
+    "pagina": "custodie-per-album.html",
+    "sezione": "Foto principale",
+    "descrizione": "In alto, accanto al testo di presentazione.",
+    "foto": "images/custodie-per-album/cofanetto-legno-the-wedding.jpg",
+    "alt": "Cofanetto per album effetto legno con scritta The Wedding, immagine illustrativa"
+  },
+  {
+    "id": "custodie-valigia-classica",
+    "pagina": "custodie-per-album.html",
+    "sezione": "Valigia classica",
+    "descrizione": "Le nostre custodie, primo riquadro.",
+    "foto": "images/custodie-per-album/custodie-valigia-classica.jpg",
+    "alt": "Valigia classica",
+    "provvisoria": "images/custodie-per-album/album-vintage-collezione.jpg"
+  },
+  {
+    "id": "custodie-valigia-pers",
+    "pagina": "custodie-per-album.html",
+    "sezione": "Valigia classica personalizzata",
+    "descrizione": "Le nostre custodie, secondo riquadro.",
+    "foto": "images/custodie-per-album/custodie-valigia-personalizzata.jpg",
+    "alt": "Valigia classica personalizzata",
+    "provvisoria": "images/custodie-per-album/cuoio-pelle.jpg"
+  },
+  {
+    "id": "custodie-cofanetti",
+    "pagina": "custodie-per-album.html",
+    "sezione": "Cofanetti",
+    "descrizione": "Le nostre custodie, terzo riquadro.",
+    "foto": "images/custodie-per-album/cofanetto-legno-the-wedding.jpg",
+    "alt": "Cofanetti"
+  },
+  {
+    "id": "custodie-box",
+    "pagina": "custodie-per-album.html",
+    "sezione": "Box",
+    "descrizione": "Le nostre custodie, quarto riquadro.",
+    "foto": "images/custodie-per-album/custodie-box.jpg",
+    "alt": "Box",
+    "provvisoria": "images/custodie-per-album/confezione-regalo.jpg"
+  },
+  {
+    "id": "custodie-teca-plex",
+    "pagina": "custodie-per-album.html",
+    "sezione": "Teca plex",
+    "descrizione": "Le nostre custodie, quinto riquadro.",
+    "foto": "images/custodie-per-album/custodie-teca-plex.jpg",
+    "alt": "Teca plex",
+    "provvisoria": "images/custodie-per-album/album-copertina.jpg"
+  },
+  {
+    "id": "custodie-valigia-bambini",
+    "pagina": "custodie-per-album.html",
+    "sezione": "Valigia personalizzata per bambini",
+    "descrizione": "Le nostre custodie, sesto riquadro.",
+    "foto": "images/custodie-per-album/custodie-valigia-bambini.jpg",
+    "alt": "Valigia personalizzata per bambini",
+    "provvisoria": "images/custodie-per-album/piedini-2.jpg"
+  },
+  {
+    "id": "custodie-valigia-scrigno",
+    "pagina": "custodie-per-album.html",
+    "sezione": "Valigia scrigno per bambini",
+    "descrizione": "Le nostre custodie, settimo riquadro.",
+    "foto": "images/custodie-per-album/custodie-valigia-scrigno.jpg",
+    "alt": "Valigia scrigno per bambini",
+    "provvisoria": "images/custodie-per-album/neonato-coperta.jpg"
+  },
+  {
+    "id": "coll-matrimoniali",
+    "pagina": "collezioni.html",
+    "sezione": "Album matrimoniali",
+    "descrizione": "Prima striscia.",
+    "foto": "images/collezioni/album-matrimoniali-curve.jpg",
+    "alt": "Album matrimoniale, modello Curve della Linea Fashion"
+  },
+  {
+    "id": "coll-bambini",
+    "pagina": "collezioni.html",
+    "sezione": "Album bambini",
+    "descrizione": "Seconda striscia.",
+    "foto": "images/collezioni/album-bambini-soffietto.jpg",
+    "alt": "Album bambini, modello Soffietto della Linea New Born"
+  },
+  {
+    "id": "coll-comunione",
+    "pagina": "collezioni.html",
+    "sezione": "Album comunione",
+    "descrizione": "Terza striscia.",
+    "foto": "images/collezioni/album-comunione-emma.jpg",
+    "alt": "Album comunione, modello Emma"
+  },
+  {
+    "id": "coll-eventi",
+    "pagina": "collezioni.html",
+    "sezione": "Album eventi",
+    "descrizione": "Quarta striscia.",
+    "foto": "images/collezioni/album-eventi-festa-palloncini.jpg",
+    "alt": "Album eventi aperto sulla foto di amici che festeggiano tra palloncini blu e oro"
+  },
+  {
+    "id": "matr-fashion",
+    "pagina": "album-matrimoniali.html",
+    "sezione": "Linea Fashion",
+    "descrizione": "Le nostre linee, primo riquadro.",
+    "foto": "images/album-matrimoniali/modello-curve.jpg",
+    "alt": "Linea Fashion, modello Curve"
+  },
+  {
+    "id": "matr-glamour",
+    "pagina": "album-matrimoniali.html",
+    "sezione": "Linea Glamour",
+    "descrizione": "Le nostre linee, secondo riquadro.",
+    "foto": "images/album-matrimoniali/modello-ice.jpg",
+    "alt": "Linea Glamour, modello Ice"
+  },
+  {
+    "id": "matr-trendy",
+    "pagina": "album-matrimoniali.html",
+    "sezione": "Linea Trendy",
+    "descrizione": "Le nostre linee, terzo riquadro.",
+    "foto": "images/album-matrimoniali/modello-orione.jpg",
+    "alt": "Linea Trendy, modello Orione"
+  },
+  {
+    "id": "matr-cuoio-fiorentino",
+    "pagina": "album-matrimoniali.html",
+    "sezione": "Linea Cuoio Fiorentino",
+    "descrizione": "Le nostre linee, quarto riquadro.",
+    "foto": "images/album-matrimoniali/cuoio-fiorentino-ambra.jpg",
+    "alt": "Linea Cuoio Fiorentino, modello Ambra"
+  },
+  {
+    "id": "matr-amarcord-pers",
+    "pagina": "album-matrimoniali.html",
+    "sezione": "Linea Cuoio Amarcord & Cuoio Islandese personalizzato",
+    "descrizione": "Le nostre linee, quinto riquadro.",
+    "foto": "images/album-matrimoniali/cuoio-lavorazione.jpg",
+    "alt": "Linea Cuoio Amarcord & Cuoio Islandese personalizzato, immagine illustrativa"
+  },
+  {
+    "id": "matr-amarcord",
+    "pagina": "album-matrimoniali.html",
+    "sezione": "Linea Cuoio Amarcord & Cuoio Islandese",
+    "descrizione": "Le nostre linee, sesto riquadro.",
+    "foto": "images/album-matrimoniali/artigiano-pelle.jpg",
+    "alt": "Linea Cuoio Amarcord & Cuoio Islandese, immagine illustrativa"
+  },
+  {
+    "id": "fashion-principale",
+    "pagina": "linea-fashion.html",
+    "sezione": "Foto principale",
+    "descrizione": "In alto, accanto al testo di presentazione.",
+    "foto": "images/linea-fashion/modello-curve.jpg",
+    "alt": "Modello Curve della Linea Fashion, con pannello bianco «Elisa & Andrea», profilo ondulato e foto in bianco e nero"
+  },
+  {
+    "id": "glamour-principale",
+    "pagina": "linea-glamour.html",
+    "sezione": "Foto principale",
+    "descrizione": "In alto, accanto al testo di presentazione.",
+    "foto": "images/linea-glamour/modello-ice.jpg",
+    "alt": "Modello Ice della Linea Glamour, copertina bianca con fascia effetto legno e nomi «Benedetto e Paola»"
+  },
+  {
+    "id": "trendy-principale",
+    "pagina": "linea-trendy.html",
+    "sezione": "Foto principale",
+    "descrizione": "In alto, accanto al testo di presentazione.",
+    "foto": "images/linea-trendy/modello-orione.jpg",
+    "alt": "Modello Orione della Linea Trendy, copertina nera con fascia fotografica panoramica in bianco e nero"
+  },
+  {
+    "id": "fiorentino-principale",
+    "pagina": "linea-cuoio-fiorentino.html",
+    "sezione": "Foto principale",
+    "descrizione": "In alto, accanto al testo di presentazione.",
+    "foto": "images/linea-cuoio-fiorentino/modello-ambra.jpg",
+    "alt": "Modello Ambra della Linea Cuoio Fiorentino, in cuoio color miele con volute in rilievo sugli angoli e sui lati"
+  },
+  {
+    "id": "amarcord-principale",
+    "pagina": "linea-cuoio-amarcord-islandese.html",
+    "sezione": "Foto principale",
+    "descrizione": "In alto, accanto al testo di presentazione.",
+    "foto": "images/linea-cuoio-amarcord-islandese/artigiano-pelle.jpg",
+    "alt": "Linea Cuoio Amarcord & Cuoio Islandese, immagine illustrativa"
+  },
+  {
+    "id": "amarcord-pers-principale",
+    "pagina": "linea-cuoio-amarcord-islandese-personalizzato.html",
+    "sezione": "Foto principale",
+    "descrizione": "In alto, accanto al testo di presentazione.",
+    "foto": "images/linea-cuoio-amarcord-islandese-personalizzato/cuoio-lavorazione.jpg",
+    "alt": "Linea Cuoio Amarcord & Cuoio Islandese personalizzato, immagine illustrativa"
+  },
+  {
+    "id": "bambini-principale",
+    "pagina": "album-bambini.html",
+    "sezione": "Foto principale",
+    "descrizione": "In alto, accanto al testo di presentazione.",
+    "foto": "images/album-bambini-new-born/modello-soffietto.jpg",
+    "alt": "Modello Soffietto della Linea New Born, in tela verde a spina di pesce con il nome «Vittorio» e la data, accanto a un album aperto"
+  },
+  {
+    "id": "bambini-deluxe",
+    "pagina": "album-bambini.html",
+    "sezione": "Linea Deluxe",
+    "descrizione": "Le nostre linee, primo riquadro.",
+    "foto": "images/album-bambini/linea-deluxe.jpg",
+    "alt": "Linea Deluxe, modello Vittorio, bianco e giallo con cicogna e fiori traforati"
+  },
+  {
+    "id": "bambini-baby",
+    "pagina": "album-bambini.html",
+    "sezione": "Linea Baby",
+    "descrizione": "Le nostre linee, secondo riquadro.",
+    "foto": "images/album-bambini/linea-baby.jpg",
+    "alt": "Linea Baby, modello Tommy, in tela blu con fascia bianca e il nome «Andrea»"
+  },
+  {
+    "id": "bambini-new-born",
+    "pagina": "album-bambini.html",
+    "sezione": "Linea New Born",
+    "descrizione": "Le nostre linee, terzo riquadro.",
+    "foto": "images/album-bambini/linea-new-born.jpg",
+    "alt": "Linea New Born, modello Soffietto, album in tela verde con nome e data e album aperto con foto di neonati"
+  },
+  {
+    "id": "deluxe-principale",
+    "pagina": "album-bambini-deluxe.html",
+    "sezione": "Foto principale",
+    "descrizione": "In alto, accanto al testo di presentazione.",
+    "foto": "images/album-bambini-deluxe/modello-vittorio.jpg",
+    "alt": "Modello Vittorio della Linea Deluxe, bianco e giallo con cicogna e fiori traforati e finestra per la foto"
+  },
+  {
+    "id": "baby-principale",
+    "pagina": "album-bambini-baby.html",
+    "sezione": "Foto principale",
+    "descrizione": "In alto, accanto al testo di presentazione.",
+    "foto": "images/album-bambini-baby/modello-tommy.jpg",
+    "alt": "Modello Tommy della Linea Baby, in tela blu con fascia bianca, bandierine e il nome «Andrea»"
+  },
+  {
+    "id": "new-born-principale",
+    "pagina": "album-bambini-new-born.html",
+    "sezione": "Foto principale",
+    "descrizione": "In alto, accanto al testo di presentazione.",
+    "foto": "images/album-bambini-new-born/modello-soffietto.jpg",
+    "alt": "Modello Soffietto della Linea New Born, in tela verde a spina di pesce con il nome «Vittorio» e la data, accanto a un album aperto"
+  },
+  {
+    "id": "comunione-principale",
+    "pagina": "album-comunione.html",
+    "sezione": "Foto principale",
+    "descrizione": "In alto, accanto al testo di presentazione.",
+    "foto": "images/album-comunione/modello-emma.jpg",
+    "alt": "Modello Emma della Linea Comunione, color sabbia con fascia bianca traforata «La Mia Prima Comunione» e foto della bambina"
+  },
+  {
+    "id": "eventi-principale",
+    "pagina": "album-eventi.html",
+    "sezione": "Foto principale",
+    "descrizione": "In alto, accanto al testo di presentazione.",
+    "foto": "images/album-eventi/album-eventi-festa-palloncini.jpg",
+    "alt": "Album eventi con copertina scura aperto su un tavolo di legno, con la foto di amici che brindano a una festa tra palloncini blu e oro"
+  }
+]

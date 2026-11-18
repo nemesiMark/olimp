@@ -1,0 +1,17 @@
+# Configurazione per pubblicare il Worker da qui:  npx wrangler deploy
+# (dalla cartella worker/). Le chiavi (ADMIN_PASSWORD, SESSION_SECRET, GITHUB_TOKEN)
+# NON stanno qui: si mettono con  npx wrangler secret put NOME
+name = "olimp-area-riservata"
+main = "area-riservata-worker.js"
+compatibility_date = "2026-11-01"
+workers_dev = true
+keep_vars = false
+
+[vars]
+REPO = "nemesiMark/trama"
+BRANCH = "main"
+ORIGINS = "https://nemesimark.github.io"
+
+[[kv_namespaces]]
+binding = "DATI"
+id = "7367096bddcf45009794d2f282c9768c"

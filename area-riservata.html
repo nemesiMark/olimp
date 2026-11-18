@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Area riservata – Olimp</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#e9e9e6">
+<!-- indirizzo del Worker Cloudflare (vedi LEGGIMI, AREA RISERVATA) e repository del sito -->
+<meta name="ar-api" content="https://olimp-area-riservata.nemesi-mark.workers.dev">
+<meta name="ar-repo" content="nemesiMark/trama">
+<meta name="ar-branch" content="main">
+<link rel="icon" type="image/svg+xml" href="images/comune/logo-olimp.svg">
+<link rel="apple-touch-icon" href="images/comune/logo-olimp.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Inter+Tight:wght@600;700&amp;family=Oswald:wght@500;600;700&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fbfbfd; --card:#fff; --ink:#1d1d1f; --mute:#6e6e73; --line:rgba(0,0,0,.1); --paper:#efe6d3;
+  --red:#c4372a; --red-d:#a82c21; --ok:#2e7d4f;
+  --ease:cubic-bezier(.23,1,.32,1);
+  --head:"Inter Tight",Inter,-apple-system,BlinkMacSystemFont,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg);-webkit-text-size-adjust:100%}
+body{font:400 16px/1.5 Inter,-apple-system,BlinkMacSystemFont,sans-serif;color:var(--ink);background:var(--bg);min-height:100svh;-webkit-font-smoothing:antialiased}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+[hidden]{display:none!important}
+.wrap{width:min(1100px,100% - 32px);margin-inline:auto}
+
+/* barra in alto */
+.top{position:sticky;top:0;z-index:10;background:rgba(251,251,253,.86);backdrop-filter:saturate(1.6) blur(16px);-webkit-backdrop-filter:saturate(1.6) blur(16px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:12px;height:60px}
+.top img{height:30px;width:auto}
+.top .t{font-weight:500;color:var(--mute);font-size:14px;padding-left:12px;border-left:1px solid var(--line)}
+.top .cambia-pw{margin-left:auto}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:12px;border:1px solid var(--line);background:var(--card);font-weight:500;font-size:15px;
+  transition:transform 140ms var(--ease),background-color 150ms ease,border-color 150ms ease}
+.btn:active{transform:scale(.97)}
+.btn.pri{background:var(--red);border-color:var(--red);color:#fff}
+.btn.pri:disabled{opacity:.5;cursor:default}
+.btn.del{color:var(--red);border-color:rgba(196,55,42,.35)}
+.btn.del.conf{background:var(--red);color:#fff}
+.btn.link{border:0;background:none;padding:0 6px;color:var(--mute)}
+@media (hover:hover) and (pointer:fine){
+  .btn:hover{border-color:rgba(0,0,0,.25)}
+  .btn.pri:hover{background:var(--red-d);border-color:var(--red-d)}
+  .btn.link:hover{color:var(--ink)}
+}
+
+/* accesso */
+.login{min-height:calc(100svh - 61px);display:grid;place-items:center;padding:32px 16px}
+.login form{width:min(380px,100%);background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px 24px;box-shadow:0 20px 50px -24px rgba(0,0,0,.25)}
+.login h1{font:700 26px/1.15 var(--head);letter-spacing:-.01em;margin-bottom:6px}
+.login p{color:var(--mute);font-size:15px;margin-bottom:22px}
+label{display:block;font-size:14px;font-weight:500;margin-bottom:6px}
+.campo{position:relative;margin-bottom:18px}
+input[type=text],input[type=password]{width:100%;min-height:48px;padding:0 14px;border:1px solid rgba(0,0,0,.18);border-radius:12px;background:#fff;font-size:16px}
+input:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px rgba(0,0,0,.08)}
+.campo .mostra{position:absolute;right:6px;bottom:6px;min-height:36px;padding:0 10px;border:0;background:none;color:var(--mute);font-size:14px}
+.errore{color:var(--red);font-size:14px;min-height:20px;margin:-6px 0 12px}
+.login .btn.pri{width:100%;min-height:50px;font-size:16px}
+
+/* schede delle pagine */
+.tabs{position:sticky;top:61px;z-index:9;background:rgba(251,251,253,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.tabs .wrap{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:10px 0}
+.tabs .wrap::-webkit-scrollbar{display:none}
+.tab{flex:none;min-height:40px;padding:0 16px;border-radius:20px;border:1px solid var(--line);background:var(--card);font-weight:500;font-size:15px;color:var(--mute);transition:background-color 150ms ease,color 150ms ease}
+.tab[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.tab small{font-size:12px;opacity:.7;margin-left:4px;font-variant-numeric:tabular-nums}
+.pag-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:6px}
+.pag-head h1{font:700 clamp(26px,4vw,34px)/1.1 var(--head);letter-spacing:-.01em}
+.pag-head h1 small{font:500 15px Inter;color:var(--mute);margin-left:8px;font-variant-numeric:tabular-nums}
+.vedi{color:var(--red);font-weight:500;font-size:15px;text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+.blocchi{list-style:none;padding-bottom:48px}
+.blocchi>li{padding:18px 0 22px;border-top:1px solid var(--line)}
+.blocchi h2{font:700 19px/1.2 var(--head);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.blocchi h2 small{font:500 13px Inter;color:var(--mute)}
+.num{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font:600 13px Inter}
+
+.slots{list-style:none;display:grid;gap:12px;padding-bottom:20px}
+.pag>.slots{padding-bottom:48px}
+.slot{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;padding:12px;background:var(--card);border:1px solid var(--line);border-radius:16px;cursor:pointer;transition:box-shadow 200ms var(--ease)}
+.slot .ph{aspect-ratio:4/5;border-radius:10px;overflow:hidden;background:var(--paper)}
+.slot img{width:100%;height:100%;object-fit:cover;display:block}
+.slot b{display:block;font-weight:600;font-size:16px;margin-bottom:10px}
+.slot span{display:block;color:var(--mute);font-size:14px;margin-bottom:10px}
+.slot span.btn{display:inline-flex;min-height:38px;font-size:14px;margin:0}
+@media (hover:hover) and (pointer:fine){.slot:hover{box-shadow:0 10px 30px -12px rgba(0,0,0,.3)}}
+@media (max-width:480px){.slot{grid-template-columns:96px 1fr;gap:12px}}
+
+/* elenco */
+.head{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:28px 0 6px}
+.head h1{font:700 clamp(26px,4vw,34px)/1.1 var(--head);letter-spacing:-.01em}
+.head h1 small{font:500 15px Inter;color:var(--mute);margin-left:8px;font-variant-numeric:tabular-nums}
+.pag-head{margin-bottom:14px}
+.stato{padding:12px 0 4px;display:flex;align-items:center;gap:8px;font-size:14px;color:var(--mute);min-height:24px}
+.stato::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor;opacity:.7}
+/* finestra di salvataggio: barra che avanza subito e si completa quando GitHub ha davvero salvato */
+#d-salva{width:min(380px,100% - 32px);outline:none}
+.sv{padding:26px 22px 20px;text-align:center}
+.sv .ico{display:grid;place-items:center;width:52px;height:52px;margin:0 auto 14px;border-radius:50%;background:#eef0f3;color:var(--mute)}
+.sv .ico svg{width:26px;height:26px}
+.sv .ico .giro{animation:giro 900ms linear infinite}
+@keyframes giro{to{transform:rotate(360deg)}}
+.sv h2{font:700 20px/1.25 var(--head);margin-bottom:6px}
+.sv p{color:var(--mute);font-size:14px;min-height:20px}
+.sv .barra{height:8px;margin:18px 0 4px;border-radius:4px;background:#eef0f3;overflow:hidden}
+.sv .barra span{display:block;height:100%;width:0;border-radius:inherit;background:var(--ink);transition:width 300ms var(--ease),background-color 200ms ease}
+.sv .azioni{justify-content:center;padding-top:16px}
+.sv .azioni .btn{min-width:120px}
+.sv.ok .ico{background:var(--ok);color:#fff} .sv.ok .barra span{background:var(--ok)}
+.sv.err .ico{background:var(--red);color:#fff} .sv.err h2{color:var(--red)} .sv.err .barra span{background:var(--red)}
+.stato.ok{color:var(--ok)} .stato.err{color:var(--red)} .stato.lav{color:var(--mute)}
+.stato.lav::before{animation:pulsa 1s ease-in-out infinite}
+@keyframes pulsa{50%{opacity:.2}}
+.stato:empty::before{display:none}
+.stato button{border:0;background:none;color:inherit;text-decoration:underline;font-weight:500}
+
+.griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;list-style:none;padding-bottom:48px}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;cursor:pointer;touch-action:manipulation;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;
+  transition:box-shadow 200ms var(--ease),transform 200ms var(--ease),opacity 200ms ease}
+.card .ph{aspect-ratio:4/5;background:var(--paper);overflow:hidden}
+.card img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.card .ph{position:relative}
+.card .play,.anteprima .play{position:absolute;left:50%;top:50%;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:rgba(10,10,12,.6);border:1px solid rgba(255,255,255,.6);pointer-events:none}
+.card .play::after{content:"";position:absolute;left:17px;top:13px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #fff}
+.card .tipo-v{position:absolute;top:8px;right:8px;height:24px;padding:0 9px;border-radius:12px;background:rgba(10,10,12,.75);color:#fff;font:600 12px/24px Inter}
+.card .tx{padding:10px 12px 12px}
+.sez-stile{padding:18px 0 6px;border-top:1px solid var(--line)}
+.sez-stile:first-child{border-top:0}
+.sez-stile h2{font:700 19px/1.2 var(--head);margin-bottom:12px;display:flex;align-items:baseline;gap:8px}
+.sez-stile h2 small{font:500 14px Inter;color:var(--mute);font-variant-numeric:tabular-nums}
+.sez-stile .griglia{padding-bottom:12px}
+.griglia.piccola{grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px;padding-bottom:0}
+.griglia.piccola .card{cursor:pointer}
+.card b{display:block;font-weight:600;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card span{display:block;color:var(--mute);font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card .n{position:absolute;top:8px;left:8px;min-width:26px;height:26px;padding:0 7px;border-radius:13px;background:rgba(255,255,255,.92);font:600 13px/26px Inter;text-align:center;font-variant-numeric:tabular-nums;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.card .home{position:absolute;top:8px;right:8px;height:26px;padding:0 9px;border-radius:13px;background:var(--ink);color:#fff;font:500 12px/26px Inter}
+@media (hover:hover) and (pointer:fine){.card:hover{box-shadow:0 10px 30px -12px rgba(0,0,0,.3)}}
+.card.sortable-chosen{box-shadow:0 18px 40px -12px rgba(0,0,0,.45);transform:scale(1.03);cursor:grabbing}
+.card.sortable-ghost{opacity:.35}
+.sortable-drag{opacity:.95!important;box-shadow:0 24px 50px -12px rgba(0,0,0,.5);cursor:grabbing}
+/* foto selezionata: bordo rosso che lampeggia, le altre più chiare */
+.card.scelta{scroll-margin:140px 0 220px;border-color:var(--red);box-shadow:0 0 0 3px var(--red);animation:lampeggia 1.1s ease-in-out infinite;cursor:grab;touch-action:none}
+.card.scelta .n{background:var(--red);color:#fff}
+@keyframes lampeggia{0%,100%{box-shadow:0 0 0 3px var(--red),0 0 0 0 rgba(196,55,42,.45)}50%{box-shadow:0 0 0 3px var(--red),0 0 0 12px rgba(196,55,42,0)}}
+@media (prefers-reduced-motion:reduce){.card.scelta{box-shadow:0 0 0 3px var(--red)}}
+.slot{transition:box-shadow 200ms var(--ease),opacity 200ms ease}
+body.selezione .card:not(.scelta),body.selezione .aggiungi,body.selezione .slot{opacity:.3}
+body.selezione .card:not(.scelta){cursor:pointer}
+body.selezione .blocchi{padding-bottom:220px}
+#blocchi-port .griglia{padding-bottom:8px}
+.blocchi h2 small{font-size:.6em;font-weight:400;color:var(--mute);letter-spacing:0;text-transform:none}
+/* barra della foto selezionata */
+.posiziona{position:fixed;left:50%;bottom:max(16px,env(safe-area-inset-bottom));z-index:25;width:min(560px,100% - 24px);transform:translateX(-50%);
+  padding:16px;background:var(--ink);color:#fff;border-radius:18px;box-shadow:0 18px 50px -12px rgba(0,0,0,.5)}
+.posiziona[hidden]{display:none}
+.posiziona.avvisa{animation:avvisa 420ms ease-in-out 3}
+.posiziona.avvisa #sc-annulla,.posiziona.avvisa #sc-ok{animation:avvisa-btn 420ms ease-in-out 3}
+@keyframes avvisa{0%,100%{box-shadow:0 18px 50px -12px rgba(0,0,0,.5),0 0 0 0 rgba(255,106,0,0)}50%{box-shadow:0 18px 50px -12px rgba(0,0,0,.5),0 0 0 8px rgba(255,106,0,.85)}}
+@keyframes avvisa-btn{0%,100%{transform:none}50%{transform:scale(1.07)}}
+body.avvisata #sc-p{color:#fff;font-weight:600}
+body.bloccata.selezione .card:not(.scelta),body.bloccata .aggiungi button,body.bloccata .tab{cursor:not-allowed}
+@media (prefers-reduced-motion:reduce){.posiziona.avvisa{animation:none;box-shadow:0 0 0 4px var(--acc)}}
+.posiziona b{display:block;font-weight:600;font-size:16px;line-height:1.3}
+.posiziona p{color:rgba(255,255,255,.75);font-size:14px;margin:4px 0 12px}
+.posiziona .riga{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.posiziona .btn{min-height:44px;background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.18);color:#fff}
+.posiziona .btn:disabled{opacity:.35}
+.posiziona .btn.pri{background:var(--red);border-color:var(--red);margin-left:auto}
+.posiziona .btn.link{background:transparent;border-color:transparent;color:rgba(255,255,255,.75);padding:0 8px}
+@media (max-width:480px){.posiziona .btn.pri{flex-basis:100%;margin-left:0;order:3}.posiziona .riga .btn:not(.pri):not(.link){flex:1}}
+
+/* card + in fondo a ogni sezione: stessa misura delle foto */
+.aggiungi{display:flex}
+.aggiungi button{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;min-width:0;min-height:200px;padding:16px;
+  border:2px dashed #c3c6ce;border-radius:16px;background:#eef0f3;color:#6b6f78;font:500 14px/1.3 Inter;text-align:center;cursor:pointer;
+  transition:background-color 150ms ease,border-color 150ms ease,transform 160ms var(--ease)}
+.aggiungi .croce{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:#aeb2bb;color:#fff;transition:background-color 150ms ease}
+.aggiungi svg{width:28px;height:28px}
+.aggiungi button:active{transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){.aggiungi button:hover{background:#e6e8ec;border-color:#9fa3ac}.aggiungi button:hover .croce{background:var(--red)}}
+
+/* scheda di aggiunta / modifica */
+dialog{margin:auto;width:min(460px,100% - 24px);max-height:calc(100svh - 24px);border:0;border-radius:20px;padding:0;background:var(--card);color:var(--ink);box-shadow:0 30px 80px -20px rgba(0,0,0,.5);overflow:auto;
+  opacity:0;transform:scale(.96);transition:opacity 220ms var(--ease),transform 220ms var(--ease),overlay 220ms allow-discrete,display 220ms allow-discrete}
+dialog[open]{opacity:1;transform:none}
+@starting-style{dialog[open]{opacity:0;transform:scale(.96)}}
+dialog::backdrop{background:rgba(0,0,0,.45);opacity:0;transition:opacity 220ms var(--ease),overlay 220ms allow-discrete,display 220ms allow-discrete}
+dialog[open]::backdrop{opacity:1}
+@starting-style{dialog[open]::backdrop{opacity:0}}
+dialog form{padding:20px}
+dialog h2{font:700 21px/1.2 var(--head);margin-bottom:14px}
+.anteprima{position:relative;aspect-ratio:4/5;max-height:46svh;margin:0 auto 16px;border-radius:14px;overflow:hidden;background:var(--paper)}
+.anteprima img,.anteprima video{width:100%;height:100%;object-fit:cover;display:block}
+.anteprima video{object-fit:contain;background:#000}
+.anteprima [hidden]{display:none}
+.avanza{font-size:14px;color:var(--mute);margin:-6px 0 12px;min-height:1.3em;font-variant-numeric:tabular-nums}
+.anteprima .cambia{position:absolute;right:10px;bottom:10px;min-height:38px;background:rgba(255,255,255,.95)}
+.stili{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;border:0}
+.stili legend{font-size:14px;font-weight:500;margin-bottom:8px}
+.stili label{margin:0;font-weight:500}
+.stili input{position:absolute;opacity:0;pointer-events:none}
+.stili span{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:20px;border:1px solid rgba(0,0,0,.18);font-size:15px;cursor:pointer;transition:background-color 150ms ease,color 150ms ease,border-color 150ms ease}
+.stili input:checked+span{background:var(--ink);border-color:var(--ink);color:#fff}
+.stili input:focus-visible+span{outline:2px solid var(--red);outline-offset:2px}
+.facoltativo{color:var(--mute);font-weight:400}
+.mostra-tutte{display:flex;align-items:center;gap:8px;font-weight:400;font-size:14px;margin:-6px 0 14px;min-height:32px}
+.mostra-tutte input{width:18px;height:18px;accent-color:var(--ink)}
+.nota-pw{color:var(--mute);font-size:13px;margin-bottom:14px}
+@media (max-width:420px){.top .t{display:none}}
+.ordine{display:flex;align-items:center;gap:8px;margin:-4px 0 18px;font-size:14px;color:var(--mute)}
+.ordine .btn{min-height:36px;padding:0 12px;font-size:14px}
+.azioni{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;padding-top:4px}
+.azioni .btn.del{margin-right:auto}
+@media (max-width:480px){.azioni .btn{flex:1}.azioni .btn.del{flex-basis:100%;order:3;margin:0}}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-property:opacity,background-color,color!important}}
+/* ================= STILE «CANTIERE» =================
+   Cemento grigio, nero e arancio di sicurezza; titoli stretti in maiuscolo (Oswald),
+   testo in Work Sans, angoli quasi vivi. L'arancio porta sempre testo scuro sopra
+   (il bianco sull'arancio non si leggerebbe). Il rosso resta solo per errori ed eliminazioni. */
+:root{
+  --bg:#e9e9e6; --card:#f5f5f3; --ink:#222; --mute:#62625c; --line:#cfcfca; --paper:#dcdcd7;
+  --acc:#ff6a00; --acc-d:#e65f00; --acc-a:rgba(255,106,0,.45); --acc-0:rgba(255,106,0,0);
+  --head:"Oswald","Arial Narrow",Impact,sans-serif; --testo:"Work Sans",Inter,-apple-system,sans-serif;
+}
+body{font-family:var(--testo)}
+:focus-visible{outline-color:var(--acc)}
+.top{background:rgba(233,233,230,.92)}
+.top::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:4px;background:var(--acc)}
+.tabs{background:rgba(233,233,230,.94);top:65px}
+.login{min-height:calc(100svh - 65px)}
+.login form,dialog{border-radius:6px}
+.login form{border-top:4px solid var(--acc)}
+.login h1,.pag-head h1,.blocchi h2,.sez-stile h2,dialog h2,.sv h2{font-family:var(--head);font-weight:600;text-transform:uppercase;letter-spacing:.02em}
+.pag-head h1 small,.blocchi h2 small,.sez-stile h2 small{text-transform:none;letter-spacing:0;font-family:var(--testo)}
+.btn{border-radius:3px;font-weight:600}
+.btn.pri{background:var(--acc);border-color:var(--acc);color:var(--ink)}
+@media (hover:hover) and (pointer:fine){.btn.pri:hover{background:var(--acc-d);border-color:var(--acc-d)}}
+input[type=text],input[type=password]{border-radius:3px;background:#fff;border-color:#b9b9b3}
+.tab{border-radius:3px;font:500 14px/1 var(--head);text-transform:uppercase;letter-spacing:.07em}
+.tab[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--acc)}
+.vedi{color:var(--ink);text-decoration:underline;text-decoration-color:var(--acc);text-decoration-thickness:2px;text-underline-offset:4px}
+.num{border-radius:2px;background:var(--ink);color:var(--acc);font-family:var(--head)}
+.slot{border-radius:4px}
+.slot .ph,.anteprima{border-radius:3px}
+.card{border-radius:4px}
+.card .n{border-radius:2px;box-shadow:none;background:var(--ink);color:#fff}
+.card.scelta{border-color:var(--acc);box-shadow:0 0 0 3px var(--acc);animation-name:lampeggia-c}
+.card.scelta .n{background:var(--acc);color:var(--ink)}
+@keyframes lampeggia-c{0%,100%{box-shadow:0 0 0 3px var(--acc),0 0 0 0 var(--acc-a)}50%{box-shadow:0 0 0 3px var(--acc),0 0 0 12px var(--acc-0)}}
+@media (prefers-reduced-motion:reduce){.card.scelta{box-shadow:0 0 0 3px var(--acc)}}
+.aggiungi button{border-radius:4px;border-color:#b3b3ad;background:#e0e0dc;color:var(--mute);font-family:var(--testo)}
+.aggiungi .croce{border-radius:3px;background:#9d9d97}
+@media (hover:hover) and (pointer:fine){.aggiungi button:hover{background:#d9d9d4;border-color:var(--ink)}.aggiungi button:hover .croce{background:var(--acc);color:var(--ink)}}
+.posiziona{border-radius:6px;border-top:4px solid var(--acc)}
+.posiziona .btn.pri{background:var(--acc);border-color:var(--acc);color:var(--ink)}
+.sv .ico{background:#e0e0dc}
+.sv .barra{border-radius:2px;background:#e0e0dc}
+.sv .barra span{background:var(--acc)}
+
+/* ================= GUIDA ================= */
+.top .guida-btn{margin-left:auto;gap:6px}
+.top .guida-btn+.cambia-pw{margin-left:0}
+.guida-btn .q{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:2px;background:var(--acc);color:var(--ink);font:600 14px/1 var(--head)}
+.cambia-pw .corto{display:none}
+@media (max-width:480px){.cambia-pw .lungo{display:none}.cambia-pw .corto{display:inline}}
+#d-guida{width:min(760px,100% - 24px)}
+.g-testa{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:12px;padding:16px 20px 12px;background:var(--card);border-bottom:4px solid var(--acc)}
+.g-testa h2{margin:0;flex:1;outline:0}
+.g-chiudi{min-width:44px;padding:0;font-size:26px;line-height:1}
+.g-indice{display:flex;flex-wrap:wrap;gap:8px;padding:14px 20px 4px}
+.g-indice a{display:inline-flex;align-items:center;min-height:38px;padding:0 14px;border:1px solid var(--line);border-radius:3px;background:#fff;color:var(--ink);text-decoration:none;
+  font:500 14px/1 var(--head);text-transform:uppercase;letter-spacing:.06em}
+@media (hover:hover) and (pointer:fine){.g-indice a:hover{border-color:var(--ink)}}
+.g-corpo{padding:4px 20px 20px}
+.g-intro{color:var(--mute);font-size:15px;line-height:1.5;margin:10px 0 4px}
+.g-sez{padding-top:22px;scroll-margin-top:72px}
+.g-sez h3{font:600 20px/1.2 var(--head);text-transform:uppercase;letter-spacing:.02em;padding-bottom:8px;border-bottom:2px solid var(--ink)}
+.g-passo{display:grid;grid-template-columns:34px 1fr 210px;gap:4px 14px;align-items:start;padding:16px 0;border-bottom:1px solid var(--line)}
+.g-passo:last-child{border-bottom:0}
+.g-passo .num{width:30px;height:30px;font-size:16px}
+.g-passo p{font-size:16px;line-height:1.5;padding-top:2px}
+.g-passo p b{font-weight:600}
+.g-passo a{display:block;cursor:zoom-in}
+.g-passo.solo-testo{grid-template-columns:34px 1fr}
+.g-passo img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:6px;background:var(--paper);box-shadow:0 10px 24px -14px rgba(0,0,0,.45)}
+.g-nota{margin-top:12px;padding:10px 14px;border-left:4px solid var(--acc);background:#fff;font-size:14px;line-height:1.45;color:var(--ink)}
+.g-nota.rossa{border-left-color:var(--red)}
+.g-piede{display:flex;justify-content:flex-end;padding:8px 20px 20px}
+#d-zoom{width:min(1400px,100% - 24px);max-height:calc(100svh - 24px);padding:56px 0 0;background:#111;border-radius:6px;overflow:hidden;cursor:zoom-out}
+#d-zoom .zoom-box{position:relative;width:min(100%,(100svh - 80px) * 1.6);aspect-ratio:16/10;margin:0 auto}
+#d-zoom img{display:block;width:100%;height:100%}
+/* i punti da cliccare lampeggiano sopra la schermata ingrandita */
+.zoom-punto{position:absolute;border:4px solid #7c3aed;border-radius:10px;pointer-events:none;animation:punto 1s ease-in-out infinite}
+@keyframes punto{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(124,58,237,.6)}50%{opacity:.15;box-shadow:0 0 0 14px rgba(124,58,237,0)}}
+@media (prefers-reduced-motion:reduce){.zoom-punto{animation:none}}
+#d-zoom .g-chiudi{position:absolute;top:6px;right:6px;width:44px;height:44px;border-radius:3px;background:var(--acc);color:var(--ink)}
+@media (max-width:600px){
+  .g-passo{grid-template-columns:34px 1fr}
+  .g-passo a{grid-column:1/-1;width:min(250px,100%);margin:10px auto 0}
+  .g-piede .btn{flex:1}
+}
+
+/* ================= OLIMP =================
+   Le foto del sito sono orizzontali (4:3), il logo è più alto di quello di Rain Ink. */
+.top img{height:42px}
+.slot .ph,.card .ph,.anteprima{aspect-ratio:4/3}
+.anteprima{max-height:40svh}
+#img-dove{margin:-6px 0 14px}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <img src="images/comune/logo-olimp.svg" alt="Olimp" width="407" height="282">
+    <span class="t">Area riservata</span>
+    <button class="btn link guida-btn" type="button" id="apri-guida" hidden><span class="q" aria-hidden="true">?</span>Guida</button>
+    <button class="btn link cambia-pw" type="button" id="apri-pw" hidden><span class="lungo">Cambia password</span><span class="corto">Password</span></button>
+    <button class="btn link esci" type="button" id="esci" hidden>Esci</button>
+  </div>
+</header>
+
+<!-- accesso -->
+<main class="login" id="vista-login">
+  <form id="f-login" novalidate>
+    <h1>Area riservata</h1>
+    <p>Entra per aggiungere, eliminare o riordinare le foto del sito.</p>
+    <div class="campo">
+      <label for="pw">Password</label>
+      <input type="password" id="pw" autocomplete="current-password" required>
+      <button class="mostra" type="button" id="mostra" aria-pressed="false">Mostra</button>
+    </div>
+    <p class="errore" id="err-login" role="alert"></p>
+    <button class="btn pri" type="submit" id="entra">Entra</button>
+  </form>
+</main>
+
+<!-- pagine del sito: le sezioni le scrive lo script (PAGINE) -->
+<main id="vista-lavori" hidden>
+  <nav class="tabs" aria-label="Pagine del sito"><div class="wrap" id="tabs" role="tablist"></div></nav>
+  <div class="wrap" id="pagine">
+    <p class="stato" id="stato" aria-live="polite"></p>
+  </div>
+  <div class="posiziona" id="scelta" role="region" aria-label="Foto selezionata" hidden>
+    <b id="sc-t"></b>
+    <p id="sc-p">Prendila e trascinala dove vuoi in questa sezione. Quando hai finito tocca «Conferma».</p>
+    <div class="riga">
+      <button class="btn link" type="button" id="sc-annulla">Annulla</button>
+      <button class="btn" type="button" id="sc-mod">Modifica o elimina</button>
+      <button class="btn pri" type="button" id="sc-ok">Conferma</button>
+    </div>
+  </div>
+  <input type="file" id="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" hidden>
+</main>
+
+<dialog id="scheda" aria-labelledby="scheda-t">
+  <form id="f-lavoro" method="dialog" novalidate>
+    <h2 id="scheda-t">Nuova foto</h2>
+    <div class="anteprima"><img id="anteprima" alt=""><button class="btn cambia" type="button" id="cambia">Cambia foto</button></div>
+    <p class="avanza" id="avanza" aria-live="polite"></p>
+    <div class="campo">
+      <label for="titolo">Titolo <span class="facoltativo">(il nome del modello, scritto sotto la foto)</span></label>
+      <input type="text" id="titolo" maxlength="80" required placeholder="Es. Modello Flower">
+    </div>
+    <p class="errore" id="err-scheda" role="alert"></p>
+    <div class="azioni">
+      <button class="btn del" type="button" id="elimina" hidden>Elimina</button>
+      <button class="btn" type="button" id="annulla">Annulla</button>
+      <button class="btn pri" type="submit" id="conferma">Aggiungi</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="d-img" aria-labelledby="img-t">
+  <form id="f-img" method="dialog" novalidate>
+    <h2 id="img-t"></h2>
+    <p class="nota-pw" id="img-dove"></p>
+    <div class="anteprima"><img id="img-ant" alt=""><button class="btn cambia" type="button" id="img-cambia">Cambia foto</button></div>
+    <div class="campo">
+      <label for="img-alt">Cosa si vede nella foto <span class="facoltativo">(serve a Google e a chi non vede)</span></label>
+      <input type="text" id="img-alt" maxlength="200" placeholder="Es. Album con copertina bianca aperto su un tavolo">
+    </div>
+    <p class="errore" id="err-img" role="alert"></p>
+    <div class="azioni">
+      <button class="btn" type="button" id="img-annulla">Annulla</button>
+      <button class="btn pri" type="submit" id="img-ok">Salva</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="d-salva" aria-labelledby="sv-t" aria-describedby="sv-p">
+  <div class="sv" id="sv" role="status" aria-live="polite">
+    <span class="ico" id="sv-ico" aria-hidden="true"></span>
+    <h2 id="sv-t">Salvataggio in corso…</h2>
+    <p id="sv-p"></p>
+    <div class="barra" role="progressbar" aria-label="Avanzamento del salvataggio" aria-valuemin="0" aria-valuemax="100" id="sv-barra"><span id="sv-bar"></span></div>
+    <div class="azioni">
+      <button class="btn" type="button" id="sv-riprova" hidden>Riprova</button>
+      <button class="btn pri" type="button" id="sv-ok" hidden>OK</button>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="d-pw" aria-labelledby="pw-t">
+  <form id="f-pw" method="dialog" novalidate>
+    <h2 id="pw-t">Cambia password</h2>
+    <div class="campo">
+      <label for="pw-att">Password attuale</label>
+      <input type="password" id="pw-att" autocomplete="current-password" required>
+    </div>
+    <div class="campo">
+      <label for="pw-nuova">Password nuova <span class="facoltativo">(almeno 8 caratteri)</span></label>
+      <input type="password" id="pw-nuova" autocomplete="new-password" minlength="8" maxlength="128" required>
+    </div>
+    <div class="campo">
+      <label for="pw-ripeti">Ripeti la password nuova</label>
+      <input type="password" id="pw-ripeti" autocomplete="new-password" maxlength="128" required>
+    </div>
+    <label class="mostra-tutte"><input type="checkbox" id="pw-mostra"> Mostra le password</label>
+    <p class="nota-pw">Dopo il cambio resti dentro su questo dispositivo; sugli altri bisogna entrare di nuovo con la password nuova.</p>
+    <p class="errore" id="err-pw" role="alert"></p>
+    <div class="azioni">
+      <button class="btn" type="button" id="pw-annulla">Annulla</button>
+      <button class="btn pri" type="submit" id="pw-ok">Cambia password</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="d-guida" aria-labelledby="g-t">
+  <div class="g-testa">
+    <h2 id="g-t" tabindex="-1">Guida</h2>
+    <button class="btn link g-chiudi" type="button" id="g-x" aria-label="Chiudi la guida">&times;</button>
+  </div>
+  <nav class="g-indice" aria-label="Argomenti della guida">
+    <a href="#g-aggiungere">Aggiungere</a><a href="#g-riordinare">Riordinare</a><a href="#g-rinominare">Rinominare</a><a href="#g-eliminare">Eliminare</a><a href="#g-fisse">Foto fisse</a>
+  </nav>
+  <div class="g-corpo">
+    <p class="g-intro">In alto c'è una scheda per ogni pagina del sito. Le modifiche valgono solo per la pagina in cui le fai e si vedono online entro qualche minuto dal salvataggio. Questa guida si riapre quando vuoi dal pulsante <b>Guida</b> in alto. Clicca una schermata per ingrandirla. Dal telefono funziona allo stesso modo: al posto del clic si tocca con il dito.</p>
+    <section class="g-sez" id="g-aggiungere" aria-labelledby="g-aggiungere-t">
+      <h3 id="g-aggiungere-t">Aggiungere una foto</h3>
+      <div class="g-passo"><span class="num">1</span><p>In alto scegli la <b>pagina</b> del sito da modificare, per esempio <b>Fashion</b>.</p><a href="images/guida/tab.jpg" class="g-zoom" data-punti="41.25,8.75,7.66,6.25" aria-label="Ingrandisci la schermata"><img src="images/guida/tab.jpg" alt="La fila di schede in alto con Fashion evidenziato" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">2</span><p>Clicca la casella grigia con il <b>+</b>, in fondo alle foto della galleria (per esempio <b>Gli album della linea</b>). Si apre la finestra per scegliere il file: scegli la foto e clicca <b>Apri</b>.</p><a href="images/guida/piu.jpg" class="g-zoom" data-punti="50.16,50.50,14.06,26.25" aria-label="Ingrandisci la schermata"><img src="images/guida/piu.jpg" alt="La casella con il + in fondo alla galleria" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">3</span><p>Controlla l'anteprima, scrivi il <b>titolo</b> (il nome del modello, che compare sotto la foto) e clicca <b>Aggiungi</b>. Se hai sbagliato foto, clicca <b>Cambia foto</b>.</p><a href="images/guida/nuova.jpg" class="g-zoom" data-punti="33.12,67.00,33.59,7.25;58.13,79.00,8.59,6.75" aria-label="Ingrandisci la schermata"><img src="images/guida/nuova.jpg" alt="La finestra per aggiungere una foto, con il titolo scritto" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">4</span><p>La foto nuova lampeggia in arancio. Se vuoi spostarla, <b>tieni premuto il clic sulla foto e trascinala</b> nel posto che preferisci; altrimenti resta ultima. Poi clicca <b>Conferma e salva</b> nella barra in basso.</p><a href="images/guida/nuova-sel.jpg" class="g-zoom" data-punti="50.16,50.50,14.06,26.25;57.19,89.75,13.75,6.75" aria-label="Ingrandisci la schermata"><img src="images/guida/nuova-sel.jpg" alt="La foto nuova evidenziata e il pulsante Conferma e salva" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">5</span><p>Si apre la finestra del salvataggio: aspetta che la barra arrivi in fondo e clicca <b>OK</b>. Il sito si aggiorna da solo entro qualche minuto.</p><a href="images/guida/salvato.jpg" class="g-zoom" data-punti="44.84,60.00,10.16,6.75" aria-label="Ingrandisci la schermata"><img src="images/guida/salvato.jpg" alt="La finestra Salvataggio riuscito correttamente con il pulsante OK" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+    </section>
+    <section class="g-sez" id="g-riordinare" aria-labelledby="g-riordinare-t">
+      <h3 id="g-riordinare-t">Riordinare le foto</h3>
+      <div class="g-passo"><span class="num">1</span><p>Clicca la foto da spostare: si accende in arancio e le altre diventano più chiare.</p><a href="images/guida/scegli.jpg" class="g-zoom" data-punti="35.62,24.50,14.06,25.25" aria-label="Ingrandisci la schermata"><img src="images/guida/scegli.jpg" alt="Una foto selezionata in arancio, le altre più chiare" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">2</span><p><b>Tieni premuto il clic sulla foto e trascinala</b> dove vuoi, dentro la stessa galleria. Il numero in alto a sinistra indica il posto. Poi clicca <b>Conferma</b>.</p><a href="images/guida/spostata.jpg" class="g-zoom" data-punti="6.56,24.50,14.06,25.25;61.56,89.75,9.38,6.75" aria-label="Ingrandisci la schermata"><img src="images/guida/spostata.jpg" alt="La foto spostata al posto 1 e il pulsante Conferma" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <p class="g-nota">Hai cambiato idea? Clicca <b>Annulla</b> e la foto torna dov'era, senza salvare nulla. Finché non scegli <b>Conferma</b> o <b>Annulla</b> il resto della pagina è bloccato: se clicchi altrove, la barra in basso lampeggia per ricordartelo.</p>
+    </section>
+    <section class="g-sez" id="g-rinominare" aria-labelledby="g-rinominare-t">
+      <h3 id="g-rinominare-t">Rinominare una foto</h3>
+      <div class="g-passo"><span class="num">1</span><p>Clicca la foto, poi clicca <b>Modifica o elimina</b> nella barra in basso.</p><a href="images/guida/modifica.jpg" class="g-zoom" data-punti="35.16,89.75,14.37,6.75" aria-label="Ingrandisci la schermata"><img src="images/guida/modifica.jpg" alt="La barra in basso con il pulsante Modifica o elimina" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">2</span><p>Correggi il <b>titolo</b> e clicca <b>Salva</b>. Da qui puoi anche cambiare la foto con <b>Cambia foto</b>.</p><a href="images/guida/rinomina.jpg" class="g-zoom" data-punti="33.12,65.25,33.59,7.25;60.00,77.25,6.72,6.75" aria-label="Ingrandisci la schermata"><img src="images/guida/rinomina.jpg" alt="La finestra di modifica con il titolo cambiato e il pulsante Salva" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+    </section>
+    <section class="g-sez" id="g-eliminare" aria-labelledby="g-eliminare-t">
+      <h3 id="g-eliminare-t">Eliminare una foto</h3>
+      <div class="g-passo solo-testo"><span class="num">1</span><p>Clicca la foto, poi clicca <b>Modifica o elimina</b> nella barra in basso (come per rinominare).</p></div>
+      <div class="g-passo"><span class="num">2</span><p>Clicca <b>Elimina</b> in basso a sinistra nella finestra. Il pulsante diventa rosso con scritto <b>Sì, elimina</b>: cliccalo di nuovo per confermare.</p><a href="images/guida/elimina.jpg" class="g-zoom" data-punti="33.12,77.25,9.84,6.75" aria-label="Ingrandisci la schermata"><img src="images/guida/elimina.jpg" alt="Il pulsante rosso Sì, elimina" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <p class="g-nota rossa">L'eliminazione è definitiva: la foto sparisce dal sito. Se non clicchi «Sì, elimina» non succede nulla.</p>
+    </section>
+    <section class="g-sez" id="g-fisse" aria-labelledby="g-fisse-t">
+      <h3 id="g-fisse-t">Cambiare le foto fisse</h3>
+      <div class="g-passo"><span class="num">1</span><p>Le altre foto delle pagine (la foto principale accanto al testo, i riquadri delle linee e dei prodotti, le strisce delle collezioni) hanno un posto fisso: clicca <b>Cambia foto</b> accanto a quella da cambiare.</p><a href="images/guida/fissa.jpg" class="g-zoom" data-punti="18.28,43.00,10.31,6.00" aria-label="Ingrandisci la schermata"><img src="images/guida/fissa.jpg" alt="Una foto fissa con il pulsante Cambia foto" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">2</span><p>Nella finestra clicca <b>Cambia foto</b> e scegli quella nuova. Scrivi in breve cosa si vede (serve a Google) e clicca <b>Salva</b>.</p><a href="images/guida/fissa-scheda.jpg" class="g-zoom" data-punti="53.91,54.25,10.78,6.00;60.00,77.50,6.72,6.75" aria-label="Ingrandisci la schermata"><img src="images/guida/fissa-scheda.jpg" alt="La finestra per cambiare una foto, con Cambia foto e Salva evidenziati" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <p class="g-nota">Ogni pagina è indipendente: una foto cambiata in una pagina resta uguale in tutte le altre (per esempio la striscia «Album eventi» della Home e quella di Collezioni si cambiano separatamente).</p>
+    </section>
+  </div>
+  <div class="g-piede"><button class="btn pri" type="button" id="g-ok">Ho capito</button></div>
+</dialog>
+
+<dialog id="d-zoom" aria-label="Schermata ingrandita">
+  <button class="btn link g-chiudi" type="button" id="zoom-x" aria-label="Chiudi">&times;</button>
+  <div class="zoom-box" id="zoom-box"><img id="zoom-img" alt=""></div>
+</dialog>
+
+<script src="js/vendor/sortable/Sortable.min.js"></script>
+<script>
+(function () {
+  'use strict';
+  var meta = function (n) { var m = document.querySelector('meta[name="' + n + '"]'); return m ? m.content : ''; };
+  var API = meta('ar-api').replace(/\/+$/, ''), REPO = meta('ar-repo'), RAMO = meta('ar-branch') || 'main';
+  var $ = function (id) { return document.getElementById(id); };
+
+  var gallerie = {}, immagini = [], anteprimeLocali = {}, token = null;
+  var SOLO_FOTO = 'image/jpeg,image/png,image/webp,image/heic,image/heif';
+  // nel browser si ricordano accesso, scheda e guida vista; il prefisso evita di confondersi con
+  // altri siti pubblicati sullo stesso indirizzo (nemesimark.github.io)
+  var mem = { get: function (k) { try { return JSON.parse(localStorage.getItem('olimp-' + k)); } catch (e) { return null; } },
+              set: function (k, v) { try { v == null ? localStorage.removeItem('olimp-' + k) : localStorage.setItem('olimp-' + k, JSON.stringify(v)); } catch (e) {} } };
+
+  /* ---------- pagine del sito e blocchi, nell'ordine in cui si vedono ----------
+     { t: titolo, slots: [id di data/immagini.json] } immagini fisse
+     { t: titolo, galleria: nome in data/gallerie.json } elenco da riordinare (uguale a scripts/genera_contenuti.py)
+     { t: titolo, nota: testo } solo una spiegazione */
+  var P = 'Foto principale';
+  var PAGINE = [
+    ['index.html', 'Home', 'Home', [
+      { t: 'Prima schermata', nota: 'Le tre foto grandi che scorrono in cima alla Home hanno regolazioni particolari per ogni tipo di schermo: per cambiarle chiedi a chi cura il sito.' },
+      { t: 'Collezioni', slots: ['home-coll-matrimoniali', 'home-coll-bambini', 'home-coll-comunione', 'home-coll-eventi'] },
+      { t: 'Grafica & Stampa', slots: ['home-grafica'] },
+      { t: 'Chi siamo', slots: ['home-chisiamo'] }]],
+    ['servizi.html', 'Servizi', 'Servizi', [{ t: 'I servizi', slots: ['servizi-sposi', 'servizi-fotografi'] }]],
+    ['sezione-sposi.html', 'Sposi', 'Sezione sposi', [{ t: P, slots: ['sposi-principale'] }]],
+    ['sezione-fotografi.html', 'Fotografi', 'Sezione fotografi', [{ t: P, slots: ['fotografi-principale'] }]],
+    ['grafica-stampa.html', 'Grafica & Stampa', 'Grafica & Stampa', [{ t: P, slots: ['grafica-principale'] },
+      { t: 'Le fasi del lavoro', slots: ['grafica-selezione', 'grafica-sviluppo', 'grafica-fotoritocco', 'grafica-impaginazione'] }]],
+    ['prodotti.html', 'Prodotti', 'Prodotti', [{ t: 'I prodotti', slots: ['prodotti-fotolibro', 'prodotti-tradizionale', 'prodotti-studio', 'prodotti-custodie'] }]],
+    ['fotolibro-professionale.html', 'Fotolibro', 'Fotolibro professionale', [{ t: P, slots: ['fotolibro-principale'] }]],
+    ['album-tradizionale-professionale.html', 'Tradizionale', 'Album tradizionale professionale', [{ t: P, slots: ['tradizionale-principale'] }]],
+    ['prodotti-studio-fotografico.html', 'Studio fotografico', 'Prodotti per il tuo studio fotografico', [{ t: P, slots: ['studio-principale'] },
+      { t: 'I nostri accessori', slots: ['studio-raccoglitori', 'studio-albumini', 'studio-portafoto', 'studio-porta-tessera', 'studio-porta-carta', 'studio-nastro'] }]],
+    ['custodie-per-album.html', 'Custodie', 'Custodie per album', [{ t: P, slots: ['custodie-principale'] },
+      { t: 'Le nostre custodie', slots: ['custodie-valigia-classica', 'custodie-valigia-pers', 'custodie-cofanetti', 'custodie-box', 'custodie-teca-plex', 'custodie-valigia-bambini', 'custodie-valigia-scrigno'] }]],
+    ['collezioni.html', 'Collezioni', 'Collezioni', [{ t: 'Le collezioni', slots: ['coll-matrimoniali', 'coll-bambini', 'coll-comunione', 'coll-eventi'] }]],
+    ['album-matrimoniali.html', 'Matrimoniali', 'Album matrimoniali', [{ t: 'Le nostre linee', slots: ['matr-fashion', 'matr-glamour', 'matr-trendy', 'matr-cuoio-fiorentino', 'matr-amarcord-pers', 'matr-amarcord'] }]],
+    ['linea-fashion.html', 'Fashion', 'Linea Fashion', [{ t: P, slots: ['fashion-principale'] }, { t: 'Gli album della linea', galleria: 'linea-fashion' }]],
+    ['linea-glamour.html', 'Glamour', 'Linea Glamour', [{ t: P, slots: ['glamour-principale'] }, { t: 'Gli album della linea', galleria: 'linea-glamour' }]],
+    ['linea-trendy.html', 'Trendy', 'Linea Trendy', [{ t: P, slots: ['trendy-principale'] }, { t: 'Gli album della linea', galleria: 'linea-trendy' }]],
+    ['linea-cuoio-fiorentino.html', 'Cuoio Fiorentino', 'Linea Cuoio Fiorentino', [{ t: P, slots: ['fiorentino-principale'] }, { t: 'Gli album della linea', galleria: 'linea-cuoio-fiorentino' }]],
+    ['linea-cuoio-amarcord-islandese.html', 'Amarcord', 'Linea Cuoio Amarcord & Cuoio Islandese', [{ t: P, slots: ['amarcord-principale'] }]],
+    ['linea-cuoio-amarcord-islandese-personalizzato.html', 'Amarcord personalizzato', 'Linea Cuoio Amarcord & Cuoio Islandese personalizzato', [{ t: P, slots: ['amarcord-pers-principale'] }]],
+    ['album-bambini.html', 'Bambini', 'Album bambini', [{ t: P, slots: ['bambini-principale'] }, { t: 'Le nostre linee', slots: ['bambini-deluxe', 'bambini-baby', 'bambini-new-born'] }]],
+    ['album-bambini-deluxe.html', 'Deluxe', 'Linea Deluxe', [{ t: P, slots: ['deluxe-principale'] }, { t: 'Gli album della linea', galleria: 'album-bambini-deluxe' }]],
+    ['album-bambini-baby.html', 'Baby', 'Linea Baby', [{ t: P, slots: ['baby-principale'] }, { t: 'Gli album della linea', galleria: 'album-bambini-baby' }]],
+    ['album-bambini-new-born.html', 'New Born', 'Linea New Born', [{ t: P, slots: ['new-born-principale'] }, { t: 'Gli album della linea', galleria: 'album-bambini-new-born' }]],
+    ['album-comunione.html', 'Comunione', 'Album comunione', [{ t: P, slots: ['comunione-principale'] }, { t: 'I modelli', galleria: 'album-comunione' }]],
+    ['album-eventi.html', 'Eventi', 'Album eventi', [{ t: P, slots: ['eventi-principale'] }, { t: 'Le fotografie', galleria: 'album-eventi' }]]
+  ];
+
+  /* ---------- chiamate al servizio ---------- */
+  function chiama(percorso, corpo) {
+    return fetch(API + percorso, {
+      method: corpo ? 'POST' : 'GET',
+      headers: Object.assign({ 'Content-Type': 'application/json' }, token ? { Authorization: 'Bearer ' + token } : {}),
+      body: corpo ? JSON.stringify(corpo) : undefined
+    }).then(function (r) {
+      return r.json().catch(function () { return {}; }).then(function (d) {
+        if (r.status === 401 && percorso !== '/login') { esci(); throw new Error('Accesso scaduto, entra di nuovo'); }
+        if (!r.ok) throw new Error(d.errore || 'Errore ' + r.status);
+        return d;
+      });
+    }, function () { throw new Error('Nessuna connessione, riprova'); });
+  }
+
+  /* ---------- accesso ---------- */
+  function mostraVista(nome) {
+    $('vista-login').hidden = nome !== 'login';
+    $('vista-lavori').hidden = nome !== 'lavori';
+    $('esci').hidden = nome !== 'lavori';
+    $('apri-pw').hidden = nome !== 'lavori';
+    $('apri-guida').hidden = nome !== 'lavori';
+  }
+  function esci() { token = null; mem.set('ar-token', null); gallerie = {}; mostraVista('login'); $('pw').value = ''; }
+  $('esci').onclick = function () { if (sel) confermaScelta(); esci(); };
+  $('mostra').onclick = function () {
+    var vis = $('pw').type === 'password'; $('pw').type = vis ? 'text' : 'password';
+    this.textContent = vis ? 'Nascondi' : 'Mostra'; this.setAttribute('aria-pressed', vis);
+  };
+  $('f-login').onsubmit = function (e) {
+    e.preventDefault();
+    var pw = $('pw').value; if (!pw) { $('err-login').textContent = 'Scrivi la password'; $('pw').focus(); return; }
+    $('entra').disabled = true; $('entra').textContent = 'Controllo…'; $('err-login').textContent = '';
+    chiama('/login', { password: pw }).then(function (d) {
+      token = d.token; mem.set('ar-token', { token: d.token, scade: d.scade }); carica();
+    }).catch(function (err) { $('err-login').textContent = err.message; $('pw').select(); })
+      .then(function () { $('entra').disabled = false; $('entra').textContent = 'Entra'; });
+  };
+
+  function carica() {
+    mostraVista('lavori'); centraTab(); stato('lav', 'Caricamento delle foto…');
+    chiama('/contenuti').then(function (d) {
+      gallerie = d.gallerie || {}; immagini = d.immagini || [];
+      disegna(); stato('', '');
+      if (!mem.get('ar-guida-vista')) apriGuida(); // la prima volta si apre da sola
+    })
+      .catch(function (err) { stato('err', err.message, carica); });
+  }
+
+  /* ---------- elenco ---------- */
+  function sorgente(foto) {
+    return anteprimeLocali[foto] || foto.replace(/^\/+/, '');
+  }
+  // foto appena caricata e non ancora pubblicata: la si prende dal repository;
+  // se non c'è nemmeno lì (foto vera non ancora arrivata) si mostra quella provvisoria
+  function riserva(img, foto, provvisoria) {
+    img.onerror = function () {
+      img.onerror = provvisoria ? function () { img.onerror = null; img.src = provvisoria; } : null;
+      img.src = 'https://raw.githubusercontent.com/' + REPO + '/' + RAMO + '/' + foto.replace(/^\/+/, '').split('?')[0];
+    };
+  }
+
+  /* ---------- schede delle pagine ---------- */
+  var SEZIONI = {}; // galleria → sezione
+  var tabAttiva = mem.get('ar-tab') || 'index.html';
+  PAGINE.forEach(function (p) {
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'tab'; b.setAttribute('role', 'tab');
+    b.id = 'tab-' + p[0]; b.dataset.pag = p[0]; b.setAttribute('aria-controls', 'pag-' + p[0]); b.textContent = p[1];
+    b.onclick = function () { mostraPagina(p[0]); };
+    $('tabs').appendChild(b);
+    var s = document.createElement('section'); s.className = 'pag'; s.id = 'pag-' + p[0]; s.setAttribute('role', 'tabpanel'); s.hidden = true;
+    s.setAttribute('aria-labelledby', b.id);
+    var h = document.createElement('div'); h.className = 'pag-head';
+    var h1 = document.createElement('h1'); h1.textContent = p[2] + ' ';
+    var sm = document.createElement('small'); sm.textContent = p[0]; h1.appendChild(sm);
+    var a = document.createElement('a'); a.className = 'vedi'; a.target = '_blank'; a.rel = 'noopener'; a.href = new URL(p[0], location.href).href; a.textContent = 'Vedi la pagina ↗';
+    h.appendChild(h1); h.appendChild(a); s.appendChild(h);
+    var ol = document.createElement('ol'); ol.className = 'blocchi';
+    p[3].forEach(function (bl, k) {
+      var li = document.createElement('li'), h2 = document.createElement('h2');
+      h2.innerHTML = '<span class="num">' + (k + 1) + '</span> ';
+      h2.appendChild(document.createTextNode(bl.t));
+      li.appendChild(h2);
+      if (bl.nota) { var n = document.createElement('p'); n.className = 'nota-pw'; n.textContent = bl.nota; li.appendChild(n); }
+      if (bl.slots) { var u = document.createElement('ul'); u.className = 'slots'; u.dataset.slots = bl.slots.join(' '); li.appendChild(u); }
+      if (bl.galleria) {
+        var c = document.createElement('small'); c.id = 'conta-' + bl.galleria; h2.appendChild(document.createTextNode(' ')); h2.appendChild(c);
+        var g = document.createElement('ul'); g.className = 'griglia'; g.id = 'gal-' + bl.galleria; li.appendChild(g);
+        SEZIONI[bl.galleria] = { id: g.id, lista: bl.galleria, nome: p[1] + ' · ' + bl.t, accetta: SOLO_FOTO };
+      }
+      ol.appendChild(li);
+    });
+    s.appendChild(ol); $('pagine').appendChild(s);
+  });
+  function mostraPagina(id) {
+    if (sel) confermaScelta(); // cambiando pagina la foto selezionata resta dov'è
+    if (!$('pag-' + id)) id = 'index.html';
+    tabAttiva = id; mem.set('ar-tab', id);
+    PAGINE.forEach(function (p) {
+      $('pag-' + p[0]).hidden = p[0] !== id;
+      $('tab-' + p[0]).setAttribute('aria-selected', String(p[0] === id));
+    });
+    centraTab();
+    window.scrollTo(0, 0);
+  }
+  function centraTab() { // la scheda scelta resta visibile nella fila in alto (che scorre di lato)
+    var t = $('tab-' + tabAttiva); if (t) t.parentNode.scrollLeft = t.offsetLeft - t.parentNode.offsetLeft - (t.parentNode.clientWidth - t.offsetWidth) / 2;
+  }
+  mostraPagina(tabAttiva);
+
+  /* ---------- gallerie (data/gallerie.json): ogni pagina ha il suo elenco, da riordinare ---------- */
+  function elenco(sez) { return gallerie[sez.lista] || (gallerie[sez.lista] = []); }
+  function membri(sez) { return elenco(sez).map(function (x, i) { return i; }); }
+  function posto(sez, x) { return elenco(sez).indexOf(x) + 1; }
+
+  function cartaLavoro(sez, x, numero) {
+    var li = document.createElement('li'); li.className = 'card'; li.tabIndex = 0;
+    var ph = document.createElement('div'); ph.className = 'ph';
+    var im = document.createElement('img'); im.alt = ''; im.loading = 'lazy'; riserva(im, x.foto, x.provvisoria); im.src = sorgente(x.foto);
+    ph.appendChild(im);
+    li.appendChild(ph);
+    var n = document.createElement('span'); n.className = 'n'; n.textContent = numero; li.appendChild(n);
+    var tx = document.createElement('div'); tx.className = 'tx';
+    var b = document.createElement('b'); b.textContent = x.titolo;
+    var s = document.createElement('span'); s.textContent = 'Foto';
+    tx.appendChild(b); tx.appendChild(s); li.appendChild(tx);
+    var scelta = sel && sel.x === x;
+    if (scelta) li.classList.add('scelta');
+    li.setAttribute('aria-label', numero + '. ' + x.titolo + (scelta ? ', selezionata: trascinala dove vuoi' : '. Premi Invio per selezionarla'));
+    function tocca() { if (trascinato || scelta) return; scegli(sez, x); }
+    li.onclick = tocca;
+    li.onkeydown = function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tocca(); } };
+    return li;
+  }
+  function cartaImmagine(v) {
+    var li = document.createElement('li'); li.className = 'slot'; li.tabIndex = 0;
+    li.setAttribute('aria-label', v.sezione + '. Premi Invio per cambiare la foto');
+    var ph = document.createElement('div'); ph.className = 'ph';
+    var im = document.createElement('img'); im.alt = ''; im.loading = 'lazy'; riserva(im, v.foto, v.provvisoria); im.src = sorgente(v.foto);
+    ph.appendChild(im);
+    var tx = document.createElement('div');
+    var b = document.createElement('b'); b.textContent = v.sezione;
+    var d = document.createElement('span'); d.textContent = v.descrizione || '';
+    var bt = document.createElement('span'); bt.className = 'btn'; bt.textContent = 'Cambia foto';
+    tx.appendChild(b); if (v.descrizione) tx.appendChild(d); tx.appendChild(bt);
+    li.appendChild(ph); li.appendChild(tx);
+    li.onclick = function () { if (sel) confermaScelta(); apriImmagine(v.id); };
+    li.onkeydown = function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); li.onclick(); } };
+    return li;
+  }
+  var PIU = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>';
+  function cartaAggiungi(testo, sez) {
+    var li = document.createElement('li'); li.className = 'aggiungi';
+    var b = document.createElement('button'); b.type = 'button';
+    b.innerHTML = '<span class="croce">' + PIU + '</span>';
+    var t = document.createElement('span'); t.textContent = testo; b.appendChild(t);
+    b.onclick = function () { if (sel) confermaScelta(); nuovoLavoro(sez); };
+    li.appendChild(b); return li;
+  }
+  function disegnaImmagini() {
+    [].forEach.call(document.querySelectorAll('[data-slots]'), function (ul) {
+      ul.innerHTML = '';
+      ul.dataset.slots.split(' ').forEach(function (id) {
+        var v = immagini.filter(function (x) { return x.id === id; })[0];
+        if (v) ul.appendChild(cartaImmagine(v));
+      });
+    });
+  }
+
+  var ordinatori = [], trascinato = false;
+  function disegnaSezione(sez, ul) {
+    ul.innerHTML = '';
+    var lista = elenco(sez);
+    membri(sez).forEach(function (i, k) { ul.appendChild(cartaLavoro(sez, lista[i], k + 1)); });
+    ul.appendChild(cartaAggiungi('Aggiungi una foto', sez));
+    ordinatori.push(new Sortable(ul, {
+      // si trascina solo la foto selezionata (le altre sono «filtrate»); trascinamento gestito da
+      // Sortable con il puntatore, uguale su telefono e computer
+      forceFallback: true, fallbackTolerance: 3, animation: 180, easing: 'cubic-bezier(.23,1,.32,1)',
+      scroll: true, bubbleScroll: true,
+      draggable: '.card', filter: '.card:not(.scelta), .aggiungi', preventOnFilter: false,
+      ghostClass: 'sortable-ghost', chosenClass: 'sortable-chosen', fallbackClass: 'sortable-drag',
+      onStart: function () { trascinato = true; },
+      onMove: function (e) { return !e.related.classList.contains('aggiungi'); }, // il + resta in fondo
+      onEnd: function (e) {
+        setTimeout(function () { trascinato = false; }, 50);
+        if (e.oldDraggableIndex === e.newDraggableIndex) return;
+        var pos = membri(sez), voci = pos.map(function (i) { return lista[i]; });
+        var x = voci.splice(e.oldDraggableIndex, 1)[0]; voci.splice(e.newDraggableIndex, 0, x);
+        pos.forEach(function (i, k) { lista[i] = voci[k]; });
+        setTimeout(function () { disegna(); barraScelta(); }, 0); // si ridisegna dopo che Sortable ha finito
+      }
+    }));
+  }
+  function disegna() {
+    disegnaImmagini();
+    ordinatori.forEach(function (o) { o.destroy(); }); ordinatori = [];
+    Object.keys(SEZIONI).forEach(function (g) {
+      var z = SEZIONI[g];
+      disegnaSezione(z, $(z.id));
+      $('conta-' + g).textContent = '(' + elenco(z).length + ')';
+    });
+    document.body.classList.toggle('selezione', !!sel);
+  }
+
+  /* ---------- foto selezionata: rossa che lampeggia, le altre più chiare; si trascina e si conferma ---------- */
+  var sel = null; // { sez, x, nuovo, nuove: foto da inviare, prima: copia dell'elenco per «Annulla» }
+  function scegli(sez, x) {
+    if (sel) confermaScelta();
+    sel = { sez: sez, x: x, nuovo: false, nuove: null, prima: elenco(sez).slice() };
+    mostraScelta('nearest');
+  }
+  function mostraScelta(blocco) {
+    $('scelta').hidden = false; disegna(); barraScelta();
+    var c = document.querySelector('.card.scelta');
+    if (c) c.scrollIntoView({ block: blocco });
+  }
+  function barraScelta() {
+    if (!sel) return;
+    $('sc-t').textContent = '«' + sel.x.titolo + '» · posto ' + posto(sel.sez, sel.x) + ' di ' + membri(sel.sez).length + ' in ' + sel.sez.nome;
+    $('sc-ok').textContent = sel.nuovo ? 'Conferma e salva' : 'Conferma';
+    document.body.classList.toggle('bloccata', cambiato(sel));
+  }
+  function cambiato(s) { var l = elenco(s.sez); return s.nuovo || l.length !== s.prima.length || l.some(function (x, i) { return x !== s.prima[i]; }); }
+  function fineScelta() {
+    sel = null; $('scelta').hidden = true; document.body.classList.remove('bloccata', 'avvisata');
+    $('scelta').classList.remove('avvisa'); $('sc-p').textContent = TESTO_SCELTA; disegna();
+  }
+  /* foto spostata (o nuova) e non ancora confermata: fuori dalla barra non si tocca nulla,
+     la barra lampeggia per ricordare di scegliere «Annulla» o «Conferma» */
+  var TESTO_SCELTA = $('sc-p').textContent;
+  function avvisaScelta() {
+    var b = $('scelta');
+    b.classList.remove('avvisa'); void b.offsetWidth; b.classList.add('avvisa'); // riparte ogni volta
+    document.body.classList.add('avvisata');
+    $('sc-p').textContent = sel.nuovo ? 'Prima di fare altro scegli: «Conferma e salva» per tenerla qui, «Annulla» per toglierla.'
+      : 'Prima di fare altro scegli: «Conferma» per salvare il nuovo posto, «Annulla» per rimetterla dov\'era.';
+  }
+  document.addEventListener('click', function (e) {
+    if (!sel || trascinato || !cambiato(sel) || document.querySelector('dialog[open]')) return;
+    var t = e.target;
+    if (t.closest && (t.closest('#scelta') || t.closest('.card.scelta'))) return;
+    e.preventDefault(); e.stopPropagation(); avvisaScelta();
+  }, true);
+  function confermaScelta() {
+    if (!sel) return;
+    var s = sel, n = posto(s.sez, s.x), mod = cambiato(s); fineScelta();
+    if (mod) salva((s.nuovo ? 'Aggiunto «' : 'Spostato «') + s.x.titolo + '» (' + s.sez.nome + ', posto ' + n + ')', s.nuove);
+  }
+  function annullaScelta() {
+    if (!sel) return;
+    var l = elenco(sel.sez); l.length = 0; sel.prima.forEach(function (x) { l.push(x); });
+    fineScelta();
+  }
+  $('sc-ok').onclick = confermaScelta;
+  $('sc-annulla').onclick = annullaScelta;
+  $('sc-mod').onclick = function () { apriScheda(sel.sez, sel.x); };
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && sel && !document.querySelector('dialog[open]')) annullaScelta(); });
+  window.addEventListener('beforeunload', function (e) { if (sel && cambiato(sel)) { e.preventDefault(); e.returnValue = ''; } });
+
+  /* ---------- salvataggio ---------- */
+  var timer = null, inCorso = false, inAttesa = null, fotoInAttesa = {};
+  function stato(tipo, testo, riprova) {
+    var el = $('stato'); el.className = 'stato ' + tipo; el.textContent = testo;
+    if (riprova) { var b = document.createElement('button'); b.type = 'button'; b.textContent = 'Riprova'; b.onclick = riprova; el.appendChild(document.createTextNode(' ')); el.appendChild(b); }
+  }
+  /* finestra di salvataggio: compare subito, la barra avanza da sola fino a circa il 90% e si
+     completa solo quando il salvataggio è davvero riuscito; poi si chiude con «OK» */
+  var dsv = $('d-salva'), svGiro = null, svVal = 0, svAttivo = false;
+  var ICO = {
+    lav: '<svg class="giro" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-6.2-8.6"/></svg>',
+    ok: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
+    err: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 7v6M12 17h.01"/></svg>'
+  };
+  function barra(v) { svVal = v; $('sv-bar').style.width = v + '%'; $('sv-barra').setAttribute('aria-valuenow', Math.round(v)); }
+  function inizioSalva() {
+    svAttivo = true; clearInterval(svGiro);
+    $('sv').className = 'sv'; $('sv-ico').innerHTML = ICO.lav;
+    $('sv-t').textContent = 'Salvataggio in corso…'; $('sv-p').textContent = 'Non chiudere la pagina.';
+    $('sv-ok').hidden = true; $('sv-riprova').hidden = true;
+    barra(4); if (!dsv.open) dsv.showModal();
+    svGiro = setInterval(function () { barra(svVal + (90 - svVal) * 0.07); }, 150);
+  }
+  function fineSalva(riuscito, testo, riprova) {
+    clearInterval(svGiro); svAttivo = false;
+    barra(100);
+    $('sv').className = 'sv ' + (riuscito ? 'ok' : 'err'); $('sv-ico').innerHTML = riuscito ? ICO.ok : ICO.err;
+    $('sv-t').textContent = riuscito ? 'Salvataggio riuscito correttamente' : 'Salvataggio non riuscito';
+    $('sv-p').textContent = riuscito ? 'Le modifiche saranno visibili sul sito tra qualche minuto.' : testo;
+    $('sv-ok').textContent = riuscito ? 'OK' : 'Chiudi'; $('sv-ok').hidden = false;
+    $('sv-riprova').hidden = !riprova; $('sv-riprova').onclick = riprova || null;
+    if (!dsv.open) dsv.showModal();
+    $('sv-ok').focus();
+  }
+  $('sv-ok').onclick = function () { dsv.close(); };
+  dsv.addEventListener('cancel', function (e) { if (svAttivo) e.preventDefault(); }); // durante il salvataggio non si chiude
+  function salva(msg, nuove) {
+    clearTimeout(timer);
+    if (nuove) Object.assign(fotoInAttesa, nuove);
+    if (inCorso) { inAttesa = msg; return Promise.resolve(); }
+    inCorso = true; inizioSalva(); // l'avanzamento si vede solo nella finestra di salvataggio
+    var foto = fotoInAttesa; fotoInAttesa = {};
+    var inviati = {}, gal = {};
+    Object.keys(gallerie).forEach(function (g) {
+      inviati[g] = gallerie[g].map(function (v) { return v.foto; });
+      gal[g] = gallerie[g].map(function (v) {
+        var o = { foto: v.foto, titolo: v.titolo };
+        if (v.alt) o.alt = v.alt; if (v.provvisoria) o.provvisoria = v.provvisoria;
+        return o;
+      });
+    });
+    var imm = immagini.map(function (v) { return { id: v.id, foto: v.foto, alt: v.alt }; });
+    var corpo = { gallerie: gal, immagini: imm, nuoveFoto: foto, messaggio: 'Area riservata: ' + msg };
+    return chiama('/salva', corpo).then(function (d) {
+      // le foto nuove ricevono il nome definitivo; si aggiorna l'elenco attuale (che nel frattempo può
+      // essere stato riordinato) e si tiene l'anteprima locale finché il sito non pubblica la foto
+      var nomi = {};
+      Object.keys(inviati).forEach(function (g) {
+        inviati[g].forEach(function (f, i) { if (f.indexOf('nuova:') === 0 && d.gallerie && d.gallerie[g] && d.gallerie[g][i]) nomi[f] = d.gallerie[g][i].foto; });
+      });
+      Object.keys(gallerie).forEach(function (g) {
+        gallerie[g].forEach(function (l) { var n = nomi[l.foto]; if (n) { anteprimeLocali[n] = anteprimeLocali[l.foto]; l.foto = n; } });
+      });
+      (d.immagini || []).forEach(function (srv) {
+        var loc = immagini.filter(function (v) { return v.id === srv.id; })[0];
+        if (loc && loc.foto.indexOf('nuova:') === 0 && imm.some(function (x) { return x.id === srv.id && x.foto === loc.foto; })) {
+          anteprimeLocali[srv.foto] = anteprimeLocali[loc.foto]; loc.foto = srv.foto;
+        }
+      });
+      disegna();
+      return true;
+    }).catch(function (err) {
+      Object.assign(fotoInAttesa, foto);
+      return err;
+    }).then(function (esito) {
+      inCorso = false;
+      if (inAttesa) { var m = inAttesa; inAttesa = null; salva(m); return; } // la finestra resta aperta per il salvataggio successivo
+      if (esito === true) fineSalva(true);
+      else fineSalva(false, esito.message, function () { salva(msg); });
+    });
+  }
+
+  /* ---------- foto: ridimensionata nel telefono prima dell'invio ---------- */
+  function preparaFoto(file) {
+    return new Promise(function (ok, ko) {
+      var url = URL.createObjectURL(file), img = new Image();
+      img.onload = function () {
+        var max = 1600, k = Math.min(1, max / Math.max(img.naturalWidth, img.naturalHeight));
+        var c = document.createElement('canvas'); c.width = Math.round(img.naturalWidth * k); c.height = Math.round(img.naturalHeight * k);
+        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+        URL.revokeObjectURL(url);
+        c.toBlob(function (blob) {
+          if (!blob) return ko(new Error('Foto non leggibile'));
+          var r = new FileReader();
+          r.onload = function () { ok({ b64: String(r.result).split(',')[1], anteprima: URL.createObjectURL(blob) }); };
+          r.onerror = function () { ko(new Error('Foto non leggibile')); };
+          r.readAsDataURL(blob);
+        }, 'image/jpeg', 0.85); // il nuovo file non contiene i dati EXIF (né la posizione GPS)
+      };
+      img.onerror = function () { URL.revokeObjectURL(url); ko(new Error('Questo formato non si apre qui: usa una foto JPG o PNG')); };
+      img.src = url;
+    });
+  }
+  function eVideo(f) { return /^video\//.test(f.type) || /\.(mov|mp4|m4v|webm)$/i.test(f.name); }
+
+  /* ---------- scheda: nuova foto o modifica ---------- */
+  var scheda = $('scheda'), schSez = null, schX = null, fotoScelta = null, confermaElimina = false;
+
+  function scegliFile(accetta) { $('file').accept = accetta; $('file').value = ''; $('file').click(); }
+  function nuovoLavoro(sez) { schSez = sez; schX = null; scegliFile(sez.accetta); }
+  $('cambia').onclick = function () { scegliFile(schSez.accetta); };
+  function mostraAnteprima(foto) {
+    var im = $('anteprima');
+    if (foto) im.src = foto; else im.removeAttribute('src');
+  }
+  $('file').onchange = function () {
+    var f = this.files && this.files[0]; if (!f) return;
+    if (dimg.open) { if (eVideo(f)) $('err-img').textContent = 'Qui va una foto, non un video'; else fotoImmagine(f); return; }
+    if (eVideo(f)) { $('err-scheda').textContent = 'Qui vanno solo foto'; if (!scheda.open) stato('err', 'In ' + schSez.nome + ' vanno solo foto'); return; }
+    var nuovo = !schX && !scheda.open;
+    if (nuovo) apriScheda(schSez, null);
+    $('err-scheda').textContent = ''; $('conferma').disabled = true; $('cambia').disabled = true;
+    mostraAnteprima(null); $('anteprima').alt = 'Preparazione della foto…';
+    $('avanza').textContent = '';
+    preparaFoto(f).then(function (p) {
+      fotoScelta = p;
+      mostraAnteprima(p.anteprima); $('anteprima').alt = 'Anteprima della foto';
+    })
+      .catch(function (err) { $('err-scheda').textContent = err.message; if (nuovo) fotoScelta = null; })
+      .then(function () { $('conferma').disabled = false; $('cambia').disabled = false; });
+  };
+
+  // nella scheda solo foto e titolo
+  function apriScheda(sez, x) {
+    schSez = sez; schX = x; fotoScelta = null; confermaElimina = false;
+    var nuovo = !x || (sel && sel.nuovo && sel.x === x);
+    $('scheda-t').textContent = (nuovo ? 'Nuova foto · ' : 'Modifica · ') + sez.nome;
+    $('cambia').textContent = 'Cambia foto';
+    $('avanza').textContent = '';
+    $('conferma').textContent = x ? 'Salva' : 'Aggiungi';
+    $('titolo').value = x ? x.titolo : '';
+    $('elimina').hidden = !x; $('elimina').textContent = 'Elimina'; $('elimina').classList.remove('conf');
+    $('err-scheda').textContent = '';
+    var im = $('anteprima');
+    if (x) { riserva(im, x.foto, x.provvisoria); mostraAnteprima(sorgente(x.foto)); im.alt = 'Foto attuale'; } else { mostraAnteprima(null); im.alt = ''; }
+    if (!scheda.open) scheda.showModal();
+    $('titolo').focus();
+  }
+  $('annulla').onclick = function () { scheda.close(); };
+  $('elimina').onclick = function () {
+    if (!confermaElimina) { confermaElimina = true; this.textContent = 'Sì, elimina'; this.classList.add('conf'); return; }
+    scheda.close();
+    if (sel && sel.nuovo && sel.x === schX) { annullaScelta(); return; } // mai salvata: basta toglierla
+    var l = elenco(schSez), i = l.indexOf(schX); if (i < 0) return;
+    if (sel && sel.x === schX) { sel = null; $('scelta').hidden = true; }
+    l.splice(i, 1); disegna(); salva('Eliminato «' + schX.titolo + '» (' + schSez.nome + ')');
+  };
+  $('f-lavoro').onsubmit = function (e) {
+    e.preventDefault();
+    var titolo = $('titolo').value.trim();
+    var err = !schX && !fotoScelta ? 'Scegli una foto' : !titolo ? 'Scrivi un titolo' : '';
+    if (err) { $('err-scheda').textContent = err; if (!titolo && fotoScelta) $('titolo').focus(); return; }
+    var nuove = null, id = null;
+    if (fotoScelta) {
+      id = 'nuova:' + Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
+      anteprimeLocali[id] = fotoScelta.anteprima; nuove = {}; nuove[id] = fotoScelta.b64;
+    }
+    scheda.close();
+    if (!schX) { // foto nuova: in fondo alla galleria, già selezionata per scegliere il posto
+      var x = { foto: id, titolo: titolo }, l = elenco(schSez);
+      sel = { sez: schSez, x: x, nuovo: true, nuove: nuove, prima: l.slice() };
+      l.push(x); mostraScelta('center'); return;
+    }
+    var x2 = schX;
+    // foto o titolo nuovi: la descrizione per Google si riscrive da sola («Modello … della Linea …»)
+    if (id) { x2.foto = id; delete x2.alt; delete x2.provvisoria; }
+    if (titolo !== x2.titolo) delete x2.alt;
+    x2.titolo = titolo;
+    if (sel && sel.nuovo && sel.x === x2) { // ancora da salvare: si aggiorna e si continua a posizionarla
+      if (nuove) sel.nuove = nuove;
+      disegna(); barraScelta(); return;
+    }
+    if (sel) { sel = null; $('scelta').hidden = true; }
+    disegna();
+    salva('Modificato «' + titolo + '» (' + schSez.nome + ')', nuove);
+  };
+
+  /* ---------- immagini fisse delle pagine ---------- */
+  var dimg = $('d-img'), immAperta = null, fotoImm = null;
+  function apriImmagine(id) {
+    immAperta = immagini.filter(function (v) { return v.id === id; })[0]; if (!immAperta) return;
+    fotoImm = null;
+    $('img-t').textContent = immAperta.sezione;
+    $('img-dove').textContent = immAperta.descrizione || ''; $('img-dove').hidden = !immAperta.descrizione;
+    $('img-alt').value = immAperta.alt || ''; $('err-img').textContent = '';
+    var im = $('img-ant'); riserva(im, immAperta.foto, immAperta.provvisoria); im.src = sorgente(immAperta.foto); im.alt = 'Foto attuale';
+    dimg.showModal();
+  }
+  function fotoImmagine(f) {
+    $('err-img').textContent = ''; $('img-ok').disabled = true; $('img-ant').removeAttribute('src'); $('img-ant').alt = 'Preparazione della foto…';
+    preparaFoto(f).then(function (p) { fotoImm = p; $('img-ant').onerror = null; $('img-ant').src = p.anteprima; $('img-ant').alt = 'Anteprima della foto nuova'; $('img-alt').focus(); })
+      .catch(function (err) { $('err-img').textContent = err.message; })
+      .then(function () { $('img-ok').disabled = false; });
+  }
+  $('img-cambia').onclick = function () { $('file').value = ''; $('file').click(); };
+  $('img-annulla').onclick = function () { dimg.close(); };
+  $('f-img').onsubmit = function (e) {
+    e.preventDefault();
+    var alt = $('img-alt').value.trim();
+    if (!alt) { $('err-img').textContent = 'Scrivi in poche parole cosa si vede nella foto'; $('img-alt').focus(); return; }
+    if (!fotoImm && alt === (immAperta.alt || '')) { dimg.close(); return; }
+    var nuove = null;
+    if (fotoImm) {
+      var id = 'nuova:' + Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
+      anteprimeLocali[id] = fotoImm.anteprima; nuove = {}; nuove[id] = fotoImm.b64; immAperta.foto = id; delete immAperta.provvisoria;
+    }
+    immAperta.alt = alt;
+    dimg.close(); disegna();
+    salva((fotoImm ? 'Cambiata la foto «' : 'Cambiata la descrizione «') + immAperta.sezione + '» (' + immAperta.pagina + ')', nuove);
+  };
+
+  /* ---------- guida ---------- */
+  var dg = $('d-guida');
+  function apriGuida() {
+    if (dg.open) return;
+    mem.set('ar-guida-vista', true);
+    dg.showModal(); dg.scrollTop = 0; $('g-t').focus();
+  }
+  $('apri-guida').onclick = apriGuida;
+  $('g-x').onclick = $('g-ok').onclick = function () { dg.close(); };
+  dg.addEventListener('click', function (e) { if (e.target === dg) dg.close(); }); // tocco fuori dalla finestra
+  var dz = $('d-zoom');
+  [].forEach.call(dg.querySelectorAll('.g-zoom'), function (a) {
+    a.onclick = function (e) { // ingrandisce nella stessa pagina, sopra la guida
+      e.preventDefault();
+      $('zoom-img').src = a.getAttribute('href'); $('zoom-img').alt = a.querySelector('img').alt;
+      [].forEach.call(dz.querySelectorAll('.zoom-punto'), function (x) { x.remove(); });
+      (a.dataset.punti || '').split(';').forEach(function (q) { // x,y,larghezza,altezza in % della schermata
+        if (!q) return; var v = q.split(','), d = document.createElement('span');
+        d.className = 'zoom-punto'; d.style.cssText = 'left:' + v[0] + '%;top:' + v[1] + '%;width:' + v[2] + '%;height:' + v[3] + '%';
+        $('zoom-box').appendChild(d);
+      });
+      dz.showModal(); $('zoom-x').focus();
+    };
+  });
+  dz.onclick = function () { dz.close(); }; // clic ovunque (anche sulla ×) chiude
+  [].forEach.call(dg.querySelectorAll('.g-indice a'), function (a) {
+    a.onclick = function (e) { e.preventDefault(); dg.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); };
+  });
+
+  /* ---------- cambio password ---------- */
+  var dpw = $('d-pw');
+  $('apri-pw').onclick = function () {
+    $('f-pw').reset(); $('err-pw').textContent = ''; mostraPw(false);
+    dpw.showModal(); $('pw-att').focus();
+  };
+  $('pw-annulla').onclick = function () { dpw.close(); };
+  function mostraPw(v) { ['pw-att', 'pw-nuova', 'pw-ripeti'].forEach(function (id) { $(id).type = v ? 'text' : 'password'; }); }
+  $('pw-mostra').onchange = function () { mostraPw(this.checked); };
+  $('f-pw').onsubmit = function (e) {
+    e.preventDefault();
+    var att = $('pw-att').value, nuova = $('pw-nuova').value, rip = $('pw-ripeti').value;
+    var err = !att ? ['Scrivi la password attuale', 'pw-att'] : nuova.length < 8 ? ['La password nuova deve avere almeno 8 caratteri', 'pw-nuova']
+      : nuova !== rip ? ['Le due password nuove non sono uguali', 'pw-ripeti'] : nuova === att ? ['La password nuova è uguale a quella attuale', 'pw-nuova'] : null;
+    if (err) { $('err-pw').textContent = err[0]; $(err[1]).focus(); return; }
+    $('pw-ok').disabled = true; $('pw-ok').textContent = 'Salvataggio…'; $('err-pw').textContent = '';
+    chiama('/password', { attuale: att, nuova: nuova }).then(function (d) {
+      token = d.token; mem.set('ar-token', { token: d.token, scade: d.scade });
+      dpw.close(); stato('ok', 'Password cambiata');
+    }).catch(function (er) { $('err-pw').textContent = er.message; })
+      .then(function () { $('pw-ok').disabled = false; $('pw-ok').textContent = 'Cambia password'; });
+  };
+
+  /* ---------- avvio ---------- */
+  if (!API || API.indexOf('INSERIRE') === 0) {
+    $('err-login').textContent = 'Area riservata non ancora attivata.'; $('entra').disabled = true;
+  } else {
+    var t = mem.get('ar-token');
+    if (t && t.token && t.scade > Date.now() / 1000) { token = t.token; carica(); } else mostraVista('login');
+  }
+})();
+</script>
+</body>
+</html>

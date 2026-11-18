@@ -4561,3 +4561,60 @@ nav .mega-card:focus-visible::before {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+/* ======================================================
+   LUCCHETTO DELL'AREA RISERVATA (ultima voce della navbar)
+   Su computer sta nel margine a destra di «Area download», fuori dalle 8 voci,
+   così il logo resta al centro; nel menu del telefono è una riga come le altre.
+   ====================================================== */
+.nav-lock a svg {
+  display: block;
+  flex: none;
+}
+
+@media (min-width: 1101px) {
+  header .bar {
+    position: relative;
+  }
+
+  nav > ul > li.nav-lock {
+    position: absolute;
+    top: 50%;
+    right: .55rem;
+    margin-top: -20px;
+  }
+
+  nav > ul > li.nav-lock > a {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    color: #7a8594;
+  }
+
+  nav > ul > li.nav-lock > a:hover {
+    color: var(--brand);
+    background: rgba(170, 55, 46, .08);
+    transform: none;
+  }
+
+  .nav-lock a span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 1100px) {
+  nav > ul > li.nav-lock > a {
+    justify-content: flex-start;
+    gap: .6rem;
+    color: #5d6878;
+  }
+}

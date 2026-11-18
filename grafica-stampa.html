@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Jost:wght@500&amp;display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=179">
+    <link rel="stylesheet" href="css/style.css?v=180">
     <link rel="icon" type="image/svg+xml" href="images/comune/logo-olimp.svg">
     <script>document.documentElement.classList.add("js")</script>
   <script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('fx-pre');setTimeout(function(){document.documentElement.classList.remove('fx-pre')},2500)}</script>
@@ -60,6 +60,7 @@
                     <li><a href="index.html#dove">Dove</a></li>
                     <li><a href="index.html#contatti">Contatti</a></li>
                     <li><a href="area-download.html">Area download</a></li>
+                    <li class="nav-lock"><a href="area-riservata.html" rel="nofollow" aria-label="Area riservata" title="Area riservata"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 10.5V7.5a3.5 3.5 0 0 1 7 0v3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Area riservata</span></a></li>
                 </ul>
             </nav>
         </div>
@@ -73,7 +74,7 @@
                     <p>La nostra cura è rivolta anche alla progettazione grafica delle foto degli album, perché ogni
                         singolo dettaglio dei nostri prodotti per noi è importante.</p>
                 </div>
-                <figure class="gs-hero ph no-zoom"><img src="images/grafica-stampa/colore.jpg"
+                <figure class="gs-hero ph no-zoom"><img data-slot="grafica-principale" src="images/grafica-stampa/colore.jpg"
                         alt="Campionario colore e lente per il controllo della stampa">
                     <figcaption class="gs-title"><span class="eyebrow">Olimp / Produzione</span>
                         <h1>Grafica &amp; Stampa</h1>
@@ -88,28 +89,28 @@
                     </div>
                     <div class="gs-panels">
                         <article class="gs-panel" id="gs-p1" role="tabpanel" aria-labelledby="gs-t1">
-                            <figure class="ph no-zoom"><img src="images/grafica-stampa/selezione.jpg?v=2" alt="Selezione degli scatti" loading="lazy"></figure>
+                            <figure class="ph no-zoom"><img data-slot="grafica-selezione" src="images/grafica-stampa/selezione.jpg?v=2" alt="Selezione degli scatti" loading="lazy"></figure>
                             <div><span class="graphics-number">01</span>
                                 <h3>Selezione degli scatti</h3>
                                 <p>Ci occupiamo di selezionare dai vostri scatti i file da impaginare, scegliendo le foto che meglio raccontano l’emozione del matrimonio.</p>
                             </div>
                         </article>
                         <article class="gs-panel" id="gs-p2" role="tabpanel" aria-labelledby="gs-t2" hidden>
-                            <figure class="ph no-zoom"><img src="images/grafica-stampa/sviluppoRaw.jpg" alt="Sviluppo RAW" loading="lazy"></figure>
+                            <figure class="ph no-zoom"><img data-slot="grafica-sviluppo" src="images/grafica-stampa/sviluppoRaw.jpg" alt="Sviluppo RAW" loading="lazy"></figure>
                             <div><span class="graphics-number">02</span>
                                 <h3>Sviluppo RAW</h3>
                                 <p>Elaboriamo le immagini direttamente da file raw, preservando la veridicità e l’eleganza delle vostre immagini.</p>
                             </div>
                         </article>
                         <article class="gs-panel" id="gs-p3" role="tabpanel" aria-labelledby="gs-t3" hidden>
-                            <figure class="ph no-zoom"><img src="images/grafica-stampa/fotoritocco.jpg?v=2" alt="Fotoritocco" loading="lazy"></figure>
+                            <figure class="ph no-zoom"><img data-slot="grafica-fotoritocco" src="images/grafica-stampa/fotoritocco.jpg?v=2" alt="Fotoritocco" loading="lazy"></figure>
                             <div><span class="graphics-number">03</span>
                                 <h3>Fotoritocco</h3>
                                 <p>Grazie al fotoritocco, restituiamo alle foto la loro bellezza senza tempo.</p>
                             </div>
                         </article>
                         <article class="gs-panel" id="gs-p4" role="tabpanel" aria-labelledby="gs-t4" hidden>
-                            <figure class="ph no-zoom"><img src="images/grafica-stampa/impaginazione.jpg" alt="Impaginazione" loading="lazy"></figure>
+                            <figure class="ph no-zoom"><img data-slot="grafica-impaginazione" src="images/grafica-stampa/impaginazione.jpg" alt="Impaginazione" loading="lazy"></figure>
                             <div><span class="graphics-number">04</span>
                                 <h3>Impaginazione</h3>
                                 <p>Ci occupiamo infine dell’impaginazione dell’album, realizzando su carta un racconto unico e suggestivo del matrimonio dei vostri sposi.</p>

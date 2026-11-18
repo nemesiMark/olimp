@@ -1,0 +1,331 @@
+{
+  "linea-fashion": [
+    {
+      "foto": "images/linea-fashion/modello-flower.jpg",
+      "titolo": "Modello Flower",
+      "alt": "Modello Flower della Linea Fashion, in suede beige con foto degli sposi e pannello bianco con rami traforati"
+    },
+    {
+      "foto": "images/linea-fashion/modello-curve.jpg",
+      "titolo": "Modello Curve",
+      "alt": "Modello Curve della Linea Fashion, con pannello bianco «Elisa & Andrea», profilo ondulato e foto in bianco e nero"
+    },
+    {
+      "foto": "images/linea-fashion/modello-fun.jpg",
+      "titolo": "Modello Fun",
+      "alt": "Modello Fun della Linea Fashion, grigio con intarsi geometrici neri e nomi «Andrea & Alessia»"
+    },
+    {
+      "foto": "images/linea-fashion/modello-mood.jpg",
+      "titolo": "Modello Mood",
+      "alt": "Modello Mood della Linea Fashion, nero con linee geometriche grigie e nomi «Andrea & Alessia» al centro"
+    },
+    {
+      "foto": "images/linea-fashion/modello-vision.jpg",
+      "titolo": "Modello Vision",
+      "alt": "Modello Vision della Linea Fashion, in suede tortora con targhetta «Wedding Day»"
+    },
+    {
+      "foto": "images/linea-fashion/modello-onda.jpg",
+      "titolo": "Modello Onda",
+      "alt": "Modello Onda della Linea Fashion, in suede rosa con foto degli sposi e nomi «Silvia e Andrea»"
+    },
+    {
+      "foto": "images/linea-fashion/modello-split.jpg",
+      "titolo": "Modello Split",
+      "alt": "Modello Split della Linea Fashion, effetto legno a doghe con nomi «Andrea and Martina»"
+    },
+    {
+      "foto": "images/linea-fashion/modello-parigi.jpg",
+      "titolo": "Modello Parigi",
+      "alt": "Modello Parigi della Linea Fashion, con copertina bianca, cornice floreale e dorso in suede rosa"
+    },
+    {
+      "foto": "images/linea-fashion/modello-vienna.jpg",
+      "titolo": "Modello Vienna",
+      "alt": "Modello Vienna della Linea Fashion, con copertina bianca, foto al tramonto e dorso in tela verde"
+    }
+  ],
+  "linea-glamour": [
+    {
+      "foto": "images/linea-glamour/modello-ice.jpg",
+      "titolo": "Modello Ice",
+      "alt": "Modello Ice della Linea Glamour, copertina bianca con fascia effetto legno e nomi «Benedetto e Paola»"
+    },
+    {
+      "foto": "images/linea-glamour/modello-unique.jpg",
+      "titolo": "Modello Unique",
+      "alt": "Modello Unique della Linea Glamour, copertina in tessuto grigio chiaro con frecce incrociate e nomi «Andrea e Agata»"
+    },
+    {
+      "foto": "images/linea-glamour/modello-tex.jpg",
+      "titolo": "Modello Tex",
+      "alt": "Modello Tex della Linea Glamour, copertina effetto legno chiaro con nomi «Elisa & Andrea»"
+    },
+    {
+      "foto": "images/linea-glamour/modello-tex-wooden.jpg",
+      "titolo": "Modello Tex Wooden",
+      "alt": "Modello Tex Wooden della Linea Glamour, album impilati con copertine effetto legno in varie tonalità"
+    },
+    {
+      "foto": "images/linea-glamour/modello-clear.jpg",
+      "titolo": "Modello Clear",
+      "alt": "Modello Clear della Linea Glamour, copertina effetto legno con scritta «Mr&Mrs», cornice e foto degli sposi"
+    },
+    {
+      "foto": "images/linea-glamour/modello-notch.jpg",
+      "titolo": "Modello Notch",
+      "alt": "Modello Notch della Linea Glamour, copertina in suede color cuoio con logo inciso «Elisa e Andrea»"
+    },
+    {
+      "foto": "images/linea-glamour/modello-madrid.jpg",
+      "titolo": "Modello Madrid",
+      "alt": "Modello Madrid della Linea Glamour, copertina perlata con fascia tortora e iniziali argento"
+    },
+    {
+      "foto": "images/linea-glamour/modello-londra.jpg",
+      "titolo": "Modello Londra",
+      "alt": "Modello Londra della Linea Glamour, copertina nera con fila di strass e iniziali argento"
+    },
+    {
+      "foto": "images/linea-glamour/modello-happy.jpg",
+      "titolo": "Modello Happy",
+      "alt": "Modello Happy della Linea Glamour, copertina grigio chiaro con targhetta in legno e nomi incisi"
+    }
+  ],
+  "linea-trendy": [
+    {
+      "foto": "images/linea-trendy/modello-frame.jpg",
+      "titolo": "Modello Frame",
+      "alt": "Modello Frame della Linea Trendy, copertina nera con foto degli sposi in bianco e nero incorniciata al centro"
+    },
+    {
+      "foto": "images/linea-trendy/modello-orione.jpg",
+      "titolo": "Modello Orione",
+      "alt": "Modello Orione della Linea Trendy, copertina nera con fascia fotografica panoramica in bianco e nero"
+    },
+    {
+      "foto": "images/linea-trendy/modello-ailanto.jpg",
+      "titolo": "Modello Ailanto",
+      "alt": "Modello Ailanto della Linea Trendy, copertina in suede avorio con pannello decorato a nastri e profilo ondulato"
+    }
+  ],
+  "linea-cuoio-fiorentino": [
+    {
+      "foto": "images/linea-cuoio-fiorentino/modello-ambra.jpg",
+      "titolo": "Ambra",
+      "alt": "Modello Ambra della Linea Cuoio Fiorentino, in cuoio color miele con volute in rilievo sugli angoli e sui lati"
+    },
+    {
+      "foto": "images/linea-cuoio-fiorentino/modello-ares.jpg",
+      "titolo": "Ares",
+      "alt": "Modello Ares della Linea Cuoio Fiorentino, in cuoio bruno con pannello rialzato e piccoli fregi sugli angoli"
+    },
+    {
+      "foto": "images/linea-cuoio-fiorentino/modello-greca.jpg",
+      "titolo": "Greca",
+      "alt": "Modello Greca della Linea Cuoio Fiorentino, in cuoio bruno con cornice a greca impressa intorno al pannello centrale"
+    },
+    {
+      "foto": "images/linea-cuoio-fiorentino/modello-scrigno.jpg",
+      "titolo": "Scrigno",
+      "alt": "Modello Scrigno della Linea Cuoio Fiorentino, in cuoio con doppia cornice cucita, fregi sugli angoli e chiusura a cinturino"
+    }
+  ],
+  "album-bambini-deluxe": [
+    {
+      "foto": "images/album-bambini-deluxe/modello-nuvola.jpg",
+      "titolo": "Nuvola",
+      "alt": "Modello Nuvola della Linea Deluxe, in suede azzurro con nuvole e aeroplanino di carta in legno e il nome «Andrea»"
+    },
+    {
+      "foto": "images/album-bambini-deluxe/modello-adele.jpg",
+      "titolo": "Adele",
+      "alt": "Modello Adele della Linea Deluxe, in suede rosa con targa in legno incisa «Il Battesimo di Lavinia»"
+    },
+    {
+      "foto": "images/album-bambini-deluxe/modello-parigi-baby.jpg",
+      "titolo": "Parigi Baby",
+      "alt": "Modello Parigi Baby della Linea Deluxe, con copertina bianca in plex, cornice floreale con il nome «Martina» e dorso in suede rosa"
+    },
+    {
+      "foto": "images/album-bambini-deluxe/modello-alberto.jpg",
+      "titolo": "Alberto",
+      "alt": "Modello Alberto della Linea Deluxe, azzurro effetto legno con ghirlanda bianca traforata «Il Mio Battesimo»"
+    },
+    {
+      "foto": "images/album-bambini-deluxe/modello-vittorio.jpg",
+      "titolo": "Vittorio",
+      "alt": "Modello Vittorio della Linea Deluxe, bianco e giallo con cicogna e fiori traforati e finestra per la foto"
+    },
+    {
+      "foto": "images/album-bambini-deluxe/modello-loris.jpg",
+      "titolo": "Loris",
+      "alt": "Modello Loris della Linea Deluxe, bianco con scritta traforata «Il Mio Battesimo», strass e foto del bambino"
+    },
+    {
+      "foto": "images/album-bambini-deluxe/modello-alice.jpg",
+      "titolo": "Alice",
+      "alt": "Modello Alice della Linea Deluxe, fucsia con fascia bianca «Il Mio Battesimo» e foto dei piedini"
+    },
+    {
+      "foto": "images/album-bambini-deluxe/modello-dylan.jpg",
+      "titolo": "Dylan",
+      "alt": "Modello Dylan della Linea Deluxe, bianco con scritta «Baby» traforata e grande finestra per la foto"
+    }
+  ],
+  "album-bambini-baby": [
+    {
+      "foto": "images/album-bambini-baby/modello-tommy.jpg",
+      "titolo": "Tommy",
+      "alt": "Modello Tommy della Linea Baby, in tela blu con fascia bianca, bandierine e il nome «Andrea»"
+    },
+    {
+      "foto": "images/album-bambini-baby/modello-sam.jpg",
+      "titolo": "Sam",
+      "alt": "Modello Sam della Linea Baby, blu effetto legno con fascia bianca, stelle, il nome «Andrea» e bimbo che abbraccia un orsetto"
+    },
+    {
+      "foto": "images/album-bambini-baby/modello-wooden-mongolfiera.jpg",
+      "titolo": "Wooden Mongolfiera",
+      "alt": "Modello Wooden Mongolfiera della Linea Baby, azzurro effetto legno con mongolfiera e scritta «Il Mio Battesimo»"
+    },
+    {
+      "foto": "images/album-bambini-baby/modello-wooden-orsetto.jpg",
+      "titolo": "Wooden Orsetto",
+      "alt": "Modello Wooden Orsetto della Linea Baby, rosa effetto legno con orsetto bianco e scritta «Il Mio Battesimo»"
+    },
+    {
+      "foto": "images/album-bambini-baby/modello-alex.jpg",
+      "titolo": "Alex",
+      "alt": "Modello Alex della Linea Baby, con cornice bianca, grande foto del bambino in copertina e dorso azzurro"
+    },
+    {
+      "foto": "images/album-bambini-baby/modello-marc.jpg",
+      "titolo": "Marc",
+      "alt": "Modello Marc della Linea Baby, azzurro effetto legno con due finestre per le foto e dorso bianco"
+    },
+    {
+      "foto": "images/album-bambini-baby/modello-frame-baby.jpg",
+      "titolo": "Frame Baby",
+      "alt": "Modello Frame Baby della Linea Baby, in suede azzurro con finestra per la foto del neonato"
+    },
+    {
+      "foto": "images/album-bambini-baby/modello-ronald.jpg",
+      "titolo": "Ronald",
+      "alt": "Modello Ronald della Linea Baby, azzurro con finestra sagomata per la foto e fascia blu"
+    },
+    {
+      "foto": "images/album-bambini-baby/modello-eliseo.jpg",
+      "titolo": "Eliseo",
+      "alt": "Modello Eliseo della Linea Baby, bianco e azzurro con tre cuori bordati da cordoncino e fiocchetti"
+    },
+    {
+      "foto": "images/album-bambini-baby/modello-iole.jpg",
+      "titolo": "Iole",
+      "alt": "Modello Iole della Linea Baby, rosa con fascia bianca sagomata e cuori bordati da cordoncino e fiocchetti"
+    },
+    {
+      "foto": "images/album-bambini-baby/modello-baby-mask-1.jpg",
+      "titolo": "Baby Mask 1",
+      "alt": "Modello Baby Mask 1 della Linea Baby, bianco con palloncino azzurro, spazio per la foto e scritta «Il mio Battesimo»"
+    },
+    {
+      "foto": "images/album-bambini-baby/modello-baby-mask-2.jpg",
+      "titolo": "Baby Mask 2",
+      "alt": "Modello Baby Mask 2 della Linea Baby, rosa con quattro spazi per le foto, fiori e scritta «Il mio Battesimo»"
+    },
+    {
+      "foto": "images/album-bambini-baby/modello-baby-mask-3.jpg",
+      "titolo": "Baby Mask 3",
+      "alt": "Modello Baby Mask 3 della Linea Baby, color crema con decoro traforato, fiocco, farfalla e spazio per la foto"
+    }
+  ],
+  "album-bambini-new-born": [
+    {
+      "foto": "images/album-bambini-new-born/modello-soffietto.jpg",
+      "titolo": "Soffietto",
+      "alt": "Modello Soffietto della Linea New Born, in tela verde a spina di pesce con il nome «Vittorio» e la data, accanto a un album aperto"
+    },
+    {
+      "foto": "images/album-bambini-new-born/modello-soffietto-2.jpg",
+      "titolo": "Soffietto",
+      "alt": "Modello Soffietto della Linea New Born, in tela blu, aperto sulle foto del neonato"
+    }
+  ],
+  "album-comunione": [
+    {
+      "foto": "images/album-comunione/modello-emma.jpg",
+      "titolo": "Emma",
+      "alt": "Modello Emma della Linea Comunione, color sabbia con fascia bianca traforata «La Mia Prima Comunione» e foto della bambina"
+    },
+    {
+      "foto": "images/album-comunione/modello-bonnie.jpg",
+      "titolo": "Bonnie",
+      "alt": "Modello Bonnie della Linea Comunione, bianco con fascia centrale rosa e medaglia argentata con calice"
+    },
+    {
+      "foto": "images/album-comunione/modello-clyde.jpg",
+      "titolo": "Clyde",
+      "alt": "Modello Clyde della Linea Comunione, bianco e azzurro con medaglia argentata con calice, spighe e uva"
+    },
+    {
+      "foto": "images/album-comunione/modello-948.jpg",
+      "titolo": "948",
+      "alt": "Modello 948 della Linea Comunione, con pergamena illustrata, calice e cornice effetto legno"
+    },
+    {
+      "foto": "images/album-comunione/modello-carpetta-comunione-3.jpg",
+      "titolo": "Carpetta Comunione 3",
+      "alt": "Modello Carpetta Comunione 3 della Linea Comunione, color pesca con pergamena «La Mia Prima Comunione», calice e rose"
+    },
+    {
+      "foto": "images/album-comunione/modello-carpetta-comunione-cresima-4.jpg",
+      "titolo": "Carpetta Comunione Cresima 4",
+      "alt": "Modello Carpetta Comunione Cresima 4 della Linea Comunione, color pesca con pergamena antica, libro aperto e calice dorato"
+    },
+    {
+      "foto": "images/album-comunione/modello-carpetta-comunione-cresima-5.jpg",
+      "titolo": "Carpetta Comunione Cresima 5",
+      "alt": "Modello Carpetta Comunione Cresima 5 della Linea Comunione, con calice dorato, ostia, pane, spighe e uva su fondo materico"
+    }
+  ],
+  "album-eventi": [
+    {
+      "foto": "images/album-eventi/eventi-1.jpg",
+      "titolo": "Foto album eventi 1",
+      "alt": "Foto album eventi 1",
+      "provvisoria": "images/album-eventi/sala-ricevimento.jpg"
+    },
+    {
+      "foto": "images/album-eventi/eventi-2.jpg",
+      "titolo": "Foto album eventi 2",
+      "alt": "Foto album eventi 2",
+      "provvisoria": "images/album-eventi/bouquet-1.jpg"
+    },
+    {
+      "foto": "images/album-eventi/eventi-3.jpg",
+      "titolo": "Foto album eventi 3",
+      "alt": "Foto album eventi 3",
+      "provvisoria": "images/album-eventi/fedi-3.jpg"
+    },
+    {
+      "foto": "images/album-eventi/eventi-4.jpg",
+      "titolo": "Foto album eventi 4",
+      "alt": "Foto album eventi 4",
+      "provvisoria": "images/album-eventi/fedi-1.jpg"
+    },
+    {
+      "foto": "images/album-eventi/eventi-5.jpg",
+      "titolo": "Foto album eventi 5",
+      "alt": "Foto album eventi 5",
+      "provvisoria": "images/album-eventi/bouquet-2.jpg"
+    },
+    {
+      "foto": "images/album-eventi/eventi-6.jpg",
+      "titolo": "Foto album eventi 6",
+      "alt": "Foto album eventi 6",
+      "provvisoria": "images/album-eventi/fedi-mani.jpg"
+    }
+  ]
+}
