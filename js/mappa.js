@@ -38,16 +38,6 @@
     var s=document.createElement('script');s.src=LIB_JS;s.onload=cb;document.head.appendChild(s);
   }
 
-  // Andamento della discesa: partenza morbida, frenata finale breve
-  function bezier(x1,y1,x2,y2){
-    return function(t){
-      var lo=0,hi=1,u=t;
-      for(var i=0;i<30;i++){u=(lo+hi)/2;var x=3*(1-u)*(1-u)*u*x1+3*(1-u)*u*u*x2+u*u*u;if(x<t)lo=u;else hi=u}
-      return 3*(1-u)*(1-u)*u*y1+3*(1-u)*u*u*y2+u*u*u;
-    };
-  }
-  var andatura=bezier(0.25,0.1,0.6,1);
-
   /* Precarica le foto satellitari attorno alla sede, a ogni livello della discesa:
      durante il volo arrivano dalla memoria del browser e la discesa resta fluida.
      Si ferma da sola dopo qualche secondo, così l'animazione non aspetta troppo. */
@@ -187,9 +177,47 @@
   // Su telefono l'arrivo è un po' più largo, così si vede meglio la zona
   function zoomArrivo(){return box.clientWidth<600?16.4:17.2}
 
+  /* Discesa continua, senza fermate: la mappa scende sempre, ma rallenta molto mentre si legge
+     un nome (Italia, Sicilia, provincia di Agrigento, Canicattì) e accelera nei tratti in mezzo.
+     La velocità cambia con dolcezza; il centro passa sopra ogni zona mentre il suo nome è visibile. */
+  function liscio(x){x=Math.max(0,Math.min(1,x));return x*x*(3-2*x)}
+  var LENTO=[[4.2,5.4,.34],[6.2,7.2,.34],[8.0,8.9,.36],[10,13.5,.62]]; // [da zoom, a zoom, velocità]
+  var VELOCE=1.7; // zoom al secondo nei tratti senza nomi
+  function velocita(z,zFine,t){
+    var v=VELOCE;
+    LENTO.forEach(function(l){
+      var dentro=liscio((z-l[0]+.45)/.45)*liscio((l[1]-z+.45)/.45); // 0 fuori, 1 dentro, morbido ai bordi
+      v=Math.min(v,VELOCE-(VELOCE-l[2])*dentro);
+    });
+    v*=.12+.88*liscio(t/1.8);                    // partenza dolce
+    v*=Math.max(.1,Math.min(1,(zFine-z)/1.4));  // arrivo dolce
+    return v;
+  }
+  function percorso(){
+    var tel=stretto();
+    return [ // [zoom, centro]: il centro passa da un punto all'altro mentre lo zoom cresce
+      [PARTENZA.zoom,PARTENZA.center],
+      [tel?4.6:4.8,[12.7,42.0]],      // Italia
+      [6.7,[14.1,37.55]],             // Sicilia
+      [8.45,[13.62,37.42]],           // provincia di Agrigento
+      [11.6,CENTRO_CITTA],            // Canicattì
+      [zoomArrivo(),SEDE]             // la sede
+    ];
+  }
+  function centroA(z,tappe){
+    for(var i=1;i<tappe.length;i++){
+      var A=tappe[i-1],B=tappe[i];
+      if(z<=B[0]||i===tappe.length-1){
+        var f=liscio((z-A[0])/(B[0]-A[0]));
+        return [A[1][0]+(B[1][0]-A[1][0])*f,A[1][1]+(B[1][1]-A[1][1])*f];
+      }
+    }
+  }
+  var corsa=0; // ogni partenza (anche «rivedi») ferma quella di prima
   function play(){
     if(!map||!loaded)return;
     started=true;
+    var mia=++corsa;
     map.stop();
     pin.classList.remove('is-on');
     map.jumpTo(PARTENZA);
@@ -197,10 +225,17 @@
     if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){
       map.jumpTo({center:SEDE,zoom:zoomArrivo()});arrive();return;
     }
-    setTimeout(function(){
-      map.flyTo({center:SEDE,zoom:zoomArrivo(),duration:12000,curve:1.6,essential:true,easing:andatura});
-      map.once('moveend',arrive);
-    },1200);
+    var tappe=percorso(),zFine=zoomArrivo(),z=PARTENZA.zoom,t=0,prima=null;
+    function passo(ora){
+      if(mia!==corsa)return;
+      if(prima===null)prima=ora;
+      var dt=Math.min(.05,(ora-prima)/1000);prima=ora;t+=dt; // max 50 ms: niente salti se la scheda era nascosta
+      z+=velocita(z,zFine,t)*dt;
+      if(z>=zFine-.01){map.jumpTo({center:SEDE,zoom:zFine});arrive();return}
+      map.jumpTo({center:centroA(z,tappe),zoom:z});
+      requestAnimationFrame(passo);
+    }
+    setTimeout(function(){if(mia===corsa)requestAnimationFrame(passo)},1200);
   }
 
   function start(){

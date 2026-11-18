@@ -1645,3 +1645,12 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                    messaggio dice quanti tentativi restano. Con l'accesso giusto il conto si
                    azzera. Resta il rallentamento di 1,2 s per ogni errore. Chi è già dentro
                    continua a lavorare (il blocco vale per l'accesso e il cambio password).
+
+3.25 (18/11/2026)  Mappa in home: la discesa è più lenta e continua, senza fermate. La mappa
+                   scende sempre ma rallenta molto mentre si legge un nome (Italia, Sicilia,
+                   provincia di Agrigento, Canicattì: circa 3-5 s ciascuno) e accelera nei tratti
+                   in mezzo; la velocità cambia con dolcezza (circa 25 s in tutto invece di 12).
+                   «Rivedi» ferma la discesa in corso e riparte da capo. I nomi sulla mappa
+                   stanno su una targhetta scura semitrasparente con una sottile linea rossa,
+                   quindi si leggono su qualunque foto satellitare. js/mappa.js?v=14,
+                   style.css?v=183.
