@@ -1,0 +1,2910 @@
+[
+  {
+    "id": "album-bambini-baby-t001",
+    "pagina": "album-bambini-baby.html",
+    "sezione": "Intestazione",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "Olimp / Album bambini"
+  },
+  {
+    "id": "album-bambini-baby-t002",
+    "pagina": "album-bambini-baby.html",
+    "sezione": "Intestazione",
+    "descrizione": "Titolo della pagina",
+    "tipo": "testo",
+    "testo": "Linea Baby"
+  },
+  {
+    "id": "album-bambini-baby-t003",
+    "pagina": "album-bambini-baby.html",
+    "sezione": "Presentazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "La Linea Baby propone album dai colori delicati in tela, suede ed effetto legno, con stampe, cuori in cordoncino, fiocchetti e finestre per le foto."
+  },
+  {
+    "id": "album-bambini-baby-t004",
+    "pagina": "album-bambini-baby.html",
+    "sezione": "Presentazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Nome, scritte e decori si scelgono insieme, per un ricordo dei primi anni pensato su misura."
+  },
+  {
+    "id": "album-bambini-baby-t005",
+    "pagina": "album-bambini-baby.html",
+    "sezione": "Gli album della linea",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "Gli album della linea"
+  },
+  {
+    "id": "album-bambini-deluxe-t001",
+    "pagina": "album-bambini-deluxe.html",
+    "sezione": "Intestazione",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "Olimp / Album bambini"
+  },
+  {
+    "id": "album-bambini-deluxe-t002",
+    "pagina": "album-bambini-deluxe.html",
+    "sezione": "Intestazione",
+    "descrizione": "Titolo della pagina",
+    "tipo": "testo",
+    "testo": "Linea Deluxe"
+  },
+  {
+    "id": "album-bambini-deluxe-t003",
+    "pagina": "album-bambini-deluxe.html",
+    "sezione": "Presentazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "La Linea Deluxe riunisce gli album per bambini più ricercati: copertine in plex traforato, suede e materiali effetto legno, arricchite da decori in legno, strass e finestre per la foto."
+  },
+  {
+    "id": "album-bambini-deluxe-t004",
+    "pagina": "album-bambini-deluxe.html",
+    "sezione": "Presentazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Ogni album si personalizza con il nome del bambino o con la scritta del giorno da ricordare, come il Battesimo."
+  },
+  {
+    "id": "album-bambini-deluxe-t005",
+    "pagina": "album-bambini-deluxe.html",
+    "sezione": "Gli album della linea",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "Gli album della linea"
+  },
+  {
+    "id": "album-bambini-new-born-t001",
+    "pagina": "album-bambini-new-born.html",
+    "sezione": "Intestazione",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "Olimp / Album bambini"
+  },
+  {
+    "id": "album-bambini-new-born-t002",
+    "pagina": "album-bambini-new-born.html",
+    "sezione": "Intestazione",
+    "descrizione": "Titolo della pagina",
+    "tipo": "testo",
+    "testo": "Linea New Born"
+  },
+  {
+    "id": "album-bambini-new-born-t003",
+    "pagina": "album-bambini-new-born.html",
+    "sezione": "Presentazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "La Linea New Born è pensata per le prime foto del neonato: piccoli album in tela, comodi da sfogliare e da tenere sempre a portata di mano."
+  },
+  {
+    "id": "album-bambini-new-born-t004",
+    "pagina": "album-bambini-new-born.html",
+    "sezione": "Presentazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "In copertina si possono riportare il nome e la data di nascita."
+  },
+  {
+    "id": "album-bambini-new-born-t005",
+    "pagina": "album-bambini-new-born.html",
+    "sezione": "Gli album della linea",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "Gli album della linea"
+  },
+  {
+    "id": "album-bambini-t001",
+    "pagina": "album-bambini.html",
+    "sezione": "Intestazione",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "Olimp / Album"
+  },
+  {
+    "id": "album-bambini-t002",
+    "pagina": "album-bambini.html",
+    "sezione": "Intestazione",
+    "descrizione": "Titolo della pagina",
+    "tipo": "testo",
+    "testo": "Album bambini"
+  },
+  {
+    "id": "album-bambini-t003",
+    "pagina": "album-bambini.html",
+    "sezione": "I primi anni, pagina dopo pagina",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "I primi anni, pagina dopo pagina"
+  },
+  {
+    "id": "album-bambini-t004",
+    "pagina": "album-bambini.html",
+    "sezione": "I primi anni, pagina dopo pagina",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Colori classici e materiali innovativi stanno alla base degli album della Linea Bambini. Dalla tela al plex, dalla similpelle al rigenerato di cuoio, ogni album è studiato per soddisfare le richieste più varie di chi vuole riporre in una custodia speciale i ricordi dei propri piccini."
+  },
+  {
+    "id": "album-bambini-t005",
+    "pagina": "album-bambini.html",
+    "sezione": "Le nostre linee",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "Le nostre linee"
+  },
+  {
+    "id": "album-bambini-t006",
+    "pagina": "album-bambini.html",
+    "sezione": "Le nostre linee",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Scegli la linea più adatta e scopri tutti i modelli."
+  },
+  {
+    "id": "album-bambini-t007",
+    "pagina": "album-bambini.html",
+    "sezione": "Le nostre linee",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Linea Deluxe"
+  },
+  {
+    "id": "album-bambini-t008",
+    "pagina": "album-bambini.html",
+    "sezione": "Le nostre linee",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Plex traforato, suede ed effetto legno, con finestre per la foto e decori su misura."
+  },
+  {
+    "id": "album-bambini-t009",
+    "pagina": "album-bambini.html",
+    "sezione": "Le nostre linee",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Linea Baby"
+  },
+  {
+    "id": "album-bambini-t010",
+    "pagina": "album-bambini.html",
+    "sezione": "Le nostre linee",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Colori delicati, stampe, cuori in cordoncino e finestre per le prime foto."
+  },
+  {
+    "id": "album-bambini-t011",
+    "pagina": "album-bambini.html",
+    "sezione": "Le nostre linee",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Linea New Born"
+  },
+  {
+    "id": "album-bambini-t012",
+    "pagina": "album-bambini.html",
+    "sezione": "Le nostre linee",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Piccoli album in tela per le prime foto del neonato, con nome e data in copertina."
+  },
+  {
+    "id": "album-comunione-t001",
+    "pagina": "album-comunione.html",
+    "sezione": "Intestazione",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "Olimp / Album"
+  },
+  {
+    "id": "album-comunione-t002",
+    "pagina": "album-comunione.html",
+    "sezione": "Intestazione",
+    "descrizione": "Titolo della pagina",
+    "tipo": "testo",
+    "testo": "Album comunione"
+  },
+  {
+    "id": "album-comunione-t003",
+    "pagina": "album-comunione.html",
+    "sezione": "Il ricordo di un giorno speciale",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "Il ricordo di un giorno speciale"
+  },
+  {
+    "id": "album-comunione-t004",
+    "pagina": "album-comunione.html",
+    "sezione": "Il ricordo di un giorno speciale",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Un formato unico nel suo genere per coloro che desiderano conservare un ricordo della Prima Comunione dei propri cari. Le rappresentazioni iconografiche classiche decorano questi album realizzati in materiali eleganti e pregiati."
+  },
+  {
+    "id": "album-comunione-t005",
+    "pagina": "album-comunione.html",
+    "sezione": "I modelli",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "I modelli"
+  },
+  {
+    "id": "album-eventi-t001",
+    "pagina": "album-eventi.html",
+    "sezione": "Intestazione",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "Olimp / Album"
+  },
+  {
+    "id": "album-eventi-t002",
+    "pagina": "album-eventi.html",
+    "sezione": "Intestazione",
+    "descrizione": "Titolo della pagina",
+    "tipo": "testo",
+    "testo": "Album eventi"
+  },
+  {
+    "id": "album-eventi-t003",
+    "pagina": "album-eventi.html",
+    "sezione": "Ogni occasione merita il suo album",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "Ogni occasione merita il suo album"
+  },
+  {
+    "id": "album-eventi-t004",
+    "pagina": "album-eventi.html",
+    "sezione": "Ogni occasione merita il suo album",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Una raccolta di ritratti, un evento importante o qualsiasi altro momento da ricordare trovano una cornice semplice e prestigiosa all’interno degli Album Eventi Olimp."
+  },
+  {
+    "id": "album-eventi-t005",
+    "pagina": "album-eventi.html",
+    "sezione": "Le fotografie",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "Le fotografie"
+  },
+  {
+    "id": "album-matrimoniali-t001",
+    "pagina": "album-matrimoniali.html",
+    "sezione": "Intestazione",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "Olimp / Collezioni"
+  },
+  {
+    "id": "album-matrimoniali-t002",
+    "pagina": "album-matrimoniali.html",
+    "sezione": "Intestazione",
+    "descrizione": "Titolo della pagina",
+    "tipo": "testo",
+    "testo": "Album matrimoniali"
+  },
+  {
+    "id": "album-matrimoniali-t003",
+    "pagina": "album-matrimoniali.html",
+    "sezione": "Le nostre linee",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "«L’arte non consiste nel rappresentare cose nuove, bensì nel rappresentarle con novità.»"
+  },
+  {
+    "id": "album-matrimoniali-t004",
+    "pagina": "album-matrimoniali.html",
+    "sezione": "Le nostre linee",
+    "descrizione": "Testo",
+    "tipo": "testo",
+    "testo": "Ugo Foscolo"
+  },
+  {
+    "id": "album-matrimoniali-t005",
+    "pagina": "album-matrimoniali.html",
+    "sezione": "Le nostre linee",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "Le nostre linee"
+  },
+  {
+    "id": "album-matrimoniali-t006",
+    "pagina": "album-matrimoniali.html",
+    "sezione": "Le nostre linee",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Dalle proposte d’alta moda della linea Fashion alla tradizione del cuoio lavorato a mano: ogni linea interpreta in modo diverso il ricordo del matrimonio, con materiali, stili e finiture pensati per durare nel tempo."
+  },
+  {
+    "id": "album-matrimoniali-t007",
+    "pagina": "album-matrimoniali.html",
+    "sezione": "Le nostre linee",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Scegli la linea più adatta a te."
+  },
+  {
+    "id": "album-matrimoniali-t008",
+    "pagina": "album-matrimoniali.html",
+    "sezione": "Le nostre linee",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Linea Fashion"
+  },
+  {
+    "id": "album-matrimoniali-t009",
+    "pagina": "album-matrimoniali.html",
+    "sezione": "Le nostre linee",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Accessori esclusivi e materiali innovativi: la nostra linea d’alta moda."
+  },
+  {
+    "id": "album-matrimoniali-t010",
+    "pagina": "album-matrimoniali.html",
+    "sezione": "Le nostre linee",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Linea Glamour"
+  },
+  {
+    "id": "album-matrimoniali-t011",
+    "pagina": "album-matrimoniali.html",
+    "sezione": "Le nostre linee",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Design contemporaneo e carattere, personalizzabile con gli scatti più belli."
+  },
+  {
+    "id": "album-matrimoniali-t012",
+    "pagina": "album-matrimoniali.html",
+    "sezione": "Le nostre linee",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Linea Trendy"
+  },
+  {
+    "id": "album-matrimoniali-t013",
+    "pagina": "album-matrimoniali.html",
+    "sezione": "Le nostre linee",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Eleganza senza tempo, con linee essenziali e romantiche."
+  },
+  {
+    "id": "album-matrimoniali-t014",
+    "pagina": "album-matrimoniali.html",
+    "sezione": "Le nostre linee",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Linea Cuoio Fiorentino"
+  },
+  {
+    "id": "album-matrimoniali-t015",
+    "pagina": "album-matrimoniali.html",
+    "sezione": "Le nostre linee",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Cuoio di vitello conciato al naturale, lavorato interamente a mano."
+  },
+  {
+    "id": "album-matrimoniali-t016",
+    "pagina": "album-matrimoniali.html",
+    "sezione": "Le nostre linee",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Linea Cuoio Amarcord &\nCuoio Islandese personalizzato"
+  },
+  {
+    "id": "album-matrimoniali-t017",
+    "pagina": "album-matrimoniali.html",
+    "sezione": "Le nostre linee",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Album in cuoio Amarcord e Islandese, in versione personalizzata."
+  },
+  {
+    "id": "album-matrimoniali-t018",
+    "pagina": "album-matrimoniali.html",
+    "sezione": "Le nostre linee",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Linea Cuoio Amarcord &\nCuoio Islandese"
+  },
+  {
+    "id": "album-matrimoniali-t019",
+    "pagina": "album-matrimoniali.html",
+    "sezione": "Le nostre linee",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Album in cuoio Amarcord e Islandese."
+  },
+  {
+    "id": "album-tradizionale-professionale-t001",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Intestazione",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "Olimp / Prodotti"
+  },
+  {
+    "id": "album-tradizionale-professionale-t002",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Intestazione",
+    "descrizione": "Titolo della pagina",
+    "tipo": "testo",
+    "testo": "Album tradizionale professionale"
+  },
+  {
+    "id": "album-tradizionale-professionale-t003",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Presentazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "L’album tradizionale, o classico, è l’album matrimoniale che tutti conosciamo: quello in cui le singole foto vengono attaccate a mano, una per una, sulle pagine."
+  },
+  {
+    "id": "album-tradizionale-professionale-t004",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Materiali e lavorazione",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "Materiali e lavorazione"
+  },
+  {
+    "id": "album-tradizionale-professionale-t005",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Materiali e lavorazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Il blocco interno dell’album è realizzato in cartoncino da 280 gr/m2 risvoltato a singola pattina in maniera da compensare lo spessore delle foto con fodere in carta imitlin o stoffa."
+  },
+  {
+    "id": "album-tradizionale-professionale-t006",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Colori e fogli",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "Colori e fogli"
+  },
+  {
+    "id": "album-tradizionale-professionale-t007",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Colori e fogli",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Il blocco può essere composto sia da 50 che da 60 fogli di colore avorio, avorio nuvolato, nero e blu."
+  },
+  {
+    "id": "album-tradizionale-professionale-t008",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Colori e fogli",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "semplice",
+    "testo": "Avorio"
+  },
+  {
+    "id": "album-tradizionale-professionale-t009",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Colori e fogli",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "semplice",
+    "testo": "Avorio nuvolato"
+  },
+  {
+    "id": "album-tradizionale-professionale-t010",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Colori e fogli",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "semplice",
+    "testo": "Nero"
+  },
+  {
+    "id": "album-tradizionale-professionale-t011",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Colori e fogli",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "semplice",
+    "testo": "Blu"
+  },
+  {
+    "id": "album-tradizionale-professionale-t012",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Colori e fogli",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "I fogli di cartoncino sono intervallati da velina pergamena goffrata."
+  },
+  {
+    "id": "album-tradizionale-professionale-t013",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "I formati",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "I formati"
+  },
+  {
+    "id": "album-tradizionale-professionale-t014",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "I formati",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Il blocco è realizzato nelle seguenti misure."
+  },
+  {
+    "id": "album-tradizionale-professionale-t015",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "I formati",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Quadrato"
+  },
+  {
+    "id": "album-tradizionale-professionale-t016",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "I formati",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "35×35 cm"
+  },
+  {
+    "id": "album-tradizionale-professionale-t017",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "I formati",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "38×38 cm"
+  },
+  {
+    "id": "album-tradizionale-professionale-t018",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "I formati",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "42×42 cm"
+  },
+  {
+    "id": "album-tradizionale-professionale-t019",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "I formati",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "45×45 cm"
+  },
+  {
+    "id": "album-tradizionale-professionale-t020",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "I formati",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Orizzontale"
+  },
+  {
+    "id": "album-tradizionale-professionale-t021",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "I formati",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "40×30 cm"
+  },
+  {
+    "id": "album-tradizionale-professionale-t022",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "I formati",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "45×35 cm"
+  },
+  {
+    "id": "album-tradizionale-professionale-t023",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "I formati",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Verticale"
+  },
+  {
+    "id": "album-tradizionale-professionale-t024",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "I formati",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "30×40 cm"
+  },
+  {
+    "id": "album-tradizionale-professionale-t025",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "I formati",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "35×45 cm"
+  },
+  {
+    "id": "album-tradizionale-professionale-t026",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Altri blocchi disponibili",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "Altri blocchi disponibili"
+  },
+  {
+    "id": "album-tradizionale-professionale-t027",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Altri blocchi disponibili",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Sono disponibili, inoltre, blocchi in cartoncino avorio da 240 gr/m2 e nero da 280 gr/m2 con interni che variano da un minimo di 30 ad un massimo di 60, nelle misure:"
+  },
+  {
+    "id": "album-tradizionale-professionale-t028",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Altri blocchi disponibili",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Quadrato"
+  },
+  {
+    "id": "album-tradizionale-professionale-t029",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Altri blocchi disponibili",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "20×20 cm"
+  },
+  {
+    "id": "album-tradizionale-professionale-t030",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Altri blocchi disponibili",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "23×23 cm"
+  },
+  {
+    "id": "album-tradizionale-professionale-t031",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Altri blocchi disponibili",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "25×25 cm"
+  },
+  {
+    "id": "album-tradizionale-professionale-t032",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Altri blocchi disponibili",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "30×30 cm"
+  },
+  {
+    "id": "album-tradizionale-professionale-t033",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Altri blocchi disponibili",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "33×33 cm"
+  },
+  {
+    "id": "album-tradizionale-professionale-t034",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Altri blocchi disponibili",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Orizzontale"
+  },
+  {
+    "id": "album-tradizionale-professionale-t035",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Altri blocchi disponibili",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "20×16 cm"
+  },
+  {
+    "id": "album-tradizionale-professionale-t036",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Altri blocchi disponibili",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "25×20 cm"
+  },
+  {
+    "id": "album-tradizionale-professionale-t037",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Altri blocchi disponibili",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Verticale"
+  },
+  {
+    "id": "album-tradizionale-professionale-t038",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Altri blocchi disponibili",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "24×30 cm"
+  },
+  {
+    "id": "album-tradizionale-professionale-t039",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Su ordinazione",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "Su ordinazione"
+  },
+  {
+    "id": "album-tradizionale-professionale-t040",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Su ordinazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Su ordinazione è possibile:"
+  },
+  {
+    "id": "album-tradizionale-professionale-t041",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Su ordinazione",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "variare il numero di interni da 40 a 70"
+  },
+  {
+    "id": "album-tradizionale-professionale-t042",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Su ordinazione",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "richiedere blocchi di colore bianco o tabacco"
+  },
+  {
+    "id": "album-tradizionale-professionale-t043",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Su ordinazione",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "richiedere blocchi con velina GSK liscia"
+  },
+  {
+    "id": "album-tradizionale-professionale-t044",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Su ordinazione",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "richiedere blocchi con bordo martellato"
+  },
+  {
+    "id": "album-tradizionale-professionale-t045",
+    "pagina": "album-tradizionale-professionale.html",
+    "sezione": "Su ordinazione",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "richiedere fodere personalizzate con il logo del fotografo o il nome degli sposi."
+  },
+  {
+    "id": "area-download-t001",
+    "pagina": "area-download.html",
+    "sezione": "Intestazione",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "Olimp / Risorse"
+  },
+  {
+    "id": "area-download-t002",
+    "pagina": "area-download.html",
+    "sezione": "Intestazione",
+    "descrizione": "Titolo della pagina",
+    "tipo": "semplice",
+    "testo": "Area download"
+  },
+  {
+    "id": "area-download-t003",
+    "pagina": "area-download.html",
+    "sezione": "Catalogo",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "Catalogo"
+  },
+  {
+    "id": "area-download-t004",
+    "pagina": "area-download.html",
+    "sezione": "Catalogo",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Scarica il catalogo dei nostri prodotti e scopri le ultime novità!"
+  },
+  {
+    "id": "area-download-t005",
+    "pagina": "area-download.html",
+    "sezione": "Catalogo",
+    "descrizione": "Pulsante (testo e link)",
+    "tipo": "testo",
+    "testo": "Scarica il catalogo",
+    "link": "downloads/catalogo.pdf"
+  },
+  {
+    "id": "area-download-t006",
+    "pagina": "area-download.html",
+    "sezione": "Catalogo",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "Informazioni per la corretta conservazione del tuo album"
+  },
+  {
+    "id": "area-download-t007",
+    "pagina": "area-download.html",
+    "sezione": "Informazioni per la corretta conservazione del tuo album",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Prenditi cura dei tuoi ricordi: scarica subito la pratica guida per la corretta conservazione del tuo album Olimp."
+  },
+  {
+    "id": "area-download-t008",
+    "pagina": "area-download.html",
+    "sezione": "Informazioni per la corretta conservazione del tuo album",
+    "descrizione": "Pulsante (testo e link)",
+    "tipo": "testo",
+    "testo": "Scarica la guida",
+    "link": "downloads/guida.pdf"
+  },
+  {
+    "id": "collezioni-t001",
+    "pagina": "collezioni.html",
+    "sezione": "Intestazione",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "Olimp / Album"
+  },
+  {
+    "id": "collezioni-t002",
+    "pagina": "collezioni.html",
+    "sezione": "Intestazione",
+    "descrizione": "Titolo della pagina",
+    "tipo": "testo",
+    "testo": "Collezioni"
+  },
+  {
+    "id": "collezioni-t003",
+    "pagina": "collezioni.html",
+    "sezione": "Intestazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Album matrimoniali, bambini, comunione ed eventi."
+  },
+  {
+    "id": "collezioni-t004",
+    "pagina": "collezioni.html",
+    "sezione": "Un album per ogni momento importante",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "Un album per ogni momento importante"
+  },
+  {
+    "id": "collezioni-t005",
+    "pagina": "collezioni.html",
+    "sezione": "Un album per ogni momento importante",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Matrimoni, comunioni, eventi e le tappe della crescita dei più piccoli: dal 1969 realizziamo album fotografici per custodire i momenti più importanti della vita. Ogni collezione unisce materiali scelti, cura artigianale dei dettagli e uno stile ispirato alle ultime tendenze, per dare alle fotografie la forma che meritano."
+  },
+  {
+    "id": "collezioni-t006",
+    "pagina": "collezioni.html",
+    "sezione": "Un album per ogni momento importante",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Scegli la collezione più adatta a te."
+  },
+  {
+    "id": "collezioni-t007",
+    "pagina": "collezioni.html",
+    "sezione": "Un album per ogni momento importante",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Album matrimoniali"
+  },
+  {
+    "id": "collezioni-t008",
+    "pagina": "collezioni.html",
+    "sezione": "Un album per ogni momento importante",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "I ricordi del matrimonio, da custodire e rivivere nel tempo."
+  },
+  {
+    "id": "collezioni-t009",
+    "pagina": "collezioni.html",
+    "sezione": "Un album per ogni momento importante",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Album bambini"
+  },
+  {
+    "id": "collezioni-t010",
+    "pagina": "collezioni.html",
+    "sezione": "Un album per ogni momento importante",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Le prime scoperte e i momenti più belli della crescita."
+  },
+  {
+    "id": "collezioni-t011",
+    "pagina": "collezioni.html",
+    "sezione": "Un album per ogni momento importante",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Album comunione"
+  },
+  {
+    "id": "collezioni-t012",
+    "pagina": "collezioni.html",
+    "sezione": "Un album per ogni momento importante",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Il ricordo di una giornata speciale, da conservare negli anni."
+  },
+  {
+    "id": "collezioni-t013",
+    "pagina": "collezioni.html",
+    "sezione": "Un album per ogni momento importante",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Album eventi"
+  },
+  {
+    "id": "collezioni-t014",
+    "pagina": "collezioni.html",
+    "sezione": "Un album per ogni momento importante",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Le occasioni importanti raccontate attraverso le fotografie."
+  },
+  {
+    "id": "custodie-per-album-t001",
+    "pagina": "custodie-per-album.html",
+    "sezione": "Intestazione",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "Olimp / Prodotti"
+  },
+  {
+    "id": "custodie-per-album-t002",
+    "pagina": "custodie-per-album.html",
+    "sezione": "Intestazione",
+    "descrizione": "Titolo della pagina",
+    "tipo": "testo",
+    "testo": "Custodie per album"
+  },
+  {
+    "id": "custodie-per-album-t003",
+    "pagina": "custodie-per-album.html",
+    "sezione": "Presentazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "I tuoi momenti più belli meritano una custodia che li protegga nel tempo: i nostri album possono essere accompagnati da una valigia, da un cofanetto o un box in coordinato, un complemento davvero glamour dove riporre i tuoi ricordi."
+  },
+  {
+    "id": "custodie-per-album-t004",
+    "pagina": "custodie-per-album.html",
+    "sezione": "Le nostre custodie",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "Le nostre custodie"
+  },
+  {
+    "id": "custodie-per-album-t005",
+    "pagina": "custodie-per-album.html",
+    "sezione": "Le nostre custodie",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Valigia classica"
+  },
+  {
+    "id": "custodie-per-album-t006",
+    "pagina": "custodie-per-album.html",
+    "sezione": "Le nostre custodie",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Valigia classica personalizzata"
+  },
+  {
+    "id": "custodie-per-album-t007",
+    "pagina": "custodie-per-album.html",
+    "sezione": "Le nostre custodie",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Cofanetti"
+  },
+  {
+    "id": "custodie-per-album-t008",
+    "pagina": "custodie-per-album.html",
+    "sezione": "Le nostre custodie",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Box"
+  },
+  {
+    "id": "custodie-per-album-t009",
+    "pagina": "custodie-per-album.html",
+    "sezione": "Le nostre custodie",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Teca plex"
+  },
+  {
+    "id": "custodie-per-album-t010",
+    "pagina": "custodie-per-album.html",
+    "sezione": "Le nostre custodie",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Valigia personalizzata per bambini"
+  },
+  {
+    "id": "custodie-per-album-t011",
+    "pagina": "custodie-per-album.html",
+    "sezione": "Le nostre custodie",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Valigia scrigno per bambini"
+  },
+  {
+    "id": "fotolibro-professionale-t001",
+    "pagina": "fotolibro-professionale.html",
+    "sezione": "Intestazione",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "Olimp / Prodotti"
+  },
+  {
+    "id": "fotolibro-professionale-t002",
+    "pagina": "fotolibro-professionale.html",
+    "sezione": "Intestazione",
+    "descrizione": "Titolo della pagina",
+    "tipo": "testo",
+    "testo": "Fotolibro professionale"
+  },
+  {
+    "id": "fotolibro-professionale-t003",
+    "pagina": "fotolibro-professionale.html",
+    "sezione": "Presentazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Il fotolibro professionale è pensato per i fotografi e gli studi che vogliono consegnare ai propri clienti un racconto fotografico moderno e su misura: le immagini sono stampate direttamente sulle pagine e impaginate secondo il progetto grafico, per un risultato elegante e dal design contemporaneo."
+  },
+  {
+    "id": "fotolibro-professionale-t004",
+    "pagina": "fotolibro-professionale.html",
+    "sezione": "Grafica e impaginazione",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "Grafica e impaginazione"
+  },
+  {
+    "id": "fotolibro-professionale-t005",
+    "pagina": "fotolibro-professionale.html",
+    "sezione": "Grafica e impaginazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Il nostro laboratorio può seguire anche la preparazione delle immagini: selezione degli scatti, sviluppo dei file RAW, fotoritocco e impaginazione dell’album."
+  },
+  {
+    "id": "grafica-stampa-t001",
+    "pagina": "grafica-stampa.html",
+    "sezione": "Intestazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Creiamo album fotografici originali e raffinati, utilizzando i migliori materiali e tutta la nostra esperienza da artigiani."
+  },
+  {
+    "id": "grafica-stampa-t002",
+    "pagina": "grafica-stampa.html",
+    "sezione": "Intestazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "La nostra cura è rivolta anche alla progettazione grafica delle foto degli album, perché ogni singolo dettaglio dei nostri prodotti per noi è importante."
+  },
+  {
+    "id": "grafica-stampa-t003",
+    "pagina": "grafica-stampa.html",
+    "sezione": "Intestazione",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "Olimp / Produzione"
+  },
+  {
+    "id": "grafica-stampa-t004",
+    "pagina": "grafica-stampa.html",
+    "sezione": "Intestazione",
+    "descrizione": "Titolo della pagina",
+    "tipo": "testo",
+    "testo": "Grafica & Stampa"
+  },
+  {
+    "id": "grafica-stampa-t005",
+    "pagina": "grafica-stampa.html",
+    "sezione": "Le fasi del lavoro",
+    "descrizione": "Pulsante",
+    "tipo": "semplice",
+    "testo": "Selezione degli scatti"
+  },
+  {
+    "id": "grafica-stampa-t006",
+    "pagina": "grafica-stampa.html",
+    "sezione": "Le fasi del lavoro",
+    "descrizione": "Testo",
+    "tipo": "testo",
+    "testo": "01"
+  },
+  {
+    "id": "grafica-stampa-t007",
+    "pagina": "grafica-stampa.html",
+    "sezione": "Le fasi del lavoro",
+    "descrizione": "Pulsante",
+    "tipo": "semplice",
+    "testo": "Sviluppo RAW"
+  },
+  {
+    "id": "grafica-stampa-t008",
+    "pagina": "grafica-stampa.html",
+    "sezione": "Le fasi del lavoro",
+    "descrizione": "Testo",
+    "tipo": "testo",
+    "testo": "02"
+  },
+  {
+    "id": "grafica-stampa-t009",
+    "pagina": "grafica-stampa.html",
+    "sezione": "Le fasi del lavoro",
+    "descrizione": "Pulsante",
+    "tipo": "semplice",
+    "testo": "Fotoritocco"
+  },
+  {
+    "id": "grafica-stampa-t010",
+    "pagina": "grafica-stampa.html",
+    "sezione": "Le fasi del lavoro",
+    "descrizione": "Testo",
+    "tipo": "testo",
+    "testo": "03"
+  },
+  {
+    "id": "grafica-stampa-t011",
+    "pagina": "grafica-stampa.html",
+    "sezione": "Le fasi del lavoro",
+    "descrizione": "Pulsante",
+    "tipo": "semplice",
+    "testo": "Impaginazione"
+  },
+  {
+    "id": "grafica-stampa-t012",
+    "pagina": "grafica-stampa.html",
+    "sezione": "Le fasi del lavoro",
+    "descrizione": "Testo",
+    "tipo": "testo",
+    "testo": "04"
+  },
+  {
+    "id": "grafica-stampa-t013",
+    "pagina": "grafica-stampa.html",
+    "sezione": "Le fasi del lavoro",
+    "descrizione": "Numero della fase",
+    "tipo": "testo",
+    "testo": "01"
+  },
+  {
+    "id": "grafica-stampa-t014",
+    "pagina": "grafica-stampa.html",
+    "sezione": "Le fasi del lavoro",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Selezione degli scatti"
+  },
+  {
+    "id": "grafica-stampa-t015",
+    "pagina": "grafica-stampa.html",
+    "sezione": "Le fasi del lavoro",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Ci occupiamo di selezionare dai vostri scatti i file da impaginare, scegliendo le foto che meglio raccontano l’emozione del matrimonio."
+  },
+  {
+    "id": "grafica-stampa-t016",
+    "pagina": "grafica-stampa.html",
+    "sezione": "Le fasi del lavoro",
+    "descrizione": "Numero della fase",
+    "tipo": "testo",
+    "testo": "02"
+  },
+  {
+    "id": "grafica-stampa-t017",
+    "pagina": "grafica-stampa.html",
+    "sezione": "Le fasi del lavoro",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Sviluppo RAW"
+  },
+  {
+    "id": "grafica-stampa-t018",
+    "pagina": "grafica-stampa.html",
+    "sezione": "Le fasi del lavoro",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Elaboriamo le immagini direttamente da file raw, preservando la veridicità e l’eleganza delle vostre immagini."
+  },
+  {
+    "id": "grafica-stampa-t019",
+    "pagina": "grafica-stampa.html",
+    "sezione": "Le fasi del lavoro",
+    "descrizione": "Numero della fase",
+    "tipo": "testo",
+    "testo": "03"
+  },
+  {
+    "id": "grafica-stampa-t020",
+    "pagina": "grafica-stampa.html",
+    "sezione": "Le fasi del lavoro",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Fotoritocco"
+  },
+  {
+    "id": "grafica-stampa-t021",
+    "pagina": "grafica-stampa.html",
+    "sezione": "Le fasi del lavoro",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Grazie al fotoritocco, restituiamo alle foto la loro bellezza senza tempo."
+  },
+  {
+    "id": "grafica-stampa-t022",
+    "pagina": "grafica-stampa.html",
+    "sezione": "Le fasi del lavoro",
+    "descrizione": "Numero della fase",
+    "tipo": "testo",
+    "testo": "04"
+  },
+  {
+    "id": "grafica-stampa-t023",
+    "pagina": "grafica-stampa.html",
+    "sezione": "Le fasi del lavoro",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Impaginazione"
+  },
+  {
+    "id": "grafica-stampa-t024",
+    "pagina": "grafica-stampa.html",
+    "sezione": "Le fasi del lavoro",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Ci occupiamo infine dell’impaginazione dell’album, realizzando su carta un racconto unico e suggestivo del matrimonio dei vostri sposi."
+  },
+  {
+    "id": "index-t001",
+    "pagina": "index.html",
+    "sezione": "Intestazione",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "Olimp / Per fotografi e studi professionali"
+  },
+  {
+    "id": "index-t002",
+    "pagina": "index.html",
+    "sezione": "Intestazione",
+    "descrizione": "Titolo della pagina",
+    "tipo": "testo",
+    "testo": "La fotografia\nprende forma."
+  },
+  {
+    "id": "index-t003",
+    "pagina": "index.html",
+    "sezione": "Intestazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Album fotografici su misura.\nAffianchiamo fotografi e studi professionali, dal progetto alla consegna ai loro clienti."
+  },
+  {
+    "id": "index-t004",
+    "pagina": "index.html",
+    "sezione": "Intestazione",
+    "descrizione": "Pulsante (testo e link)",
+    "tipo": "testo",
+    "testo": "Scopri le collezioni",
+    "link": "collezioni.html"
+  },
+  {
+    "id": "index-t005",
+    "pagina": "index.html",
+    "sezione": "Collezioni",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "01 / Album"
+  },
+  {
+    "id": "index-t006",
+    "pagina": "index.html",
+    "sezione": "Collezioni",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "Collezioni"
+  },
+  {
+    "id": "index-t007",
+    "pagina": "index.html",
+    "sezione": "Collezioni",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Esplora le collezioni: album matrimoniali, bambini, comunione ed eventi."
+  },
+  {
+    "id": "index-t008",
+    "pagina": "index.html",
+    "sezione": "Collezioni",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Album matrimoniali"
+  },
+  {
+    "id": "index-t009",
+    "pagina": "index.html",
+    "sezione": "Collezioni",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "I ricordi del matrimonio, da custodire e rivivere nel tempo."
+  },
+  {
+    "id": "index-t010",
+    "pagina": "index.html",
+    "sezione": "Collezioni",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Album bambini"
+  },
+  {
+    "id": "index-t011",
+    "pagina": "index.html",
+    "sezione": "Collezioni",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Le prime scoperte e i momenti più belli della crescita."
+  },
+  {
+    "id": "index-t012",
+    "pagina": "index.html",
+    "sezione": "Collezioni",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Album comunione"
+  },
+  {
+    "id": "index-t013",
+    "pagina": "index.html",
+    "sezione": "Collezioni",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Il ricordo di una giornata speciale, da conservare negli anni."
+  },
+  {
+    "id": "index-t014",
+    "pagina": "index.html",
+    "sezione": "Collezioni",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Album eventi"
+  },
+  {
+    "id": "index-t015",
+    "pagina": "index.html",
+    "sezione": "Collezioni",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Le occasioni importanti raccontate attraverso le fotografie."
+  },
+  {
+    "id": "index-t016",
+    "pagina": "index.html",
+    "sezione": "Grafica & Stampa",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "02 / Produzione"
+  },
+  {
+    "id": "index-t017",
+    "pagina": "index.html",
+    "sezione": "Grafica & Stampa",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Creiamo album fotografici originali e raffinati, utilizzando i migliori materiali e tutta la nostra esperienza da artigiani."
+  },
+  {
+    "id": "index-t018",
+    "pagina": "index.html",
+    "sezione": "Grafica & Stampa",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "La nostra cura è rivolta anche alla progettazione grafica delle foto degli album, perché ogni singolo dettaglio dei nostri prodotti per noi è importante."
+  },
+  {
+    "id": "index-t019",
+    "pagina": "index.html",
+    "sezione": "Grafica & Stampa",
+    "descrizione": "Testo",
+    "tipo": "testo",
+    "testo": "DALLO SCATTO ALL’ALBUM"
+  },
+  {
+    "id": "index-t020",
+    "pagina": "index.html",
+    "sezione": "Grafica & Stampa",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Ogni dettaglio,\nla vostra firma."
+  },
+  {
+    "id": "index-t021",
+    "pagina": "index.html",
+    "sezione": "Grafica & Stampa",
+    "descrizione": "Testo",
+    "tipo": "testo",
+    "testo": "SELEZIONE · COLORE · IMPAGINAZIONE"
+  },
+  {
+    "id": "index-t022",
+    "pagina": "index.html",
+    "sezione": "Grafica & Stampa",
+    "descrizione": "Numero della fase",
+    "tipo": "testo",
+    "testo": "01"
+  },
+  {
+    "id": "index-t023",
+    "pagina": "index.html",
+    "sezione": "Grafica & Stampa",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Selezione degli scatti"
+  },
+  {
+    "id": "index-t024",
+    "pagina": "index.html",
+    "sezione": "Grafica & Stampa",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Ci occupiamo di selezionare dai vostri scatti i file da impaginare, scegliendo le foto che meglio raccontano l’emozione del matrimonio."
+  },
+  {
+    "id": "index-t025",
+    "pagina": "index.html",
+    "sezione": "Grafica & Stampa",
+    "descrizione": "Numero della fase",
+    "tipo": "testo",
+    "testo": "02"
+  },
+  {
+    "id": "index-t026",
+    "pagina": "index.html",
+    "sezione": "Grafica & Stampa",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Sviluppo RAW"
+  },
+  {
+    "id": "index-t027",
+    "pagina": "index.html",
+    "sezione": "Grafica & Stampa",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Elaboriamo le immagini direttamente da file raw, preservando la veridicità e l’eleganza delle vostre immagini."
+  },
+  {
+    "id": "index-t028",
+    "pagina": "index.html",
+    "sezione": "Grafica & Stampa",
+    "descrizione": "Numero della fase",
+    "tipo": "testo",
+    "testo": "03"
+  },
+  {
+    "id": "index-t029",
+    "pagina": "index.html",
+    "sezione": "Grafica & Stampa",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Fotoritocco"
+  },
+  {
+    "id": "index-t030",
+    "pagina": "index.html",
+    "sezione": "Grafica & Stampa",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Grazie al fotoritocco, restituiamo alle foto la loro bellezza senza tempo."
+  },
+  {
+    "id": "index-t031",
+    "pagina": "index.html",
+    "sezione": "Grafica & Stampa",
+    "descrizione": "Numero della fase",
+    "tipo": "testo",
+    "testo": "04"
+  },
+  {
+    "id": "index-t032",
+    "pagina": "index.html",
+    "sezione": "Grafica & Stampa",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Impaginazione"
+  },
+  {
+    "id": "index-t033",
+    "pagina": "index.html",
+    "sezione": "Grafica & Stampa",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Ci occupiamo infine dell’impaginazione dell’album, realizzando su carta un racconto unico e suggestivo del matrimonio dei vostri sposi."
+  },
+  {
+    "id": "index-t034",
+    "pagina": "index.html",
+    "sezione": "Chi siamo",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "03 / Il laboratorio"
+  },
+  {
+    "id": "index-t035",
+    "pagina": "index.html",
+    "sezione": "Chi siamo",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "Chi siamo"
+  },
+  {
+    "id": "index-t036",
+    "pagina": "index.html",
+    "sezione": "Chi siamo",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "«Custodire il tempo… L’unico lusso concesso: l’album di prestigio a cui le giovani coppie, prima da sposi e poi da genitori, si affezionano e in cui custodiscono i loro più cari ricordi»"
+  },
+  {
+    "id": "index-t037",
+    "pagina": "index.html",
+    "sezione": "Chi siamo",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Dal 1969"
+  },
+  {
+    "id": "index-t038",
+    "pagina": "index.html",
+    "sezione": "Chi siamo",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Dal 1969 il marchio Olimp rappresenta una realtà di riferimento in Sicilia per la creazione di album fotografici all'interno dei quali conservare il ricordo di momenti importanti della vita come matrimoni, battesimi e comunioni."
+  },
+  {
+    "id": "index-t039",
+    "pagina": "index.html",
+    "sezione": "Chi siamo",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Materiali e dettagli"
+  },
+  {
+    "id": "index-t040",
+    "pagina": "index.html",
+    "sezione": "Chi siamo",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Ci distinguiamo sul mercato degli album fotografici per le proposte innovative e sempre aggiornate, sia per quanto riguarda la scelta dei materiali, sia per quanto concerne la cura dei dettagli."
+  },
+  {
+    "id": "index-t041",
+    "pagina": "index.html",
+    "sezione": "Chi siamo",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Ispirati dalla moda"
+  },
+  {
+    "id": "index-t042",
+    "pagina": "index.html",
+    "sezione": "Chi siamo",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Le ultime tendenze della moda sono la nostra ispirazione, che interpretiamo per i nostri clienti in modo personale e con design versatile."
+  },
+  {
+    "id": "index-t043",
+    "pagina": "index.html",
+    "sezione": "Chi siamo",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Maestri artigiani"
+  },
+  {
+    "id": "index-t044",
+    "pagina": "index.html",
+    "sezione": "Chi siamo",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Ad oggi i nostri più affezionati partner ci indicano tra le aziende più interessanti e solide nel panorama dei produttori di album fotografici, grazie all'esperienza maturata negli anni, all'originalità e soprattutto alla passione che ogni giorno muovono le idee del nostro team. I nostri artigiani sono la garanzia del nostro lavoro: scegli Olimp se vuoi affidarti ai veri Maestri nell'arte degli album fotografici."
+  },
+  {
+    "id": "index-t045",
+    "pagina": "index.html",
+    "sezione": "Chi siamo",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Un po’ di numeri"
+  },
+  {
+    "id": "index-t046",
+    "pagina": "index.html",
+    "sezione": "Chi siamo",
+    "descrizione": "Descrizione del numero",
+    "tipo": "testo",
+    "testo": "Anni di attività"
+  },
+  {
+    "id": "index-t047",
+    "pagina": "index.html",
+    "sezione": "Chi siamo",
+    "descrizione": "Scritta piccola prima del numero",
+    "tipo": "testo",
+    "testo": "oltre"
+  },
+  {
+    "id": "index-t048",
+    "pagina": "index.html",
+    "sezione": "Chi siamo",
+    "descrizione": "Descrizione del numero",
+    "tipo": "testo",
+    "testo": "Studi fotografici partner"
+  },
+  {
+    "id": "index-t049",
+    "pagina": "index.html",
+    "sezione": "Chi siamo",
+    "descrizione": "Scritta piccola prima del numero",
+    "tipo": "testo",
+    "testo": "oltre"
+  },
+  {
+    "id": "index-t050",
+    "pagina": "index.html",
+    "sezione": "Chi siamo",
+    "descrizione": "Descrizione del numero",
+    "tipo": "testo",
+    "testo": "Album realizzati"
+  },
+  {
+    "id": "index-t051",
+    "pagina": "index.html",
+    "sezione": "Dove siamo",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "04 / Canicattì, Sicilia"
+  },
+  {
+    "id": "index-t052",
+    "pagina": "index.html",
+    "sezione": "Dove siamo",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "Dove siamo"
+  },
+  {
+    "id": "index-t053",
+    "pagina": "index.html",
+    "sezione": "Dove siamo",
+    "descrizione": "Paragrafo",
+    "tipo": "semplice",
+    "testo": "La nostra sede si trova a"
+  },
+  {
+    "id": "index-t054",
+    "pagina": "index.html",
+    "sezione": "Dove siamo",
+    "descrizione": "Testo in grassetto",
+    "tipo": "testo",
+    "testo": "Canicattì"
+  },
+  {
+    "id": "index-t055",
+    "pagina": "index.html",
+    "sezione": "Dove siamo",
+    "descrizione": "Testo cliccabile (testo e link)",
+    "tipo": "testo",
+    "testo": "Viale della Vittoria, 111\n92024 Canicattì (AG) – Italy",
+    "link": "https://www.google.com/maps/search/?api=1&query=Viale+della+Vittoria+111+92024+Canicatt%C3%AC+AG+Italy"
+  },
+  {
+    "id": "index-t056",
+    "pagina": "index.html",
+    "sezione": "Dove siamo",
+    "descrizione": "Testo cliccabile (testo e link)",
+    "tipo": "semplice",
+    "testo": "Apri Google Maps",
+    "link": "https://www.google.com/maps/search/?api=1&query=Viale+della+Vittoria+111+92024+Canicatt%C3%AC+AG+Italy"
+  },
+  {
+    "id": "index-t057",
+    "pagina": "index.html",
+    "sezione": "Dove siamo",
+    "descrizione": "Testo cliccabile (testo e link)",
+    "tipo": "semplice",
+    "testo": "Ottieni indicazioni",
+    "link": "https://www.google.com/maps/dir/?api=1&destination=Viale+della+Vittoria+111+92024+Canicatt%C3%AC+AG+Italy"
+  },
+  {
+    "id": "index-t058",
+    "pagina": "index.html",
+    "sezione": "Dove siamo",
+    "descrizione": "Pulsante",
+    "tipo": "testo",
+    "testo": "↻ Rivedi"
+  },
+  {
+    "id": "index-t059",
+    "pagina": "index.html",
+    "sezione": "Contatti",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "05 / Contattaci"
+  },
+  {
+    "id": "index-t060",
+    "pagina": "index.html",
+    "sezione": "Contatti",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "Contatti"
+  },
+  {
+    "id": "index-t061",
+    "pagina": "index.html",
+    "sezione": "Contatti",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Per maggiori informazioni siamo a vostra completa disposizione, potete contattarci tramite mail, cellulare e social. Oppure compilando l’apposito form qui in basso."
+  },
+  {
+    "id": "index-t062",
+    "pagina": "index.html",
+    "sezione": "Contatti",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "**Referente**Alessandro Ingrassia"
+  },
+  {
+    "id": "index-t063",
+    "pagina": "index.html",
+    "sezione": "Contatti",
+    "descrizione": "Testo in grassetto",
+    "tipo": "testo",
+    "testo": "Email"
+  },
+  {
+    "id": "index-t064",
+    "pagina": "index.html",
+    "sezione": "Contatti",
+    "descrizione": "Testo cliccabile (testo e link)",
+    "tipo": "testo",
+    "testo": "alessandro.olimp@gmail.com",
+    "link": "mailto:alessandro.olimp@gmail.com"
+  },
+  {
+    "id": "index-t065",
+    "pagina": "index.html",
+    "sezione": "Contatti",
+    "descrizione": "Testo in grassetto",
+    "tipo": "testo",
+    "testo": "Cellulare"
+  },
+  {
+    "id": "index-t066",
+    "pagina": "index.html",
+    "sezione": "Contatti",
+    "descrizione": "Testo cliccabile (testo e link)",
+    "tipo": "testo",
+    "testo": "(0039) 348 3105574",
+    "link": "tel:+393483105574"
+  },
+  {
+    "id": "index-t067",
+    "pagina": "index.html",
+    "sezione": "Contatti",
+    "descrizione": "Testo in grassetto",
+    "tipo": "testo",
+    "testo": "Indirizzo"
+  },
+  {
+    "id": "index-t068",
+    "pagina": "index.html",
+    "sezione": "Contatti",
+    "descrizione": "Testo cliccabile (testo e link)",
+    "tipo": "testo",
+    "testo": "Viale della Vittoria, 111\n92024 Canicattì (AG) – Italy",
+    "link": "https://www.google.com/maps/search/?api=1&query=Viale+della+Vittoria+111+92024+Canicatt%C3%AC+AG+Italy"
+  },
+  {
+    "id": "index-t069",
+    "pagina": "index.html",
+    "sezione": "Contatti",
+    "descrizione": "Testo in grassetto",
+    "tipo": "testo",
+    "testo": "Telefono"
+  },
+  {
+    "id": "index-t070",
+    "pagina": "index.html",
+    "sezione": "Contatti",
+    "descrizione": "Testo cliccabile (testo e link)",
+    "tipo": "testo",
+    "testo": "(0039) 0922 853031",
+    "link": "tel:+390922853031"
+  },
+  {
+    "id": "index-t071",
+    "pagina": "index.html",
+    "sezione": "Contatti",
+    "descrizione": "Testo in grassetto",
+    "tipo": "testo",
+    "testo": "Social"
+  },
+  {
+    "id": "index-t072",
+    "pagina": "index.html",
+    "sezione": "Contatti",
+    "descrizione": "Testo",
+    "tipo": "testo",
+    "testo": "Facebook"
+  },
+  {
+    "id": "index-t073",
+    "pagina": "index.html",
+    "sezione": "Contatti",
+    "descrizione": "Testo",
+    "tipo": "testo",
+    "testo": "Instagram"
+  },
+  {
+    "id": "index-t074",
+    "pagina": "index.html",
+    "sezione": "Contatti",
+    "descrizione": "Testo",
+    "tipo": "testo",
+    "testo": "WhatsApp"
+  },
+  {
+    "id": "index-t075",
+    "pagina": "index.html",
+    "sezione": "Contatti",
+    "descrizione": "Etichetta del modulo",
+    "tipo": "semplice",
+    "testo": "Nome e cognome / Studio"
+  },
+  {
+    "id": "index-t076",
+    "pagina": "index.html",
+    "sezione": "Contatti",
+    "descrizione": "Etichetta del modulo",
+    "tipo": "semplice",
+    "testo": "Email"
+  },
+  {
+    "id": "index-t077",
+    "pagina": "index.html",
+    "sezione": "Contatti",
+    "descrizione": "Etichetta del modulo",
+    "tipo": "semplice",
+    "testo": "Il tuo progetto"
+  },
+  {
+    "id": "index-t078",
+    "pagina": "index.html",
+    "sezione": "Contatti",
+    "descrizione": "Testo",
+    "tipo": "testo",
+    "testo": "Dichiaro di aver letto e compreso l'[informativa sulla privacy](privacy.html) ai sensi degli artt. 13-14 del GDPR 2016/679 e acconsento al trattamento dei miei dati."
+  },
+  {
+    "id": "index-t079",
+    "pagina": "index.html",
+    "sezione": "Contatti",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Per inviare la richiesta devi prima accettare i cookie"
+  },
+  {
+    "id": "index-t080",
+    "pagina": "index.html",
+    "sezione": "Contatti",
+    "descrizione": "Pulsante",
+    "tipo": "testo",
+    "testo": "Gestisci cookie"
+  },
+  {
+    "id": "index-t081",
+    "pagina": "index.html",
+    "sezione": "Contatti",
+    "descrizione": "Pulsante",
+    "tipo": "testo",
+    "testo": "Invia richiesta"
+  },
+  {
+    "id": "linea-cuoio-amarcord-islandese-personalizzato-t001",
+    "pagina": "linea-cuoio-amarcord-islandese-personalizzato.html",
+    "sezione": "Intestazione",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "Olimp / Album matrimoniali"
+  },
+  {
+    "id": "linea-cuoio-amarcord-islandese-personalizzato-t002",
+    "pagina": "linea-cuoio-amarcord-islandese-personalizzato.html",
+    "sezione": "Intestazione",
+    "descrizione": "Titolo della pagina",
+    "tipo": "testo",
+    "testo": "Linea Cuoio Amarcord &\nCuoio Islandese personalizzato"
+  },
+  {
+    "id": "linea-cuoio-amarcord-islandese-personalizzato-t003",
+    "pagina": "linea-cuoio-amarcord-islandese-personalizzato.html",
+    "sezione": "Presentazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Gli album della linea Cuoio Amarcord e Cuoio Islandese personalizzato uniscono il fascino del cuoio lavorato a mano alla possibilità di rendere ogni album unico, su misura per gli sposi."
+  },
+  {
+    "id": "linea-cuoio-amarcord-islandese-personalizzato-t004",
+    "pagina": "linea-cuoio-amarcord-islandese-personalizzato.html",
+    "sezione": "Presentazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Come per la linea Cuoio Fiorentino, ogni album nasce dall’abilità dei nostri artigiani: forme, tonalità e dettagli si scelgono insieme, per creare un ricordo personale del matrimonio destinato a durare nel tempo."
+  },
+  {
+    "id": "linea-cuoio-amarcord-islandese-t001",
+    "pagina": "linea-cuoio-amarcord-islandese.html",
+    "sezione": "Intestazione",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "Olimp / Album matrimoniali"
+  },
+  {
+    "id": "linea-cuoio-amarcord-islandese-t002",
+    "pagina": "linea-cuoio-amarcord-islandese.html",
+    "sezione": "Intestazione",
+    "descrizione": "Titolo della pagina",
+    "tipo": "testo",
+    "testo": "Linea Cuoio Amarcord &\nCuoio Islandese"
+  },
+  {
+    "id": "linea-cuoio-amarcord-islandese-t003",
+    "pagina": "linea-cuoio-amarcord-islandese.html",
+    "sezione": "Presentazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "La linea Cuoio Amarcord e Cuoio Islandese propone album in cuoio dal gusto classico, lavorati a mano dai nostri artigiani."
+  },
+  {
+    "id": "linea-cuoio-amarcord-islandese-t004",
+    "pagina": "linea-cuoio-amarcord-islandese.html",
+    "sezione": "Presentazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Una scelta per gli sposi che amano i materiali naturali e la tradizione: album semplici ed eleganti, pensati per conservare intatti nel tempo i ricordi del matrimonio."
+  },
+  {
+    "id": "linea-cuoio-fiorentino-t001",
+    "pagina": "linea-cuoio-fiorentino.html",
+    "sezione": "Intestazione",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "Olimp / Album matrimoniali"
+  },
+  {
+    "id": "linea-cuoio-fiorentino-t002",
+    "pagina": "linea-cuoio-fiorentino.html",
+    "sezione": "Intestazione",
+    "descrizione": "Titolo della pagina",
+    "tipo": "testo",
+    "testo": "Linea Cuoio Fiorentino"
+  },
+  {
+    "id": "linea-cuoio-fiorentino-t003",
+    "pagina": "linea-cuoio-fiorentino.html",
+    "sezione": "Presentazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Gli album in “Cuoio Fiorentino” sono realizzati con spalle di vitello di prima scelta conciate al naturale. Particolari rilievi e tonalità di colore arricchiscono questi album, lavorati interamente a mano."
+  },
+  {
+    "id": "linea-cuoio-fiorentino-t004",
+    "pagina": "linea-cuoio-fiorentino.html",
+    "sezione": "Presentazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Grazie all’abilità di valenti artigiani, il cuoio viene “plasmato” ottenendo giochi di forme e colori senza rinunciare a un tocco di classicità. Gli album matrimoniali di questa linea più tradizionale, semplice e classica, conservano nel tempo la loro attualità."
+  },
+  {
+    "id": "linea-cuoio-fiorentino-t005",
+    "pagina": "linea-cuoio-fiorentino.html",
+    "sezione": "Presentazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "I modelli possono essere realizzati anche in Cuoio Amarcord e in Cuoio Islandese."
+  },
+  {
+    "id": "linea-cuoio-fiorentino-t006",
+    "pagina": "linea-cuoio-fiorentino.html",
+    "sezione": "Gli album della linea",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "Gli album della linea"
+  },
+  {
+    "id": "linea-fashion-t001",
+    "pagina": "linea-fashion.html",
+    "sezione": "Intestazione",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "Olimp / Album matrimoniali"
+  },
+  {
+    "id": "linea-fashion-t002",
+    "pagina": "linea-fashion.html",
+    "sezione": "Intestazione",
+    "descrizione": "Titolo della pagina",
+    "tipo": "testo",
+    "testo": "Linea Fashion"
+  },
+  {
+    "id": "linea-fashion-t003",
+    "pagina": "linea-fashion.html",
+    "sezione": "Presentazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Accessori esclusivi e pregiati, materiali innovativi e originali: ecco la nostra linea d’alta moda che renderà eterni i tuoi ricordi."
+  },
+  {
+    "id": "linea-fashion-t004",
+    "pagina": "linea-fashion.html",
+    "sezione": "Presentazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Gli album sono caratterizzati dall’eccellenza della manifattura e da un profondo lavoro creativo, che donano a ogni prodotto unicità e forte personalità."
+  },
+  {
+    "id": "linea-fashion-t005",
+    "pagina": "linea-fashion.html",
+    "sezione": "Gli album della linea",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "Gli album della linea"
+  },
+  {
+    "id": "linea-glamour-t001",
+    "pagina": "linea-glamour.html",
+    "sezione": "Intestazione",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "Olimp / Album matrimoniali"
+  },
+  {
+    "id": "linea-glamour-t002",
+    "pagina": "linea-glamour.html",
+    "sezione": "Intestazione",
+    "descrizione": "Titolo della pagina",
+    "tipo": "testo",
+    "testo": "Linea Glamour"
+  },
+  {
+    "id": "linea-glamour-t003",
+    "pagina": "linea-glamour.html",
+    "sezione": "Presentazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Design contemporaneo e carattere: ti presentiamo la nostra collezione Glamour, personalizzabile con gli scatti più belli del tuo matrimonio."
+  },
+  {
+    "id": "linea-glamour-t004",
+    "pagina": "linea-glamour.html",
+    "sezione": "Presentazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Qualità e resistenza allo scorrere del tempo sono infine i valori che rendono questa linea una scelta molto apprezzata dai nostri clienti."
+  },
+  {
+    "id": "linea-glamour-t005",
+    "pagina": "linea-glamour.html",
+    "sezione": "Gli album della linea",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "Gli album della linea"
+  },
+  {
+    "id": "linea-trendy-t001",
+    "pagina": "linea-trendy.html",
+    "sezione": "Intestazione",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "Olimp / Album matrimoniali"
+  },
+  {
+    "id": "linea-trendy-t002",
+    "pagina": "linea-trendy.html",
+    "sezione": "Intestazione",
+    "descrizione": "Titolo della pagina",
+    "tipo": "testo",
+    "testo": "Linea Trendy"
+  },
+  {
+    "id": "linea-trendy-t003",
+    "pagina": "linea-trendy.html",
+    "sezione": "Presentazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "L’eleganza e la classe senza tempo contraddistinguono questa collezione dalle linee essenziali e romantiche."
+  },
+  {
+    "id": "linea-trendy-t004",
+    "pagina": "linea-trendy.html",
+    "sezione": "Presentazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Espressione di una tradizione e di un’attenzione al design che da sempre caratterizzano i nostri album, la linea Trendy è rivolta agli sposi che cercano equilibrio tra eleganza e sostanza."
+  },
+  {
+    "id": "linea-trendy-t005",
+    "pagina": "linea-trendy.html",
+    "sezione": "Gli album della linea",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "Gli album della linea"
+  },
+  {
+    "id": "privacy-t001",
+    "pagina": "privacy.html",
+    "sezione": "Intestazione",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "Olimp / Informazioni legali"
+  },
+  {
+    "id": "privacy-t002",
+    "pagina": "privacy.html",
+    "sezione": "Intestazione",
+    "descrizione": "Titolo della pagina",
+    "tipo": "testo",
+    "testo": "Privacy e cookie"
+  },
+  {
+    "id": "privacy-t003",
+    "pagina": "privacy.html",
+    "sezione": "Intestazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Informativa sul trattamento dei dati personali ai sensi degli artt. 13 e 14 del Regolamento (UE) 2016/679 (GDPR)."
+  },
+  {
+    "id": "privacy-t004",
+    "pagina": "privacy.html",
+    "sezione": "1. Titolare del trattamento",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "**Bozza da verificare.** Questo testo va controllato da un consulente privacy o da un legale prima della pubblicazione. Le parti ==evidenziate== sono da completare o confermare."
+  },
+  {
+    "id": "privacy-t005",
+    "pagina": "privacy.html",
+    "sezione": "1. Titolare del trattamento",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "1. Titolare del trattamento"
+  },
+  {
+    "id": "privacy-t006",
+    "pagina": "privacy.html",
+    "sezione": "1. Titolare del trattamento",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Il titolare del trattamento è ==[ragione sociale completa]==, con sede in Viale della Vittoria 111, 92024 Canicattì (AG), Partita IVA ==[numero]==."
+  },
+  {
+    "id": "privacy-t007",
+    "pagina": "privacy.html",
+    "sezione": "1. Titolare del trattamento",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Per qualsiasi richiesta sui tuoi dati puoi scrivere a [alessandro.olimp@gmail.com](mailto:alessandro.olimp@gmail.com) oppure telefonare allo 0922 853031."
+  },
+  {
+    "id": "privacy-t008",
+    "pagina": "privacy.html",
+    "sezione": "1. Titolare del trattamento",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "2. Quali dati raccogliamo"
+  },
+  {
+    "id": "privacy-t009",
+    "pagina": "privacy.html",
+    "sezione": "2. Quali dati raccogliamo",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "**Dati che ci invii con il modulo contatti:** nome e cognome o nome dello studio, indirizzo email e il testo della tua richiesta."
+  },
+  {
+    "id": "privacy-t010",
+    "pagina": "privacy.html",
+    "sezione": "2. Quali dati raccogliamo",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "**Dati che ci comunichi direttamente** se ci contatti per telefono, WhatsApp o email."
+  },
+  {
+    "id": "privacy-t011",
+    "pagina": "privacy.html",
+    "sezione": "2. Quali dati raccogliamo",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "**Dati di navigazione:** i sistemi che fanno funzionare il sito registrano dati tecnici come l'indirizzo IP, il tipo di browser e l'orario di accesso. Servono solo al funzionamento e alla sicurezza del sito."
+  },
+  {
+    "id": "privacy-t012",
+    "pagina": "privacy.html",
+    "sezione": "2. Quali dati raccogliamo",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Ti chiediamo di non inserire nel modulo dati particolari (per esempio dati sulla salute) che non servono a rispondere alla tua richiesta."
+  },
+  {
+    "id": "privacy-t013",
+    "pagina": "privacy.html",
+    "sezione": "2. Quali dati raccogliamo",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "3. Perché li trattiamo e su quale base"
+  },
+  {
+    "id": "privacy-t014",
+    "pagina": "privacy.html",
+    "sezione": "3. Perché li trattiamo e su quale base",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "**Rispondere alle tue richieste** di informazioni, preventivi o appuntamenti con un nostro incaricato. Base giuridica: esecuzione di misure precontrattuali richieste da te (art. 6, par. 1, lett. b GDPR)."
+  },
+  {
+    "id": "privacy-t015",
+    "pagina": "privacy.html",
+    "sezione": "3. Perché li trattiamo e su quale base",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "**Adempiere a obblighi di legge**, per esempio fiscali e contabili se nasce un rapporto commerciale. Base giuridica: obbligo legale (art. 6, par. 1, lett. c)."
+  },
+  {
+    "id": "privacy-t016",
+    "pagina": "privacy.html",
+    "sezione": "3. Perché li trattiamo e su quale base",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "**Garantire la sicurezza del sito** e prevenire abusi. Base giuridica: legittimo interesse del titolare (art. 6, par. 1, lett. f)."
+  },
+  {
+    "id": "privacy-t017",
+    "pagina": "privacy.html",
+    "sezione": "3. Perché li trattiamo e su quale base",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Non usiamo i tuoi dati per inviarti pubblicità e non li vendiamo a nessuno."
+  },
+  {
+    "id": "privacy-t018",
+    "pagina": "privacy.html",
+    "sezione": "3. Perché li trattiamo e su quale base",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "4. Se non ci dai i dati"
+  },
+  {
+    "id": "privacy-t019",
+    "pagina": "privacy.html",
+    "sezione": "4. Se non ci dai i dati",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Nome, email e testo della richiesta sono necessari per risponderti: senza questi dati non possiamo dare seguito al modulo. Puoi sempre contattarci in alternativa per telefono."
+  },
+  {
+    "id": "privacy-t020",
+    "pagina": "privacy.html",
+    "sezione": "4. Se non ci dai i dati",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "5. Per quanto tempo li conserviamo"
+  },
+  {
+    "id": "privacy-t021",
+    "pagina": "privacy.html",
+    "sezione": "5. Per quanto tempo li conserviamo",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Conserviamo i dati delle richieste per il tempo necessario a gestirle e comunque non oltre ==[24 mesi]== dall'ultimo contatto. Se nasce un rapporto commerciale, i dati collegati a ordini e fatture sono conservati per 10 anni, come previsto dalla legge."
+  },
+  {
+    "id": "privacy-t022",
+    "pagina": "privacy.html",
+    "sezione": "5. Per quanto tempo li conserviamo",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "6. Chi può ricevere i dati"
+  },
+  {
+    "id": "privacy-t023",
+    "pagina": "privacy.html",
+    "sezione": "6. Chi può ricevere i dati",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "I dati sono trattati dal personale di Olimp autorizzato e dagli incaricati commerciali che seguono la tua zona. Inoltre usiamo alcuni fornitori esterni, che agiscono come responsabili del trattamento o come titolari autonomi:"
+  },
+  {
+    "id": "privacy-t024",
+    "pagina": "privacy.html",
+    "sezione": "6. Chi può ricevere i dati",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "**Web3Forms**, il servizio che inoltra alla nostra email i messaggi del modulo contatti."
+  },
+  {
+    "id": "privacy-t025",
+    "pagina": "privacy.html",
+    "sezione": "6. Chi può ricevere i dati",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "**==[fornitore dell'hosting del sito]==**, che ospita le pagine e registra i dati tecnici di navigazione."
+  },
+  {
+    "id": "privacy-t026",
+    "pagina": "privacy.html",
+    "sezione": "6. Chi può ricevere i dati",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "**Google**, per i caratteri tipografici del sito (Google Fonts)."
+  },
+  {
+    "id": "privacy-t027",
+    "pagina": "privacy.html",
+    "sezione": "6. Chi può ricevere i dati",
+    "descrizione": "Voce dell'elenco",
+    "tipo": "testo",
+    "testo": "**Esri** e **OpenFreeMap**, solo se lo accetti, per le foto satellitari e i dati della mappa nella sezione \"Dove siamo\"."
+  },
+  {
+    "id": "privacy-t028",
+    "pagina": "privacy.html",
+    "sezione": "6. Chi può ricevere i dati",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Alcuni di questi fornitori possono trattare i dati fuori dall'Unione Europea, in particolare negli Stati Uniti. In questi casi il trasferimento avviene sulla base dell'EU-U.S. Data Privacy Framework o delle clausole contrattuali standard approvate dalla Commissione Europea. ==[Verificare per ciascun fornitore.]=="
+  },
+  {
+    "id": "privacy-t029",
+    "pagina": "privacy.html",
+    "sezione": "6. Chi può ricevere i dati",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "7. Cookie e tecnologie simili"
+  },
+  {
+    "id": "privacy-t030",
+    "pagina": "privacy.html",
+    "sezione": "7. Cookie e tecnologie simili",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "**Cookie tecnici.** Il sito salva nel tuo browser solo la tua scelta sui cookie (voce `olimp_cookie_consent_v1`), così non te la richiediamo a ogni visita. Non serve il consenso, perché è necessaria al funzionamento del sito."
+  },
+  {
+    "id": "privacy-t031",
+    "pagina": "privacy.html",
+    "sezione": "7. Cookie e tecnologie simili",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "**Mappa.** La mappa animata nella sezione \"Dove siamo\" usa le foto satellitari di Esri e i dati di OpenFreeMap: per mostrarla il browser si collega ai loro server, che ricevono il tuo indirizzo IP. Per questo la carichiamo solo se la accetti dal banner o dal pulsante sulla mappa. Finché non accetti, il sito non contatta questi servizi."
+  },
+  {
+    "id": "privacy-t032",
+    "pagina": "privacy.html",
+    "sezione": "7. Cookie e tecnologie simili",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "**Google Fonts.** Per mostrare i caratteri tipografici il browser si collega ai server di Google, che ricevono il tuo indirizzo IP. Non vengono installati cookie."
+  },
+  {
+    "id": "privacy-t033",
+    "pagina": "privacy.html",
+    "sezione": "7. Cookie e tecnologie simili",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "**Social e WhatsApp.** I collegamenti a Facebook, Instagram e WhatsApp sono semplici link: nessun dato viene inviato a questi servizi finché non ci clicchi. Una volta sui loro siti, valgono le loro informative."
+  },
+  {
+    "id": "privacy-t034",
+    "pagina": "privacy.html",
+    "sezione": "7. Cookie e tecnologie simili",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Non usiamo cookie di profilazione né strumenti di statistica."
+  },
+  {
+    "id": "privacy-t035",
+    "pagina": "privacy.html",
+    "sezione": "7. Cookie e tecnologie simili",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "**Modulo contatti.** Il modulo contatti si può inviare solo dopo aver accettato i cookie. Se preferisci non accettarli, puoi contattarci per telefono o WhatsApp. ==[Da verificare con il consulente privacy.]=="
+  },
+  {
+    "id": "privacy-t036",
+    "pagina": "privacy.html",
+    "sezione": "7. Cookie e tecnologie simili",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Puoi cambiare la tua scelta in qualsiasi momento con il pulsante «Gestisci cookie» in fondo a questa pagina, oppure cancellare i dati del sito dalle impostazioni del browser."
+  },
+  {
+    "id": "privacy-t037",
+    "pagina": "privacy.html",
+    "sezione": "7. Cookie e tecnologie simili",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "8. I tuoi diritti"
+  },
+  {
+    "id": "privacy-t038",
+    "pagina": "privacy.html",
+    "sezione": "8. I tuoi diritti",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "In ogni momento puoi chiedere di accedere ai tuoi dati, di correggerli o cancellarli, di limitarne il trattamento, di riceverli in un formato leggibile (portabilità) e di opporti al trattamento basato sul legittimo interesse (artt. 15-22 GDPR). Basta scrivere ai contatti del punto 1."
+  },
+  {
+    "id": "privacy-t039",
+    "pagina": "privacy.html",
+    "sezione": "8. I tuoi diritti",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Se ritieni che il trattamento non sia corretto, puoi presentare reclamo al Garante per la protezione dei dati personali (www.garanteprivacy.it)."
+  },
+  {
+    "id": "privacy-t040",
+    "pagina": "privacy.html",
+    "sezione": "8. I tuoi diritti",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "9. Modifiche a questa informativa"
+  },
+  {
+    "id": "privacy-t041",
+    "pagina": "privacy.html",
+    "sezione": "9. Modifiche a questa informativa",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Possiamo aggiornare questa informativa se cambiano il sito o la normativa. La versione valida è sempre quella pubblicata su questa pagina."
+  },
+  {
+    "id": "privacy-t042",
+    "pagina": "privacy.html",
+    "sezione": "9. Modifiche a questa informativa",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Ultimo aggiornamento: ==[data di pubblicazione]=="
+  },
+  {
+    "id": "privacy-t043",
+    "pagina": "privacy.html",
+    "sezione": "9. Modifiche a questa informativa",
+    "descrizione": "Pulsante",
+    "tipo": "testo",
+    "testo": "Gestisci cookie"
+  },
+  {
+    "id": "prodotti-studio-fotografico-t001",
+    "pagina": "prodotti-studio-fotografico.html",
+    "sezione": "Intestazione",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "Olimp / Prodotti"
+  },
+  {
+    "id": "prodotti-studio-fotografico-t002",
+    "pagina": "prodotti-studio-fotografico.html",
+    "sezione": "Intestazione",
+    "descrizione": "Titolo della pagina",
+    "tipo": "testo",
+    "testo": "Prodotti per il tuo studio fotografico"
+  },
+  {
+    "id": "prodotti-studio-fotografico-t003",
+    "pagina": "prodotti-studio-fotografico.html",
+    "sezione": "Presentazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Proponiamo la nostra professionalità anche nella realizzazione di linee di accessori dedicati a conservare nel tempo fotografie e documenti: realizziamo raccoglitori e albumini per foto amatoriali, portafoto, portatessera e porta carta di credito, oltre a nastri biadesivi con il relativo dispenser."
+  },
+  {
+    "id": "prodotti-studio-fotografico-t004",
+    "pagina": "prodotti-studio-fotografico.html",
+    "sezione": "I nostri accessori",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "I nostri accessori"
+  },
+  {
+    "id": "prodotti-studio-fotografico-t005",
+    "pagina": "prodotti-studio-fotografico.html",
+    "sezione": "I nostri accessori",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Raccoglitori per foto amatoriali"
+  },
+  {
+    "id": "prodotti-studio-fotografico-t006",
+    "pagina": "prodotti-studio-fotografico.html",
+    "sezione": "I nostri accessori",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Albumini per foto amatoriali"
+  },
+  {
+    "id": "prodotti-studio-fotografico-t007",
+    "pagina": "prodotti-studio-fotografico.html",
+    "sezione": "I nostri accessori",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Portafoto in plastica"
+  },
+  {
+    "id": "prodotti-studio-fotografico-t008",
+    "pagina": "prodotti-studio-fotografico.html",
+    "sezione": "I nostri accessori",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Porta tessera"
+  },
+  {
+    "id": "prodotti-studio-fotografico-t009",
+    "pagina": "prodotti-studio-fotografico.html",
+    "sezione": "I nostri accessori",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Porta carta di credito"
+  },
+  {
+    "id": "prodotti-studio-fotografico-t010",
+    "pagina": "prodotti-studio-fotografico.html",
+    "sezione": "I nostri accessori",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Dispenser e nastri biadesivi"
+  },
+  {
+    "id": "prodotti-t001",
+    "pagina": "prodotti.html",
+    "sezione": "Intestazione",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "Olimp / Prodotti"
+  },
+  {
+    "id": "prodotti-t002",
+    "pagina": "prodotti.html",
+    "sezione": "Intestazione",
+    "descrizione": "Titolo della pagina",
+    "tipo": "testo",
+    "testo": "Prodotti"
+  },
+  {
+    "id": "prodotti-t003",
+    "pagina": "prodotti.html",
+    "sezione": "Intestazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Album, accessori e custodie per il tuo studio."
+  },
+  {
+    "id": "prodotti-t004",
+    "pagina": "prodotti.html",
+    "sezione": "Prodotti pensati per il tuo studio",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "Prodotti pensati per il tuo studio"
+  },
+  {
+    "id": "prodotti-t005",
+    "pagina": "prodotti.html",
+    "sezione": "Prodotti pensati per il tuo studio",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Realizziamo nel nostro laboratorio di Canicattì tutto ciò che serve a un fotografo per consegnare i propri scatti: fotolibri su misura, album tradizionali con le stampe inserite a mano, accessori per conservare fotografie e documenti e custodie in coordinato per proteggere ogni album nel tempo. Materiali, colori e formati si scelgono insieme, in base al tuo stile e a quello dei tuoi clienti."
+  },
+  {
+    "id": "prodotti-t006",
+    "pagina": "prodotti.html",
+    "sezione": "Prodotti pensati per il tuo studio",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Scopri le nostre linee di prodotto."
+  },
+  {
+    "id": "prodotti-t007",
+    "pagina": "prodotti.html",
+    "sezione": "Prodotti pensati per il tuo studio",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Fotolibro professionale"
+  },
+  {
+    "id": "prodotti-t008",
+    "pagina": "prodotti.html",
+    "sezione": "Prodotti pensati per il tuo studio",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Il fotolibro su misura per fotografi e studi professionali."
+  },
+  {
+    "id": "prodotti-t009",
+    "pagina": "prodotti.html",
+    "sezione": "Prodotti pensati per il tuo studio",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Album tradizionale professionale"
+  },
+  {
+    "id": "prodotti-t010",
+    "pagina": "prodotti.html",
+    "sezione": "Prodotti pensati per il tuo studio",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Lo stile intramontabile dell’album classico, con le stampe inserite a mano."
+  },
+  {
+    "id": "prodotti-t011",
+    "pagina": "prodotti.html",
+    "sezione": "Prodotti pensati per il tuo studio",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Prodotti per il tuo studio fotografico"
+  },
+  {
+    "id": "prodotti-t012",
+    "pagina": "prodotti.html",
+    "sezione": "Prodotti pensati per il tuo studio",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Portafoto, portatessera e porta carta di credito per conservare fotografie e documenti."
+  },
+  {
+    "id": "prodotti-t013",
+    "pagina": "prodotti.html",
+    "sezione": "Prodotti pensati per il tuo studio",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Custodie per album"
+  },
+  {
+    "id": "prodotti-t014",
+    "pagina": "prodotti.html",
+    "sezione": "Prodotti pensati per il tuo studio",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Valigie, cofanetti e box in coordinato per proteggere i tuoi ricordi."
+  },
+  {
+    "id": "servizi-t001",
+    "pagina": "servizi.html",
+    "sezione": "Intestazione",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "Olimp / Servizi"
+  },
+  {
+    "id": "servizi-t002",
+    "pagina": "servizi.html",
+    "sezione": "Intestazione",
+    "descrizione": "Titolo della pagina",
+    "tipo": "testo",
+    "testo": "Servizi"
+  },
+  {
+    "id": "servizi-t003",
+    "pagina": "servizi.html",
+    "sezione": "Intestazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Per gli sposi e per i fotografi."
+  },
+  {
+    "id": "servizi-t004",
+    "pagina": "servizi.html",
+    "sezione": "Dal 1969 al fianco di sposi e fotografi",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "Dal 1969 al fianco di sposi e fotografi"
+  },
+  {
+    "id": "servizi-t005",
+    "pagina": "servizi.html",
+    "sezione": "Dal 1969 al fianco di sposi e fotografi",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Da oltre cinquant’anni realizziamo album fotografici artigianali nel nostro laboratorio di Canicattì. Ai fotografi professionisti offriamo prodotti, materiali e un servizio di grafica e impaginazione su misura, con personale incaricato in tutta Italia. Agli sposi offriamo il nostro aiuto per trovare il fotografo giusto e realizzare l’album del loro matrimonio."
+  },
+  {
+    "id": "servizi-t006",
+    "pagina": "servizi.html",
+    "sezione": "Dal 1969 al fianco di sposi e fotografi",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Scegli la sezione più adatta a te."
+  },
+  {
+    "id": "servizi-t007",
+    "pagina": "servizi.html",
+    "sezione": "Dal 1969 al fianco di sposi e fotografi",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Sezione sposi"
+  },
+  {
+    "id": "servizi-t008",
+    "pagina": "servizi.html",
+    "sezione": "Dal 1969 al fianco di sposi e fotografi",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Un album che racchiude la magia del tuo matrimonio, con i migliori professionisti del settore wedding."
+  },
+  {
+    "id": "servizi-t009",
+    "pagina": "servizi.html",
+    "sezione": "Dal 1969 al fianco di sposi e fotografi",
+    "descrizione": "Titolo",
+    "tipo": "testo",
+    "testo": "Sezione fotografi"
+  },
+  {
+    "id": "servizi-t010",
+    "pagina": "servizi.html",
+    "sezione": "Dal 1969 al fianco di sposi e fotografi",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Personale incaricato in tutta Italia, a tua disposizione per presentarti ogni nostro servizio."
+  },
+  {
+    "id": "sezione-fotografi-t001",
+    "pagina": "sezione-fotografi.html",
+    "sezione": "Intestazione",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "Olimp / Servizi"
+  },
+  {
+    "id": "sezione-fotografi-t002",
+    "pagina": "sezione-fotografi.html",
+    "sezione": "Intestazione",
+    "descrizione": "Titolo della pagina",
+    "tipo": "testo",
+    "testo": "Sezione fotografi"
+  },
+  {
+    "id": "sezione-fotografi-t003",
+    "pagina": "sezione-fotografi.html",
+    "sezione": "Presentazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Olimp oggi è presente con personale direttamente incaricato in tutta Italia."
+  },
+  {
+    "id": "sezione-fotografi-t004",
+    "pagina": "sezione-fotografi.html",
+    "sezione": "Presentazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Contattando direttamente la nostra Sede, personale altamente qualificato sarà a tua completa disposizione per presentarti ogni nostro servizio e valutare le tue richieste."
+  },
+  {
+    "id": "sezione-fotografi-t005",
+    "pagina": "sezione-fotografi.html",
+    "sezione": "Vuoi vedere il nostro campionario?",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "Vuoi vedere\nil nostro campionario?"
+  },
+  {
+    "id": "sezione-fotografi-t006",
+    "pagina": "sezione-fotografi.html",
+    "sezione": "Vuoi vedere il nostro campionario?",
+    "descrizione": "Testo cliccabile (testo e link)",
+    "tipo": "semplice",
+    "testo": "Richiedi una visita",
+    "link": "index.html#contatti"
+  },
+  {
+    "id": "sezione-sposi-t001",
+    "pagina": "sezione-sposi.html",
+    "sezione": "Intestazione",
+    "descrizione": "Scritta piccola sopra il titolo",
+    "tipo": "testo",
+    "testo": "Olimp / Servizi"
+  },
+  {
+    "id": "sezione-sposi-t002",
+    "pagina": "sezione-sposi.html",
+    "sezione": "Intestazione",
+    "descrizione": "Titolo della pagina",
+    "tipo": "testo",
+    "testo": "Sezione sposi"
+  },
+  {
+    "id": "sezione-sposi-t003",
+    "pagina": "sezione-sposi.html",
+    "sezione": "Presentazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Vuoi un album che possa racchiudere la magia del tuo matrimonio? Puoi rivolgerti a noi: saremo felici di indicarti i migliori fotografi e professionisti del settore wedding con cui siamo in contatto. Ti supporteremo nella scelta del partner più adatto per realizzare il tuo album matrimonio secondo i tuoi desideri."
+  },
+  {
+    "id": "sezione-sposi-t004",
+    "pagina": "sezione-sposi.html",
+    "sezione": "Presentazione",
+    "descrizione": "Paragrafo",
+    "tipo": "testo",
+    "testo": "Hai già il tuo fotografo di fiducia? Saremo felici di contattarlo per proporgli il nostro catalogo e valutare insieme una soluzione per l’album del tuo matrimonio."
+  },
+  {
+    "id": "sezione-sposi-t005",
+    "pagina": "sezione-sposi.html",
+    "sezione": "Pronti a creare il vostro album?",
+    "descrizione": "Titolo della sezione",
+    "tipo": "testo",
+    "testo": "Pronti a creare\nil vostro album?"
+  },
+  {
+    "id": "sezione-sposi-t006",
+    "pagina": "sezione-sposi.html",
+    "sezione": "Pronti a creare il vostro album?",
+    "descrizione": "Testo cliccabile (testo e link)",
+    "tipo": "semplice",
+    "testo": "Scrivici",
+    "link": "index.html#contatti"
+  }
+]

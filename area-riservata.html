@@ -329,6 +329,34 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
 .slot .ph,.card .ph,.anteprima{aspect-ratio:4/3}
 .anteprima{max-height:40svh}
 #img-dove{margin:-6px 0 14px}
+/* Foto / Testi in ogni pagina */
+.modo{display:inline-flex;margin:4px 0 18px;border:1px solid var(--ink);border-radius:3px;overflow:hidden}
+.modo button{min-height:42px;padding:0 20px;border:0;background:var(--card);font:500 15px/1 var(--head);text-transform:uppercase;letter-spacing:.07em;color:var(--ink);cursor:pointer}
+.modo button+button{border-left:1px solid var(--ink)}
+.modo button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.modo button:disabled{color:#a5a5a0;cursor:not-allowed}
+.modo button small{font:500 12px var(--testo);opacity:.75;letter-spacing:0}
+/* testi */
+.testi{list-style:none;display:grid;gap:10px;padding-bottom:20px}
+.testo{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;padding:12px 14px;background:var(--card);border:1px solid var(--line);border-radius:4px;cursor:pointer;transition:box-shadow 200ms ease}
+@media (hover:hover) and (pointer:fine){.testo:hover{box-shadow:0 10px 30px -12px rgba(0,0,0,.3)}}
+.testo b{display:block;font-weight:600;font-size:12px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}
+.testo .dove-link{font-weight:400;text-transform:none;letter-spacing:0;color:var(--acc);word-break:break-all}
+.testo .btn{min-height:38px;font-size:14px}
+.anteprima-testo{font-size:15px;line-height:1.5;color:var(--ink);overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.anteprima-testo a{color:var(--acc)}
+.anteprima-testo mark{background:#fff2a8}
+.anteprima-testo.grande{display:block;-webkit-line-clamp:none;max-height:30svh;overflow:auto;padding:12px 14px;background:#fff;border:1px dashed #b9b9b3;border-radius:3px;margin-bottom:12px}
+.anteprima-testo .vuoto{color:var(--mute)}
+.etichetta-ant{font-size:14px;font-weight:500;margin-bottom:6px}
+#d-testo textarea{width:100%;min-height:52px;padding:12px 14px;border:1px solid #b9b9b3;border-radius:3px;background:#fff;font:16px/1.5 var(--testo);resize:vertical}
+#d-testo textarea:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px rgba(0,0,0,.08)}
+#d-testo .strumenti{display:flex;gap:6px;margin-bottom:6px;flex-wrap:wrap}
+#d-testo .strumenti .btn{min-height:36px;font-size:14px;padding:0 12px}
+#d-testo .aiuto{font-size:13px;color:var(--mute);margin-top:6px;line-height:1.45}
+#d-testo .aiuto code{background:#fff;border:1px solid var(--line);padding:0 4px;border-radius:2px}
+#tx-dove{margin:-6px 0 14px}
+@media (max-width:480px){.testo{grid-template-columns:1fr}.testo .btn{justify-self:start}}
 </style>
 </head>
 <body>
@@ -410,6 +438,34 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
   </form>
 </dialog>
 
+<dialog id="d-testo" aria-labelledby="tx-t">
+  <form id="f-testo" method="dialog" novalidate>
+    <h2 id="tx-t"></h2>
+    <p class="nota-pw" id="tx-dove"></p>
+    <div class="campo">
+      <label for="tx-testo">Testo</label>
+      <div class="strumenti" id="tx-strumenti">
+        <button class="btn" type="button" id="tx-grassetto" title="Metti in grassetto le parole selezionate"><b>G</b> Grassetto</button>
+        <button class="btn" type="button" id="tx-link-btn" title="Rendi cliccabili le parole selezionate">Testo cliccabile</button>
+      </div>
+      <textarea id="tx-testo" rows="4" maxlength="4000" spellcheck="true"></textarea>
+      <p class="aiuto" id="tx-aiuto">Per andare a capo premi Invio. Le parole tra <code>**</code> vengono in <b>grassetto</b><span id="tx-aiuto-l">; <code>[parole](indirizzo)</code> diventa un testo cliccabile</span>.</p>
+      <p class="aiuto" id="tx-aiuto-semplice" hidden>Qui va solo il testo, su una riga: le parti fisse accanto (icone, frecce, numeri) restano come sono.</p>
+    </div>
+    <div class="campo" id="tx-campo-link" hidden>
+      <label for="tx-link">Dove porta il clic <span class="facoltativo">(una pagina del sito come collezioni.html, oppure https://…, mailto:… o tel:…)</span></label>
+      <input type="text" id="tx-link" maxlength="500" spellcheck="false" autocapitalize="off" autocomplete="off">
+    </div>
+    <p class="etichetta-ant">Come si vedrà</p>
+    <div class="anteprima-testo grande" id="tx-ant" aria-live="polite"></div>
+    <p class="errore" id="err-tx" role="alert"></p>
+    <div class="azioni">
+      <button class="btn" type="button" id="tx-annulla">Annulla</button>
+      <button class="btn pri" type="submit" id="tx-ok">Salva</button>
+    </div>
+  </form>
+</dialog>
+
 <dialog id="d-salva" aria-labelledby="sv-t" aria-describedby="sv-p">
   <div class="sv" id="sv" role="status" aria-live="polite">
     <span class="ico" id="sv-ico" aria-hidden="true"></span>
@@ -454,22 +510,22 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     <button class="btn link g-chiudi" type="button" id="g-x" aria-label="Chiudi la guida">&times;</button>
   </div>
   <nav class="g-indice" aria-label="Argomenti della guida">
-    <a href="#g-aggiungere">Aggiungere</a><a href="#g-riordinare">Riordinare</a><a href="#g-rinominare">Rinominare</a><a href="#g-eliminare">Eliminare</a><a href="#g-fisse">Foto fisse</a>
+    <a href="#g-aggiungere">Aggiungere</a><a href="#g-riordinare">Riordinare</a><a href="#g-rinominare">Rinominare</a><a href="#g-eliminare">Eliminare</a><a href="#g-fisse">Foto fisse</a><a href="#g-testi">Testi</a>
   </nav>
   <div class="g-corpo">
-    <p class="g-intro">In alto c'è il menu delle pagine, ordinato come quello del sito: Home, Grafica &amp; Stampa, Servizi, Prodotti e Collezioni; scegliendo una voce con la freccetta compaiono sotto le sue pagine. Le modifiche valgono solo per la pagina in cui le fai e si vedono online entro qualche minuto dal salvataggio. Questa guida si riapre quando vuoi dal pulsante <b>Guida</b> in alto. Clicca una schermata per ingrandirla. Dal telefono funziona allo stesso modo: al posto del clic si tocca con il dito.</p>
+    <p class="g-intro">In alto c'è il menu delle pagine, ordinato come quello del sito: Home, Grafica &amp; Stampa, Servizi, Prodotti e Collezioni; scegliendo una voce con la freccetta compaiono sotto le sue pagine. In ogni pagina scegli se cambiare le <b>Foto</b> o i <b>Testi</b>. Le modifiche valgono solo per la pagina in cui le fai e si vedono online entro qualche minuto dal salvataggio. Questa guida si riapre quando vuoi dal pulsante <b>Guida</b> in alto. Clicca una schermata per ingrandirla. Dal telefono funziona allo stesso modo: al posto del clic si tocca con il dito.</p>
     <section class="g-sez" id="g-aggiungere" aria-labelledby="g-aggiungere-t">
       <h3 id="g-aggiungere-t">Aggiungere una foto</h3>
       <div class="g-passo"><span class="num">1</span><p>In alto scegli la <b>pagina</b> del sito da modificare, per esempio <b>Collezioni</b>, poi <b>Matrimoniali</b>, poi <b>Fashion</b>.</p><a href="images/guida/tab.jpg" class="g-zoom" data-punti="42.66,8.75,10.55,6.50;12.66,15.88,11.09,5.75;13.98,22.25,7.03,5.75" aria-label="Ingrandisci la schermata"><img src="images/guida/tab.jpg" alt="Il menu delle pagine in alto con Collezioni, Matrimoniali e Fashion evidenziati" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
-      <div class="g-passo"><span class="num">2</span><p>Clicca la casella grigia con il <b>+</b>, in fondo alle foto della galleria (per esempio <b>Gli album della linea</b>). Si apre la finestra per scegliere il file: scegli la foto e clicca <b>Apri</b>.</p><a href="images/guida/piu.jpg" class="g-zoom" data-punti="50.16,63.38,14.22,26.50" aria-label="Ingrandisci la schermata"><img src="images/guida/piu.jpg" alt="La casella con il + in fondo alla galleria" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">2</span><p>Clicca la casella grigia con il <b>+</b>, in fondo alle foto della galleria (per esempio <b>Gli album della linea</b>). Si apre la finestra per scegliere il file: scegli la foto e clicca <b>Apri</b>.</p><a href="images/guida/piu.jpg" class="g-zoom" data-punti="50.16,71.62,14.22,26.50" aria-label="Ingrandisci la schermata"><img src="images/guida/piu.jpg" alt="La casella con il + in fondo alla galleria" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
       <div class="g-passo"><span class="num">3</span><p>Controlla l'anteprima, scrivi il <b>titolo</b> (il nome del modello, che compare sotto la foto) e clicca <b>Aggiungi</b>. Se hai sbagliato foto, clicca <b>Cambia foto</b>.</p><a href="images/guida/nuova.jpg" class="g-zoom" data-punti="33.12,66.88,33.75,7.50;58.13,78.88,8.75,7.00" aria-label="Ingrandisci la schermata"><img src="images/guida/nuova.jpg" alt="La finestra per aggiungere una foto, con il titolo scritto" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
-      <div class="g-passo"><span class="num">4</span><p>La foto nuova lampeggia in rosso. Se vuoi spostarla, <b>tieni premuto il clic sulla foto e trascinala</b> nel posto che preferisci; altrimenti resta ultima. Poi clicca <b>Conferma e salva</b> nella barra in basso.</p><a href="images/guida/nuova-sel.jpg" class="g-zoom" data-punti="79.22,37.38,14.22,25.50;57.19,89.75,13.91,7.00" aria-label="Ingrandisci la schermata"><img src="images/guida/nuova-sel.jpg" alt="La foto nuova evidenziata e il pulsante Conferma e salva" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">4</span><p>La foto nuova lampeggia in rosso. Se vuoi spostarla, <b>tieni premuto il clic sulla foto e trascinala</b> nel posto che preferisci; altrimenti resta ultima. Poi clicca <b>Conferma e salva</b> nella barra in basso.</p><a href="images/guida/nuova-sel.jpg" class="g-zoom" data-punti="79.22,45.62,14.22,25.50;57.19,89.75,13.91,7.00" aria-label="Ingrandisci la schermata"><img src="images/guida/nuova-sel.jpg" alt="La foto nuova evidenziata e il pulsante Conferma e salva" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
       <div class="g-passo"><span class="num">5</span><p>Si apre la finestra del salvataggio: aspetta che la barra arrivi in fondo e clicca <b>OK</b>. Il sito si aggiorna da solo entro qualche minuto.</p><a href="images/guida/salvato.jpg" class="g-zoom" data-punti="44.84,60.00,10.31,7.00" aria-label="Ingrandisci la schermata"><img src="images/guida/salvato.jpg" alt="La finestra Salvataggio riuscito correttamente con il pulsante OK" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
     </section>
     <section class="g-sez" id="g-riordinare" aria-labelledby="g-riordinare-t">
       <h3 id="g-riordinare-t">Riordinare le foto</h3>
-      <div class="g-passo"><span class="num">1</span><p>Clicca la foto da spostare: si accende in rosso e le altre diventano più chiare.</p><a href="images/guida/scegli.jpg" class="g-zoom" data-punti="35.62,37.38,14.22,25.50" aria-label="Ingrandisci la schermata"><img src="images/guida/scegli.jpg" alt="Una foto selezionata in arancio, le altre più chiare" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
-      <div class="g-passo"><span class="num">2</span><p><b>Tieni premuto il clic sulla foto e trascinala</b> dove vuoi, dentro la stessa galleria. Il numero in alto a sinistra indica il posto. Poi clicca <b>Conferma</b>.</p><a href="images/guida/spostata.jpg" class="g-zoom" data-punti="6.56,37.38,14.22,25.50;61.56,89.75,9.53,7.00" aria-label="Ingrandisci la schermata"><img src="images/guida/spostata.jpg" alt="La foto spostata al posto 1 e il pulsante Conferma" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">1</span><p>Clicca la foto da spostare: si accende in rosso e le altre diventano più chiare.</p><a href="images/guida/scegli.jpg" class="g-zoom" data-punti="35.62,45.62,14.22,25.50" aria-label="Ingrandisci la schermata"><img src="images/guida/scegli.jpg" alt="Una foto selezionata in arancio, le altre più chiare" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">2</span><p><b>Tieni premuto il clic sulla foto e trascinala</b> dove vuoi, dentro la stessa galleria. Il numero in alto a sinistra indica il posto. Poi clicca <b>Conferma</b>.</p><a href="images/guida/spostata.jpg" class="g-zoom" data-punti="6.56,45.62,14.22,25.50;61.56,89.75,9.53,7.00" aria-label="Ingrandisci la schermata"><img src="images/guida/spostata.jpg" alt="La foto spostata al posto 1 e il pulsante Conferma" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
       <p class="g-nota">Hai cambiato idea? Clicca <b>Annulla</b> e la foto torna dov'era, senza salvare nulla. Finché non scegli <b>Conferma</b> o <b>Annulla</b> il resto della pagina è bloccato: se clicchi altrove, la barra in basso lampeggia per ricordartelo.</p>
     </section>
     <section class="g-sez" id="g-rinominare" aria-labelledby="g-rinominare-t">
@@ -485,9 +541,16 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     </section>
     <section class="g-sez" id="g-fisse" aria-labelledby="g-fisse-t">
       <h3 id="g-fisse-t">Cambiare le foto fisse</h3>
-      <div class="g-passo"><span class="num">1</span><p>Le altre foto delle pagine (la foto principale accanto al testo, i riquadri delle linee e dei prodotti, le strisce delle collezioni) hanno un posto fisso: clicca <b>Cambia foto</b> accanto a quella da cambiare.</p><a href="images/guida/fissa.jpg" class="g-zoom" data-punti="18.20,56.00,10.47,6.25" aria-label="Ingrandisci la schermata"><img src="images/guida/fissa.jpg" alt="Una foto fissa con il pulsante Cambia foto" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">1</span><p>Le altre foto delle pagine (la foto principale accanto al testo, i riquadri delle linee e dei prodotti, le strisce delle collezioni) hanno un posto fisso: clicca <b>Cambia foto</b> accanto a quella da cambiare.</p><a href="images/guida/fissa.jpg" class="g-zoom" data-punti="18.20,64.25,10.47,6.25" aria-label="Ingrandisci la schermata"><img src="images/guida/fissa.jpg" alt="Una foto fissa con il pulsante Cambia foto" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
       <div class="g-passo"><span class="num">2</span><p>Nella finestra clicca <b>Cambia foto</b> e scegli quella nuova. Scrivi in breve cosa si vede (serve a Google) e clicca <b>Salva</b>.</p><a href="images/guida/fissa-scheda.jpg" class="g-zoom" data-punti="53.91,54.12,10.86,6.25;59.92,77.50,6.95,7.00" aria-label="Ingrandisci la schermata"><img src="images/guida/fissa-scheda.jpg" alt="La finestra per cambiare una foto, con Cambia foto e Salva evidenziati" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
       <p class="g-nota">Ogni pagina è indipendente: una foto cambiata in una pagina resta uguale in tutte le altre (per esempio la striscia «Album eventi» della Home e quella di Collezioni si cambiano separatamente).</p>
+    </section>
+    <section class="g-sez" id="g-testi" aria-labelledby="g-testi-t">
+      <h3 id="g-testi-t">Cambiare i testi</h3>
+      <div class="g-passo"><span class="num">1</span><p>Nella pagina clicca <b>Testi</b> (accanto a Foto). I testi sono divisi per sezione, nell'ordine in cui si vedono sul sito: clicca quello da cambiare.</p><a href="images/guida/testi.jpg" class="g-zoom" data-punti="12.42,27.25,8.91,6.75;6.56,65.00,86.88,13.25" aria-label="Ingrandisci la schermata"><img src="images/guida/testi.jpg" alt="Il pulsante Testi e l'elenco dei testi della Home divisi per sezione" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">2</span><p>Scrivi il testo nuovo. Per andare a capo premi Invio. Per il <b>grassetto</b> seleziona le parole e clicca <b>Grassetto</b>; per rendere cliccabili delle parole selezionale, clicca <b>Testo cliccabile</b> e scrivi l'indirizzo al posto di https://. Sotto vedi come si vedrà; poi clicca <b>Salva</b>.</p><a href="images/guida/testo-modifica.jpg" class="g-zoom" data-punti="33.12,34.50,33.75,13.75;59.92,75.62,6.95,7.00" aria-label="Ingrandisci la schermata"><img src="images/guida/testo-modifica.jpg" alt="La finestra del testo con il campo da scrivere, l'anteprima e il pulsante Salva" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">3</span><p>Nei pulsanti e nei testi cliccabili puoi cambiare anche <b>Dove porta il clic</b>: una pagina del sito (per esempio collezioni.html), un sito (https://…), un'email (mailto:…) o un numero di telefono (tel:…).</p><a href="images/guida/testo-link.jpg" class="g-zoom" data-punti="33.12,30.12,33.75,13.75;33.12,56.88,33.75,7.50" aria-label="Ingrandisci la schermata"><img src="images/guida/testo-link.jpg" alt="La finestra di un pulsante con il testo e il campo Dove porta il clic" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <p class="g-nota">Alcuni testi hanno accanto parti fisse (frecce, numeri, icone, i campi del modulo contatti): lì si cambia solo il testo, su una riga. Il menu in alto, il piè di pagina e i numeri animati della Home («57 anni», «oltre 100», «oltre 30.000») non si cambiano da qui: per quelli chiedi a chi cura il sito.</p>
     </section>
   </div>
   <div class="g-piede"><button class="btn pri" type="button" id="g-ok">Ho capito</button></div>
@@ -506,7 +569,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
   var API = meta('ar-api').replace(/\/+$/, ''), REPO = meta('ar-repo'), RAMO = meta('ar-branch') || 'main';
   var $ = function (id) { return document.getElementById(id); };
 
-  var gallerie = {}, immagini = [], anteprimeLocali = {}, token = null;
+  var gallerie = {}, immagini = [], testi = [], anteprimeLocali = {}, token = null;
   var SOLO_FOTO = 'image/jpeg,image/png,image/webp,image/heic,image/heif';
   // nel browser si ricordano accesso, scheda e guida vista; il prefisso evita di confondersi con
   // altri siti pubblicati sullo stesso indirizzo (nemesimark.github.io)
@@ -549,7 +612,9 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     ['album-bambini-baby.html', 'Baby', 'Linea Baby', [{ t: P, slots: ['baby-principale'] }, { t: 'Gli album della linea', galleria: 'album-bambini-baby' }]],
     ['album-bambini-new-born.html', 'New Born', 'Linea New Born', [{ t: P, slots: ['new-born-principale'] }, { t: 'Gli album della linea', galleria: 'album-bambini-new-born' }]],
     ['album-comunione.html', 'Comunione', 'Album comunione', [{ t: P, slots: ['comunione-principale'] }, { t: 'I modelli', galleria: 'album-comunione' }]],
-    ['album-eventi.html', 'Eventi', 'Album eventi', [{ t: P, slots: ['eventi-principale'] }, { t: 'Le fotografie', galleria: 'album-eventi' }]]
+    ['album-eventi.html', 'Eventi', 'Album eventi', [{ t: P, slots: ['eventi-principale'] }, { t: 'Le fotografie', galleria: 'album-eventi' }]],
+    ['area-download.html', 'Area download', 'Area download', []],
+    ['privacy.html', 'Privacy', 'Privacy e cookie', []]
   ];
 
   /* ---------- chiamate al servizio ---------- */
@@ -594,7 +659,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
   function carica() {
     mostraVista('lavori'); centraTab(); stato('lav', 'Caricamento delle foto…');
     chiama('/contenuti').then(function (d) {
-      gallerie = d.gallerie || {}; immagini = d.immagini || [];
+      gallerie = d.gallerie || {}; immagini = d.immagini || []; testi = d.testi || [];
       disegna(); stato('', '');
       if (!mem.get('ar-guida-vista')) apriGuida(); // la prima volta si apre da sola
     })
@@ -630,7 +695,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     'album-bambini-deluxe.html': 'album-bambini.html', 'album-bambini-baby.html': 'album-bambini.html',
     'album-bambini-new-born.html': 'album-bambini.html'
   };
-  var ORDINE_PRIMA = ['index.html', 'grafica-stampa.html', 'servizi.html', 'prodotti.html', 'collezioni.html'];
+  var ORDINE_PRIMA = ['index.html', 'grafica-stampa.html', 'servizi.html', 'prodotti.html', 'collezioni.html', 'area-download.html', 'privacy.html'];
   var NOME = {}; PAGINE.forEach(function (p) { NOME[p[0]] = p[1]; });
   function figli(id) { return PAGINE.filter(function (p) { return (GENITORE[p[0]] || '') === id; }).map(function (p) { return p[0]; }); }
   function catena(id) { var c = [id]; while (GENITORE[c[0]]) c.unshift(GENITORE[c[0]]); return c; }
@@ -673,8 +738,30 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
       }
       ol.appendChild(li);
     });
-    s.appendChild(ol); $('pagine').appendChild(s);
+    ol.dataset.modo = 'foto';
+    var modo = document.createElement('div'); modo.className = 'modo'; modo.setAttribute('role', 'group'); modo.setAttribute('aria-label', 'Cosa vuoi modificare');
+    ['foto', 'testi'].forEach(function (m) {
+      var bm = document.createElement('button'); bm.type = 'button'; bm.dataset.modo = m; bm.id = 'modo-' + m + '-' + p[0];
+      bm.innerHTML = (m === 'foto' ? 'Foto' : 'Testi') + ' <small></small>';
+      bm.onclick = function () { mem.set('ar-modo', m); mostraModo(); };
+      modo.appendChild(bm);
+    });
+    var ot = document.createElement('ol'); ot.className = 'blocchi'; ot.dataset.modo = 'testi'; ot.id = 'testi-' + p[0];
+    s.appendChild(modo); s.appendChild(ol); s.appendChild(ot); $('pagine').appendChild(s);
   });
+  /* in ogni pagina si sceglie se modificare le foto o i testi (la scelta vale per tutte le pagine) */
+  function mostraModo() {
+    var voluto = mem.get('ar-modo') || 'foto';
+    PAGINE.forEach(function (p) {
+      var sec = $('pag-' + p[0]), nFoto = p[3].length, nTesti = $('testi-' + p[0]).children.length;
+      var m = voluto === 'testi' ? (nTesti ? 'testi' : 'foto') : (nFoto ? 'foto' : 'testi');
+      [].forEach.call(sec.querySelectorAll('.modo button'), function (b) {
+        b.setAttribute('aria-pressed', String(b.dataset.modo === m));
+        b.disabled = b.dataset.modo === 'foto' ? !nFoto : !nTesti;
+      });
+      [].forEach.call(sec.querySelectorAll('ol.blocchi'), function (o) { o.hidden = o.dataset.modo !== m; });
+    });
+  }
   ORDINE_PRIMA.forEach(function (id) { RIGHE[''].appendChild($('tab-' + id)); }); // stesso ordine della navbar del sito
   function mostraPagina(id) {
     if (sel) confermaScelta(); // cambiando pagina la foto selezionata resta dov'è
@@ -695,7 +782,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
       var t = $('tab-' + id); if (t) t.parentNode.scrollLeft = t.offsetLeft - t.parentNode.offsetLeft - (t.parentNode.clientWidth - t.offsetWidth) / 2;
     });
   }
-  mostraPagina(tabAttiva);
+  mostraPagina(tabAttiva); mostraModo();
 
   /* ---------- gallerie (data/gallerie.json): ogni pagina ha il suo elenco, da riordinare ---------- */
   function elenco(sez) { return gallerie[sez.lista] || (gallerie[sez.lista] = []); }
@@ -756,6 +843,63 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     });
   }
 
+  /* ---------- testi (data/testi.json): per pagina e per sezione ---------- */
+  // le stesse regole di scripts/genera_contenuti.py: a capo, **grassetto**, ==evidenziato==, `codice`, [testo](indirizzo)
+  var LINK_VALIDO = /^(https?:\/\/[^\s<>"']+|mailto:[^\s<>"']+|tel:\+?[0-9 ()./-]+|#[A-Za-z0-9_-]*|(?!.*\.\.)[A-Za-z0-9][A-Za-z0-9._\/-]*(#[A-Za-z0-9_-]*)?)$/;
+  var MARCHE = /\[([^\]\n]+)\]\(([^)\s]+)\)|\*\*([\s\S]+?)\*\*|==([\s\S]+?)==|`([\s\S]+?)`/g;
+  function esc(t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  function htmlTesto(t, linkAmmessi) {
+    var out = '', i = 0, m, re = new RegExp(MARCHE.source, 'g');
+    while ((m = re.exec(t))) {
+      out += esc(t.slice(i, m.index)).replace(/\n/g, '<br>');
+      if (m[1] != null) out += linkAmmessi !== false && LINK_VALIDO.test(m[2]) ? '<a href="' + esc(m[2]) + '" target="_blank" rel="noopener">' + htmlTesto(m[1], false) + '</a>' : esc(m[0]);
+      else if (m[3] != null) out += '<strong>' + htmlTesto(m[3], linkAmmessi) + '</strong>';
+      else if (m[4] != null) out += '<mark>' + htmlTesto(m[4], linkAmmessi) + '</mark>';
+      else out += '<code>' + esc(m[5]) + '</code>';
+      i = re.lastIndex;
+    }
+    return out + esc(t.slice(i)).replace(/\n/g, '<br>');
+  }
+  function linkSbagliati(t) { var r = [], m, re = /\[([^\]\n]+)\]\(([^)\s]+)\)/g; while ((m = re.exec(t))) if (!LINK_VALIDO.test(m[2])) r.push(m[2]); return r; }
+  function cartaTesto(v) {
+    var li = document.createElement('li'); li.className = 'testo'; li.tabIndex = 0; li.id = 'tx-' + v.id;
+    li.setAttribute('aria-label', v.descrizione + ': ' + v.testo.slice(0, 80) + '. Premi Invio per modificarlo');
+    var tx = document.createElement('div');
+    var b = document.createElement('b'); b.textContent = v.descrizione + ('link' in v ? ' ' : '');
+    if ('link' in v) { var l = document.createElement('span'); l.className = 'dove-link'; l.textContent = '→ ' + v.link; b.appendChild(l); }
+    var q = document.createElement('div'); q.className = 'anteprima-testo'; q.innerHTML = htmlTesto(v.testo, v.tipo !== 'semplice' && !('link' in v));
+    tx.appendChild(b); tx.appendChild(q);
+    var bt = document.createElement('span'); bt.className = 'btn'; bt.textContent = 'Modifica';
+    li.appendChild(tx); li.appendChild(bt);
+    li.onclick = function () { if (sel) confermaScelta(); apriTesto(v.id); };
+    li.onkeydown = function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); li.onclick(); } };
+    return li;
+  }
+  function disegnaTesti() {
+    PAGINE.forEach(function (p) {
+      var ol = $('testi-' + p[0]); ol.innerHTML = '';
+      var sezioni = [], per = {};
+      testi.forEach(function (v) {
+        if (v.pagina !== p[0]) return;
+        if (!per[v.sezione]) { per[v.sezione] = []; sezioni.push(v.sezione); }
+        per[v.sezione].push(v);
+      });
+      sezioni.forEach(function (nome, k) {
+        var li = document.createElement('li'), h2 = document.createElement('h2');
+        h2.innerHTML = '<span class="num">' + (k + 1) + '</span> ';
+        h2.appendChild(document.createTextNode(nome));
+        var c = document.createElement('small'); c.textContent = '(' + per[nome].length + ')'; h2.appendChild(document.createTextNode(' ')); h2.appendChild(c);
+        var u = document.createElement('ul'); u.className = 'testi';
+        per[nome].forEach(function (v) { u.appendChild(cartaTesto(v)); });
+        li.appendChild(h2); li.appendChild(u); ol.appendChild(li);
+      });
+      var nT = testi.filter(function (v) { return v.pagina === p[0]; }).length;
+      $('modo-testi-' + p[0]).querySelector('small').textContent = nT ? '(' + nT + ')' : '';
+      $('modo-foto-' + p[0]).querySelector('small').textContent = '';
+    });
+    mostraModo();
+  }
+
   var ordinatori = [], trascinato = false;
   function disegnaSezione(sez, ul) {
     ul.innerHTML = '';
@@ -782,6 +926,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     }));
   }
   function disegna() {
+    disegnaTesti();
     disegnaImmagini();
     ordinatori.forEach(function (o) { o.destroy(); }); ordinatori = [];
     Object.keys(SEZIONI).forEach(function (g) {
@@ -899,7 +1044,8 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
       });
     });
     var imm = immagini.map(function (v) { return { id: v.id, foto: v.foto, alt: v.alt }; });
-    var corpo = { gallerie: gal, immagini: imm, nuoveFoto: foto, messaggio: 'Area riservata: ' + msg };
+    var tst = testi.map(function (v) { var o = { id: v.id, testo: v.testo }; if ('link' in v) o.link = v.link; return o; });
+    var corpo = { gallerie: gal, immagini: imm, testi: tst, nuoveFoto: foto, messaggio: 'Area riservata: ' + msg };
     return chiama('/salva', corpo).then(function (d) {
       // le foto nuove ricevono il nome definitivo; si aggiorna l'elenco attuale (che nel frattempo può
       // essere stato riordinato) e si tiene l'anteprima locale finché il sito non pubblica la foto
@@ -1066,6 +1212,55 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     immAperta.alt = alt;
     dimg.close(); disegna();
     salva((fotoImm ? 'Cambiata la foto «' : 'Cambiata la descrizione «') + immAperta.sezione + '» (' + immAperta.pagina + ')', nuove);
+  };
+
+  /* ---------- testi: finestra per modificarli ---------- */
+  var dtx = $('d-testo'), txAperto = null;
+  function apriTesto(id) {
+    txAperto = testi.filter(function (v) { return v.id === id; })[0]; if (!txAperto) return;
+    var semplice = txAperto.tipo === 'semplice', link = 'link' in txAperto;
+    $('tx-t').textContent = txAperto.descrizione;
+    $('tx-dove').textContent = (NOME[txAperto.pagina] || txAperto.pagina) + ' · ' + txAperto.sezione;
+    $('tx-testo').value = txAperto.testo; $('tx-testo').rows = semplice ? 2 : Math.min(12, Math.max(3, Math.ceil(txAperto.testo.length / 60) + 1));
+    $('tx-strumenti').hidden = semplice; $('tx-aiuto').hidden = semplice; $('tx-aiuto-semplice').hidden = !semplice;
+    $('tx-link-btn').hidden = link; $('tx-aiuto-l').hidden = link; // dentro un testo che è già un link non si mettono altri link
+    $('tx-campo-link').hidden = !link; $('tx-link').value = link ? txAperto.link : '';
+    $('err-tx').textContent = ''; anteprimaTesto();
+    dtx.showModal(); $('tx-testo').focus();
+  }
+  function anteprimaTesto() {
+    if (!txAperto) return;
+    var t = $('tx-testo').value; if (txAperto.tipo === 'semplice') t = t.replace(/\s+/g, ' ');
+    $('tx-ant').innerHTML = htmlTesto(t.trim(), txAperto.tipo !== 'semplice' && !('link' in txAperto)) || '<span class="vuoto">(vuoto)</span>';
+  }
+  $('tx-testo').oninput = anteprimaTesto;
+  function avvolgi(prima, dopo, segnaposto) { // mette le regole attorno alle parole selezionate
+    var ta = $('tx-testo'), a = ta.selectionStart, b = ta.selectionEnd, v = ta.value, dentro = v.slice(a, b) || segnaposto;
+    ta.value = v.slice(0, a) + prima + dentro + dopo + v.slice(b);
+    ta.focus(); ta.setSelectionRange(a + prima.length, a + prima.length + dentro.length); anteprimaTesto();
+  }
+  $('tx-grassetto').onclick = function () { avvolgi('**', '**', 'parole in grassetto'); };
+  $('tx-link-btn').onclick = function () {
+    var ta = $('tx-testo'), a = ta.selectionStart, b = ta.selectionEnd, dentro = ta.value.slice(a, b) || 'testo cliccabile';
+    var ins = '[' + dentro + '](https://)';
+    ta.value = ta.value.slice(0, a) + ins + ta.value.slice(b);
+    var u = a + dentro.length + 3; ta.focus(); ta.setSelectionRange(u, u + 8); anteprimaTesto();
+  };
+  $('tx-annulla').onclick = function () { dtx.close(); };
+  $('f-testo').onsubmit = function (e) {
+    e.preventDefault();
+    var t = $('tx-testo').value.replace(/\r\n?/g, '\n').split('\n').map(function (r) { return r.replace(/[ \t]+/g, ' ').trim(); }).join('\n').replace(/\n{3,}/g, '\n\n').trim();
+    if (txAperto.tipo === 'semplice') t = t.replace(/\s+/g, ' ');
+    if (!t) { $('err-tx').textContent = 'Il testo non può essere vuoto'; $('tx-testo').focus(); return; }
+    var sb = linkSbagliati(t);
+    if (sb.length) { $('err-tx').textContent = 'Questo indirizzo non va bene: ' + sb[0] + ' (deve iniziare con https://, mailto: o tel:, oppure essere una pagina del sito come contatti.html)'; return; }
+    var link = 'link' in txAperto ? $('tx-link').value.trim() : null;
+    if (link !== null && !LINK_VALIDO.test(link)) { $('err-tx').textContent = 'L\'indirizzo del link non va bene: deve iniziare con https://, mailto: o tel:, oppure essere una pagina del sito (es. collezioni.html)'; $('tx-link').focus(); return; }
+    if (t === txAperto.testo && (link === null || link === txAperto.link)) { dtx.close(); return; }
+    txAperto.testo = t; if (link !== null) txAperto.link = link;
+    dtx.close(); disegna();
+    var corto = t.replace(/\[([^\]\n]+)\]\([^)\s]*\)/g, '$1').replace(/\*\*|==|`/g, '').replace(/\s+/g, ' '); if (corto.length > 40) corto = corto.slice(0, 40) + '…';
+    salva('Modificato il testo «' + corto + '» (' + (NOME[txAperto.pagina] || txAperto.pagina) + ' · ' + txAperto.sezione + ')');
   };
 
   /* ---------- guida ---------- */

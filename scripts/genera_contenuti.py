@@ -8,6 +8,13 @@
   «provvisoria» è la foto mostrata finché il file vero non c'è (data-fallback).
 - data/immagini.json: le immagini fisse; ogni <img data-slot="id"> prende foto e testo
   alternativo (e data-fallback se la voce ha «provvisoria»).
+- data/testi.json: i testi delle pagine; ogni elemento con data-testo="id" prende il suo testo.
+  tipo «testo»: si riscrive tutto il contenuto dell'elemento, con queste regole:
+      a capo = <br>, **parole** = grassetto, ==parole== = evidenziato, `parole` = codice,
+      [parole](indirizzo) = testo cliccabile (non dentro un elemento che è già un link).
+  tipo «semplice»: si cambia solo il testo dell'elemento e restano com'erano le parti fisse
+      (icone, frecce, numeri, campi del modulo); niente regole, una sola riga.
+  Se la voce ha «link» l'elemento è un <a> e il suo href diventa quell'indirizzo.
 
 Uso:  python3 scripts/genera_contenuti.py           (scrive i file)
       python3 scripts/genera_contenuti.py --check   (esce con errore se i file non sono aggiornati)
@@ -110,6 +117,113 @@ def immagini(pagine):
         pagine.scrivi(nome, s[:a] + tag + s[b:])
 
 
+LINK_VALIDO = re.compile(r"^(https?://[^\s<>\"']+|mailto:[^\s<>\"']+|tel:\+?[0-9 ()./-]+|#[A-Za-z0-9_-]*|(?!.*\.\.)[A-Za-z0-9][A-Za-z0-9._/-]*(#[A-Za-z0-9_-]*)?)$")
+MARCHE = re.compile(r"\[([^\]\n]+)\]\(([^)\s]+)\)|\*\*(.+?)\*\*|==(.+?)==|`(.+?)`", re.S)
+
+
+def link_ok(u): return bool(LINK_VALIDO.match(u or ""))
+
+
+def attributi_link(u):
+    if u.startswith(("mailto:", "tel:", "#")):
+        return ""
+    return ' target="_blank" rel="noopener noreferrer"' if u.startswith("http") else ' target="_blank"'
+
+
+def html_testo(t, link_ammessi=True):
+    """testo con le regole (**grassetto**, [testo](link), a capo…) → HTML sicuro"""
+    out, i = [], 0
+    for m in MARCHE.finditer(t):
+        out.append(txt(t[i:m.start()]).replace("\n", "<br>"))
+        testo_link, url, gr, ev, cod = m.groups()
+        if testo_link is not None:
+            dentro = html_testo(testo_link, False)
+            out.append(f'<a href="{att(url)}"{attributi_link(url)}>{dentro}</a>' if link_ammessi and link_ok(url) else txt(m.group(0)))
+        elif gr is not None:
+            out.append(f"<strong>{html_testo(gr, link_ammessi)}</strong>")
+        elif ev is not None:
+            out.append(f"<mark>{html_testo(ev, link_ammessi)}</mark>")
+        else:
+            out.append(f"<code>{txt(cod)}</code>")
+        i = m.end()
+    out.append(txt(t[i:]).replace("\n", "<br>"))
+    return "".join(out)
+
+
+VUOTI = {"br", "img", "input", "meta", "link", "hr", "source", "wbr", "path", "circle", "rect"}
+ETICHETTA = re.compile(r"<(/?)([a-zA-Z][a-zA-Z0-9]*)\b[^>]*?(/?)>|<!--.*?-->", re.S)
+
+
+def elemento(s, vid):
+    """posizioni di <tag data-testo="vid" …>contenuto</tag>: (inizio, inizio contenuto, fine contenuto, nome)"""
+    k = s.find(f' data-testo="{vid}"')
+    if k < 0:
+        return None
+    a = s.rfind("<", 0, k)
+    nome = re.match(r"<([a-zA-Z0-9]+)", s[a:]).group(1).lower()
+    c = s.index(">", k) + 1
+    prof = 1
+    for m in ETICHETTA.finditer(s, c):
+        if m.group(2) is None or m.group(2).lower() != nome or m.group(2).lower() in VUOTI or m.group(3):
+            continue
+        prof += -1 if m.group(1) else 1
+        if prof == 0:
+            return a, c, m.start(), nome
+    return None
+
+
+def solo_testo_diretto(contenuto, nuovo):
+    """sostituisce l'unico pezzo di testo diretto (non dentro altri elementi) tenendo gli spazi attorno"""
+    pezzi, prof, i = [], 0, 0
+    for m in ETICHETTA.finditer(contenuto):
+        if prof == 0 and contenuto[i:m.start()].strip():
+            pezzi.append((i, m.start()))
+        if m.group(2) and m.group(2).lower() not in VUOTI and not m.group(3):
+            prof += -1 if m.group(1) else 1
+        i = m.end()
+    if prof == 0 and contenuto[i:].strip():
+        pezzi.append((i, len(contenuto)))
+    if len(pezzi) != 1:
+        return None
+    a, b = pezzi[0]
+    vecchio = contenuto[a:b]
+    prima = vecchio[:len(vecchio) - len(vecchio.lstrip())]
+    dopo = vecchio[len(vecchio.rstrip()):]
+    return contenuto[:a] + prima + txt(nuovo) + dopo + contenuto[b:]
+
+
+def testi(pagine):
+    with open(os.path.join(RADICE, "data", "testi.json"), encoding="utf-8") as f:
+        voci = json.load(f)
+    for v in voci:
+        nome, vid = v["pagina"], v["id"]
+        t = str(v.get("testo") or "").replace("\r\n", "\n").strip()
+        if not t:
+            print(f"avviso: testo {vid} vuoto, lasciato com'era", file=sys.stderr)
+            continue
+        s = pagine.leggi(nome)
+        pos = elemento(s, vid)
+        if not pos:
+            print(f"avviso: in {nome} manca il testo {vid}", file=sys.stderr)
+            continue
+        a, c, e, tag = pos
+        if v.get("tipo") == "semplice":
+            nuovo = solo_testo_diretto(s[c:e], " ".join(t.split()))
+            if nuovo is None:
+                print(f"avviso: testo {vid} non sostituibile", file=sys.stderr)
+                continue
+        else:
+            nuovo = html_testo(t, tag != "a")
+        apertura = s[a:c]
+        if "link" in v:
+            u = str(v.get("link") or "").strip()
+            if link_ok(u):
+                apertura = re.sub(r' href="[^"]*"', f' href="{att(u)}"', apertura, count=1)
+            else:
+                print(f"avviso: link non valido per {vid}: {u}", file=sys.stderr)
+        pagine.scrivi(nome, s[:a] + apertura + nuovo + s[e:])
+
+
 class Pagine:
     def __init__(self):
         self.testi, self.originali = {}, {}
@@ -142,4 +256,5 @@ if __name__ == "__main__":
     pagine = Pagine()
     gallerie(pagine)
     immagini(pagine)
+    testi(pagine)
     sys.exit(0 if pagine.salva("--check" in sys.argv) else 1)

@@ -169,6 +169,28 @@ Due tipi di blocchi:
   barra in basso. Massimo 80 foto per galleria.
 - Foto fisse (61, tutte le altre immagini delle pagine): «Cambia foto» e il testo che
   dice cosa si vede (per Google e per chi non vede).
+- Testi (362, in tutte le 26 pagine, anche Area download e Privacy): in ogni pagina si
+  sceglie Foto o Testi; i testi sono divisi per sezione (il titolo della sezione del sito,
+  «Intestazione» per la parte in alto, «Presentazione» per il testo che la segue) e
+  nell'ordine in cui si vedono. «Modifica» apre una finestra con il testo, i pulsanti
+  Grassetto e Testo cliccabile e l'anteprima «Come si vedrà». Regole nel testo: a capo =
+  a capo, **parole** = grassetto, [parole](indirizzo) = testo cliccabile (anche
+  ==parole== = evidenziato e `parole` = codice, usate nella bozza della Privacy). Nei
+  pulsanti e nei testi cliccabili si cambia anche «Dove porta il clic»: una pagina del
+  sito (es. collezioni.html, downloads/guida.pdf), https://…, mailto:… o tel:…; altro
+  (javascript: ecc.) viene rifiutato. I testi «semplici» (con accanto parti fisse:
+  frecce, numeri, icone, campi del modulo, colori dei fogli) cambiano solo il testo, su
+  una riga.
+  Non si cambiano da qui: menu in alto e piè di pagina (uguali in tutte le pagine), il
+  titolo «Grafica & Stampa» della Home (ha la & in uno stile a parte), i numeri animati
+  della Home (57 anni, oltre 100, oltre 30.000: li calcola js/script.js da data-since e
+  data-count), il titolo e la descrizione per Google (<title>, meta description), i testi
+  scritti dal JavaScript (avvisi del modulo, banner dei cookie).
+  ATTENZIONE: i testi con data-testo nelle pagine si cambiano in data/testi.json (o
+  dall'area riservata), NON a mano nell'HTML: a ogni pubblicazione lo script li riscrive
+  da data/testi.json. Per un testo nuovo da rendere modificabile: data-testo="id"
+  nell'elemento e una voce in data/testi.json (id, pagina, sezione, descrizione, tipo
+  «testo» o «semplice», testo, e «link» se è un <a>).
 Non si gestiscono dall'area riservata (si cambiano a mano, come prima): le tre foto
 grandi che scorrono in cima alla Home (nella scheda Home c'è una nota che lo dice), le
 foto del menu a tendina, le anteprime per i social (og:image) e il logo. Le regole di
@@ -210,11 +232,16 @@ File:
                          Nell'HTML ogni immagine gestita ha data-slot="id". Per renderne
                          gestibile un'altra: data-slot nell'<img>, una voce qui e l'id
                          nel blocco giusto di PAGINE in area-riservata.html.
+- data/testi.json        I testi delle pagine: id (pagina-tNNN), pagina, sezione,
+                         descrizione (es. «Paragrafo», «Pulsante (testo e link)»), tipo,
+                         testo, link. Nell'HTML ogni testo gestito ha data-testo="id".
 - images/caricate/       Foto caricate dal cliente (nascerà al primo caricamento).
 - scripts/genera_contenuti.py
                          Scrive le gallerie nelle pagine (fra <!-- galleria:inizio --> e
                          <!-- galleria:fine -->: quel tratto non si modifica a mano) e
-                         aggiorna src e alt delle <img data-slot> da data/immagini.json.
+                         aggiorna src e alt delle <img data-slot> da data/immagini.json
+                         e i testi con data-testo da data/testi.json (gli stessi controlli
+                         sugli indirizzi del Worker).
                          In locale, dopo aver cambiato i JSON:
                            python3 scripts/genera_contenuti.py   (--check per solo controllo)
 - .github/workflows/pubblica.yml
@@ -1486,3 +1513,13 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                    menu, numeri dei blocchi, foto selezionata che lampeggia, barra in basso,
                    barra del salvataggio, guida. Rifatte le 12 schermate della guida e
                    corretti i testi che dicevano «in arancio».
+
+3.12 (18/11/2026)  Area riservata: il cliente cambia anche i testi di tutte le pagine (362
+                   testi in 26 pagine, divisi per pagina e sezione; nei pulsanti e nei testi
+                   cliccabili anche l'indirizzo). In ogni pagina dell'area riservata c'è la
+                   scelta Foto / Testi; aggiunte le schede Area download e Privacy. Nuovo
+                   data/testi.json, data-testo sugli elementi di testo delle pagine (nessun
+                   cambiamento visibile: controllato pagina per pagina che testo e
+                   formattazione restino identici), testi in scripts/genera_contenuti.py e
+                   nel Worker (da ripubblicare su Cloudflare). Guida: nuova sezione «Cambiare
+                   i testi» con 3 schermate, rifatte le altre 12 (c'è il pulsante Foto/Testi).

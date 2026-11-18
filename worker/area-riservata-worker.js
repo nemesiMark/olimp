@@ -3,7 +3,8 @@
  *
  * Fa da ponte fra la pagina area-riservata.html e il repository GitHub del sito:
  * controlla la password, poi legge e salva data/gallerie.json (le gallerie degli album di
- * ogni linea), data/immagini.json (le immagini fisse delle pagine) e le foto caricate in
+ * ogni linea), data/immagini.json (le immagini fisse delle pagine), data/testi.json (i testi
+ * delle pagine, compresi i testi cliccabili e i loro indirizzi) e le foto caricate in
  * images/caricate/, con un solo commit per ogni salvataggio. GitHub Actions ripubblica il
  * sito da solo (scripts/genera_contenuti.py scrive le foto nelle pagine).
  *
@@ -24,6 +25,11 @@
 
 const FILE_GALLERIE = "data/gallerie.json";
 const FILE_IMMAGINI = "data/immagini.json";
+const FILE_TESTI = "data/testi.json";
+const MAX_TESTO = 4000;
+// indirizzi ammessi per i testi cliccabili (gli stessi di scripts/genera_contenuti.py)
+const LINK_VALIDO = /^(https?:\/\/[^\s<>"']+|mailto:[^\s<>"']+|tel:\+?[0-9 ()./-]+|#[A-Za-z0-9_-]*|(?!.*\.\.)[A-Za-z0-9][A-Za-z0-9._\/-]*(#[A-Za-z0-9_-]*)?)$/;
+const LINK_NEL_TESTO = /\[([^\]\n]+)\]\(([^)\s]+)\)/g;
 const CARTELLA_FOTO = "images/caricate/";
 const MAX_FOTO_BYTES = 4 * 1024 * 1024;   // dopo il ridimensionamento nel browser sono ~0,3–0,6 MB
 const MAX_FOTO_PER_SALVATAGGIO = 12;
@@ -141,17 +147,17 @@ async function ugualiCostante(a, b) {
 /* ---------- lettura ---------- */
 
 async function leggiContenuti(env, cors) {
-  const { gallerie, immagini } = await statoAttuale(env);
-  return json({ gallerie, immagini }, 200, cors);
+  const { gallerie, immagini, testi } = await statoAttuale(env);
+  return json({ gallerie, immagini, testi }, 200, cors);
 }
 
 async function statoAttuale(env) {
   const ref = await gh(env, `git/ref/heads/${env.BRANCH}`);
   const sha = ref.object.sha;
-  const [gallerie, immagini] = await Promise.all([leggiJson(env, FILE_GALLERIE, sha).catch(() => ({})),
-    leggiJson(env, FILE_IMMAGINI, sha).catch(() => [])]);
+  const [gallerie, immagini, testi] = await Promise.all([leggiJson(env, FILE_GALLERIE, sha).catch(() => ({})),
+    leggiJson(env, FILE_IMMAGINI, sha).catch(() => []), leggiJson(env, FILE_TESTI, sha).catch(() => [])]);
   return { sha, gallerie: gallerie && typeof gallerie === "object" && !Array.isArray(gallerie) ? gallerie : {},
-    immagini: Array.isArray(immagini) ? immagini : [] };
+    immagini: Array.isArray(immagini) ? immagini : [], testi: Array.isArray(testi) ? testi : [] };
 }
 
 async function leggiJson(env, percorso, sha) {
@@ -164,7 +170,10 @@ async function leggiJson(env, percorso, sha) {
 /**
  * Corpo: { gallerie: { "linea-fashion": [ {foto, titolo, alt?, provvisoria?} ], … } (facoltativo:
  *          solo le gallerie che già esistono in data/gallerie.json),
- *         immagini: [ {id, foto, alt} ] (facoltativo), nuoveFoto: { "nuova:ID": "base64…" }, messaggio }
+ *         immagini: [ {id, foto, alt} ] (facoltativo), testi: [ {id, testo, link?} ] (facoltativo),
+ *         nuoveFoto: { "nuova:ID": "base64…" }, messaggio }
+ * Dei testi si cambiano solo il testo e (per i testi cliccabili) l'indirizzo: quali sono, in che
+ * pagina e sezione lo decide data/testi.json sul sito.
  * Nel campo foto di una foto nuova c'è "nuova:ID": qui diventa il percorso vero della foto caricata.
  * Delle immagini fisse si cambiano solo foto e testo alternativo: quali sono, in che pagina e
  * con che descrizione lo decide data/immagini.json sul sito.
@@ -220,6 +229,23 @@ async function salva(request, env, cors) {
     scelte[im.id] = { foto, alt: pulisci(im.alt, 200) };
   }
 
+  // testi: id → testo (e indirizzo) scelti
+  const testiScelti = {};
+  if (Array.isArray(corpo.testi)) for (const t of corpo.testi) {
+    if (!t || typeof t.id !== "string" || !/^[a-z0-9-]{1,80}$/.test(t.id)) throw errore("Testo non valido", 400);
+    const testo = pulisciTesto(t.testo);
+    if (!testo) throw errore("Il testo non può essere vuoto", 400);
+    for (const m of testo.matchAll(LINK_NEL_TESTO))
+      if (!LINK_VALIDO.test(m[2])) throw errore(`Indirizzo del link non valido: ${m[2].slice(0, 60)}`, 400);
+    const o = { testo };
+    if (t.link !== undefined) {
+      const link = String(t.link || "").trim();
+      if (!LINK_VALIDO.test(link)) throw errore(`Indirizzo non valido: ${link.slice(0, 60) || "vuoto"}`, 400);
+      o.link = link;
+    }
+    testiScelti[t.id] = o;
+  }
+
   const giorno = new Date().toISOString().slice(0, 10);
   const tutteLeVoci = () => Object.values(gallerie || {}).flat();
   for (const f of blobFoto) {
@@ -234,7 +260,16 @@ async function salva(request, env, cors) {
 
   // fino a 3 tentativi se nel frattempo il ramo è cambiato
   for (let tentativo = 0; tentativo < 3; tentativo++) {
-    const { sha, gallerie: galPrima, immagini: immPrima } = await statoAttuale(env);
+    const { sha, gallerie: galPrima, immagini: immPrima, testi: testiPrima } = await statoAttuale(env);
+    for (const id of Object.keys(testiScelti))
+      if (!testiPrima.some((v) => v.id === id)) throw errore("Testo sconosciuto: ricarica la pagina", 400);
+    const testi = testiPrima.map((v) => {
+      const n = testiScelti[v.id];
+      if (!n) return v;
+      const o = { ...v, testo: v.tipo === "semplice" ? n.testo.replace(/\s+/g, " ") : n.testo };
+      if ("link" in v && n.link !== undefined) o.link = n.link;
+      return o;
+    });
     for (const nome of Object.keys(gallerie || {}))
       if (!(nome in galPrima)) throw errore("Galleria sconosciuta: ricarica la pagina", 400);
     const galNuove = { ...galPrima, ...(gallerie || {}) };
@@ -259,15 +294,17 @@ async function salva(request, env, cors) {
       albero.push({ path: FILE_GALLERIE, mode: "100644", type: "blob", content: JSON.stringify(galNuove, null, 2) + "\n" });
     if (immPrima.length && JSON.stringify(immagini) !== JSON.stringify(immPrima))
       albero.push({ path: FILE_IMMAGINI, mode: "100644", type: "blob", content: JSON.stringify(immagini, null, 2) + "\n" });
+    if (testiPrima.length && JSON.stringify(testi) !== JSON.stringify(testiPrima))
+      albero.push({ path: FILE_TESTI, mode: "100644", type: "blob", content: JSON.stringify(testi, null, 2) + "\n" });
     for (const p of daCancellare) albero.push({ path: p, mode: "100644", type: "blob", sha: null });
-    if (!albero.length) return json({ gallerie: galNuove, immagini, commit: sha }, 200, cors); // niente da salvare
+    if (!albero.length) return json({ gallerie: galNuove, immagini, testi, commit: sha }, 200, cors); // niente da salvare
 
     const nuovoAlbero = await gh(env, "git/trees", "POST", { base_tree: commit.tree.sha, tree: albero });
     const messaggio = pulisci(corpo.messaggio, 100) || "Area riservata: aggiornate le foto del sito";
     const nuovoCommit = await gh(env, "git/commits", "POST", { message: messaggio, tree: nuovoAlbero.sha, parents: [sha] });
     try {
       await gh(env, `git/refs/heads/${env.BRANCH}`, "PATCH", { sha: nuovoCommit.sha, force: false });
-      return json({ gallerie: galNuove, immagini, commit: nuovoCommit.sha }, 200, cors);
+      return json({ gallerie: galNuove, immagini, testi, commit: nuovoCommit.sha }, 200, cors);
     } catch (e) {
       if (e.stato !== 422) throw e; // 422: il ramo è andato avanti, si riprova sul nuovo stato
     }
@@ -318,6 +355,14 @@ function errore(messaggio, stato) { const e = new Error(messaggio); e.stato = st
 
 function pulisci(v, max) {
   return typeof v === "string" ? v.replace(/[\u0000-\u001f\u007f<>]/g, "").replace(/\s+/g, " ").trim().slice(0, max) : "";
+}
+
+// testi delle pagine: si tengono gli a capo (diventano <br>), si tolgono i caratteri di controllo;
+// < e > restano: il generatore li scrive come testo, mai come HTML
+function pulisciTesto(v) {
+  if (typeof v !== "string") return "";
+  return v.replace(/\r\n?/g, "\n").replace(/[\u0000-\u0009\u000b-\u001f\u007f]/g, "")
+    .split("\n").map((r) => r.replace(/[ \t]+/g, " ").trim()).join("\n").replace(/\n{3,}/g, "\n\n").trim().slice(0, MAX_TESTO);
 }
 
 function slug(t) {
