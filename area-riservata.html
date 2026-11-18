@@ -69,6 +69,15 @@ input:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px rgba(0,0,0
 .tabs{position:sticky;top:61px;z-index:9;background:rgba(251,251,253,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .tabs .wrap{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:10px 0}
 .tabs .wrap::-webkit-scrollbar{display:none}
+.spazio{margin:18px 0 0;padding:12px 14px;border:1px solid var(--line);border-radius:3px;background:#fff;font-size:14px;line-height:1.45}
+.spazio-testa{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;justify-content:space-between}
+.spazio-testa span{color:var(--mute)}
+.spazio-barra{height:8px;margin:8px 0 6px;border-radius:4px;background:#e7e4df;overflow:hidden}
+.spazio-barra span{display:block;height:100%;width:0;background:#3c8a4e;border-radius:4px;transition:width .6s ease}
+.spazio.quasi .spazio-barra span{background:#c98a00}
+.spazio.pieno .spazio-barra span{background:var(--red)}
+.spazio-p{color:var(--mute);font-size:13px}
+.spazio.pieno .spazio-p{color:var(--red);font-weight:600}
 .tab{flex:none;min-height:40px;padding:0 16px;border-radius:20px;border:1px solid var(--line);background:var(--card);font-weight:500;font-size:15px;color:var(--mute);transition:background-color 150ms ease,color 150ms ease}
 .tab[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
 .tab small{font-size:12px;opacity:.7;margin-left:4px;font-variant-numeric:tabular-nums}
@@ -356,6 +365,10 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
 .testo b{display:block;font-weight:600;font-size:12px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}
 .testo .dove-link{font-weight:400;text-transform:none;letter-spacing:0;color:var(--acc);word-break:break-all}
 .testo .btn{min-height:38px;font-size:14px}
+.coppia-righe{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin-top:6px;align-items:baseline}
+.coppia-righe .dove-schermo{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);white-space:nowrap}
+.coppia-campo{margin-bottom:14px}
+.coppia-campo .aiuto{margin-top:4px}
 .anteprima-testo{font-size:15px;line-height:1.5;color:var(--ink);overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .anteprima-testo a{color:var(--acc)}
 .anteprima-testo mark{background:#fff2a8}
@@ -413,6 +426,11 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
 <main id="vista-lavori" hidden>
   <nav class="tabs" aria-label="Pagine del sito"><div class="wrap" id="tabs"></div></nav>
   <div class="wrap" id="pagine">
+    <div class="spazio" id="spazio" hidden>
+      <div class="spazio-testa"><b>Spazio per le foto</b> <span id="spazio-t"></span></div>
+      <div class="spazio-barra" role="progressbar" aria-label="Spazio usato" aria-valuemin="0" aria-valuemax="100" id="spazio-barra"><span id="spazio-bar"></span></div>
+      <p class="spazio-p" id="spazio-p"></p>
+    </div>
     <p class="stato" id="stato" aria-live="polite"></p>
   </div>
   <div class="posiziona" id="scelta" role="region" aria-label="Foto selezionata" hidden>
@@ -424,7 +442,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
       <button class="btn pri" type="button" id="sc-ok">Conferma</button>
     </div>
   </div>
-  <input type="file" id="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" hidden>
+  <input type="file" id="file" accept="image/jpeg,image/png" hidden>
 </main>
 
 <dialog id="scheda" aria-labelledby="scheda-t">
@@ -485,7 +503,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
       <label for="tx-link">Dove porta il clic <span class="facoltativo">(non si cambia da qui)</span></label>
       <input type="text" id="tx-link" readonly tabindex="-1">
     </div>
-    <p class="etichetta-ant">Come si vedrà</p>
+    <p class="etichetta-ant" id="tx-ant-et">Come si vedrà</p>
     <div class="anteprima-testo grande" id="tx-ant" aria-live="polite"></div>
     <p class="errore" id="err-tx" role="alert"></p>
     <div class="azioni">
@@ -583,21 +601,22 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     </section>
     <section class="g-sez" id="g-menu" aria-labelledby="g-menu-t">
       <h3 id="g-menu-t">Cambiare foto e scritte dei menu</h3>
-      <div class="g-passo"><span class="num">1</span><p>Nel menu delle pagine, in fondo, clicca <b>Menu</b>. Lì trovi i menu che si aprono da <b>Servizi</b>, <b>Prodotti</b> e <b>Collezioni</b>: in <b>Foto</b> i riquadri con foto e scritta (quelli che si vedono sul computer), in <b>Testi</b> anche le voci dell'elenco che si vede su tablet e telefono, comprese le linee degli album.</p></div>
+      <div class="g-passo"><span class="num">1</span><p>Nel menu delle pagine, in fondo, clicca <b>Menu</b>. Lì trovi i menu che si aprono da <b>Servizi</b>, <b>Prodotti</b> e <b>Collezioni</b>: in <b>Foto</b> i riquadri con foto e scritta (quelli che si vedono sul computer), in <b>Testi</b> ogni voce ha insieme le due scritte: quella del <b>computer</b> (sotto la foto) e quella di <b>tablet e telefono</b> (nell'elenco); con <b>Modifica</b> le cambi tutte e due nella stessa finestra. Le linee degli album (Fashion, Deluxe…) compaiono solo nell'elenco di tablet e telefono, perché sul computer il menu mostra i riquadri con foto.</p></div>
       <div class="g-passo"><span class="num">2</span><p>Si cambia come le altre foto fisse e gli altri testi: <b>Cambia foto</b> e, sotto, la scritta del riquadro e la voce dell'elenco. Qui non serve scrivere cosa si vede nella foto: lo dice già la scritta.</p></div>
       <p class="g-nota">Il menu è uguale in tutte le pagine del sito: una modifica fatta qui vale ovunque. Le voci principali (Servizi, Prodotti, Collezioni) e dove porta il clic non si cambiano.</p>
     </section>
     <section class="g-sez" id="g-formati" aria-labelledby="g-formati-t">
       <h3 id="g-formati-t">Foto: formati e misure</h3>
-      <p class="g-intro">Ogni volta che aggiungi o cambi una foto, nella finestra trovi la forma e la misura consigliate per quel posto, e l'anteprima ha già la forma che avrà sul sito. Se la foto è piccola o ha una forma diversa compare un avviso giallo: puoi salvarla lo stesso, ma è meglio sceglierne una adatta.</p>
+      <p class="g-intro">Ogni volta che aggiungi o cambi una foto, nella finestra trovi la forma e la misura esatte per quel posto, e l'anteprima ha già la forma che avrà sul sito. Se la foto è piccola o ha una forma diversa compare un avviso giallo: puoi salvarla lo stesso, ma è meglio sceglierne una adatta.</p>
       <ul class="g-elenco">
-        <li><b>Formati accettati:</b> JPG, PNG, WebP e HEIC (le foto dell'iPhone; dal computer le HEIC si aprono solo con Safari, altrimenti salvale come JPG).</li>
-        <li><b>Peso massimo:</b> 30 MB per foto. Non serve rimpicciolirle prima: l'area riservata le riduce da sola a 1600 pixel sul lato lungo e toglie i dati nascosti (anche la posizione GPS).</li>
-        <li><b>Misura:</b> almeno 1600 pixel sul lato lungo. Sotto i 1200 pixel compare l'avviso, sotto i 500 la foto non si carica.</li>
+        <li><b>Formato:</b> JPG/JPEG o PNG. Altri formati (per esempio HEIC dell'iPhone, WebP, GIF) non si caricano: salvali prima come JPG/JPEG.</li>
+        <li><b>Peso massimo:</b> 30 MB per foto. Una foto più grande della misura (con la stessa forma) va bene: l'area riservata la riduce da sola a 1600 pixel sul lato lungo e toglie i dati nascosti (anche la posizione GPS).</li>
+        <li><b>Misura:</b> quella esatta del posto, scritta nella finestra e nella tabella qui sotto. Se la foto ha un'altra forma o è più piccola compare un avviso giallo; sotto i 500 pixel non si carica.</li>
         <li><b>Video:</b> il sito non ha spazi per i video, quindi qui non si caricano.</li>
+        <li><b>Spazio:</b> in cima a ogni pagina dell'area riservata il riquadro <b>Spazio per le foto</b> mostra quanto è pieno lo spazio del sito (1 GB in tutto) e per quante foto c'è ancora posto. Si aggiorna dopo ogni salvataggio. Quando la barra diventa gialla (80%) o rossa (95%) avvisa chi cura il sito.</li>
       </ul>
       <table class="g-tab">
-        <thead><tr><th>Dove</th><th>Forma</th><th>Misura consigliata</th></tr></thead>
+        <thead><tr><th>Dove</th><th>Forma</th><th>Misura esatta (pixel)</th></tr></thead>
         <tbody>
           <tr><td>Gallerie delle linee e dei modelli, prodotti, custodie, accessori, foto principale di Sposi, Fotolibro, Tradizionale, Studio e Custodie</td><td>orizzontale 4:3</td><td>1600 × 1200</td></tr>
           <tr><td>Foto principale delle linee e degli album (Fashion, Deluxe, Comunione, Eventi…), riquadri del Menu</td><td>orizzontale 5:4</td><td>1600 × 1280</td></tr>
@@ -605,7 +624,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
           <tr><td>Foto principale di Sezione fotografi</td><td>verticale 2:3</td><td>1067 × 1600</td></tr>
           <tr><td>Strisce delle collezioni (Home e Collezioni)</td><td>verticale 2:3, parte importante al centro</td><td>1067 × 1600</td></tr>
           <tr><td>Home: Grafica &amp; Stampa e Chi siamo; foto principale di Grafica &amp; Stampa</td><td>orizzontale 16:9, parte importante al centro</td><td>1600 × 900</td></tr>
-          <tr><td>Grafica &amp; Stampa: le fasi del lavoro</td><td>orizzontale larga (circa 2:1)</td><td>1600 × 840</td></tr>
+          <tr><td>Grafica &amp; Stampa: le fasi del lavoro</td><td>orizzontale larga</td><td>1600 × 840</td></tr>
         </tbody>
       </table>
     </section>
@@ -627,7 +646,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
   var $ = function (id) { return document.getElementById(id); };
 
   var gallerie = {}, immagini = [], testi = [], anteprimeLocali = {}, token = null;
-  var SOLO_FOTO = 'image/jpeg,image/png,image/webp,image/heic,image/heif';
+  var SOLO_FOTO = 'image/jpeg,image/png';
   // nel browser si ricordano accesso, scheda e guida vista; il prefisso evita di confondersi con
   // altri siti pubblicati sullo stesso indirizzo (nemesimark.github.io)
   var mem = { get: function (k) { try { return JSON.parse(localStorage.getItem('olimp-' + k)); } catch (e) { return null; } },
@@ -723,10 +742,29 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     mostraVista('lavori'); centraTab(); stato('lav', 'Caricamento delle foto…');
     chiama('/contenuti').then(function (d) {
       gallerie = d.gallerie || {}; immagini = d.immagini || []; testi = d.testi || [];
-      disegna(); stato('', '');
+      disegna(); stato('', ''); aggiornaSpazio();
       if (!mem.get('ar-guida-vista')) apriGuida(); // la prima volta si apre da sola
     })
       .catch(function (err) { stato('err', err.message, carica); });
+  }
+
+  /* ---------- spazio occupato (foto nel repository GitHub, sito su GitHub Pages: 1 GB) ---------- */
+  function misura(b) { return b >= 1073741824 ? (b / 1073741824).toFixed(2).replace('.', ',') + ' GB' : Math.max(1, Math.round(b / 1048576)) + ' MB'; }
+  function aggiornaSpazio() {
+    return chiama('/spazio').then(function (d) {
+      if (!d || !d.limite) return;
+      var perc = Math.min(100, d.usato / d.limite * 100), resto = Math.max(0, d.limite - d.usato);
+      var foto = Math.floor(resto / (d.mediaFoto || 409600));
+      var p = perc < 1 ? perc.toFixed(1).replace('.', ',') : String(Math.round(perc));
+      $('spazio-t').textContent = misura(d.usato) + ' usati di 1 GB (' + p + '%)';
+      $('spazio-bar').style.width = Math.max(perc, 0.5) + '%';
+      $('spazio-barra').setAttribute('aria-valuenow', String(Math.round(perc)));
+      $('spazio').className = 'spazio' + (perc >= 95 ? ' pieno' : perc >= 80 ? ' quasi' : '');
+      $('spazio-p').textContent = perc >= 95 ? 'Lo spazio è quasi finito: prima di aggiungere altre foto avvisa chi cura il sito.'
+        : 'C\'è ancora posto per circa ' + foto.toLocaleString('it-IT') + ' foto (in media ' + Math.round((d.mediaFoto || 409600) / 1024) + ' KB l\'una).' +
+          (perc >= 80 ? ' Lo spazio sta finendo: avvisa chi cura il sito.' : '');
+      $('spazio').hidden = false;
+    }).catch(function () { $('spazio').hidden = true; }); // senza il dato la pagina funziona lo stesso
   }
 
   /* ---------- elenco ---------- */
@@ -928,6 +966,38 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     return semplice ? t.replace(/\s+/g, ' ') : t;
   }
   function linkSbagliati(t) { var r = [], m, re = /\[([^\]\n]+)\]\(([^)\s]+)\)/g; while ((m = re.exec(t))) if (!LINK_VALIDO.test(m[2])) r.push(m[2]); return r; }
+  /* menu: la scritta sotto la foto (computer) e la voce dell'elenco (tablet e telefono) della
+     stessa pagina si vedono e si cambiano insieme; le coppie vengono dai «testi» delle foto del menu */
+  function coppie() {
+    var c = {};
+    immagini.forEach(function (f) {
+      if (f.pagina !== MENU || !f.testi || f.testi.length !== 2) return;
+      var vv = f.testi.map(function (id) { return testi.filter(function (v) { return v.id === id; })[0]; });
+      if (!vv[0] || !vv[1]) return;
+      var g = { titolo: f.sezione, voci: vv.sort(function (a, b) { return ('link' in a) - ('link' in b); }) }; // prima il computer
+      c[vv[0].id] = c[vv[1].id] = g;
+    });
+    return c;
+  }
+  function cartaCoppia(g) {
+    var li = document.createElement('li'); li.className = 'testo'; li.tabIndex = 0; li.id = 'tx-' + g.voci[0].id;
+    li.setAttribute('aria-label', g.titolo + ': sul computer «' + g.voci[0].testo + '», su tablet e telefono «' + g.voci[1].testo + '». Premi Invio per modificarli');
+    var tx = document.createElement('div');
+    var b = document.createElement('b'); b.textContent = g.titolo + ' ';
+    var l = document.createElement('span'); l.className = 'dove-link'; l.textContent = '→ ' + g.voci[1].link; b.appendChild(l);
+    var righe = document.createElement('div'); righe.className = 'coppia-righe';
+    [['Computer', g.voci[0]], ['Tablet e telefono', g.voci[1]]].forEach(function (r) {
+      var e = document.createElement('span'); e.className = 'dove-schermo'; e.textContent = r[0];
+      var q = document.createElement('div'); q.className = 'anteprima-testo'; q.innerHTML = htmlTesto(r[1].testo, false);
+      righe.appendChild(e); righe.appendChild(q);
+    });
+    tx.appendChild(b); tx.appendChild(righe);
+    var bt = document.createElement('span'); bt.className = 'btn'; bt.textContent = 'Modifica';
+    li.appendChild(tx); li.appendChild(bt);
+    li.onclick = function () { if (sel) confermaScelta(); apriTesto(g.voci[0].id); };
+    li.onkeydown = function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); li.onclick(); } };
+    return li;
+  }
   function cartaTesto(v) {
     var li = document.createElement('li'); li.className = 'testo'; li.tabIndex = 0; li.id = 'tx-' + v.id;
     li.setAttribute('aria-label', v.descrizione + ': ' + v.testo.slice(0, 80) + '. Premi Invio per modificarlo');
@@ -942,7 +1012,9 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     li.onkeydown = function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); li.onclick(); } };
     return li;
   }
+  var COPPIE = {};
   function disegnaTesti() {
+    COPPIE = coppie();
     PAGINE.forEach(function (p) {
       var ol = $('testi-' + p[0]); ol.innerHTML = '';
       var sezioni = [], per = {};
@@ -955,12 +1027,17 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
         var li = document.createElement('li'), h2 = document.createElement('h2');
         h2.innerHTML = '<span class="num">' + (k + 1) + '</span> ';
         h2.appendChild(document.createTextNode(nome));
-        var c = document.createElement('small'); c.textContent = '(' + per[nome].length + ')'; h2.appendChild(document.createTextNode(' ')); h2.appendChild(c);
+        var quante = per[nome].filter(function (v) { return !COPPIE[v.id] || COPPIE[v.id].voci[0] === v; }).length;
+        var c = document.createElement('small'); c.textContent = '(' + quante + ')'; h2.appendChild(document.createTextNode(' ')); h2.appendChild(c);
         var u = document.createElement('ul'); u.className = 'testi';
-        per[nome].forEach(function (v) { u.appendChild(cartaTesto(v)); });
+        per[nome].forEach(function (v) {
+          var g = COPPIE[v.id];
+          if (!g) u.appendChild(cartaTesto(v));
+          else if (!g.fatta) { g.fatta = true; u.appendChild(cartaCoppia(g)); }
+        });
         li.appendChild(h2); li.appendChild(u); ol.appendChild(li);
       });
-      var nT = testi.filter(function (v) { return v.pagina === p[0]; }).length;
+      var nT = testi.filter(function (v) { return v.pagina === p[0] && (!COPPIE[v.id] || COPPIE[v.id].voci[0] === v); }).length;
       $('modo-testi-' + p[0]).querySelector('small').textContent = nT ? '(' + nT + ')' : '';
       $('modo-foto-' + p[0]).querySelector('small').textContent = '';
     });
@@ -1137,23 +1214,24 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     }).then(function (esito) {
       inCorso = false;
       if (inAttesa) { var m = inAttesa; inAttesa = null; salva(m); return; } // la finestra resta aperta per il salvataggio successivo
-      if (esito === true) fineSalva(true);
+      if (esito === true) { fineSalva(true); aggiornaSpazio(); }
       else fineSalva(false, esito.message, function () { salva(msg); });
     });
   }
 
   /* ---------- foto: formati, peso e forma consigliata per ogni posto del sito ---------- */
-  var MAX_MB = 30, LATO_MIN = 500, LATO_BUONO = 1200;
-  var FORMATI = 'JPG, PNG, WebP o HEIC (le foto dell\'iPhone)';
+  var MAX_MB = 30, LATO_MIN = 500;
+  // si accettano JPG e PNG; prima dell'invio diventano JPG
+  var FORMATI = 'JPG/JPEG o PNG';
   // r = larghezza / altezza come si vede sul computer; nota = cosa cambia sul telefono
   var FORME = {
-    o43: { r: 4 / 3, nome: 'orizzontale 4:3', px: '1600 × 1200' },
-    o54: { r: 5 / 4, nome: 'orizzontale 5:4', px: '1600 × 1280' },
-    q: { r: 1, nome: 'quadrata', px: '1600 × 1600' },
-    v23: { r: 2 / 3, nome: 'verticale 2:3', px: '1067 × 1600' },
-    o19: { r: 1.9, nome: 'orizzontale larga (circa 2:1)', px: '1600 × 840' },
-    larga: { r: 16 / 9, nome: 'orizzontale 16:9', px: '1600 × 900', nota: 'Sul computer si vede come una fascia larga, sul telefono quasi quadrata: tieni la parte importante al centro.' },
-    coll: { r: 2 / 3, nome: 'verticale 2:3', px: '1067 × 1600', nota: 'Sul telefono si vede come una striscia orizzontale: tieni la parte importante al centro.' }
+    o43: { r: 4 / 3, nome: 'orizzontale 4:3', w: 1600, h: 1200 },
+    o54: { r: 5 / 4, nome: 'orizzontale 5:4', w: 1600, h: 1280 },
+    q: { r: 1, nome: 'quadrata', w: 1600, h: 1600 },
+    v23: { r: 2 / 3, nome: 'verticale 2:3', w: 1067, h: 1600 },
+    o19: { r: 1600 / 840, nome: 'orizzontale larga', w: 1600, h: 840 },
+    larga: { r: 16 / 9, nome: 'orizzontale 16:9', w: 1600, h: 900, nota: 'Sul computer si vede come una fascia larga, sul telefono quasi quadrata: tieni la parte importante al centro.' },
+    coll: { r: 2 / 3, nome: 'verticale 2:3', w: 1067, h: 1600, nota: 'Sul telefono si vede come una striscia orizzontale: tieni la parte importante al centro.' }
   };
   function formaDi(id) { // id del posto fisso, o niente per le foto delle gallerie
     if (!id) return FORME.o43;
@@ -1167,7 +1245,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
   }
   function sagoma(r) { var w = r >= 1 ? 26 : Math.round(26 * r), h = r >= 1 ? Math.round(26 / r) : 26; return '<span class="sagoma" aria-hidden="true"><i style="width:' + w + 'px;height:' + h + 'px"></i></span>'; }
   function mostraRequisiti(box, anteprima, f) {
-    box.innerHTML = sagoma(f.r) + '<span><b>Foto consigliata: ' + f.nome + '</b>, almeno ' + f.px + ' pixel. Formati: ' + FORMATI + ', fino a ' + MAX_MB + ' MB.' +
+    box.innerHTML = sagoma(f.r) + '<span><b>Prepara la foto a ' + f.w + ' × ' + f.h + ' pixel</b> (' + f.nome + '), in formato JPG/JPEG o PNG, fino a ' + MAX_MB + ' MB.' +
       (f.nota ? '<span class="nota-forma">' + f.nota + '</span>' : '') + '</span>';
     anteprima.style.aspectRatio = String(f.r); // l'anteprima ha la stessa forma che avrà sul sito (computer)
   }
@@ -1175,17 +1253,18 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
   // controlli prima di preparare la foto: un errore ferma, l'avviso no
   function controllaFile(file) {
     if (eVideo(file)) return 'Qui va una foto, non un video: il sito non ha spazi per i video.';
-    var buonoTipo = /^image\/(jpeg|png|webp|heic|heif)$/.test(file.type) || /\.(jpe?g|png|webp|heic|heif)$/i.test(file.name);
+    var buonoTipo = /^image\/(jpeg|png)$/.test(file.type) || (!file.type && /\.(jpe?g|png)$/i.test(file.name));
     if (!buonoTipo) return 'Formato non accettato: usa una foto ' + FORMATI + '.';
     if (file.size > MAX_MB * 1024 * 1024) return 'La foto è troppo pesante (' + Math.round(file.size / 1048576) + ' MB): il massimo è ' + MAX_MB + ' MB.';
     return '';
   }
   function avvisoFoto(el, p, f) {
     var testi = [], r = p.w / p.h;
-    if (Math.max(r / f.r, f.r / r) > 1.25)
-      testi.push('La foto è ' + nomeForma(r) + ' (' + p.w + ' × ' + p.h + '), qui serve una foto ' + f.nome + ': una parte verrà tagliata. Guarda l\'anteprima, è come si vedrà sul sito.');
-    if (Math.max(p.w, p.h) < LATO_BUONO)
-      testi.push('La foto è piccola (' + p.w + ' × ' + p.h + ' pixel): sul sito potrebbe vedersi sgranata. Meglio almeno ' + f.px + '.');
+    var giusta = f.w + ' × ' + f.h + ' pixel';
+    if (Math.max(r / f.r, f.r / r) > 1.03)
+      testi.push('La foto è ' + p.w + ' × ' + p.h + ' pixel' + (nomeForma(r) !== nomeForma(f.r) ? ' (' + nomeForma(r) + ')' : '') + ', qui va ' + giusta + ': una parte verrà tagliata. Guarda l\'anteprima, è come si vedrà sul sito.');
+    else if (p.w < f.w * 0.97)
+      testi.push('La foto è ' + p.w + ' × ' + p.h + ' pixel, più piccola di ' + giusta + ': sul sito potrebbe vedersi sgranata.');
     el.textContent = testi.join(' '); el.hidden = !testi.length;
   }
 
@@ -1196,10 +1275,11 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
       var url = URL.createObjectURL(file), img = new Image();
       img.onload = function () {
         var w0 = img.naturalWidth, h0 = img.naturalHeight;
-        if (Math.max(w0, h0) < LATO_MIN) { URL.revokeObjectURL(url); return ko(new Error('La foto è troppo piccola (' + w0 + ' × ' + h0 + ' pixel): usa una foto di almeno ' + LATO_BUONO + ' pixel sul lato lungo.')); }
+        if (Math.max(w0, h0) < LATO_MIN) { URL.revokeObjectURL(url); return ko(new Error('La foto è troppo piccola (' + w0 + ' × ' + h0 + ' pixel): prepara la foto alla misura indicata nella finestra.')); }
         var max = 1600, k = Math.min(1, max / Math.max(img.naturalWidth, img.naturalHeight));
         var c = document.createElement('canvas'); c.width = Math.round(img.naturalWidth * k); c.height = Math.round(img.naturalHeight * k);
-        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+        var cx = c.getContext('2d'); cx.fillStyle = '#fff'; cx.fillRect(0, 0, c.width, c.height); // le parti trasparenti delle PNG diventano bianche
+        cx.drawImage(img, 0, 0, c.width, c.height);
         URL.revokeObjectURL(url);
         c.toBlob(function (blob) {
           if (!blob) return ko(new Error('Foto non leggibile'));
@@ -1209,7 +1289,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
           r.readAsDataURL(blob);
         }, 'image/jpeg', 0.85); // il nuovo file non contiene i dati EXIF (né la posizione GPS)
       };
-      img.onerror = function () { URL.revokeObjectURL(url); ko(new Error(/hei[cf]$/i.test(file.name) || /hei[cf]/.test(file.type) ? 'Questo browser non apre le foto HEIC dell\'iPhone: usa Safari, oppure salva la foto come JPG.' : 'Questa foto non si apre: usa una foto ' + FORMATI + '.')); };
+      img.onerror = function () { URL.revokeObjectURL(url); ko(new Error('Questa foto non si apre: usa una foto ' + FORMATI + '.')); };
       img.src = url;
     });
   }
@@ -1432,7 +1512,32 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     };
   }
   var txEd = null;
+  var txCoppia = null;
+  function apriCoppia(g) {
+    txCoppia = g; txAperto = null; txEd = null;
+    $('tx-t').textContent = g.titolo;
+    $('tx-dove').textContent = 'Menu · vale per tutte le pagine del sito';
+    $('tx-etichetta').hidden = true; $('tx-aiuto').hidden = true; $('tx-aiuto-semplice').hidden = true;
+    $('tx-campo-link').hidden = true; $('tx-ant-et').hidden = true; $('tx-ant').hidden = true;
+    var box = $('tx-parti'); box.innerHTML = '';
+    g.eds = g.voci.map(function (v, k) {
+      var c = document.createElement('div'); c.className = 'coppia-campo';
+      var l = document.createElement('p'); l.className = 'etichetta-ant'; l.textContent = k ? 'Su tablet e telefono: voce dell\'elenco' : 'Sul computer: scritta sotto la foto';
+      var d = document.createElement('div'); c.appendChild(l); c.appendChild(d);
+      var ed = editore(d, v); ed.primo.id = 'tx-coppia-' + k; ed.primo.setAttribute('aria-label', l.textContent);
+      var a = document.createElement('p'); a.className = 'aiuto';
+      a.textContent = k ? 'Porta a: ' + v.link + ' (non si cambia da qui). Su una riga.' : 'Su una riga.';
+      if (v.tipo !== 'semplice') a.textContent = a.textContent.replace(' Su una riga.', ' Per andare a capo premi Invio.');
+      c.appendChild(a); box.appendChild(c);
+      return ed;
+    });
+    $('err-tx').textContent = '';
+    dtx.showModal(); g.eds[0].primo.focus();
+  }
   function apriTesto(id) {
+    if (COPPIE[id]) { apriCoppia(COPPIE[id]); return; }
+    txCoppia = null;
+    $('tx-etichetta').hidden = false; $('tx-ant-et').hidden = false; $('tx-ant').hidden = false;
     txAperto = testi.filter(function (v) { return v.id === id; })[0]; if (!txAperto) return;
     var semplice = txAperto.tipo === 'semplice', link = 'link' in txAperto;
     $('tx-t').textContent = txAperto.descrizione;
@@ -1446,13 +1551,28 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     dtx.showModal(); txEd.primo.focus();
   }
   function anteprimaTesto() {
-    if (!txAperto || !txEd) return;
+    if (txCoppia || !txAperto || !txEd) return;
     var r = txEd.valore();
     $('tx-ant').innerHTML = r.testo ? htmlTesto(r.testo, txAperto.tipo !== 'semplice' && !('link' in txAperto)) : '<span class="vuoto">(vuoto)</span>';
   }
   $('tx-annulla').onclick = function () { dtx.close(); };
   $('f-testo').onsubmit = function (e) {
     e.preventDefault();
+    if (txCoppia) {
+      var g = txCoppia, cambiati = [], sb = null;
+      g.voci.forEach(function (v, k) {
+        if (sb) return;
+        var x = g.eds[k].valore();
+        if (x.errore) sb = [g.eds[k].primo, x.errore]; else if (x.testo !== v.testo) cambiati.push([v, x.testo]);
+      });
+      if (sb) { $('err-tx').textContent = sb[1]; sb[0].focus(); return; }
+      dtx.close(); txCoppia = null;
+      if (!cambiati.length) return;
+      cambiati.forEach(function (c) { c[0].testo = c[1]; });
+      disegna();
+      salva('Modificato il menu «' + g.titolo + '» (Menu)');
+      return;
+    }
     var r = txEd.valore();
     if (r.errore) { $('err-tx').textContent = r.errore; txEd.primo.focus(); return; }
     var t = r.testo;

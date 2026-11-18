@@ -60,6 +60,7 @@ export default {
       if (request.method === "POST" && url.pathname === "/login") return await login(request, env, cors);
       if (!(await accessoValido(request, env))) return json({ errore: "Accesso scaduto, entra di nuovo" }, 401, cors);
       if (request.method === "GET" && url.pathname === "/contenuti") return await leggiContenuti(env, cors);
+      if (request.method === "GET" && url.pathname === "/spazio") return await leggiSpazio(env, cors);
       if (request.method === "POST" && url.pathname === "/salva") return await salva(request, env, cors);
       if (request.method === "POST" && url.pathname === "/password") return await cambiaPassword(request, env, cors);
       return json({ errore: "Indirizzo non valido" }, 404, cors);
@@ -160,6 +161,35 @@ async function ugualiCostante(a, b) {
 async function leggiContenuti(env, cors) {
   const { gallerie, immagini, testi } = await statoAttuale(env);
   return json({ gallerie, immagini, testi }, 200, cors);
+}
+
+/**
+ * Spazio occupato. Le foto stanno nel repository GitHub e il sito è su GitHub Pages:
+ * il sito pubblicato può pesare al massimo 1 GB, e GitHub consiglia di tenere il repository
+ * (che conserva anche le foto cancellate, nella cronologia) sotto 1 GB. Si conta il più grande.
+ * Il sito pubblicato = i file del ramo senza .*, scripts, data e worker (come in pubblica.yml).
+ */
+const LIMITE_SPAZIO = 1024 * 1024 * 1024;
+const FOTO_MEDIA_STIMATA = 400 * 1024; // foto da 1600 px in JPEG 85, finché non ce ne sono abbastanza caricate
+async function leggiSpazio(env, cors) {
+  const ref = await gh(env, `git/ref/heads/${env.BRANCH}`);
+  const [albero, info] = await Promise.all([
+    gh(env, `git/trees/${ref.object.sha}?recursive=1`),
+    fetch(`https://api.github.com/repos/${env.REPO}`, { headers: intestazioniGh(env) }).then((r) => (r.ok ? r.json() : {})),
+  ]);
+  let sito = 0, caricate = 0, nCaricate = 0;
+  for (const e of albero.tree || []) {
+    if (e.type !== "blob") continue;
+    const parti = e.path.split("/");
+    if (parti.some((x) => x.startsWith(".")) || ["scripts", "data", "worker", "_site"].includes(parti[0])) continue;
+    sito += e.size || 0;
+    if (e.path.startsWith(CARTELLA_FOTO)) { caricate += e.size || 0; nCaricate++; }
+  }
+  const repo = (Number(info.size) || 0) * 1024; // GitHub lo dà in KB (aggiornato con qualche ritardo)
+  return json({
+    sito, repo, usato: Math.max(sito, repo), limite: LIMITE_SPAZIO,
+    mediaFoto: nCaricate >= 5 ? Math.round(caricate / nCaricate) : FOTO_MEDIA_STIMATA,
+  }, 200, cors);
 }
 
 async function statoAttuale(env) {

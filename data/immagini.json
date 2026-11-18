@@ -734,7 +734,7 @@
   {
     "id": "menu-sposi",
     "pagina": "menu",
-    "sezione": "Menu Servizi · Sezione sposi",
+    "sezione": "Servizi · Sezione sposi",
     "descrizione": "Riquadro con foto nel menu che si apre dalla barra in alto (si vede sul computer). Vale per tutte le pagine del sito.",
     "foto": "images/comune/menu/sposi-bacio-campo.jpg",
     "alt": "",
@@ -747,7 +747,7 @@
   {
     "id": "menu-fotografi",
     "pagina": "menu",
-    "sezione": "Menu Servizi · Sezione fotografi",
+    "sezione": "Servizi · Sezione fotografi",
     "descrizione": "Riquadro con foto nel menu che si apre dalla barra in alto (si vede sul computer). Vale per tutte le pagine del sito.",
     "foto": "images/comune/menu/fotografo-videocamera.jpg",
     "alt": "",
@@ -760,7 +760,7 @@
   {
     "id": "menu-fotolibro",
     "pagina": "menu",
-    "sezione": "Menu Prodotti · Fotolibro professionale",
+    "sezione": "Prodotti · Fotolibro professionale",
     "descrizione": "Riquadro con foto nel menu che si apre dalla barra in alto (si vede sul computer). Vale per tutte le pagine del sito.",
     "foto": "images/comune/menu/fotolibro-aperto-coppia-mare.jpg",
     "alt": "",
@@ -773,7 +773,7 @@
   {
     "id": "menu-tradizionale",
     "pagina": "menu",
-    "sezione": "Menu Prodotti · Album tradizionale professionale",
+    "sezione": "Prodotti · Album tradizionale professionale",
     "descrizione": "Riquadro con foto nel menu che si apre dalla barra in alto (si vede sul computer). Vale per tutte le pagine del sito.",
     "foto": "images/comune/menu/album-tradizionale-sposi-bianco-nero.jpg",
     "alt": "",
@@ -786,7 +786,7 @@
   {
     "id": "menu-studio",
     "pagina": "menu",
-    "sezione": "Menu Prodotti · Prodotti per il tuo studio fotografico",
+    "sezione": "Prodotti · Prodotti per il tuo studio fotografico",
     "descrizione": "Riquadro con foto nel menu che si apre dalla barra in alto (si vede sul computer). Vale per tutte le pagine del sito.",
     "foto": "images/comune/menu/studio.jpg",
     "alt": "",
@@ -799,7 +799,7 @@
   {
     "id": "menu-custodie",
     "pagina": "menu",
-    "sezione": "Menu Prodotti · Custodie per album",
+    "sezione": "Prodotti · Custodie per album",
     "descrizione": "Riquadro con foto nel menu che si apre dalla barra in alto (si vede sul computer). Vale per tutte le pagine del sito.",
     "foto": "images/comune/menu/cofanetto-legno-the-wedding.jpg",
     "alt": "",
@@ -812,7 +812,7 @@
   {
     "id": "menu-matrimoniali",
     "pagina": "menu",
-    "sezione": "Menu Collezioni · Album matrimoniali",
+    "sezione": "Collezioni · Album matrimoniali",
     "descrizione": "Riquadro con foto nel menu che si apre dalla barra in alto (si vede sul computer). Vale per tutte le pagine del sito.",
     "foto": "images/comune/menu/album-matrimoniali-curve.jpg",
     "alt": "",
@@ -825,7 +825,7 @@
   {
     "id": "menu-bambini",
     "pagina": "menu",
-    "sezione": "Menu Collezioni · Album bambini",
+    "sezione": "Collezioni · Album bambini",
     "descrizione": "Riquadro con foto nel menu che si apre dalla barra in alto (si vede sul computer). Vale per tutte le pagine del sito.",
     "foto": "images/comune/menu/album-bambini-soffietto.jpg",
     "alt": "",
@@ -838,7 +838,7 @@
   {
     "id": "menu-comunione",
     "pagina": "menu",
-    "sezione": "Menu Collezioni · Album comunione",
+    "sezione": "Collezioni · Album comunione",
     "descrizione": "Riquadro con foto nel menu che si apre dalla barra in alto (si vede sul computer). Vale per tutte le pagine del sito.",
     "foto": "images/comune/menu/album-comunione-emma.jpg",
     "alt": "",
@@ -851,7 +851,7 @@
   {
     "id": "menu-eventi",
     "pagina": "menu",
-    "sezione": "Menu Collezioni · Album eventi",
+    "sezione": "Collezioni · Album eventi",
     "descrizione": "Riquadro con foto nel menu che si apre dalla barra in alto (si vede sul computer). Vale per tutte le pagine del sito.",
     "foto": "images/comune/menu/album-eventi-festa-palloncini.jpg",
     "alt": "",

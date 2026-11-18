@@ -225,14 +225,24 @@ guida; se si rifà una schermata vanno aggiornate anche quelle. Se l'aspetto del
 riservata cambia molto le schermate vanno rifatte.
 La foto viene rimpicciolita nel telefono prima dell'invio (lato lungo 1600 px, JPEG
 qualità 85) e perde i dati EXIF, compresa la posizione GPS.
-Formati e misure: in ogni finestra di foto (gallerie e foto fisse) un riquadro dice
-forma e misura consigliate per quel posto e i formati accettati (JPG, PNG, WebP, HEIC;
-massimo 30 MB); l'anteprima ha la forma che la foto avrà sul sito (computer). Le forme
-sono in area-riservata.html (FORME e formaDi(id)): se cambia il CSS di una foto, va
-aggiornata anche lì e la tabella della guida («Foto: formati e misure»). Dopo la scelta
-avviso giallo (non blocca) se la forma è molto diversa o il lato lungo è sotto 1200 px;
-sotto 500 px, oltre 30 MB, video o altri formati la foto viene rifiutata. Il sito non ha
-spazi per i video.
+Formati e misure: in ogni finestra di foto (gallerie e foto fisse) un riquadro dice la
+misura esatta in pixel per quel posto (es. «Prepara la foto a 1600 × 1200 pixel»), in
+JPG/JPEG o PNG, massimo 30 MB; l'anteprima ha la forma che la foto avrà sul sito (computer).
+Si accettano solo JPG e PNG (HEIC, WebP, GIF rifiutati); prima dell'invio diventano JPG
+(le parti trasparenti delle PNG su fondo bianco). Le forme sono in
+area-riservata.html (FORME e formaDi(id)): se cambia il CSS di una foto, va aggiornata
+anche lì e la tabella della guida («Foto: formati e misure»).
+Dopo la scelta avviso giallo (non blocca) se la forma è diversa (oltre il 3%) o la foto è
+più piccola della misura; sotto 500 px, oltre 30 MB, video o altri formati la foto viene
+rifiutata. Il sito non ha spazi per i video.
+Spazio: in cima all'area il riquadro «Spazio per le foto» (barra verde, gialla da 80%,
+rossa da 95%) con MB usati su 1 GB e quante foto ci stanno ancora. Lo dà il Worker
+(GET /spazio): peso del sito pubblicato (file del ramo senza .*, scripts, data, worker) e
+peso del repository secondo GitHub (comprende la cronologia, quindi anche le foto
+cancellate); conta il più grande dei due. Limite 1 GB = massimo di GitHub Pages per il sito
+e soglia consigliata da GitHub per il repository. Le foto NON stanno su Cloudflare: il
+Worker fa solo da ponte (piano gratuito: 100.000 richieste al giorno, nessuno spazio usato).
+Foto media: quella delle foto in images/caricate/ (da 5 in su), altrimenti 400 KB.
 Le voci in localStorage hanno il prefisso olimp- (sullo stesso indirizzo
 nemesimark.github.io c'è anche l'area riservata di inkubo).
 File:
@@ -1583,3 +1593,22 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                    sotto 500 px, oltre 30 MB, i video e gli altri formati, con un messaggio
                    chiaro (anche per le HEIC fuori da Safari). Guida: nuova sezione «Foto:
                    formati e misure» con la tabella delle forme.
+
+3.18 (18/11/2026)  Area riservata, Menu → Testi: ogni voce del menu è una scheda sola con le
+                   due scritte, «Computer» (sotto la foto del riquadro) e «Tablet e telefono»
+                   (voce dell'elenco), che si cambiano insieme nella stessa finestra (coppie
+                   prese dai «testi» delle foto del menu in data/immagini.json). Sezioni
+                   Servizi, Prodotti, Collezioni e le linee di Album matrimoniali e Album
+                   bambini (solo tablet e telefono: sul computer il menu ha solo i riquadri).
+                   Tolto «Menu» davanti ai nomi delle foto del menu; guida aggiornata.
+                   Foto: niente più «almeno», la finestra dà la misura esatta da preparare
+                   (es. «Prepara la foto a 1067 × 1600 pixel (verticale 2:3), in formato
+                   JPG/JPEG o PNG»); avviso se la forma è diversa o la foto è più piccola.
+                   Formati accettati solo JPG e PNG (HEIC, WebP e GIF rifiutati con un
+                   messaggio); le PNG trasparenti diventano JPG su fondo bianco.
+
+3.19 (18/11/2026)  Area riservata: riquadro «Spazio per le foto» in cima, con la barra dello
+                   spazio usato su 1 GB, la percentuale e quante foto ci stanno ancora; si
+                   aggiorna dopo ogni salvataggio, diventa gialla all'80% e rossa al 95%.
+                   Worker: nuova richiesta GET /spazio (sito pubblicato e repository GitHub,
+                   conta il più grande). Guida: voce «Spazio».
