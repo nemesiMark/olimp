@@ -247,6 +247,20 @@ body{font-family:var(--testo)}
 input[type=text],input[type=password]{border-radius:3px;background:#fff;border-color:#b9b9b3}
 .tab{border-radius:3px;font:500 14px/1 var(--head);text-transform:uppercase;letter-spacing:.07em}
 .tab[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--acc)}
+/* menu a livelli come la navbar del sito: Collezioni → Matrimoniali → Fashion */
+.tabs .wrap{display:block;overflow:visible;padding:8px 0}
+.tabs .riga{display:flex;align-items:center;flex-wrap:wrap;gap:6px;padding:3px 0}
+/* sul telefono il menu non resta attaccato in alto: con le righe che vanno a capo coprirebbe troppo */
+@media (max-width:699px){.tabs{position:static}}
+.tabs .riga+.riga{border-top:1px dashed var(--line);margin-top:5px;padding-top:8px}
+.tabs .riga .dove{flex:none;font:500 12px/1 var(--head);text-transform:uppercase;letter-spacing:.07em;color:var(--mute);padding-right:2px}
+.tabs .riga .dove::after{content:" ›";color:var(--acc-d)}
+.tab .giu{display:inline-block;margin-left:6px;font-size:10px;opacity:.65;transition:transform 150ms ease}
+.tab.aperta{background:var(--ink);border-color:var(--ink);color:#fff}
+.tab.aperta .giu,.tab[aria-selected="true"] .giu{transform:rotate(180deg);opacity:1}
+.tabs .riga.sotto .tab{min-height:34px;padding:0 13px;font-size:13px}
+.tabs .riga.sotto .tab[aria-selected="true"]{background:var(--acc);border-color:var(--acc);color:var(--ink)}
+.tabs .riga.sotto .tab.aperta{background:var(--ink);border-color:var(--ink);color:#fff}
 .vedi{color:var(--ink);text-decoration:underline;text-decoration-color:var(--acc);text-decoration-thickness:2px;text-underline-offset:4px}
 .num{border-radius:2px;background:var(--ink);color:var(--acc);font-family:var(--head)}
 .slot{border-radius:4px}
@@ -345,7 +359,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
 
 <!-- pagine del sito: le sezioni le scrive lo script (PAGINE) -->
 <main id="vista-lavori" hidden>
-  <nav class="tabs" aria-label="Pagine del sito"><div class="wrap" id="tabs" role="tablist"></div></nav>
+  <nav class="tabs" aria-label="Pagine del sito"><div class="wrap" id="tabs"></div></nav>
   <div class="wrap" id="pagine">
     <p class="stato" id="stato" aria-live="polite"></p>
   </div>
@@ -443,36 +457,36 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     <a href="#g-aggiungere">Aggiungere</a><a href="#g-riordinare">Riordinare</a><a href="#g-rinominare">Rinominare</a><a href="#g-eliminare">Eliminare</a><a href="#g-fisse">Foto fisse</a>
   </nav>
   <div class="g-corpo">
-    <p class="g-intro">In alto c'è una scheda per ogni pagina del sito. Le modifiche valgono solo per la pagina in cui le fai e si vedono online entro qualche minuto dal salvataggio. Questa guida si riapre quando vuoi dal pulsante <b>Guida</b> in alto. Clicca una schermata per ingrandirla. Dal telefono funziona allo stesso modo: al posto del clic si tocca con il dito.</p>
+    <p class="g-intro">In alto c'è il menu delle pagine, ordinato come quello del sito: Home, Grafica &amp; Stampa, Servizi, Prodotti e Collezioni; scegliendo una voce con la freccetta compaiono sotto le sue pagine. Le modifiche valgono solo per la pagina in cui le fai e si vedono online entro qualche minuto dal salvataggio. Questa guida si riapre quando vuoi dal pulsante <b>Guida</b> in alto. Clicca una schermata per ingrandirla. Dal telefono funziona allo stesso modo: al posto del clic si tocca con il dito.</p>
     <section class="g-sez" id="g-aggiungere" aria-labelledby="g-aggiungere-t">
       <h3 id="g-aggiungere-t">Aggiungere una foto</h3>
-      <div class="g-passo"><span class="num">1</span><p>In alto scegli la <b>pagina</b> del sito da modificare, per esempio <b>Fashion</b>.</p><a href="images/guida/tab.jpg" class="g-zoom" data-punti="41.25,8.75,7.66,6.25" aria-label="Ingrandisci la schermata"><img src="images/guida/tab.jpg" alt="La fila di schede in alto con Fashion evidenziato" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
-      <div class="g-passo"><span class="num">2</span><p>Clicca la casella grigia con il <b>+</b>, in fondo alle foto della galleria (per esempio <b>Gli album della linea</b>). Si apre la finestra per scegliere il file: scegli la foto e clicca <b>Apri</b>.</p><a href="images/guida/piu.jpg" class="g-zoom" data-punti="50.16,50.50,14.06,26.25" aria-label="Ingrandisci la schermata"><img src="images/guida/piu.jpg" alt="La casella con il + in fondo alla galleria" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
-      <div class="g-passo"><span class="num">3</span><p>Controlla l'anteprima, scrivi il <b>titolo</b> (il nome del modello, che compare sotto la foto) e clicca <b>Aggiungi</b>. Se hai sbagliato foto, clicca <b>Cambia foto</b>.</p><a href="images/guida/nuova.jpg" class="g-zoom" data-punti="33.12,67.00,33.59,7.25;58.13,79.00,8.59,6.75" aria-label="Ingrandisci la schermata"><img src="images/guida/nuova.jpg" alt="La finestra per aggiungere una foto, con il titolo scritto" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
-      <div class="g-passo"><span class="num">4</span><p>La foto nuova lampeggia in arancio. Se vuoi spostarla, <b>tieni premuto il clic sulla foto e trascinala</b> nel posto che preferisci; altrimenti resta ultima. Poi clicca <b>Conferma e salva</b> nella barra in basso.</p><a href="images/guida/nuova-sel.jpg" class="g-zoom" data-punti="50.16,50.50,14.06,26.25;57.19,89.75,13.75,6.75" aria-label="Ingrandisci la schermata"><img src="images/guida/nuova-sel.jpg" alt="La foto nuova evidenziata e il pulsante Conferma e salva" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
-      <div class="g-passo"><span class="num">5</span><p>Si apre la finestra del salvataggio: aspetta che la barra arrivi in fondo e clicca <b>OK</b>. Il sito si aggiorna da solo entro qualche minuto.</p><a href="images/guida/salvato.jpg" class="g-zoom" data-punti="44.84,60.00,10.16,6.75" aria-label="Ingrandisci la schermata"><img src="images/guida/salvato.jpg" alt="La finestra Salvataggio riuscito correttamente con il pulsante OK" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">1</span><p>In alto scegli la <b>pagina</b> del sito da modificare, per esempio <b>Collezioni</b>, poi <b>Matrimoniali</b>, poi <b>Fashion</b>.</p><a href="images/guida/tab.jpg" class="g-zoom" data-punti="42.66,8.75,10.55,6.50;12.66,15.88,11.09,5.75;13.98,22.25,7.03,5.75" aria-label="Ingrandisci la schermata"><img src="images/guida/tab.jpg" alt="Il menu delle pagine in alto con Collezioni, Matrimoniali e Fashion evidenziati" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">2</span><p>Clicca la casella grigia con il <b>+</b>, in fondo alle foto della galleria (per esempio <b>Gli album della linea</b>). Si apre la finestra per scegliere il file: scegli la foto e clicca <b>Apri</b>.</p><a href="images/guida/piu.jpg" class="g-zoom" data-punti="50.16,63.38,14.22,26.50" aria-label="Ingrandisci la schermata"><img src="images/guida/piu.jpg" alt="La casella con il + in fondo alla galleria" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">3</span><p>Controlla l'anteprima, scrivi il <b>titolo</b> (il nome del modello, che compare sotto la foto) e clicca <b>Aggiungi</b>. Se hai sbagliato foto, clicca <b>Cambia foto</b>.</p><a href="images/guida/nuova.jpg" class="g-zoom" data-punti="33.12,66.88,33.75,7.50;58.13,78.88,8.75,7.00" aria-label="Ingrandisci la schermata"><img src="images/guida/nuova.jpg" alt="La finestra per aggiungere una foto, con il titolo scritto" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">4</span><p>La foto nuova lampeggia in arancio. Se vuoi spostarla, <b>tieni premuto il clic sulla foto e trascinala</b> nel posto che preferisci; altrimenti resta ultima. Poi clicca <b>Conferma e salva</b> nella barra in basso.</p><a href="images/guida/nuova-sel.jpg" class="g-zoom" data-punti="79.22,37.38,14.22,25.50;57.19,89.75,13.91,7.00" aria-label="Ingrandisci la schermata"><img src="images/guida/nuova-sel.jpg" alt="La foto nuova evidenziata e il pulsante Conferma e salva" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">5</span><p>Si apre la finestra del salvataggio: aspetta che la barra arrivi in fondo e clicca <b>OK</b>. Il sito si aggiorna da solo entro qualche minuto.</p><a href="images/guida/salvato.jpg" class="g-zoom" data-punti="44.84,60.00,10.31,7.00" aria-label="Ingrandisci la schermata"><img src="images/guida/salvato.jpg" alt="La finestra Salvataggio riuscito correttamente con il pulsante OK" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
     </section>
     <section class="g-sez" id="g-riordinare" aria-labelledby="g-riordinare-t">
       <h3 id="g-riordinare-t">Riordinare le foto</h3>
-      <div class="g-passo"><span class="num">1</span><p>Clicca la foto da spostare: si accende in arancio e le altre diventano più chiare.</p><a href="images/guida/scegli.jpg" class="g-zoom" data-punti="35.62,24.50,14.06,25.25" aria-label="Ingrandisci la schermata"><img src="images/guida/scegli.jpg" alt="Una foto selezionata in arancio, le altre più chiare" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
-      <div class="g-passo"><span class="num">2</span><p><b>Tieni premuto il clic sulla foto e trascinala</b> dove vuoi, dentro la stessa galleria. Il numero in alto a sinistra indica il posto. Poi clicca <b>Conferma</b>.</p><a href="images/guida/spostata.jpg" class="g-zoom" data-punti="6.56,24.50,14.06,25.25;61.56,89.75,9.38,6.75" aria-label="Ingrandisci la schermata"><img src="images/guida/spostata.jpg" alt="La foto spostata al posto 1 e il pulsante Conferma" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">1</span><p>Clicca la foto da spostare: si accende in arancio e le altre diventano più chiare.</p><a href="images/guida/scegli.jpg" class="g-zoom" data-punti="35.62,37.38,14.22,25.50" aria-label="Ingrandisci la schermata"><img src="images/guida/scegli.jpg" alt="Una foto selezionata in arancio, le altre più chiare" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">2</span><p><b>Tieni premuto il clic sulla foto e trascinala</b> dove vuoi, dentro la stessa galleria. Il numero in alto a sinistra indica il posto. Poi clicca <b>Conferma</b>.</p><a href="images/guida/spostata.jpg" class="g-zoom" data-punti="6.56,37.38,14.22,25.50;61.56,89.75,9.53,7.00" aria-label="Ingrandisci la schermata"><img src="images/guida/spostata.jpg" alt="La foto spostata al posto 1 e il pulsante Conferma" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
       <p class="g-nota">Hai cambiato idea? Clicca <b>Annulla</b> e la foto torna dov'era, senza salvare nulla. Finché non scegli <b>Conferma</b> o <b>Annulla</b> il resto della pagina è bloccato: se clicchi altrove, la barra in basso lampeggia per ricordartelo.</p>
     </section>
     <section class="g-sez" id="g-rinominare" aria-labelledby="g-rinominare-t">
       <h3 id="g-rinominare-t">Rinominare una foto</h3>
-      <div class="g-passo"><span class="num">1</span><p>Clicca la foto, poi clicca <b>Modifica o elimina</b> nella barra in basso.</p><a href="images/guida/modifica.jpg" class="g-zoom" data-punti="35.16,89.75,14.37,6.75" aria-label="Ingrandisci la schermata"><img src="images/guida/modifica.jpg" alt="La barra in basso con il pulsante Modifica o elimina" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
-      <div class="g-passo"><span class="num">2</span><p>Correggi il <b>titolo</b> e clicca <b>Salva</b>. Da qui puoi anche cambiare la foto con <b>Cambia foto</b>.</p><a href="images/guida/rinomina.jpg" class="g-zoom" data-punti="33.12,65.25,33.59,7.25;60.00,77.25,6.72,6.75" aria-label="Ingrandisci la schermata"><img src="images/guida/rinomina.jpg" alt="La finestra di modifica con il titolo cambiato e il pulsante Salva" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">1</span><p>Clicca la foto, poi clicca <b>Modifica o elimina</b> nella barra in basso.</p><a href="images/guida/modifica.jpg" class="g-zoom" data-punti="35.16,89.75,14.45,7.00" aria-label="Ingrandisci la schermata"><img src="images/guida/modifica.jpg" alt="La barra in basso con il pulsante Modifica o elimina" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">2</span><p>Correggi il <b>titolo</b> e clicca <b>Salva</b>. Da qui puoi anche cambiare la foto con <b>Cambia foto</b>.</p><a href="images/guida/rinomina.jpg" class="g-zoom" data-punti="33.12,65.25,33.75,7.50;59.92,77.25,6.95,7.00" aria-label="Ingrandisci la schermata"><img src="images/guida/rinomina.jpg" alt="La finestra di modifica con il titolo cambiato e il pulsante Salva" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
     </section>
     <section class="g-sez" id="g-eliminare" aria-labelledby="g-eliminare-t">
       <h3 id="g-eliminare-t">Eliminare una foto</h3>
       <div class="g-passo solo-testo"><span class="num">1</span><p>Clicca la foto, poi clicca <b>Modifica o elimina</b> nella barra in basso (come per rinominare).</p></div>
-      <div class="g-passo"><span class="num">2</span><p>Clicca <b>Elimina</b> in basso a sinistra nella finestra. Il pulsante diventa rosso con scritto <b>Sì, elimina</b>: cliccalo di nuovo per confermare.</p><a href="images/guida/elimina.jpg" class="g-zoom" data-punti="33.12,77.25,9.84,6.75" aria-label="Ingrandisci la schermata"><img src="images/guida/elimina.jpg" alt="Il pulsante rosso Sì, elimina" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">2</span><p>Clicca <b>Elimina</b> in basso a sinistra nella finestra. Il pulsante diventa rosso con scritto <b>Sì, elimina</b>: cliccalo di nuovo per confermare.</p><a href="images/guida/elimina.jpg" class="g-zoom" data-punti="33.12,77.25,9.92,7.00" aria-label="Ingrandisci la schermata"><img src="images/guida/elimina.jpg" alt="Il pulsante rosso Sì, elimina" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
       <p class="g-nota rossa">L'eliminazione è definitiva: la foto sparisce dal sito. Se non clicchi «Sì, elimina» non succede nulla.</p>
     </section>
     <section class="g-sez" id="g-fisse" aria-labelledby="g-fisse-t">
       <h3 id="g-fisse-t">Cambiare le foto fisse</h3>
-      <div class="g-passo"><span class="num">1</span><p>Le altre foto delle pagine (la foto principale accanto al testo, i riquadri delle linee e dei prodotti, le strisce delle collezioni) hanno un posto fisso: clicca <b>Cambia foto</b> accanto a quella da cambiare.</p><a href="images/guida/fissa.jpg" class="g-zoom" data-punti="18.28,43.00,10.31,6.00" aria-label="Ingrandisci la schermata"><img src="images/guida/fissa.jpg" alt="Una foto fissa con il pulsante Cambia foto" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
-      <div class="g-passo"><span class="num">2</span><p>Nella finestra clicca <b>Cambia foto</b> e scegli quella nuova. Scrivi in breve cosa si vede (serve a Google) e clicca <b>Salva</b>.</p><a href="images/guida/fissa-scheda.jpg" class="g-zoom" data-punti="53.91,54.25,10.78,6.00;60.00,77.50,6.72,6.75" aria-label="Ingrandisci la schermata"><img src="images/guida/fissa-scheda.jpg" alt="La finestra per cambiare una foto, con Cambia foto e Salva evidenziati" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">1</span><p>Le altre foto delle pagine (la foto principale accanto al testo, i riquadri delle linee e dei prodotti, le strisce delle collezioni) hanno un posto fisso: clicca <b>Cambia foto</b> accanto a quella da cambiare.</p><a href="images/guida/fissa.jpg" class="g-zoom" data-punti="18.20,56.00,10.47,6.25" aria-label="Ingrandisci la schermata"><img src="images/guida/fissa.jpg" alt="Una foto fissa con il pulsante Cambia foto" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">2</span><p>Nella finestra clicca <b>Cambia foto</b> e scegli quella nuova. Scrivi in breve cosa si vede (serve a Google) e clicca <b>Salva</b>.</p><a href="images/guida/fissa-scheda.jpg" class="g-zoom" data-punti="53.91,54.12,10.86,6.25;59.92,77.50,6.95,7.00" aria-label="Ingrandisci la schermata"><img src="images/guida/fissa-scheda.jpg" alt="La finestra per cambiare una foto, con Cambia foto e Salva evidenziati" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
       <p class="g-nota">Ogni pagina è indipendente: una foto cambiata in una pagina resta uguale in tutte le altre (per esempio la striscia «Album eventi» della Home e quella di Collezioni si cambiano separatamente).</p>
     </section>
   </div>
@@ -600,14 +614,43 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     };
   }
 
-  /* ---------- schede delle pagine ---------- */
+  /* ---------- schede delle pagine: menu a livelli come la navbar del sito ----------
+     Prima riga: Home, Grafica & Stampa, Servizi, Prodotti, Collezioni. Scegliendo una pagina che ha
+     sottopagine compare sotto la riga successiva (es. Collezioni → Matrimoniali → le linee). */
+  var GENITORE = {
+    'sezione-sposi.html': 'servizi.html', 'sezione-fotografi.html': 'servizi.html',
+    'fotolibro-professionale.html': 'prodotti.html', 'album-tradizionale-professionale.html': 'prodotti.html',
+    'prodotti-studio-fotografico.html': 'prodotti.html', 'custodie-per-album.html': 'prodotti.html',
+    'album-matrimoniali.html': 'collezioni.html', 'album-bambini.html': 'collezioni.html',
+    'album-comunione.html': 'collezioni.html', 'album-eventi.html': 'collezioni.html',
+    'linea-fashion.html': 'album-matrimoniali.html', 'linea-glamour.html': 'album-matrimoniali.html',
+    'linea-trendy.html': 'album-matrimoniali.html', 'linea-cuoio-fiorentino.html': 'album-matrimoniali.html',
+    'linea-cuoio-amarcord-islandese.html': 'album-matrimoniali.html',
+    'linea-cuoio-amarcord-islandese-personalizzato.html': 'album-matrimoniali.html',
+    'album-bambini-deluxe.html': 'album-bambini.html', 'album-bambini-baby.html': 'album-bambini.html',
+    'album-bambini-new-born.html': 'album-bambini.html'
+  };
+  var ORDINE_PRIMA = ['index.html', 'grafica-stampa.html', 'servizi.html', 'prodotti.html', 'collezioni.html'];
+  var NOME = {}; PAGINE.forEach(function (p) { NOME[p[0]] = p[1]; });
+  function figli(id) { return PAGINE.filter(function (p) { return (GENITORE[p[0]] || '') === id; }).map(function (p) { return p[0]; }); }
+  function catena(id) { var c = [id]; while (GENITORE[c[0]]) c.unshift(GENITORE[c[0]]); return c; }
+  var RIGHE = {}; // genitore ('' = prima riga) → riga
+  function riga(gen) {
+    if (RIGHE[gen]) return RIGHE[gen];
+    var r = document.createElement('div'); r.className = 'riga' + (gen ? ' sotto' : ''); r.setAttribute('role', 'tablist');
+    r.setAttribute('aria-label', gen ? 'Pagine dentro ' + NOME[gen] : 'Pagine principali');
+    if (gen) { var d = document.createElement('span'); d.className = 'dove'; d.textContent = NOME[gen]; r.appendChild(d); }
+    r.hidden = !!gen; RIGHE[gen] = r; return r;
+  }
+  [''].concat(PAGINE.map(function (p) { return p[0]; })).forEach(function (g) { if (!g || figli(g).length) $('tabs').appendChild(riga(g)); });
   var SEZIONI = {}; // galleria → sezione
   var tabAttiva = mem.get('ar-tab') || 'index.html';
   PAGINE.forEach(function (p) {
     var b = document.createElement('button'); b.type = 'button'; b.className = 'tab'; b.setAttribute('role', 'tab');
     b.id = 'tab-' + p[0]; b.dataset.pag = p[0]; b.setAttribute('aria-controls', 'pag-' + p[0]); b.textContent = p[1];
+    if (figli(p[0]).length) { var gi = document.createElement('span'); gi.className = 'giu'; gi.setAttribute('aria-hidden', 'true'); gi.textContent = '▼'; b.appendChild(gi); }
     b.onclick = function () { mostraPagina(p[0]); };
-    $('tabs').appendChild(b);
+    riga(GENITORE[p[0]] || '').appendChild(b);
     var s = document.createElement('section'); s.className = 'pag'; s.id = 'pag-' + p[0]; s.setAttribute('role', 'tabpanel'); s.hidden = true;
     s.setAttribute('aria-labelledby', b.id);
     var h = document.createElement('div'); h.className = 'pag-head';
@@ -632,19 +675,25 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     });
     s.appendChild(ol); $('pagine').appendChild(s);
   });
+  ORDINE_PRIMA.forEach(function (id) { RIGHE[''].appendChild($('tab-' + id)); }); // stesso ordine della navbar del sito
   function mostraPagina(id) {
     if (sel) confermaScelta(); // cambiando pagina la foto selezionata resta dov'è
     if (!$('pag-' + id)) id = 'index.html';
     tabAttiva = id; mem.set('ar-tab', id);
+    var c = catena(id);
     PAGINE.forEach(function (p) {
       $('pag-' + p[0]).hidden = p[0] !== id;
       $('tab-' + p[0]).setAttribute('aria-selected', String(p[0] === id));
+      $('tab-' + p[0]).classList.toggle('aperta', p[0] !== id && c.indexOf(p[0]) >= 0);
     });
+    Object.keys(RIGHE).forEach(function (g) { RIGHE[g].hidden = !!g && c.indexOf(g) < 0; });
     centraTab();
     window.scrollTo(0, 0);
   }
-  function centraTab() { // la scheda scelta resta visibile nella fila in alto (che scorre di lato)
-    var t = $('tab-' + tabAttiva); if (t) t.parentNode.scrollLeft = t.offsetLeft - t.parentNode.offsetLeft - (t.parentNode.clientWidth - t.offsetWidth) / 2;
+  function centraTab() { // in ogni riga la scheda scelta (o aperta) resta visibile (le righe scorrono di lato)
+    catena(tabAttiva).forEach(function (id) {
+      var t = $('tab-' + id); if (t) t.parentNode.scrollLeft = t.offsetLeft - t.parentNode.offsetLeft - (t.parentNode.clientWidth - t.offsetWidth) / 2;
+    });
   }
   mostraPagina(tabAttiva);
 

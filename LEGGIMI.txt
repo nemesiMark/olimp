@@ -146,7 +146,13 @@ AREA RISERVATA (FOTO GESTITE DAL CLIENTE)
 Il cliente cambia da solo le foto del sito da area-riservata.html (lucchetto in fondo
 alla navbar di tutte le pagine, rel="nofollow"; la pagina non è indicizzata). Entra con
 una password e trova una scheda per ogni pagina del sito (24), con i blocchi numerati
-nell'ordine in cui si vedono e, per ogni foto, una descrizione di dove sta. Le foto di
+nell'ordine in cui si vedono e, per ogni foto, una descrizione di dove sta. Le schede
+sono in un menu a livelli ordinato come la navbar del sito: prima riga Home, Grafica &
+Stampa, Servizi, Prodotti, Collezioni; scegliendo una voce con la freccetta compare
+sotto la riga delle sue pagine (es. Collezioni → Matrimoniali → Fashion). Chi sta dentro
+chi è scritto in GENITORE nello script di area-riservata.html: una pagina nuova con
+sottopagine va aggiunta lì oltre che in PAGINE. Su computer il menu resta in alto
+scorrendo, sul telefono no (con le righe che vanno a capo coprirebbe troppo). Le foto di
 ogni pagina sono indipendenti: cambiare la foto di Linea Fashion nella sua pagina non
 tocca quella della stessa linea in Album matrimoniali o nel menu.
 Due tipi di blocchi:
@@ -1464,3 +1470,12 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                    prima. Inter Tight caricato da Google Fonts solo in index.html; nuova regola
                    .map-nome in css/style.css?v=181 (aggiornato in tutte le pagine);
                    js/mappa.js?v=13.
+
+3.10 (18/11/2026)  Area riservata: la lunga fila di 24 schede in alto è diventata un menu a
+                   livelli come la navbar del sito (Home, Grafica & Stampa, Servizi,
+                   Prodotti, Collezioni; sotto le sottopagine, e per Matrimoniali e Bambini
+                   le loro linee), con la freccetta sulle voci che hanno sottopagine e la
+                   voce aperta in nero. Le righe vanno a capo invece di scorrere di lato; sul
+                   telefono il menu non resta attaccato in alto. Rifatte le 12 schermate
+                   della guida in images/guida/ (con il nuovo menu) e aggiornati data-punti
+                   e i testi della guida che parlano delle schede.
