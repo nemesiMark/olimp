@@ -1454,3 +1454,13 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                    su Cloudflare (olimp-area-riservata.nemesi-mark.workers.dev, impostazioni
                    in worker/wrangler.toml) con tutti i secret, e scritto in
                    <meta name="ar-api">. Vedi la sezione AREA RISERVATA.
+
+3.09 (18/11/2026)  Mappa animata di «Dove siamo» (home): i nomi Italia, Sicilia, Provincia di
+                   Agrigento e Canicattì ora hanno lo stesso carattere e stile della mappa di
+                   inkubo (Inter Tight grassetto, bianco con ombra scura, non più maiuscolo
+                   Noto Sans col bordo rosso). Sono scritte HTML sopra la mappa (js/mappa.js,
+                   nomiStretti, come in inkubo) che seguono il loro punto restando dentro il
+                   riquadro, più grandi su computer; i contorni rossi delle aree restano come
+                   prima. Inter Tight caricato da Google Fonts solo in index.html; nuova regola
+                   .map-nome in css/style.css?v=181 (aggiornato in tutte le pagine);
+                   js/mappa.js?v=13.

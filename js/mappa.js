@@ -86,7 +86,6 @@
   function areeSorgenti(src){
     AREE.forEach(function(a){
       src['area-'+a.id]={type:'geojson',data:{type:'Feature',properties:{},geometry:a.forma}};
-      src['nome-'+a.id]={type:'geojson',data:{type:'Feature',properties:{nome:a.nome},geometry:{type:'Point',coordinates:a.punto}}};
     });
     return src;
   }
@@ -97,9 +96,6 @@
       L.push({id:s+'-velo',type:'fill',source:s,paint:{'fill-color':a.colore,'fill-opacity':finestra(a.zoom,0.14)}});
       L.push({id:s+'-alone',type:'line',source:s,paint:{'line-color':a.colore,'line-width':14,'line-blur':10,'line-opacity':finestra(a.zoom,0.9)}});
       L.push({id:s+'-bordo',type:'line',source:s,paint:{'line-color':a.colore,'line-width':2.5,'line-opacity':finestra(a.zoom,1)}});
-      L.push({id:s+'-nome',type:'symbol',source:'nome-'+a.id,
-        layout:{'text-field':['get','nome'],'text-font':['Noto Sans Bold'],'text-size':a.testo,'text-letter-spacing':0.25,'text-transform':'uppercase','text-allow-overlap':true},
-        paint:{'text-color':'#ffe9e6','text-halo-color':a.colore,'text-halo-width':2.5,'text-halo-blur':1,'text-opacity':finestra(a.zoom,1)}});
     });
     return L;
   }
@@ -111,14 +107,12 @@
       style:{
         version:8,
         projection:{type:'globe'},
-        glyphs:'https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf',
         sky:{'atmosphere-blend':['interpolate',['linear'],['zoom'],0,1,6,0.9,9,0]},
         sources:areeSorgenti({
           sat:{type:'raster',tileSize:256,maxzoom:19,
                tiles:['https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'],
                attribution:'Immagini © Esri, Maxar, Earthstar Geographics'},
-          citta:{type:'geojson',data:CITTA},
-          nome:{type:'geojson',data:{type:'Feature',properties:{nome:'Canicattì'},geometry:{type:'Point',coordinates:CENTRO_CITTA}}}
+          citta:{type:'geojson',data:CITTA}
         }),
         layers:[
           {id:'sat',type:'raster',source:'sat',paint:{'raster-fade-duration':350,'raster-saturation':-0.3,'raster-brightness-max':0.5}}
@@ -129,13 +123,7 @@
           {id:'citta-alone',type:'line',source:'citta',
            paint:{'line-color':'#aa372e','line-width':14,'line-blur':10,'line-opacity':['interpolate',['linear'],['zoom'],9,0,9.8,0.9]}},
           {id:'citta-bordo',type:'line',source:'citta',
-           paint:{'line-color':'#aa372e','line-width':3,'line-opacity':['interpolate',['linear'],['zoom'],9,0,9.8,1]}},
-          // scritta Canicattì: compare verso la fine e svanisce all'arrivo
-          {id:'citta-nome',type:'symbol',source:'nome',
-           layout:{'text-field':['get','nome'],'text-font':['Noto Sans Bold'],'text-size':['interpolate',['linear'],['zoom'],9,22,12,30],
-                   'text-letter-spacing':0.25,'text-transform':'uppercase','text-allow-overlap':true},
-           paint:{'text-color':'#ffe9e6','text-halo-color':'#aa372e','text-halo-width':2.5,'text-halo-blur':1,
-                  'text-opacity':['interpolate',['linear'],['zoom'],9.2,0,10,1,13.5,1,14.8,0]}}
+           paint:{'line-color':'#aa372e','line-width':3,'line-opacity':['interpolate',['linear'],['zoom'],9,0,9.8,1]}}
         ])
       },
       center:PARTENZA.center, zoom:PARTENZA.zoom, pitch:0, bearing:0, maxPitch:0,
@@ -160,11 +148,36 @@
     function lontano(){pin.classList.toggle('is-far',map.getZoom()<14)}
     map.on('zoom',lontano);lontano();
 
+    nomiStretti();
+
     map.on('load',function(){
       // Su schermi stretti i crediti restano chiusi (si aprono con la «i»)
       if(box.clientWidth<600){var a=box.querySelector('.maplibregl-ctrl-attrib');if(a)a.classList.remove('maplibregl-compact-show')}
       prefetch(function(){loaded=true;if(visible&&!started)play()});
     });
+  }
+
+  /* I nomi delle aree sono scritte HTML sopra la mappa, con lo stesso carattere della mappa di inkubo
+     (Inter Tight). Seguono il loro punto ma restano sempre dentro il riquadro, così «Provincia di Agrigento»
+     e «Canicattì» non escono di lato. */
+  function stretto(){return box.clientWidth<600}
+  function nomiStretti(){
+    function op(z,w){if(z<=w[0]||z>=w[3])return 0;if(z<w[1])return (z-w[0])/(w[1]-w[0]);if(z>w[2])return (w[3]-z)/(w[3]-w[2]);return 1}
+    var gr=function(){return stretto()?1:1.55}; // su computer i nomi sono più grandi
+    var lista=AREE.map(function(a){return {nome:a.nome,punto:a.punto,w:a.zoom,size:function(){return Math.round(18*gr())}}});
+    lista.push({nome:'Canicattì',punto:CENTRO_CITTA,w:[9.2,10,13.5,14.8],size:function(z){return Math.round((17+Math.max(0,Math.min(1,(z-9)/3))*4)*gr())}});
+    lista.forEach(function(n){var e=document.createElement('div');e.className='map-nome';e.textContent=n.nome;e.setAttribute('aria-hidden','true');box.appendChild(e);n.el=e});
+    function aggiorna(){
+      var z=map.getZoom(),W=box.clientWidth,H=box.clientHeight,pad=14;
+      lista.forEach(function(n){
+        var o=op(z,n.w);n.el.style.opacity=o;if(o<=0)return;
+        n.el.style.fontSize=n.size(z)+'px';
+        var p=map.project(n.punto),hw=n.el.offsetWidth/2,hh=n.el.offsetHeight/2;
+        var x=Math.max(pad+hw,Math.min(W-pad-hw,p.x)),y=Math.max(pad+hh,Math.min(H-pad-hh,p.y));
+        n.el.style.transform='translate('+(x-hw)+'px,'+(y-hh)+'px)';
+      });
+    }
+    map.on('move',aggiorna);map.on('resize',aggiorna);aggiorna();
   }
 
   function arrive(){
