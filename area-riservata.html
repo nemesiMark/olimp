@@ -367,6 +367,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
 .testo .btn{min-height:38px;font-size:14px}
 .coppia-righe{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin-top:6px;align-items:baseline}
 .coppia-righe .dove-schermo{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);white-space:nowrap}
+@media (max-width:560px){.coppia-righe{grid-template-columns:1fr;gap:2px}.coppia-righe .anteprima-testo{margin-bottom:6px}}
 .coppia-campo{margin-bottom:14px}
 .coppia-campo .aiuto{margin-top:4px}
 .anteprima-testo{font-size:15px;line-height:1.5;color:var(--ink);overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
@@ -597,6 +598,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
       <div class="g-passo"><span class="num">1</span><p>Nella pagina clicca <b>Testi</b> (accanto a Foto). I testi sono divisi per sezione, nell'ordine in cui si vedono sul sito: clicca quello da cambiare.</p><a href="images/guida/testi.jpg" class="g-zoom" data-punti="12.42,27.25,8.91,6.75;6.56,65.00,86.88,13.25" aria-label="Ingrandisci la schermata"><img src="images/guida/testi.jpg" alt="Il pulsante Testi e l'elenco dei testi della Home divisi per sezione" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
       <div class="g-passo"><span class="num">2</span><p>Scrivi il testo nuovo (per andare a capo premi Invio). Si cambiano solo le parole: se nel testo ci sono parti in grassetto o cliccabili, ognuna ha il suo campo e resta com'è. Sotto vedi come si vedrà; poi clicca <b>Salva</b>.</p><a href="images/guida/testo-modifica.jpg" class="g-zoom" data-punti="33.12,31.87,33.75,13.75;59.92,73.00,6.95,7.00" aria-label="Ingrandisci la schermata"><img src="images/guida/testo-modifica.jpg" alt="La finestra del testo con il campo da scrivere, l'anteprima e il pulsante Salva" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
       <div class="g-passo"><span class="num">3</span><p>Nei pulsanti e nei testi cliccabili cambi le parole; sotto vedi anche <b>Dove porta il clic</b>, che invece resta com'è.</p><a href="images/guida/testo-link.jpg" class="g-zoom" data-punti="33.12,28.88,33.75,13.75;59.92,76.00,6.95,7.00" aria-label="Ingrandisci la schermata"><img src="images/guida/testo-link.jpg" alt="La finestra di un pulsante con il testo da cambiare, il campo Dove porta il clic in grigio e il pulsante Salva" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <p class="g-nota">Ogni testo delle pagine è uno solo e si vede uguale su computer, tablet e telefono (cambia solo come è impaginato): nella scheda c'è scritto «Computer, tablet e telefono». Solo nel <b>Menu</b> ci sono scritte diverse per il computer e per tablet e telefono.</p>
       <p class="g-nota">Alcuni testi hanno accanto parti fisse (frecce, numeri, icone, i campi del modulo contatti): lì si cambia solo il testo, su una riga. Le voci principali del menu in alto (Servizi, Prodotti, Collezioni…), il piè di pagina e i numeri animati della Home («57 anni», «oltre 100», «oltre 30.000») non si cambiano da qui: per quelli chiedi a chi cura il sito.</p>
     </section>
     <section class="g-sez" id="g-menu" aria-labelledby="g-menu-t">
@@ -998,6 +1000,8 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     li.onkeydown = function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); li.onclick(); } };
     return li;
   }
+  // i testi delle pagine sono uno solo per tutti gli schermi; nel menu le linee si vedono solo nell'elenco
+  function doveSiVede(v) { return v.pagina === MENU && !COPPIE[v.id] ? 'Tablet e telefono' : 'Computer, tablet e telefono'; }
   function cartaTesto(v) {
     var li = document.createElement('li'); li.className = 'testo'; li.tabIndex = 0; li.id = 'tx-' + v.id;
     li.setAttribute('aria-label', v.descrizione + ': ' + v.testo.slice(0, 80) + '. Premi Invio per modificarlo');
@@ -1005,7 +1009,10 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     var b = document.createElement('b'); b.textContent = v.descrizione + ('link' in v ? ' ' : '');
     if ('link' in v) { var l = document.createElement('span'); l.className = 'dove-link'; l.textContent = '→ ' + v.link; b.appendChild(l); }
     var q = document.createElement('div'); q.className = 'anteprima-testo'; q.innerHTML = htmlTesto(v.testo, v.tipo !== 'semplice' && !('link' in v));
-    tx.appendChild(b); tx.appendChild(q);
+    var righe = document.createElement('div'); righe.className = 'coppia-righe';
+    var e = document.createElement('span'); e.className = 'dove-schermo'; e.textContent = doveSiVede(v);
+    righe.appendChild(e); righe.appendChild(q);
+    tx.appendChild(b); tx.appendChild(righe);
     var bt = document.createElement('span'); bt.className = 'btn'; bt.textContent = 'Modifica';
     li.appendChild(tx); li.appendChild(bt);
     li.onclick = function () { if (sel) confermaScelta(); apriTesto(v.id); };
@@ -1541,7 +1548,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     txAperto = testi.filter(function (v) { return v.id === id; })[0]; if (!txAperto) return;
     var semplice = txAperto.tipo === 'semplice', link = 'link' in txAperto;
     $('tx-t').textContent = txAperto.descrizione;
-    $('tx-dove').textContent = (NOME[txAperto.pagina] || txAperto.pagina) + ' · ' + txAperto.sezione;
+    $('tx-dove').textContent = (NOME[txAperto.pagina] || txAperto.pagina) + ' · ' + txAperto.sezione + ' · si vede su: ' + doveSiVede(txAperto).toLowerCase();
     txEd = editore($('tx-parti'), txAperto, anteprimaTesto);
     if (txEd.campi.length === 1) txEd.primo.id = 'tx-testo';
     $('tx-etichetta').textContent = txEd.campi.length > 1 ? 'Testo (diviso in parti)' : 'Testo';

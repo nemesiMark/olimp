@@ -1612,3 +1612,11 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                    aggiorna dopo ogni salvataggio, diventa gialla all'80% e rossa al 95%.
                    Worker: nuova richiesta GET /spazio (sito pubblicato e repository GitHub,
                    conta il più grande). Guida: voce «Spazio».
+
+3.20 (18/11/2026)  Area riservata, Testi: ogni scheda (e la finestra) dice su quali schermi si
+                   vede il testo: «Computer, tablet e telefono» per i testi delle pagine (sono
+                   uno solo per tutti gli schermi, controllato a 1440 e 390 px: nessun testo
+                   è nascosto su un tipo di schermo), «Tablet e telefono» per le linee del
+                   menu; nel Menu le voci restano a coppie Computer / Tablet e telefono.
+                   Guida aggiornata. Aggiungere o eliminare testi e voci del menu: no, si
+                   cambiano solo le parole.
