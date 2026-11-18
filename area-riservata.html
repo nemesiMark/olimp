@@ -57,6 +57,8 @@ button{cursor:pointer}
 .login form{width:min(380px,100%);background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px 24px;box-shadow:0 20px 50px -24px rgba(0,0,0,.25)}
 .login h1{font:700 26px/1.15 var(--head);letter-spacing:-.01em;margin-bottom:6px}
 .login p{color:var(--mute);font-size:15px;margin-bottom:22px}
+.login p.login-intro{margin-bottom:6px}
+.login-elenco{margin:0 0 22px 20px;padding:0;color:var(--mute);font-size:15px;line-height:1.6}
 label{display:block;font-size:14px;font-weight:500;margin-bottom:6px}
 .campo{position:relative;margin-bottom:18px}
 input[type=text],input[type=password]{width:100%;min-height:48px;padding:0 14px;border:1px solid rgba(0,0,0,.18);border-radius:12px;background:#fff;font-size:16px}
@@ -412,7 +414,12 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
 <main class="login" id="vista-login">
   <form id="f-login" novalidate>
     <h1>Area riservata</h1>
-    <p>Entra per aggiungere, eliminare o riordinare le foto del sito.</p>
+    <p class="login-intro">Entra per:</p>
+    <ul class="login-elenco">
+      <li>aggiungere, eliminare e riordinare le foto</li>
+      <li>modificare i testi</li>
+      <li>cambiare la password</li>
+    </ul>
     <div class="campo">
       <label for="pw">Password</label>
       <input type="password" id="pw" autocomplete="current-password" required>

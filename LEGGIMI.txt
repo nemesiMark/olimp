@@ -1631,3 +1631,7 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
 3.22 (18/11/2026)  Area riservata: durante un salvataggio o un cambio password, se si prova a
                    chiudere, ricaricare o lasciare la pagina il browser chiede conferma
                    (prima lo faceva solo con una foto spostata e non confermata).
+
+3.23 (18/11/2026)  Area riservata, pagina di accesso: la frase sotto «Area riservata» ora è
+                   un elenco: «Entra per:» · aggiungere, eliminare e riordinare le foto ·
+                   modificare i testi · cambiare la password.
