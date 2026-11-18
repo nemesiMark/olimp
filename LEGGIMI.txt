@@ -1479,3 +1479,10 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                    telefono il menu non resta attaccato in alto. Rifatte le 12 schermate
                    della guida in images/guida/ (con il nuovo menu) e aggiornati data-punti
                    e i testi della guida che parlano delle schede.
+
+3.11 (18/11/2026)  Area riservata: al posto dell'arancione c'è il rosso bordeaux del sito
+                   (#aa372e, più scuro #8c2b23 al passaggio del mouse), con il testo bianco
+                   sopra: riga sotto la barra in alto, pulsanti principali, scheda scelta nel
+                   menu, numeri dei blocchi, foto selezionata che lampeggia, barra in basso,
+                   barra del salvataggio, guida. Rifatte le 12 schermate della guida e
+                   corretti i testi che dicevano «in arancio».

@@ -163,7 +163,7 @@ body.selezione .blocchi{padding-bottom:220px}
 .posiziona[hidden]{display:none}
 .posiziona.avvisa{animation:avvisa 420ms ease-in-out 3}
 .posiziona.avvisa #sc-annulla,.posiziona.avvisa #sc-ok{animation:avvisa-btn 420ms ease-in-out 3}
-@keyframes avvisa{0%,100%{box-shadow:0 18px 50px -12px rgba(0,0,0,.5),0 0 0 0 rgba(255,106,0,0)}50%{box-shadow:0 18px 50px -12px rgba(0,0,0,.5),0 0 0 8px rgba(255,106,0,.85)}}
+@keyframes avvisa{0%,100%{box-shadow:0 18px 50px -12px rgba(0,0,0,.5),0 0 0 0 rgba(170,55,46,0)}50%{box-shadow:0 18px 50px -12px rgba(0,0,0,.5),0 0 0 8px rgba(170,55,46,.85)}}
 @keyframes avvisa-btn{0%,100%{transform:none}50%{transform:scale(1.07)}}
 body.avvisata #sc-p{color:#fff;font-weight:600}
 body.bloccata.selezione .card:not(.scelta),body.bloccata .aggiungi button,body.bloccata .tab{cursor:not-allowed}
@@ -223,12 +223,12 @@ dialog h2{font:700 21px/1.2 var(--head);margin-bottom:14px}
 
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-property:opacity,background-color,color!important}}
 /* ================= STILE «CANTIERE» =================
-   Cemento grigio, nero e arancio di sicurezza; titoli stretti in maiuscolo (Oswald),
-   testo in Work Sans, angoli quasi vivi. L'arancio porta sempre testo scuro sopra
-   (il bianco sull'arancio non si leggerebbe). Il rosso resta solo per errori ed eliminazioni. */
+   Cemento grigio, nero e il rosso bordeaux di Olimp (#aa372e, lo stesso del sito); titoli
+   stretti in maiuscolo (Oswald), testo in Work Sans, angoli quasi vivi. Sul bordeaux il
+   testo è sempre bianco. */
 :root{
   --bg:#e9e9e6; --card:#f5f5f3; --ink:#222; --mute:#62625c; --line:#cfcfca; --paper:#dcdcd7;
-  --acc:#ff6a00; --acc-d:#e65f00; --acc-a:rgba(255,106,0,.45); --acc-0:rgba(255,106,0,0);
+  --acc:#aa372e; --acc-d:#8c2b23; --acc-a:rgba(170,55,46,.45); --acc-0:rgba(170,55,46,0);
   --head:"Oswald","Arial Narrow",Impact,sans-serif; --testo:"Work Sans",Inter,-apple-system,sans-serif;
 }
 body{font-family:var(--testo)}
@@ -242,11 +242,11 @@ body{font-family:var(--testo)}
 .login h1,.pag-head h1,.blocchi h2,.sez-stile h2,dialog h2,.sv h2{font-family:var(--head);font-weight:600;text-transform:uppercase;letter-spacing:.02em}
 .pag-head h1 small,.blocchi h2 small,.sez-stile h2 small{text-transform:none;letter-spacing:0;font-family:var(--testo)}
 .btn{border-radius:3px;font-weight:600}
-.btn.pri{background:var(--acc);border-color:var(--acc);color:var(--ink)}
+.btn.pri{background:var(--acc);border-color:var(--acc);color:#fff}
 @media (hover:hover) and (pointer:fine){.btn.pri:hover{background:var(--acc-d);border-color:var(--acc-d)}}
 input[type=text],input[type=password]{border-radius:3px;background:#fff;border-color:#b9b9b3}
 .tab{border-radius:3px;font:500 14px/1 var(--head);text-transform:uppercase;letter-spacing:.07em}
-.tab[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--acc)}
+.tab[aria-selected="true"]{background:var(--acc);border-color:var(--acc);color:#fff}
 /* menu a livelli come la navbar del sito: Collezioni → Matrimoniali → Fashion */
 .tabs .wrap{display:block;overflow:visible;padding:8px 0}
 .tabs .riga{display:flex;align-items:center;flex-wrap:wrap;gap:6px;padding:3px 0}
@@ -259,23 +259,23 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
 .tab.aperta{background:var(--ink);border-color:var(--ink);color:#fff}
 .tab.aperta .giu,.tab[aria-selected="true"] .giu{transform:rotate(180deg);opacity:1}
 .tabs .riga.sotto .tab{min-height:34px;padding:0 13px;font-size:13px}
-.tabs .riga.sotto .tab[aria-selected="true"]{background:var(--acc);border-color:var(--acc);color:var(--ink)}
+.tabs .riga.sotto .tab[aria-selected="true"]{background:var(--acc);border-color:var(--acc);color:#fff}
 .tabs .riga.sotto .tab.aperta{background:var(--ink);border-color:var(--ink);color:#fff}
 .vedi{color:var(--ink);text-decoration:underline;text-decoration-color:var(--acc);text-decoration-thickness:2px;text-underline-offset:4px}
-.num{border-radius:2px;background:var(--ink);color:var(--acc);font-family:var(--head)}
+.num{border-radius:2px;background:var(--acc);color:#fff;font-family:var(--head)}
 .slot{border-radius:4px}
 .slot .ph,.anteprima{border-radius:3px}
 .card{border-radius:4px}
 .card .n{border-radius:2px;box-shadow:none;background:var(--ink);color:#fff}
 .card.scelta{border-color:var(--acc);box-shadow:0 0 0 3px var(--acc);animation-name:lampeggia-c}
-.card.scelta .n{background:var(--acc);color:var(--ink)}
+.card.scelta .n{background:var(--acc);color:#fff}
 @keyframes lampeggia-c{0%,100%{box-shadow:0 0 0 3px var(--acc),0 0 0 0 var(--acc-a)}50%{box-shadow:0 0 0 3px var(--acc),0 0 0 12px var(--acc-0)}}
 @media (prefers-reduced-motion:reduce){.card.scelta{box-shadow:0 0 0 3px var(--acc)}}
 .aggiungi button{border-radius:4px;border-color:#b3b3ad;background:#e0e0dc;color:var(--mute);font-family:var(--testo)}
 .aggiungi .croce{border-radius:3px;background:#9d9d97}
-@media (hover:hover) and (pointer:fine){.aggiungi button:hover{background:#d9d9d4;border-color:var(--ink)}.aggiungi button:hover .croce{background:var(--acc);color:var(--ink)}}
+@media (hover:hover) and (pointer:fine){.aggiungi button:hover{background:#d9d9d4;border-color:var(--ink)}.aggiungi button:hover .croce{background:var(--acc);color:#fff}}
 .posiziona{border-radius:6px;border-top:4px solid var(--acc)}
-.posiziona .btn.pri{background:var(--acc);border-color:var(--acc);color:var(--ink)}
+.posiziona .btn.pri{background:var(--acc);border-color:var(--acc);color:#fff}
 .sv .ico{background:#e0e0dc}
 .sv .barra{border-radius:2px;background:#e0e0dc}
 .sv .barra span{background:var(--acc)}
@@ -283,7 +283,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
 /* ================= GUIDA ================= */
 .top .guida-btn{margin-left:auto;gap:6px}
 .top .guida-btn+.cambia-pw{margin-left:0}
-.guida-btn .q{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:2px;background:var(--acc);color:var(--ink);font:600 14px/1 var(--head)}
+.guida-btn .q{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:2px;background:var(--acc);color:#fff;font:600 14px/1 var(--head)}
 .cambia-pw .corto{display:none}
 @media (max-width:480px){.cambia-pw .lungo{display:none}.cambia-pw .corto{display:inline}}
 #d-guida{width:min(760px,100% - 24px)}
@@ -316,7 +316,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
 .zoom-punto{position:absolute;border:4px solid #7c3aed;border-radius:10px;pointer-events:none;animation:punto 1s ease-in-out infinite}
 @keyframes punto{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(124,58,237,.6)}50%{opacity:.15;box-shadow:0 0 0 14px rgba(124,58,237,0)}}
 @media (prefers-reduced-motion:reduce){.zoom-punto{animation:none}}
-#d-zoom .g-chiudi{position:absolute;top:6px;right:6px;width:44px;height:44px;border-radius:3px;background:var(--acc);color:var(--ink)}
+#d-zoom .g-chiudi{position:absolute;top:6px;right:6px;width:44px;height:44px;border-radius:3px;background:var(--acc);color:#fff}
 @media (max-width:600px){
   .g-passo{grid-template-columns:34px 1fr}
   .g-passo a{grid-column:1/-1;width:min(250px,100%);margin:10px auto 0}
@@ -463,12 +463,12 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
       <div class="g-passo"><span class="num">1</span><p>In alto scegli la <b>pagina</b> del sito da modificare, per esempio <b>Collezioni</b>, poi <b>Matrimoniali</b>, poi <b>Fashion</b>.</p><a href="images/guida/tab.jpg" class="g-zoom" data-punti="42.66,8.75,10.55,6.50;12.66,15.88,11.09,5.75;13.98,22.25,7.03,5.75" aria-label="Ingrandisci la schermata"><img src="images/guida/tab.jpg" alt="Il menu delle pagine in alto con Collezioni, Matrimoniali e Fashion evidenziati" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
       <div class="g-passo"><span class="num">2</span><p>Clicca la casella grigia con il <b>+</b>, in fondo alle foto della galleria (per esempio <b>Gli album della linea</b>). Si apre la finestra per scegliere il file: scegli la foto e clicca <b>Apri</b>.</p><a href="images/guida/piu.jpg" class="g-zoom" data-punti="50.16,63.38,14.22,26.50" aria-label="Ingrandisci la schermata"><img src="images/guida/piu.jpg" alt="La casella con il + in fondo alla galleria" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
       <div class="g-passo"><span class="num">3</span><p>Controlla l'anteprima, scrivi il <b>titolo</b> (il nome del modello, che compare sotto la foto) e clicca <b>Aggiungi</b>. Se hai sbagliato foto, clicca <b>Cambia foto</b>.</p><a href="images/guida/nuova.jpg" class="g-zoom" data-punti="33.12,66.88,33.75,7.50;58.13,78.88,8.75,7.00" aria-label="Ingrandisci la schermata"><img src="images/guida/nuova.jpg" alt="La finestra per aggiungere una foto, con il titolo scritto" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
-      <div class="g-passo"><span class="num">4</span><p>La foto nuova lampeggia in arancio. Se vuoi spostarla, <b>tieni premuto il clic sulla foto e trascinala</b> nel posto che preferisci; altrimenti resta ultima. Poi clicca <b>Conferma e salva</b> nella barra in basso.</p><a href="images/guida/nuova-sel.jpg" class="g-zoom" data-punti="79.22,37.38,14.22,25.50;57.19,89.75,13.91,7.00" aria-label="Ingrandisci la schermata"><img src="images/guida/nuova-sel.jpg" alt="La foto nuova evidenziata e il pulsante Conferma e salva" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">4</span><p>La foto nuova lampeggia in rosso. Se vuoi spostarla, <b>tieni premuto il clic sulla foto e trascinala</b> nel posto che preferisci; altrimenti resta ultima. Poi clicca <b>Conferma e salva</b> nella barra in basso.</p><a href="images/guida/nuova-sel.jpg" class="g-zoom" data-punti="79.22,37.38,14.22,25.50;57.19,89.75,13.91,7.00" aria-label="Ingrandisci la schermata"><img src="images/guida/nuova-sel.jpg" alt="La foto nuova evidenziata e il pulsante Conferma e salva" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
       <div class="g-passo"><span class="num">5</span><p>Si apre la finestra del salvataggio: aspetta che la barra arrivi in fondo e clicca <b>OK</b>. Il sito si aggiorna da solo entro qualche minuto.</p><a href="images/guida/salvato.jpg" class="g-zoom" data-punti="44.84,60.00,10.31,7.00" aria-label="Ingrandisci la schermata"><img src="images/guida/salvato.jpg" alt="La finestra Salvataggio riuscito correttamente con il pulsante OK" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
     </section>
     <section class="g-sez" id="g-riordinare" aria-labelledby="g-riordinare-t">
       <h3 id="g-riordinare-t">Riordinare le foto</h3>
-      <div class="g-passo"><span class="num">1</span><p>Clicca la foto da spostare: si accende in arancio e le altre diventano più chiare.</p><a href="images/guida/scegli.jpg" class="g-zoom" data-punti="35.62,37.38,14.22,25.50" aria-label="Ingrandisci la schermata"><img src="images/guida/scegli.jpg" alt="Una foto selezionata in arancio, le altre più chiare" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
+      <div class="g-passo"><span class="num">1</span><p>Clicca la foto da spostare: si accende in rosso e le altre diventano più chiare.</p><a href="images/guida/scegli.jpg" class="g-zoom" data-punti="35.62,37.38,14.22,25.50" aria-label="Ingrandisci la schermata"><img src="images/guida/scegli.jpg" alt="Una foto selezionata in arancio, le altre più chiare" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
       <div class="g-passo"><span class="num">2</span><p><b>Tieni premuto il clic sulla foto e trascinala</b> dove vuoi, dentro la stessa galleria. Il numero in alto a sinistra indica il posto. Poi clicca <b>Conferma</b>.</p><a href="images/guida/spostata.jpg" class="g-zoom" data-punti="6.56,37.38,14.22,25.50;61.56,89.75,9.53,7.00" aria-label="Ingrandisci la schermata"><img src="images/guida/spostata.jpg" alt="La foto spostata al posto 1 e il pulsante Conferma" width="1600" height="1000" loading="lazy" decoding="async"></a></div>
       <p class="g-nota">Hai cambiato idea? Clicca <b>Annulla</b> e la foto torna dov'era, senza salvare nulla. Finché non scegli <b>Conferma</b> o <b>Annulla</b> il resto della pagina è bloccato: se clicchi altrove, la barra in basso lampeggia per ricordartelo.</p>
     </section>
