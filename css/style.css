@@ -4590,6 +4590,13 @@ nav .mega-card:focus-visible::before {
     margin-top: -20px;
   }
 
+  /* spazio per il lucchetto a destra (e lo stesso a sinistra, così il logo resta al centro):
+     «Area download» non finisce più attaccata al lucchetto */
+  nav > ul {
+    padding-left: 52px;
+    padding-right: 52px;
+  }
+
   nav > ul > li.nav-lock > a {
     display: grid;
     place-items: center;

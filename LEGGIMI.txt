@@ -1544,3 +1544,8 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                    divisi in parti, una per campo, senza simboli; il grassetto e i link restano
                    com'erano (controllo anche nel Worker). Vale anche per i «Testi accanto alla
                    foto». Guida aggiornata (testo e 4 schermate).
+
+3.15 (18/11/2026)  Navbar su computer: più spazio fra «Area download» e il lucchetto
+                   dell'area riservata (52 px di margine a destra della fila di voci, e lo
+                   stesso a sinistra perché il logo resti al centro), in css/style.css?v=182
+                   (aggiornato in tutte le pagine).
