@@ -36,14 +36,14 @@
       "alt": "Modello Split della Linea Fashion, effetto legno a doghe con nomi «Andrea and Martina»"
     },
     {
-      "foto": "images/linea-fashion/modello-vienna.jpg",
-      "titolo": "Modello Vienna",
-      "alt": "Modello Vienna della Linea Fashion, con copertina bianca, foto al tramonto e dorso in tela verde"
-    },
-    {
       "foto": "images/linea-fashion/modello-parigi.jpg",
       "titolo": "Modello Parigi",
       "alt": "Modello Parigi della Linea Fashion, con copertina bianca, cornice floreale e dorso in suede rosa"
+    },
+    {
+      "foto": "images/linea-fashion/modello-vienna.jpg",
+      "titolo": "Modello Vienna",
+      "alt": "Modello Vienna della Linea Fashion, con copertina bianca, foto al tramonto e dorso in tela verde"
     }
   ],
   "linea-glamour": [
