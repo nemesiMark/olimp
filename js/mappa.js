@@ -181,8 +181,8 @@
      un nome (Italia, Sicilia, provincia di Agrigento, Canicattì) e accelera nei tratti in mezzo.
      La velocità cambia con dolcezza; il centro passa sopra ogni zona mentre il suo nome è visibile. */
   function liscio(x){x=Math.max(0,Math.min(1,x));return x*x*(3-2*x)}
-  var LENTO=[[4.2,5.4,.34],[6.2,7.2,.34],[8.0,8.9,.36],[10,13.5,.62]]; // [da zoom, a zoom, velocità]
-  var VELOCE=1.7; // zoom al secondo nei tratti senza nomi
+  var LENTO=[[4.2,5.4,.8],[6.2,7.2,.67],[8.0,8.9,.6],[10,13.5,1.4]]; // [da zoom, a zoom, velocità]
+  var VELOCE=2.6; // zoom al secondo nei tratti senza nomi
   function velocita(z,zFine,t){
     var v=VELOCE;
     LENTO.forEach(function(l){

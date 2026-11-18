@@ -2407,7 +2407,7 @@
     "sezione": "6. Chi può ricevere i dati",
     "descrizione": "Voce dell'elenco",
     "tipo": "testo",
-    "testo": "**Esri** e **OpenFreeMap**, solo se lo accetti, per le foto satellitari e i dati della mappa nella sezione \"Dove siamo\"."
+    "testo": "**Esri**, solo se lo accetti, per le foto satellitari della mappa nella sezione \"Dove siamo\"."
   },
   {
     "id": "privacy-t028",
@@ -2439,7 +2439,7 @@
     "sezione": "7. Cookie e tecnologie simili",
     "descrizione": "Paragrafo",
     "tipo": "testo",
-    "testo": "**Mappa.** La mappa animata nella sezione \"Dove siamo\" usa le foto satellitari di Esri e i dati di OpenFreeMap: per mostrarla il browser si collega ai loro server, che ricevono il tuo indirizzo IP. Per questo la carichiamo solo se la accetti dal banner o dal pulsante sulla mappa. Finché non accetti, il sito non contatta questi servizi."
+    "testo": "**Mappa.** La mappa animata nella sezione \"Dove siamo\" usa le foto satellitari di Esri: per mostrarla il browser si collega ai suoi server, che ricevono il tuo indirizzo IP. Per questo la carichiamo solo se la accetti dal banner o dal pulsante sulla mappa. Finché non accetti, il sito non contatta questo servizio."
   },
   {
     "id": "privacy-t032",

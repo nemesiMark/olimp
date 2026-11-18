@@ -1654,3 +1654,9 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                    stanno su una targhetta scura semitrasparente con una sottile linea rossa,
                    quindi si leggono su qualunque foto satellitare. js/mappa.js?v=14,
                    style.css?v=183.
+
+3.26 (18/11/2026)  Mappa in home più veloce: circa 14 s invece di 25, sempre continua e più
+                   lenta sui nomi: Italia, Sicilia e provincia di Agrigento restano leggibili
+                   1,5 s ciascuno, Canicattì 2,5 s (velocità in LENTO, js/mappa.js). Privacy: tolto OpenFreeMap, la mappa usa solo le foto
+                   satellitari di Esri (testi privacy-t027 e privacy-t031 in data/testi.json).
+                   js/mappa.js?v=15.
