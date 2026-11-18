@@ -20,6 +20,8 @@
  *   KV      DATI             un namespace KV (es. «olimp-area-riservata»). Lì si salva
  *                            l'impronta della password nuova (PBKDF2, mai la password in
  *                            chiaro). Finché nessuno la cambia vale ADMIN_PASSWORD.
+ *                            Nello stesso KV si contano i tentativi sbagliati: dopo 5 errori
+ *                            l'area riservata si blocca per tutti per 15 minuti.
  * Nessuna chiave è scritta in questo file.
  */
 
@@ -74,14 +76,42 @@ export default {
 /* ---------- accesso ---------- */
 
 async function login(request, env, cors) {
+  const attesa = await bloccato(request, env);
+  if (attesa) return json({ errore: messaggioBlocco(attesa) }, 429, cors);
   const corpo = await request.json().catch(() => ({}));
   const pw = await passwordSalvata(env);
   if (!(await passwordGiusta(corpo.password, pw, env))) {
     await new Promise((r) => setTimeout(r, 1200)); // rallenta i tentativi a raffica
-    return json({ errore: "Password non corretta" }, 401, cors);
+    const restano = await tentativoSbagliato(request, env);
+    if (!restano) return json({ errore: messaggioBlocco(BLOCCO_S) }, 429, cors);
+    return json({ errore: "Password non corretta" + (restano <= 2 ? ` (ancora ${restano} ${restano === 1 ? "tentativo" : "tentativi"}, poi si aspettano 15 minuti)` : "") }, 401, cors);
   }
+  await azzeraTentativi(request, env);
   return json(await nuovoAccesso(env, pw ? pw.versione : 0), 200, cors);
 }
+
+/* tentativi sbagliati: contati tutti insieme nel KV DATI (il sito lo gestisce una persona sola
+   e le modifiche sono rare): dopo MAX_ERRORI l'area riservata si blocca per tutti per
+   BLOCCO_S secondi, da qualunque dispositivo o rete (conta anche la password attuale sbagliata
+   nel cambio password). Senza il KV resta solo il rallentamento di 1,2 secondi. */
+const MAX_ERRORI = 5;
+const BLOCCO_S = 15 * 60;
+function chiaveTentativi() { return "tentativi"; }
+function messaggioBlocco(s) { const m = Math.max(1, Math.ceil(s / 60)); return `Troppi tentativi sbagliati: per sicurezza riprova tra ${m} ${m === 1 ? "minuto" : "minuti"}`; }
+async function bloccato(request, env) {
+  if (!env.DATI) return 0;
+  const t = await env.DATI.get(chiaveTentativi(request), "json");
+  const ora = Math.floor(Date.now() / 1000);
+  return t && t.n >= MAX_ERRORI && t.fino > ora ? t.fino - ora : 0;
+}
+async function tentativoSbagliato(request, env) { // restituisce quanti tentativi restano (0 = bloccato)
+  if (!env.DATI) return MAX_ERRORI;
+  const k = chiaveTentativi(request), t = (await env.DATI.get(k, "json")) || { n: 0 };
+  const n = t.n + 1, fino = Math.floor(Date.now() / 1000) + BLOCCO_S;
+  await env.DATI.put(k, JSON.stringify({ n, fino }), { expirationTtl: BLOCCO_S });
+  return Math.max(0, MAX_ERRORI - n);
+}
+async function azzeraTentativi(request, env) { if (env.DATI) await env.DATI.delete(chiaveTentativi(request)); }
 
 async function nuovoAccesso(env, versione) {
   const scade = Math.floor(Date.now() / 1000) + DURATA_ACCESSO_S;
@@ -111,12 +141,16 @@ async function impronta(password, sale, iterazioni) {
 
 async function cambiaPassword(request, env, cors) {
   if (!env.DATI) throw errore("Cambio password non ancora attivo: manca il collegamento DATI su Cloudflare", 501);
+  const attesa = await bloccato(request, env);
+  if (attesa) throw errore(messaggioBlocco(attesa), 429);
   const corpo = await request.json().catch(() => ({}));
   const pw = await passwordSalvata(env);
   if (!(await passwordGiusta(corpo.attuale, pw, env))) {
     await new Promise((r) => setTimeout(r, 1200));
-    throw errore("La password attuale non è corretta", 403);
+    const restano = await tentativoSbagliato(request, env);
+    throw errore(restano ? "La password attuale non è corretta" : messaggioBlocco(BLOCCO_S), restano ? 403 : 429);
   }
+  await azzeraTentativi(request, env);
   const nuova = corpo.nuova;
   if (typeof nuova !== "string" || nuova.length < PW_MIN) throw errore(`La password nuova deve avere almeno ${PW_MIN} caratteri`, 400);
   if (nuova.length > PW_MAX) throw errore("La password nuova è troppo lunga", 400);

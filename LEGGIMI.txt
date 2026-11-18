@@ -1635,3 +1635,13 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
 3.23 (18/11/2026)  Area riservata, pagina di accesso: la frase sotto «Area riservata» ora è
                    un elenco: «Entra per:» · aggiungere, eliminare e riordinare le foto ·
                    modificare i testi · cambiare la password.
+
+3.24 (18/11/2026)  Area riservata, sicurezza: blocco dei tentativi sbagliati nel Worker. Gli
+                   errori si contano tutti insieme nel KV DATI (il sito lo gestisce una persona
+                   sola): dopo 5 password sbagliate (accesso o «password attuale» del cambio
+                   password) l'area riservata si blocca per tutti, da qualunque dispositivo e
+                   rete, per 15 minuti, anche con la password giusta («Troppi tentativi
+                   sbagliati: per sicurezza riprova tra N minuti»); al 3° e 4° errore il
+                   messaggio dice quanti tentativi restano. Con l'accesso giusto il conto si
+                   azzera. Resta il rallentamento di 1,2 s per ogni errore. Chi è già dentro
+                   continua a lavorare (il blocco vale per l'accesso e il cambio password).
