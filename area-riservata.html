@@ -1141,7 +1141,8 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
   $('sc-annulla').onclick = annullaScelta;
   $('sc-mod').onclick = function () { apriScheda(sel.sez, sel.x); };
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && sel && !document.querySelector('dialog[open]')) annullaScelta(); });
-  window.addEventListener('beforeunload', function (e) { if (sel && cambiato(sel)) { e.preventDefault(); e.returnValue = ''; } });
+  // si avvisa prima di chiudere o ricaricare la pagina se c'è una scelta non confermata o un salvataggio in corso
+  window.addEventListener('beforeunload', function (e) { if ((sel && cambiato(sel)) || svAttivo) { e.preventDefault(); e.returnValue = ''; } });
 
   /* ---------- salvataggio ---------- */
   var timer = null, inCorso = false, inAttesa = null, fotoInAttesa = {};
