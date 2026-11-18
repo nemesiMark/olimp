@@ -1,14 +1,14 @@
 {
   "linea-fashion": [
     {
-      "foto": "images/linea-fashion/modello-flower.jpg",
-      "titolo": "Modello Flower",
-      "alt": "Modello Flower della Linea Fashion, in suede beige con foto degli sposi e pannello bianco con rami traforati"
-    },
-    {
       "foto": "images/linea-fashion/modello-curve.jpg",
       "titolo": "Modello Curve",
       "alt": "Modello Curve della Linea Fashion, con pannello bianco «Elisa & Andrea», profilo ondulato e foto in bianco e nero"
+    },
+    {
+      "foto": "images/linea-fashion/modello-flower.jpg",
+      "titolo": "Modello Flower",
+      "alt": "Modello Flower della Linea Fashion, in suede beige con foto degli sposi e pannello bianco con rami traforati"
     },
     {
       "foto": "images/linea-fashion/modello-fun.jpg",
