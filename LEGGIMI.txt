@@ -225,6 +225,14 @@ guida; se si rifà una schermata vanno aggiornate anche quelle. Se l'aspetto del
 riservata cambia molto le schermate vanno rifatte.
 La foto viene rimpicciolita nel telefono prima dell'invio (lato lungo 1600 px, JPEG
 qualità 85) e perde i dati EXIF, compresa la posizione GPS.
+Formati e misure: in ogni finestra di foto (gallerie e foto fisse) un riquadro dice
+forma e misura consigliate per quel posto e i formati accettati (JPG, PNG, WebP, HEIC;
+massimo 30 MB); l'anteprima ha la forma che la foto avrà sul sito (computer). Le forme
+sono in area-riservata.html (FORME e formaDi(id)): se cambia il CSS di una foto, va
+aggiornata anche lì e la tabella della guida («Foto: formati e misure»). Dopo la scelta
+avviso giallo (non blocca) se la forma è molto diversa o il lato lungo è sotto 1200 px;
+sotto 500 px, oltre 30 MB, video o altri formati la foto viene rifiutata. Il sito non ha
+spazi per i video.
 Le voci in localStorage hanno il prefisso olimp- (sullo stesso indirizzo
 nemesimark.github.io c'è anche l'area riservata di inkubo).
 File:
@@ -1566,3 +1574,12 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                    scripts/genera_contenuti.py le applica a tutte le pagine. Worker: ammesse
                    le foto in una sottocartella di images/ (images/comune/menu/). Guida: nuova
                    sezione «Cambiare foto e scritte dei menu».
+
+3.17 (18/11/2026)  Area riservata: indicazioni sulle foto. In ogni finestra per aggiungere
+                   o cambiare una foto: forma e misura consigliate per quel posto (es.
+                   orizzontale 4:3, almeno 1600 × 1200), formati accettati (JPG, PNG, WebP,
+                   HEIC) e peso massimo (30 MB); anteprima con la forma che avrà sul sito;
+                   avviso giallo se la foto è piccola o ha un'altra forma; rifiutate le foto
+                   sotto 500 px, oltre 30 MB, i video e gli altri formati, con un messaggio
+                   chiaro (anche per le HEIC fuori da Safari). Guida: nuova sezione «Foto:
+                   formati e misure» con la tabella delle forme.
