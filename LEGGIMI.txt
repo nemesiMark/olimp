@@ -1708,3 +1708,11 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                    piccolo, così non copre più «✥ Trascina la foto». Rifatte le schermate della
                    guida nuova, rinomina, elimina e fissa-scheda (i riquadri che lampeggiano non
                    cambiano posto).
+3.32 (19/11/2026)  Mappa di «Dove siamo», come Rain Ink 6.17 (skill mappa-uni): il passaggio dalla
+                   provincia di Agrigento a Canicattì è centrato e fluido. La vista si centra sul
+                   territorio del comune (baricentro, MEZZO_COMUNE), dove sta anche la scritta
+                   «Canicattì»; Canicattì si avvicina al centro in modo regolare invece di scivolare
+                   di lato ed è già al centro quando il nome è acceso; al computer la vista della
+                   provincia è spostata verso Canicattì; la discesa rallenta da quando compare il
+                   contorno del comune (js/mappa.js; mappa.js?v=16). Aggiunto CLAUDE.md (note per Claude,
+                   escluso dalla pubblicazione).
