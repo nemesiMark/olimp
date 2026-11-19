@@ -219,6 +219,8 @@ dialog h2{font:700 21px/1.2 var(--head);margin-bottom:14px}
 .anteprima.libera:active{cursor:grabbing}
 .anteprima.libera:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
 .anteprima.libera img{position:absolute;max-width:none;object-fit:fill;-webkit-user-drag:none;pointer-events:none}
+/* con la foto da trascinare «Cambia foto» sale in alto a destra, così non copre «Trascina la foto» */
+.anteprima.libera .cambia{top:8px;right:8px;bottom:auto;z-index:2;min-height:28px;padding:5px 10px;font-size:13px}
 .anteprima .mano{position:absolute;left:10px;bottom:10px;z-index:1;padding:6px 10px;border-radius:3px;background:rgba(10,10,12,.72);color:#fff;font-size:13px;line-height:1.2;pointer-events:none}
 .zoom-riga{display:flex;align-items:center;gap:10px;max-width:340px;margin:-6px auto 14px;font-size:13px;color:var(--mute)}
 .zoom-riga[hidden]{display:none}

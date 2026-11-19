@@ -1702,3 +1702,9 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                    la vista «Telefono», pure quando è uguale al computer (prima le due viste uguali
                    diventavano una sola, «Computer e telefono»). Guida aggiornata e schermate nuova,
                    rinomina, elimina e fissa-scheda rifatte con la vista Telefono.
+
+3.31 (19/11/2026)  Area riservata, come inkubo 6.14 (skill «crea area riservata» aggiornata da
+                   inkubo): nell'anteprima da trascinare «Cambia foto» sta in alto a destra, più
+                   piccolo, così non copre più «✥ Trascina la foto». Rifatte le schermate della
+                   guida nuova, rinomina, elimina e fissa-scheda (i riquadri che lampeggiano non
+                   cambiano posto).
