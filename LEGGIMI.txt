@@ -1672,3 +1672,28 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                    sito (le foto caricate hanno un nome nuovo, quindi niente regole fatte per la
                    foto di prima). Se la pagina non si può leggere resta la forma di prima. Guida
                    («Formati e misure») aggiornata.
+
+3.28 (19/11/2026)  Area riservata, anteprima come sul sito: la vista «Computer» si misura larga
+                   come la finestra di chi guarda (stesso schermo con cui vede il sito; 1440 px se
+                   la finestra è più stretta di 900 px). Nelle strisce delle Collezioni in Home la
+                   vista grande è quella con il mouse sopra (la striscia si allarga e la foto si
+                   vede quasi intera, a colori); sotto, piccole, «Computer, senza mouse sopra» e
+                   «Telefono». Misura chiesta per le strisce: 1600 × 1200 pixel (orizzontale 4:3,
+                   come le foto attuali) invece di 1067 × 1600, anche nella tabella della guida.
+
+3.29 (19/11/2026)  Area riservata allineata alla skill «crea area riservata» (novità nate in
+                   inkubo):
+                   - inquadratura libera: nella foto grande dell'anteprima (vista Computer) la foto
+                     si trascina in tutte le direzioni e si ingrandisce (barra − / + sotto il
+                     riquadro, due dita, rotellina, frecce e + / -), sia per le foto nuove sia in
+                     Modifica e per le foto fisse già pubblicate; parte dall'inquadratura che la
+                     foto ha sul sito. Le viste piccole (Telefono, Computer senza mouse sopra)
+                     mostrano subito il risultato. Al salvataggio si salva esattamente la parte
+                     che si vede, come foto nuova (taglio fatto subito con toDataURL: con toBlob
+                     Chrome a volte non rispondeva e il salvataggio restava fermo). Dove il sito
+                     mostra la foto intera (Cuoio Fiorentino, object-fit: contain) non si
+                     trascina. Il riquadro usa --r e width:min(100%, 46svh * var(--r)).
+                   - guida a schede: in alto Foto | Testi | Menu (ferme scorrendo), sotto gli
+                     argomenti della scheda; «In generale» in fondo. Testi della guida aggiornati
+                     (trascinare e ingrandire); rifatte le schermate nuova, rinomina, elimina e
+                     fissa-scheda con i punti calcolati dagli anelli viola.
