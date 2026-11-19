@@ -214,6 +214,14 @@ dialog h2{font:700 21px/1.2 var(--head);margin-bottom:14px}
 .anteprima [hidden]{display:none}
 .avanza{font-size:14px;color:var(--mute);margin:-6px 0 12px;min-height:1.3em;font-variant-numeric:tabular-nums}
 .anteprima .cambia{position:absolute;right:10px;bottom:10px;min-height:38px;background:rgba(255,255,255,.95)}
+/* anteprima come sul sito: stessa forma e stessa inquadratura, sul computer e sul telefono */
+.vista-nome{position:absolute;left:10px;top:10px;z-index:1;font-size:12px;font-weight:600;line-height:1;padding:6px 9px;border-radius:999px;background:rgba(255,255,255,.95);color:var(--ink);pointer-events:none}
+.viste{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-end;gap:14px;margin:-4px 0 16px}
+.viste[hidden]{display:none}
+.viste figure{margin:0;text-align:center}
+.viste .vbox{height:120px;max-width:min(260px,80vw);border-radius:3px;overflow:hidden;background:var(--paper);margin:0 auto}
+.viste img{width:100%;height:100%;object-fit:cover;display:block}
+.viste figcaption{font-size:12px;color:var(--mute);margin-top:5px}
 .stili{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;border:0}
 .stili legend{font-size:14px;font-weight:500;margin-bottom:8px}
 .stili label{margin:0;font-weight:500}
@@ -616,7 +624,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     </section>
     <section class="g-sez" id="g-formati" aria-labelledby="g-formati-t">
       <h3 id="g-formati-t">Foto: formati e misure</h3>
-      <p class="g-intro">Ogni volta che aggiungi o cambi una foto, nella finestra trovi la forma e la misura esatte per quel posto, e l'anteprima ha già la forma che avrà sul sito. Se la foto è piccola o ha una forma diversa compare un avviso giallo: puoi salvarla lo stesso, ma è meglio sceglierne una adatta.</p>
+      <p class="g-intro">Ogni volta che aggiungi o cambi una foto, nella finestra trovi la forma e la misura esatte per quel posto, e l'anteprima mostra la foto esattamente come sul sito, con la stessa forma e lo stesso taglio: quella grande è il computer, sotto (più piccole) il telefono e, se cambia, la foto con il mouse sopra. Se la foto è piccola o ha una forma diversa compare un avviso giallo: puoi salvarla lo stesso, ma è meglio sceglierne una adatta.</p>
       <ul class="g-elenco">
         <li><b>Formato:</b> JPG/JPEG o PNG. Altri formati (per esempio HEIC dell'iPhone, WebP, GIF) non si caricano: salvali prima come JPG/JPEG.</li>
         <li><b>Peso massimo:</b> 30 MB per foto. Una foto più grande della misura (con la stessa forma) va bene: l'area riservata la riduce da sola a 1600 pixel sul lato lungo e toglie i dati nascosti (anche la posizione GPS).</li>
@@ -844,7 +852,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
       if (bl.galleria) {
         var c = document.createElement('small'); c.id = 'conta-' + bl.galleria; h2.appendChild(document.createTextNode(' ')); h2.appendChild(c);
         var g = document.createElement('ul'); g.className = 'griglia'; g.id = 'gal-' + bl.galleria; li.appendChild(g);
-        SEZIONI[bl.galleria] = { id: g.id, lista: bl.galleria, nome: p[1] + ' · ' + bl.t, accetta: SOLO_FOTO };
+        SEZIONI[bl.galleria] = { id: g.id, lista: bl.galleria, pagina: p[0], nome: p[1] + ' · ' + bl.t, accetta: SOLO_FOTO };
       }
       ol.appendChild(li);
     });
@@ -1266,6 +1274,109 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
       (f.nota ? '<span class="nota-forma">' + f.nota + '</span>' : '') + '</span>';
     anteprima.style.aspectRatio = String(f.r); // l'anteprima ha la stessa forma che avrà sul sito (computer)
   }
+  /* ---------- anteprima come sul sito ----------
+     La pagina vera si apre di nascosto, larga come un computer e come un telefono, e si leggono forma
+     e inquadratura della foto (object-fit e object-position del sito): così l'anteprima taglia la foto
+     esattamente come il sito. Le foto nuove hanno un altro nome (images/caricate/…), quindi per loro
+     non valgono le inquadrature fatte apposta per la foto di prima: si misura anche questo caso. */
+  var VISTE = [{ nome: 'Computer', w: 1440 }, { nome: 'Telefono', w: 390 }];
+  var misureSito = {};
+  function trovaSlot(id) { var t = function (d) { return d.querySelector('img[data-slot="' + id + '"]'); }; t.chiave = 'slot:' + id; return t; }
+  function trovaGalleria(lista) {
+    var t = function (d) { // prima foto dopo il segno <!-- galleria:inizio --> (una galleria per pagina)
+      var w = d.createTreeWalker(d.body, NodeFilter.SHOW_COMMENT), c;
+      while ((c = w.nextNode())) if (c.nodeValue.trim() === lista + ':inizio' || c.nodeValue.trim() === 'galleria:inizio') {
+        var el = c.nextElementSibling; if (!el) return null;
+        return el.tagName === 'IMG' ? el : el.querySelector('img');
+      }
+      return null;
+    };
+    t.chiave = 'gal:' + lista; return t;
+  }
+  function misuraA(pagina, trova, v) {
+    return new Promise(function (ok) {
+      var f = document.createElement('iframe'), fatto = false;
+      f.setAttribute('aria-hidden', 'true'); f.tabIndex = -1;
+      f.style.cssText = 'position:fixed;left:-30000px;top:0;width:' + v.w + 'px;height:900px;border:0;visibility:hidden;pointer-events:none';
+      function fine(r) { if (fatto) return; fatto = true; ok(r); setTimeout(function () { f.remove(); }, 0); }
+      setTimeout(function () { fine([]); }, 15000);
+      f.onload = function () {
+        setTimeout(function () {
+          try {
+            var d = f.contentDocument, w = f.contentWindow, im = trova(d); if (!im) return fine([]);
+            function leggi() { var cs = w.getComputedStyle(im); return { fit: cs.objectFit, pos: cs.objectPosition, filtro: cs.filter }; }
+            function forma() { var a = im.offsetWidth, b = im.offsetHeight; return a && b ? a / b : 0; }
+            var r = forma(), ora = leggi();
+            // colore che il sito mette dietro la foto (si vede ai lati delle foto «contenute»)
+            for (var e = im, fondo = ''; e && e.nodeType === 1; e = e.parentElement) { var bg = w.getComputedStyle(e).backgroundColor; if (bg && !/rgba\(0, 0, 0, 0\)|transparent/.test(bg)) { fondo = bg; break; } }
+            ora.fondo = fondo;
+            im.setAttribute('src', 'images/caricate/nuova.jpg');
+            var dopo = leggi(), out = [];
+            if (r) out.push({ nome: v.nome, r: r, fit: ora.fit, pos: ora.pos, fitN: dopo.fit, posN: dopo.pos, filtro: ora.filtro, fondo: ora.fondo }); // filtro: es. bianco e nero finché non ci passa il mouse
+            // strisce della home: con il mouse sopra la striscia si allarga
+            var st = im.closest('.strip');
+            if (st && r && v.w > 900) {
+              st.style.transition = 'none'; st.style.flex = '3';
+              var r2 = forma(); if (r2) out.push({ nome: 'Computer, col mouse sopra', r: r2, fit: ora.fit, pos: ora.pos, fitN: dopo.fit, posN: dopo.pos, filtro: 'none', fondo: ora.fondo });
+            }
+            fine(out);
+          } catch (e) { fine([]); }
+        }, 400);
+      };
+      f.src = new URL(pagina === MENU ? 'index.html' : pagina, location.href).href;
+      document.body.appendChild(f);
+    });
+  }
+  function misuraSito(pagina, trova) {
+    var k = pagina + '|' + trova.chiave;
+    if (!misureSito[k]) misureSito[k] = Promise.all(VISTE.map(function (v) { return misuraA(pagina, trova, v); }))
+      .then(function (l) { var r = [].concat.apply([], l); if (!r.length) delete misureSito[k]; return r; });
+    return misureSito[k];
+  }
+  function vistaSito(box, pagina, trova) {
+    var img = box.querySelector('img'), viste = box.nextElementSibling;
+    if (!viste || !viste.classList.contains('viste')) {
+      viste = document.createElement('div'); viste.className = 'viste'; viste.hidden = true;
+      box.parentNode.insertBefore(viste, box.nextSibling);
+      var nome = document.createElement('span'); nome.className = 'vista-nome'; nome.hidden = true; box.insertBefore(nome, box.firstChild);
+      // ogni volta che cambia la foto grande cambiano anche le piccole, con l'inquadratura giusta
+      new MutationObserver(function () { applicaViste(box); }).observe(img, { attributes: true, attributeFilter: ['src'] });
+    }
+    var k = pagina + '|' + trova.chiave; box.dataset.vista = k; box._viste = null;
+    box.querySelector('.vista-nome').hidden = true; viste.hidden = true; viste.innerHTML = '';
+    img.style.objectFit = ''; img.style.objectPosition = ''; img.style.filter = ''; box.style.background = '';
+    misuraSito(pagina, trova).then(function (l) {
+      if (box.dataset.vista !== k || !l.length) return;
+      // viste uguali (stessa forma e inquadratura) diventano una sola: «Computer e telefono»
+      var u = [];
+      l.forEach(function (v) {
+        var g = u.filter(function (x) { return Math.max(x.r / v.r, v.r / x.r) < 1.02 && x.fit === v.fit && x.pos === v.pos && x.fitN === v.fitN && x.posN === v.posN && x.filtro === v.filtro; })[0];
+        if (g) g.nome += ' e ' + v.nome.toLowerCase(); else u.push(Object.assign({}, v));
+      });
+      l = u; box._viste = l;
+      box.style.aspectRatio = String(l[0].r); box.style.background = l[0].fondo || '';
+      var n = box.querySelector('.vista-nome'); n.textContent = l[0].nome; n.hidden = false;
+      l.slice(1).forEach(function (v) {
+        var fg = document.createElement('figure'), vb = document.createElement('div'), im2 = document.createElement('img'), fc = document.createElement('figcaption');
+        vb.className = 'vbox'; vb.style.aspectRatio = String(v.r); vb.style.background = v.fondo || ''; im2.alt = ''; fc.textContent = v.nome;
+        vb.appendChild(im2); fg.appendChild(vb); fg.appendChild(fc); viste.appendChild(fg);
+      });
+      viste.hidden = l.length < 2;
+      applicaViste(box);
+    });
+  }
+  function applicaViste(box) {
+    var l = box._viste, img = box.querySelector('img'); if (!l) return;
+    var nuova = /^blob:/.test(img.src || ''); // foto appena scelta: sul sito avrà un nome nuovo
+    function usa(el, v) { el.style.objectFit = nuova ? v.fitN : v.fit; el.style.objectPosition = nuova ? v.posN : v.pos; el.style.filter = v.filtro && v.filtro !== 'none' ? v.filtro : ''; }
+    usa(img, l[0]);
+    var piccole = box.nextElementSibling.querySelectorAll('img');
+    l.slice(1).forEach(function (v, i) {
+      var p = piccole[i]; if (!p) return;
+      if (img.getAttribute('src')) p.src = img.src; else p.removeAttribute('src');
+      usa(p, v);
+    });
+  }
   function nomeForma(r) { return r > 1.15 ? 'orizzontale' : r < 0.87 ? 'verticale' : 'quadrata'; }
   // controlli prima di preparare la foto: un errore ferma, l'avviso no
   function controllaFile(file) {
@@ -1354,6 +1465,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     $('elimina').hidden = !x; $('elimina').textContent = 'Elimina'; $('elimina').classList.remove('conf');
     $('err-scheda').textContent = ''; $('avv-scheda').hidden = true;
     mostraRequisiti($('req-scheda'), $('anteprima').parentNode, formaDi());
+    vistaSito($('anteprima').parentNode, sez.pagina, trovaGalleria(sez.lista));
     var im = $('anteprima');
     if (x) { riserva(im, x.foto, x.provvisoria); mostraAnteprima(sorgente(x.foto)); im.alt = 'Foto attuale'; } else { mostraAnteprima(null); im.alt = ''; }
     if (!scheda.open) scheda.showModal();
@@ -1408,6 +1520,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     $('img-alt').value = immAperta.alt || ''; $('err-img').textContent = '';
     $('img-alt-campo').hidden = !!immAperta.decorativa; // foto del menu: la scritta sotto la descrive già
     $('avv-img').hidden = true; mostraRequisiti($('req-img'), $('img-ant').parentNode, formaDi(immAperta.id));
+    vistaSito($('img-ant').parentNode, immAperta.pagina, trovaSlot(immAperta.id));
     var im = $('img-ant'); riserva(im, immAperta.foto, immAperta.provvisoria); im.src = sorgente(immAperta.foto); im.alt = 'Foto attuale';
     var box = $('img-testi'); box.innerHTML = '';
     var vicini = (immAperta.testi || []).map(function (id) { return testi.filter(function (v) { return v.id === id; })[0]; }).filter(Boolean);

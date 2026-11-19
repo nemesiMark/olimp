@@ -1660,3 +1660,15 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                    1,5 s ciascuno, Canicattì 2,5 s (velocità in LENTO, js/mappa.js). Privacy: tolto OpenFreeMap, la mappa usa solo le foto
                    satellitari di Esri (testi privacy-t027 e privacy-t031 in data/testi.json).
                    js/mappa.js?v=15.
+
+3.27 (19/11/2026)  Area riservata: l'anteprima della foto (foto fisse e gallerie) è esattamente
+                   come sul sito. Quando si apre una foto, l'area apre di nascosto la pagina vera
+                   larga come un computer (1440 px) e come un telefono (390 px) e legge forma,
+                   inquadratura (object-position, es. «68% 50%» per le strisce delle Collezioni),
+                   «contenuta» o «riempita», bianco e nero e colore di fondo. L'anteprima grande è
+                   il computer (etichetta «Computer»); sotto, più piccole, «Telefono» e, per le
+                   strisce della Home, «Computer, col mouse sopra». Se sono uguali diventa una sola
+                   («Computer e telefono»). Per una foto nuova vale l'inquadratura che avrà sul
+                   sito (le foto caricate hanno un nome nuovo, quindi niente regole fatte per la
+                   foto di prima). Se la pagina non si può leggere resta la forma di prima. Guida
+                   («Formati e misure») aggiornata.
