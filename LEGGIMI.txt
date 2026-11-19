@@ -1697,3 +1697,8 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                      argomenti della scheda; «In generale» in fondo. Testi della guida aggiornati
                      (trascinare e ingrandire); rifatte le schermate nuova, rinomina, elimina e
                      fissa-scheda con i punti calcolati dagli anelli viola.
+
+3.30 (19/11/2026)  Area riservata, come inkubo 6.12 (deciso da Mark): nell'anteprima c'è sempre anche
+                   la vista «Telefono», pure quando è uguale al computer (prima le due viste uguali
+                   diventavano una sola, «Computer e telefono»). Guida aggiornata e schermate nuova,
+                   rinomina, elimina e fissa-scheda rifatte con la vista Telefono.
