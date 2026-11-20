@@ -1716,3 +1716,16 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                    provincia è spostata verso Canicattì; la discesa rallenta da quando compare il
                    contorno del comune (js/mappa.js; mappa.js?v=16). Aggiunto CLAUDE.md (note per Claude,
                    escluso dalla pubblicazione).
+3.33 (20/11/2026)  Area riservata, testi, come inkubo 6.24 e 6.25 (skill area-ris aggiornata da inkubo):
+                   nella finestra di un testo l'anteprima «Come si vedrà sul sito» non è più un
+                   riquadro con le sole parole, ma la pagina vera in piccolo, come per le foto: a
+                   sinistra sul computer, a destra (sotto, su schermi stretti) sul telefono. Mentre
+                   si scrive, il testo nuovo prende il posto di quello del sito, contornato da un
+                   tratteggio rosso, e la vista si centra su di lui; nell'anteprima l'effetto
+                   «Sipario» e la barra dei cookie sono spenti. Per le voci del menu che si vedono
+                   solo su tablet e telefono l'anteprima apre la Home con il menu e il sottomenu
+                   aperti sul telefono, e sul computer dice «Su questo schermo questo testo non si
+                   vede». Se la pagina non si apre resta il riquadro semplice di prima. La frase
+                   d'aiuto sotto il campo ora dice solo «Puoi cambiare solo le parole. Per andare a
+                   capo premi Invio.». Guida: testo aggiornato e rifatte le schermate
+                   «testo-modifica» e «testo-link» con i punti che lampeggiano ricalcolati.
