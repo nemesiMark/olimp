@@ -1729,3 +1729,15 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                    d'aiuto sotto il campo ora dice solo «Puoi cambiare solo le parole. Per andare a
                    capo premi Invio.». Guida: testo aggiornato e rifatte le schermate
                    «testo-modifica» e «testo-link» con i punti che lampeggiano ricalcolati.
+3.34 (20/11/2026)  Mappa di «Dove siamo» rifatta come quella di Rain Ink 6.26 (skill mappa-uni): la
+                   discesa alterna soste e voli morbidi, tutti con la stessa dolcezza, e dura 14 s.
+                   A ogni sosta l'area del momento (Italia, Sicilia, provincia di Agrigento,
+                   Canicattì) resta con i colori veri del satellite e il contorno al neon nel rosso
+                   bordeaux del logo, mentre tutto il resto va in ombra (niente più velo colorato).
+                   Il nome compare al centro, fermo, con sopra il livello (Nazione, Regione,
+                   Provincia, Comune), al posto della targhetta agganciata all'area; Canicattì resta
+                   3 s. Inquadrature uguali su computer e telefono; della provincia di Agrigento
+                   conta solo la parte sulla Sicilia (senza Lampedusa e Lampione), così la vista è
+                   centrata. Segnaposto «Olimp» e consenso ai cookie come prima; riquadro della mappa
+                   alto 500 px sotto i 1020 px e 440 px sotto gli 800 px (prima 380)
+                   (js/mappa.js?v=17, style.css?v=184).
