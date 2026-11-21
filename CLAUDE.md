@@ -18,7 +18,7 @@ Dettagli completi in **LEGGIMI.txt**: leggilo prima di modifiche non banali.
 - Il cliente salva `data/testi.json`, `data/immagini.json`, `data/gallerie.json` dall'area riservata (`area-riservata.html` + Worker in `worker/`): fai sempre `git pull` prima di lavorare.
 - Testi con `data-testo`, foto con `data-slot` e gallerie si cambiano nei JSON, **non nell'HTML**: il generatore li riscrive.
 - Ogni foto/video/testo è indipendente: modificare una sezione non deve mai toccare altre sezioni o pagine (unica eccezione: i sottomenu della navbar).
-- È il modello della skill `area-ris` e della mappa «Dove siamo» (`mappa-uni`; transizioni centrate come Rain Ink 6.17 dalla versione 3.32): una miglioria qui va riportata anche nelle skill e, se serve, in inkubo.
+- È il modello della skill `area-ris` e della mappa «Dove siamo» (`mappa-uni`; dalla versione 3.34 la mappa è come Rain Ink 6.26, che resta la sorgente della skill): una miglioria qui va riportata anche nelle skill e, se serve, in inkubo.
 
 ## Foto del cliente
 - Foto in `images/<nome-pagina>/`, nomi minuscoli col nome del modello (es. `modello-frame.jpg`), ridotte a 1600 px qualità 80 (`sips`); mai inventare nomi di modelli.
