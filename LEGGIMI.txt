@@ -2,7 +2,7 @@ OLIMP — SITO WEB
 ================
 
 Sito statico (solo HTML, CSS e JavaScript, nessun programma da installare).
-Codice su GitHub: https://github.com/nemesiMark/trama (branch main).
+Codice su GitHub: https://github.com/nemesiMark/olimp (branch main).
 
 
 COME APRIRLO
@@ -1741,3 +1741,7 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                    centrata. Segnaposto «Olimp» e consenso ai cookie come prima; riquadro della mappa
                    alto 500 px sotto i 1020 px e 440 px sotto gli 800 px (prima 380)
                    (js/mappa.js?v=17, style.css?v=184).
+
+3.35 (22/11/2026)  Repository rinominato da «trama» a «olimp», come la cartella: il sito ora è
+                   online su https://nemesimark.github.io/olimp/ (il vecchio /trama/ non risponde
+                   più). Area riservata e Worker puntano a nemesiMark/olimp.

@@ -8,7 +8,7 @@ workers_dev = true
 keep_vars = false
 
 [vars]
-REPO = "nemesiMark/trama"
+REPO = "nemesiMark/olimp"
 BRANCH = "main"
 ORIGINS = "https://nemesimark.github.io"
 
