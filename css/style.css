@@ -5550,3 +5550,7 @@ h1, h2, h3,
 .quote p { font-style: normal; font-synthesis: none; }
 h1, h2 { letter-spacing: -.02em; }
 .hero h1 { letter-spacing: -.025em; }
+
+/* 3.38: pulsante «Rivedi» della mappa: fondo chiaro, scritta blu (con il tema scuro era bianca su bianco) */
+.map-replay { color: var(--wall); font-family: var(--sans); }
+.map-replay:hover { color: var(--wall); }

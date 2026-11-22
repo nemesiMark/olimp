@@ -1779,3 +1779,19 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                    anche nella barra dei cookie. Gloock non ha il corsivo: frasi d'apertura e
                    citazione di Chi siamo ora sono dritte. style.css?v=186 e cookie.js?v=13 in
                    tutte le pagine.
+
+3.38 (22/11/2026)  Mappa di «Dove siamo»: il passaggio da Italia a Sicilia era troppo brusco (il volo
+                   durava 0,3 s, ma la vista doveva spostarsi molto verso sud, e lo zoom frenava di
+                   colpo). Ora:
+                   - ogni volo dura almeno quanto serve perché lo spostamento sullo schermo resti
+                     lento (in media al massimo 220 pixel al secondo su computer, 140 sul telefono):
+                     Italia → Sicilia dura circa 0,9 s, con lo spostamento che parte e finisce piano;
+                   - nella sosta sull'Italia e sulla Sicilia lo zoom avanza più piano (Italia dal 50%
+                     all'80% del riquadro, Sicilia dal 36% al 62%), così durante il volo la velocità
+                     dello zoom resta quasi uguale (0,45 → 0,33 → 0,52 livelli al secondo) invece di
+                     frenare di colpo;
+                   - se in futuro un volo dovesse durare tanto con poco zoom da fare, lo zoom rallenta
+                     dolcemente fino a fermarsi, la mappa scivola verso la meta e lo zoom riparte:
+                     non torna mai indietro (altrimenti nomi e contorni non si vedono più).
+                   Discesa di 15,5 s invece di 14 (js/mappa.js?v=21). Il pulsante «Rivedi» ha di nuovo
+                   la scritta blu (era bianca su bianco, style.css?v=187).
