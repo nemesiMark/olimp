@@ -6,7 +6,7 @@ Dettagli completi in **LEGGIMI.txt**: leggilo prima di modifiche non banali.
 - Online: https://nemesimark.github.io/olimp/
 - Codice: github.com/nemesiMark/olimp, ramo `main`; pubblicazione con GitHub Actions (`.github/workflows/pubblica.yml`).
 - Prova in locale: `python3 -m http.server 8000` → http://localhost:8000/
-- Colori: blu #051D34 (`--brand`), bordeaux del logo #aa372e.
+- Stile «Galleria notturna» dalla versione 3.36: fondi blu Olimp #051D34 (`--wall`) e blu notte #030F1C (`--night`), testi #F3EFE8, bordeaux del logo #AA372E (`--ribbon`) solo per pulsanti e linee; titoli in Gloock, testi in Hanken Grotesk (dalla 3.37). Il restyling sta nel blocco «RESTYLING 4.0» in fondo a `css/style.css`.
 
 ## Regole di lavoro
 - Rispondi sempre in italiano; anche LEGGIMI, commenti e messaggi di commit in italiano.

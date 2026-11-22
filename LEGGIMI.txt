@@ -1745,3 +1745,37 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
 3.35 (22/11/2026)  Repository rinominato da «trama» a «olimp», come la cartella: il sito ora è
                    online su https://nemesimark.github.io/olimp/ (il vecchio /trama/ non risponde
                    più). Area riservata e Worker puntano a nemesiMark/olimp.
+
+3.36 (22/11/2026)  Restyling di tutto il sito «Galleria notturna»: il sito come una mostra di sera.
+                   Pareti nel blu Olimp (#051D34) e in un blu notte più profondo (#030F1C) per
+                   hero, fasce in alto delle pagine, Chi siamo e piè di pagina; parete più chiara
+                   (#0A2640) per Grafica & Stampa e Contatti. Testi bianco caldo (#F3EFE8) e
+                   grigio azzurro (#AEB9C7). Titoli in Bodoni Moda (al posto di Manrope), testi,
+                   menu ed etichette in Jost. Il bordeaux del logo (#AA372E) resta per pulsanti,
+                   linee sottili e voce attiva; sul blu, dove serve un bordeaux leggibile come
+                   testo, si usa #E07A6E.
+                   - Tutte le foto ora sono a colori: le tre del hero (con uno zoom lentissimo
+                     e una sfumatura blu notte dietro il titolo), le strisce delle Collezioni e
+                     la foto di Chi siamo (scurita appena per leggere la citazione).
+                   - Le scritte piccole sopra i titoli (es. «01 / Album», «Olimp / Prodotti»)
+                     sono la «targa della sala»: lettere spaziate e una riga sottile fino in
+                     fondo. Tolte le barre rosse verticali accanto ai titoli.
+                   - Strisce delle Collezioni e gallerie dei modelli: nome sotto la foto, come la
+                     didascalia di una mostra (prima stava sulla foto con la sfumatura nera); al
+                     passaggio del mouse le altre strisce si abbassano di luce.
+                   - Pulsanti squadrati con lettere spaziate: bordeaux che al passaggio si
+                     riempie di bianco caldo; quello del hero è bianco caldo e diventa bordeaux.
+                   - Campi del modulo con la sola riga sotto; menu, tendine, menu del telefono,
+                     visore delle foto, finestra di ringraziamento e barra dei cookie sul blu
+                     notte. Puntini del hero diventati trattini.
+                   Tutto in un blocco in fondo a css/style.css («RESTYLING 4.0»), più il carattere
+                   Jost al posto di Manrope nel resto del file e nella barra dei cookie
+                   (js/cookie.js). Area riservata non toccata (la sua anteprima mostra già il
+                   nuovo stile); le schermate della guida in images/guida/ mostrano ancora il
+                   vecchio aspetto. style.css?v=185 e cookie.js?v=12 in tutte le pagine.
+
+3.37 (22/11/2026)  Caratteri cambiati: titoli in Gloock (serif da moda, più pieno e leggibile del
+                   Bodoni sul blu), testi, menu ed etichette in Hanken Grotesk (al posto di Jost),
+                   anche nella barra dei cookie. Gloock non ha il corsivo: frasi d'apertura e
+                   citazione di Chi siamo ora sono dritte. style.css?v=186 e cookie.js?v=13 in
+                   tutte le pagine.

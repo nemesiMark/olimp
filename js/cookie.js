@@ -9,25 +9,25 @@
   /* --- stile --- */
   var css='\
 /* Barra a tutta larghezza in fondo alla pagina (proposta C): blu scuro con linea bordeaux sopra, testo a sinistra e pulsanti a destra. */\
-#ck-banner{position:fixed;left:0;right:0;bottom:0;z-index:9999;background:var(--ink,#051D34);color:#fff;border-top:3px solid #aa372e;box-shadow:0 -8px 30px rgba(5,29,52,.25);font:400 .9rem/1.55 "Manrope",Arial,sans-serif}\
+#ck-banner{position:fixed;left:0;right:0;bottom:0;z-index:9999;background:var(--night,#030F1C);color:#fff;border-top:1px solid #aa372e;box-shadow:0 -8px 30px rgba(5,29,52,.25);font:400 .9rem/1.55 "Hanken Grotesk",Arial,sans-serif}\
 #ck-banner .ck-in{max-width:1360px;margin:0 auto;padding:1rem 3.5rem;display:flex;align-items:center;gap:1rem 2.5rem}\
-#ck-banner .ck-txt{flex:1 1 auto;min-width:0;margin:0;color:#dbe4ef;font-size:.85rem}\
-#ck-banner h2{display:inline;font:700 .85rem "Manrope",Arial,sans-serif;margin:0;color:#fff}\
+#ck-banner .ck-txt{flex:1 1 auto;min-width:0;margin:0;color:#C9D3DF;font-size:.85rem}\
+#ck-banner h2{display:inline;font:700 .85rem "Hanken Grotesk",Arial,sans-serif;margin:0;color:#fff}\
 #ck-banner .ck-row{display:flex;gap:.6rem;flex:0 0 auto}\
 #ck-banner .ck-btn{flex:0 0 auto;min-width:120px;border:1.5px solid transparent}\
 #ck-banner [data-ck=no]{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}\
-#ck-banner [data-ck=yes]{background:var(--ice,#D5E3F2);color:var(--ink,#051D34)}\
-.ck-btn{flex:1 1 140px;border:0;border-radius:8px;padding:.75rem 1rem;font:700 .85rem "Manrope",Arial,sans-serif;cursor:pointer;background:var(--ice,#c9dcf5);color:var(--ink,#051D34)}\
+#ck-banner [data-ck=yes]{background:#F3EFE8;color:#051D34}\
+.ck-btn{flex:1 1 140px;border:0;border-radius:0;padding:.8rem 1.2rem;font:500 .74rem "Hanken Grotesk",Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;background:#F3EFE8;color:#051D34}\
 /* Pulsanti: al passaggio del mouse un blocco bordeaux sale dal basso e li riempie, testo bianco. */\
 .ck-btn{background-image:linear-gradient(#aa372e,#aa372e)!important;background-repeat:no-repeat!important;background-position:0 100%!important;background-size:100% 0%!important;transition:background-size .4s ease-in-out,color .4s ease-in-out,border-color .4s ease-in-out}\
 .ck-btn:hover,.ck-btn:focus-visible{background-size:100% 100%!important;color:#fff!important;border-color:#aa372e!important}\
 .ck-btn:focus-visible,#ck-banner a:focus-visible{outline:2px solid currentColor;outline-offset:3px}\
 #ck-banner a{color:#fff;text-decoration:underline;white-space:nowrap}\
 #ck-banner.ck-attn{animation:ckAttn .7s ease 1s 2}\
-@keyframes ckAttn{0%,100%{background:var(--ink,#051D34)}50%{background:#aa372e}}\
-.ck-map-ph{width:100%;height:100%;min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;text-align:center;padding:2rem;background:var(--paper,#f3f1ee);color:var(--ink,#051D34);box-sizing:border-box}\
+@keyframes ckAttn{0%,100%{background:var(--night,#030F1C)}50%{background:#aa372e}}\
+.ck-map-ph{width:100%;height:100%;min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;text-align:center;padding:2rem;background:var(--night,#030F1C);color:var(--ink,#F3EFE8);box-sizing:border-box}\
 .ck-map-ph p{margin:0;max-width:38ch;font-size:.95rem}\
-.ck-map-ph .ck-btn{flex:none;background:var(--ink,#051D34);color:#fff}\
+.ck-map-ph .ck-btn{flex:none;background:#F3EFE8;color:#051D34}\
 @media(max-width:800px){#ck-banner .ck-in{flex-direction:column;align-items:stretch;padding:.9rem 1.2rem;gap:.8rem}#ck-banner .ck-btn{flex:1 1 0;min-width:0}}';
   var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
 
