@@ -5064,6 +5064,20 @@ h1 { font-size: clamp(2.75rem, 5.85vw, 5.35rem); letter-spacing: -.02em; }
 h2 { font-size: clamp(2.2rem, 4.25vw, 4.1rem); letter-spacing: -.018em; }
 
 /* ======================================================
+   LINEA AL NEON TRA LE SEZIONI (3.52)
+   Una linea rossa sottile con un leggero alone sopra ogni sezione che ne segue
+   un'altra (anche dopo la testata delle pagine interne) e sopra il piè di pagina.
+   L'alone è solo verso l'interno (inset), così nessuna sezione lo copre.
+   ====================================================== */
+:root { --neon: #FF3B2F; }
+main > :is(section, .page-hero, .wrap) + :is(section, .wrap),
+footer {
+  border-top: 1px solid var(--neon) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 120, 100, .9), inset 0 7px 14px -7px rgba(255, 59, 47, .55) !important;
+}
+.page-hero { border-bottom: 0 !important; }
+
+/* ======================================================
    HERO DELLA HOME (3.41): le scritte non coprono mai l'album
    La sezione è divisa in due zone che non si toccano:
    - schermi larghi (computer, tablet e telefono in orizzontale): scritte a sinistra,

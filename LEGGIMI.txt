@@ -1912,3 +1912,9 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                    Sui computer le voci sono un po' più piccole e meno spaziate (misura che cresce
                    con lo schermo), così in grassetto ci stanno tutte senza toccare il lucchetto.
                    style.css?v=197 in tutte le pagine.
+
+3.52 (23/11/2026)  Linea al neon rosso (#FF3B2F, sottile, con un leggero alone verso il basso) tra
+                   le sezioni: sopra ogni sezione che ne segue un'altra, sotto la testata delle
+                   pagine interne (al posto della riga beige) e sopra il piè di pagina. Blocco
+                   «LINEA AL NEON TRA LE SEZIONI (3.52)», prima del blocco dell'hero.
+                   style.css?v=198 in tutte le pagine.
