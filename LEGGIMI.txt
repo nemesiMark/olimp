@@ -1816,3 +1816,46 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                    automatico / Usa la mia foto così com'è» con il suo anello. Punti che lampeggiano
                    ricalcolati con riquadri.py. Nei passi «Aggiungere una foto» e «Foto fisse» due
                    righe sulla scelta della misura.
+
+3.41 (23/11/2026)  Home, le tre foto in alto (hero): le scritte non coprono più l'album, su nessuno
+                   schermo. Controllate tutte e tre le foto su 52 misure di schermo: telefoni piccoli e
+                   grandi (anche in orizzontale e pieghevoli), tablet in verticale e in orizzontale,
+                   finestre a metà schermo, portatili, monitor fino a 5120 px.
+                   Prima ogni foto riempiva la sezione e veniva solo tagliata in modo diverso a seconda
+                   dello schermo, con correzioni fatte una misura alla volta: su telefono il titolo
+                   copriva l'album, su tablet in verticale l'album finiva sotto le scritte, su portatili
+                   e tablet in orizzontale il titolo toccava l'album, sui monitor molto larghi compariva
+                   una copia specchiata dell'album.
+                   Ora la sezione è divisa in due zone che non si toccano:
+                   - schermi larghi (computer, tablet e telefono in orizzontale): scritte a sinistra,
+                     album a destra;
+                   - schermi stretti o verticali (telefono, tablet in verticale, finestre più strette
+                     di 5:4): album in alto, scritte sotto.
+                   Ogni foto viene ingrandita e spostata con un calcolo che mette l'album intero al
+                   centro della sua zona, il più grande possibile; il resto della foto si allarga
+                   intorno (dietro le scritte resta scurito dal velo blu) e verso i bordi sfuma nel blu
+                   notte. Sui monitor molto larghi l'album scorre verso destra finché la foto arriva al
+                   bordo dello schermo. Il calcolo lascia spazio anche per lo zoom lentissimo della
+                   foto; l'entrata della foto all'apertura è più leggera (sale del 5% e parte
+                   ingrandita dell'8%, prima 10% e 22%), così l'album non passa mai sotto le scritte o
+                   sotto la barra.
+                   Telefono: la scritta piccola sopra il titolo sta su una riga e gli spazi sono più
+                   stretti, così album, titolo, testo e pulsante stanno nello schermo (sui telefoni più
+                   piccoli il pulsante resta appena sotto). Schermi bassi (telefono in orizzontale,
+                   finestre basse): scritte più compatte, tutto in una schermata. Il titolo sugli
+                   schermi grandi arriva al massimo a 92 px (prima 102).
+                   La foto del leggio usa sempre la versione allargata (images/index/album-leggio-
+                   largo.jpg); quella stretta, non più usata, è in
+                   images/non-usate/index-album-leggio-stretta.jpg.
+                   Tutte le regole della hero, prima sparse in sei punti di css/style.css che si
+                   sovrascrivevano, sono in un unico blocco «HERO DELLA HOME (3.41)» in fondo al file.
+                   Per cambiare una delle tre foto: il file, il rapporto larghezza/altezza (--r) e il
+                   riquadro dell'album nella foto (--ax0 --ay0 --ax1 --ay1, in frazioni della foto).
+                   style.css?v=188 in tutte le pagine.
+
+3.42 (23/11/2026)  Sfondo delle pagine più chiaro (era troppo scuro): blu delle pagine da #051D34 a
+                   #0F3557, blu notte (sezione in alto della home, Chi siamo, piè di pagina, menu,
+                   barra dei cookie) da #030F1C a #0A2440, fasce più chiare (Grafica & Stampa,
+                   Contatti) da #0A2640 a #154068 e #0F2E4C a #1B4B78. Aggiornati allo stesso blu
+                   anche i veli sopra le foto, la barra in alto e le finestre (prima in blu notte
+                   vecchio). style.css?v=189 e cookie.js?v=14 in tutte le pagine.

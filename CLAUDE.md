@@ -6,7 +6,8 @@ Dettagli completi in **LEGGIMI.txt**: leggilo prima di modifiche non banali.
 - Online: https://nemesimark.github.io/olimp/
 - Codice: github.com/nemesiMark/olimp, ramo `main`; pubblicazione con GitHub Actions (`.github/workflows/pubblica.yml`).
 - Prova in locale: `python3 -m http.server 8000` → http://localhost:8000/
-- Stile «Galleria notturna» dalla versione 3.36: fondi blu Olimp #051D34 (`--wall`) e blu notte #030F1C (`--night`), testi #F3EFE8, bordeaux del logo #AA372E (`--ribbon`) solo per pulsanti e linee; titoli in Gloock, testi in Hanken Grotesk (dalla 3.37). Il restyling sta nel blocco «RESTYLING 4.0» in fondo a `css/style.css`.
+- Stile «Galleria notturna» dalla versione 3.36: fondi blu #0F3557 (`--wall`) e blu notte #0A2440 (`--night`), schiariti nella 3.42, testi #F3EFE8, bordeaux del logo #AA372E (`--ribbon`) solo per pulsanti e linee; titoli in Gloock, testi in Hanken Grotesk (dalla 3.37). Il restyling sta nel blocco «RESTYLING 4.0» in fondo a `css/style.css`.
+- Hero della home (3 foto che scorrono): tutto nel blocco «HERO DELLA HOME (3.41)», l'ultimo di `css/style.css`. Scritte e album stanno in due zone separate (affiancate su schermi larghi, album sopra su schermi stretti o verticali); ogni foto si posiziona da sola in base a `--r` e al riquadro dell'album (`--ax0 --ay0 --ax1 --ay1`). Dopo ogni modifica controllare molte misure di schermo (telefono, tablet, portatile, monitor larghi).
 
 ## Regole di lavoro
 - Rispondi sempre in italiano; anche LEGGIMI, commenti e messaggi di commit in italiano.

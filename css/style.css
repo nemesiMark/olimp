@@ -347,341 +347,7 @@ nav a.on,
   outline-offset: 4px;
 }
 
-/* ======================================================
-   HERO
-   ====================================================== */
-
-.hero {
-  position: relative;
-  display: flex;
-  align-items: center;
-  min-height: 740px;
-  height: 100svh;
-  max-height: 1080px;
-  padding: 68px 0 0;
-  box-sizing: border-box;
-  background: var(--ink);
-  isolation: isolate;
-}
-
-.hero .ph {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: auto;
-  z-index: -1;
-  margin: 0;
-  background: var(--ink);
-}
-
-.hero .ph img {
-  object-position: 68% 48%;
-  filter: none;
-}
-
-.hero .ph::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  /* Velo nero come le foto delle Collezioni (nero all'80% che sfuma verso metà). */
-  background: linear-gradient(90deg, rgba(0, 0, 0, .8) 0%, rgba(0, 0, 0, .35) 50%, rgba(0, 0, 0, 0) 100%);
-  pointer-events: none;
-}
-
-.hero .txt {
-  width: calc(100% - 7rem);
-  max-width: 624px;
-  flex: none;
-  margin-left: max(3.5rem, calc((100vw - 1360px) / 2 + 3.5rem));
-  padding: 5rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.8rem;
-  pointer-events: none;
-}
-
-.hero .txt a {
-  pointer-events: auto;
-}
-
-.hero .eyebrow {
-  color: var(--ice);
-  margin: 0;
-}
-
-.hero h1 {
-  color: white;
-  max-width: 11ch;
-}
-
-.hero p {
-  color: #e0e8f1;
-  max-width: 35ch;
-  font-size: 1rem;
-}
-
-/* Il blocco di testo è largo quanto il titolo, così il tasto arriva fino alla fine di «forma.» */
-.hero .txt {
-  width: fit-content;
-  max-width: min(624px, calc(100% - 7rem));
-}
-
-.hero .btn {
-  align-self: stretch;
-  /* Rosso del logo con scritta bianca; al passaggio diventa bianco con scritta rossa. */
-  background-color: #aa372e;
-  color: #fff;
-  border-color: #aa372e;
-  margin-top: .5rem;
-}
-
-.hero .btn:hover {
-  border-color: #aa372e;
-  color: #fff;
-}
-
-/* Slideshow hero */
-.hero-slides,
-.hero-slide {
-  position: absolute;
-  inset: 0;
-  display: block;
-}
-
-.hero-slide {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 1.1s ease, visibility 1.1s;
-}
-
-.hero-slide.is-active {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-
-.hero .hero-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Le tre foto che scorrono sono in bianco e nero (anche lo sfondo della foto Orione). */
-.hero .hero-slide {
-  filter: grayscale(1);
-}
-
-/* Modello Orione sul tavolo nello slideshow della home: foto larga a tutto schermo,
-   inquadrata sull'album che sta a destra. */
-.hero .hero-slide.hs-orione img {
-  object-position: 70% 0%;
-  /* Album spostato un po' a destra e un po' in basso senza ingrandire la foto. */
-  transform: translate(5%, 4%);
-  transition: none;
-}
-
-/* Al passaggio del mouse la foto resta ferma (nessun effetto). */
-.hero .ph.no-zoom:hover .hero-slide.hs-orione img {
-  transform: translate(5%, 4%);
-}
-
-.hero .hs-orione {
-  overflow: hidden;
-  /* colore del muro nell'angolo in alto a sinistra della foto */
-  background: #b3aa9c;
-}
-
-/* I vuoti che restano a sinistra e in alto sono riempiti dalla stessa foto specchiata:
-   i bordi combaciano. */
-.hero .hs-orione::before,
-.hero .hs-orione::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: url(../images/index/album-orione-tavolo.jpg) 70% 0% / cover no-repeat;
-}
-
-.hero .hs-orione::before {
-  transform: translate(-94.9%, 4%) scaleX(-1);
-}
-
-.hero .hs-orione::after {
-  transform: translate(5%, -95.8%) scaleY(-1);
-}
-
-/* Album sul leggio nello slideshow della home: foto orizzontale a tutto schermo,
-   inquadrata sull'album che sta a destra. */
-.hero .hero-slide.hs-leggio img {
-  /* Inquadratura un po' più in alto nella foto: l'album appare leggermente più in basso. */
-  object-position: 75% 25%;
-}
-
-/* Album di nozze Elisa & Andrea nello slideshow della home: foto larga a tutto schermo,
-   inquadrata sull'album che sta a destra. */
-.hero .hero-slide.hs-nozze img {
-  object-position: 75% 50%;
-  /* Album spostato un po' a destra senza ingrandire la foto, come per Orione. */
-  transform: translateX(5%);
-  transition: none;
-}
-
-.hero .ph.no-zoom:hover .hero-slide.hs-nozze img {
-  transform: translateX(5%);
-}
-
-.hero .hs-nozze {
-  overflow: hidden;
-}
-
-.hero .hs-nozze::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: url(../images/index/album-nozze-elisa-andrea.jpg) 75% 50% / cover no-repeat;
-  transform: translateX(-95%) scaleX(-1);
-}
-
-/* Schermi larghi e bassi (monitor grandi, finestra a tutta larghezza): la foto riempiendo la
-   larghezza verrebbe tagliata sopra e sotto e l'album resterebbe mozzato. Qui ogni foto si vede
-   intera, alta quanto la sezione e appoggiata a destra; il vuoto a sinistra (sotto il velo scuro
-   del testo) è riempito dalla stessa foto specchiata per l'album di nozze (fondo scuro), mentre
-   per leggio e Orione la foto sfuma nel nero. */
-.hero .hero-slides {
-  container-type: size;
-}
-
-@container (min-aspect-ratio: 185/100) {
-  .hero .hero-slide.hs-nozze,
-  .hero .hero-slide.hs-orione {
-    --r: 1.7768;
-  }
-
-  .hero .hero-slide.hs-nozze,
-  .hero .hero-slide.hs-orione,
-  .hero .hero-slide.hs-leggio {
-    overflow: hidden;
-    background: #161616;
-  }
-
-  .hero .hero-slide.hs-nozze img,
-  .hero .hero-slide.hs-orione img,
-  .hero .ph.no-zoom:hover .hero-slide.hs-nozze img,
-  .hero .ph.no-zoom:hover .hero-slide.hs-orione img {
-    left: auto;
-    right: 0;
-    width: calc(100cqh * var(--r));
-    height: 100%;
-    transform: none;
-  }
-
-  .hero .hs-nozze::before {
-    content: '';
-    position: absolute;
-    inset: 0 calc(100cqh * var(--r)) 0 auto;
-    width: calc(100cqh * var(--r));
-    background: url(../images/index/album-nozze-elisa-andrea.jpg) center / 100% 100% no-repeat;
-    transform: scaleX(-1);
-  }
-
-  /* Orione: a sinistra la foto sfuma nel nero. */
-  .hero .hero-slide.hs-orione {
-    background: #000;
-  }
-
-  .hero .hs-orione::before,
-  .hero .hs-orione::after {
-    display: none;
-  }
-
-  .hero .hero-slide.hs-orione img,
-  .hero .ph.no-zoom:hover .hero-slide.hs-orione img {
-    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 40%);
-    mask-image: linear-gradient(90deg, transparent 0, #000 40%);
-  }
-}
-
-/* Leggio: la foto originale finisce subito dopo la base di legno, quindi per gli schermi larghi
-   c'è una versione allargata a destra (muro e tavolo ricostruiti, base chiusa) così l'album sta
-   più verso il centro; a sinistra sfuma nel nero. */
-@container (min-aspect-ratio: 17/10) {
-  .hero .hero-slide.hs-leggio {
-    overflow: hidden;
-    background: #000;
-  }
-
-  .hero .hero-slide.hs-leggio img {
-    opacity: 0;
-  }
-
-  .hero .hs-leggio::before {
-    content: '';
-    position: absolute;
-    inset: 0 0 0 auto;
-    width: calc(100cqh * 1.6817);
-    background: url(../images/index/album-leggio-largo.jpg?v=2) center / 100% 100% no-repeat;
-    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 40%);
-    mask-image: linear-gradient(90deg, transparent 0, #000 40%);
-  }
-}
-
-/* Portatili (13"-15", fino a 1800 px di larghezza): album del leggio un po' più a destra e più
-   in basso, così si stacca dalla scritta. La foto è appena più grande (108%) per non lasciare
-   vuoti in alto. */
-@media (max-width: 1800px) {
-  @container (min-aspect-ratio: 17/10) {
-    .hero .hs-leggio::before {
-      inset: auto calc(100cqh * 1.6817 * 1.08 * -0.09) -6% auto;
-      width: calc(100cqh * 1.6817 * 1.08);
-      height: 108%;
-    }
-  }
-}
-
-.hero-controls {
-  position: absolute;
-  right: max(1.5rem, calc((100vw - 1248px) / 2));
-  bottom: 2rem;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  z-index: 3;
-  /* Solo pallini e «Pausa», senza la capsula grigia dietro (proposta 01). */
-  padding: 0;
-  background: none;
-}
-
-.hero-dot {
-  border: 0;
-  background: transparent;
-  width: 28px;
-  height: 36px;
-  cursor: pointer;
-  padding: 8px;
-}
-
-.hero-dot::before {
-  content: '';
-  display: block;
-  width: 10px;
-  height: 10px;
-  border: 1px solid white;
-  border-radius: 50%;
-  background: transparent;
-}
-
-.hero-dot[aria-pressed="true"]::before {
-  background: white;
-}
-
-.hero-pause {
-  border: 0;
-  background: transparent;
-  color: white;
-  font: 600 .7rem 'Hanken Grotesk', Arial, sans-serif;
-  cursor: pointer;
-  padding: 10px;
-}
+/* HERO DELLA HOME: tutte le regole sono nel blocco «HERO DELLA HOME (3.41)» in fondo al file. */
 
 .hero-controls button:focus-visible,
 .home-image-link:focus-visible {
@@ -2132,10 +1798,11 @@ footer .footer-socials svg {
   opacity: 0;
 }
 
-/* Foto della home: parte più in basso e ingrandita e sale al suo posto, sempre a riempire il riquadro. */
+/* Foto della home: parte un po' più in basso e appena ingrandita e sale al suo posto
+   (poco, così l'album non arriva mai sotto le scritte). */
 .fx-pre .hero-slideshow .hero-slides,
 .hero-slides.hs-pre {
-  transform: translateY(10%) scale(1.22);
+  transform: translateY(5%) scale(1.08);
 }
 
 .hero-slides.hs-pre.hs-in {
@@ -3821,81 +3488,6 @@ img[src*="fotografo-videocamera"] {
     padding-bottom: 3rem;
   }
 
-  /* hero della home: testo sopra la foto, sfumatura dall'alto al basso */
-  .hero {
-    min-height: 600px;
-    align-items: flex-end;
-  }
-
-  .hero .txt {
-    width: fit-content;
-    max-width: calc(100% - 2.5rem);
-    margin: 0 1.25rem;
-    padding: 3rem 0 6.5rem;
-    gap: 1.2rem;
-  }
-
-  .hero .ph::after {
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .35) 50%, rgba(0, 0, 0, .8) 100%);
-  }
-
-  .hero .ph img {
-    object-position: 50% 50%;
-    transform: none;
-  }
-
-  /* Su telefono le tre foto stanno in alto, larghe quanto lo schermo e poco ingrandite
-     (così restano nitide), e in basso sfumano nel nero sotto il testo. Nessuno spostamento
-     e nessun effetto al passaggio. */
-  .hero .hero-slide,
-  .hero .hs-orione {
-    background: #161616;
-  }
-
-  .hero .hero-slide img,
-  .hero .hero-slide.hs-orione img,
-  .hero .hero-slide.hs-nozze img,
-  .hero .hero-slide.hs-leggio img,
-  .hero .ph.no-zoom:hover .hero-slide img,
-  .hero .ph.no-zoom:hover .hero-slide.hs-orione img,
-  .hero .ph.no-zoom:hover .hero-slide.hs-nozze img {
-    top: 68px;
-    bottom: auto;
-    left: 0;
-    right: auto;
-    width: 100%;
-    height: 48%;
-    object-fit: cover;
-    transform: none;
-    -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent 100%);
-    mask-image: linear-gradient(180deg, #000 70%, transparent 100%);
-  }
-
-  .hero .hero-slide.hs-nozze img,
-  .hero .ph.no-zoom:hover .hero-slide.hs-nozze img {
-    object-position: 88% 50%;
-  }
-
-  .hero .hero-slide.hs-leggio img {
-    object-position: 100% 40%;
-  }
-
-  .hero .hero-slide.hs-orione img,
-  .hero .ph.no-zoom:hover .hero-slide.hs-orione img {
-    object-position: 86% 50%;
-  }
-
-  .hero .hs-orione::before,
-  .hero .hs-orione::after,
-  .hero .hs-nozze::before {
-    display: none;
-  }
-
-  .hero-controls {
-    right: 1.25rem;
-    bottom: 1.25rem;
-  }
-
   /* griglie a una colonna */
   .grid,
   .collections-grid,
@@ -4655,10 +4247,10 @@ nav .mega-card:focus-visible::before {
    Questo blocco sta in fondo apposta: vince sulle regole precedenti.
    ====================================================== */
 :root {
-  --night: #030F1C;
-  --wall: #051D34;
-  --wall-2: #0A2640;
-  --wall-3: #0F2E4C;
+  --night: #0A2440;
+  --wall: #0F3557;
+  --wall-2: #154068;
+  --wall-3: #1B4B78;
   --ink: #F3EFE8;
   --mute: #AEB9C7;
   --soft: #D6DCE4;
@@ -4670,7 +4262,7 @@ nav .mega-card:focus-visible::before {
   --ribbon-hi: #E07A6E;
   --brand: #AA372E;
   --wine: #E07A6E;
-  --wine-d: #030F1C;
+  --wine-d: #0A2440;
   --serif: 'Gloock', 'Bodoni 72', Didot, Georgia, serif;
   --sans: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif;
   --spot: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(255, 226, 190, .055), rgba(255, 226, 190, 0) 70%);
@@ -4803,7 +4395,7 @@ section { padding: 8rem 0; }
 
 /* --- Barra in alto --- */
 header {
-  background: rgba(3, 15, 28, .78);
+  background: rgba(10, 36, 64, .78);
   border-bottom: 1px solid var(--line);
   box-shadow: none;
   color: var(--ink);
@@ -4859,7 +4451,7 @@ nav .dd .sub-dd > ul {
 }
 .dd > ul a { color: var(--ink); }
 .mega {
-  background: rgba(3, 15, 28, .88) !important;
+  background: rgba(10, 36, 64, .88) !important;
   border-top: 1px solid var(--ribbon) !important;
   box-shadow: 0 40px 80px rgba(0, 0, 0, .55) !important;
 }
@@ -4943,100 +4535,6 @@ a.more {
 .cta-ask h2 {
   font-size: clamp(2.6rem, 5.4vw, 5rem);
   letter-spacing: -.012em;
-}
-
-/* --- Hero della home: foto a colori, sala buia, luce puntata --- */
-.hero {
-  background: var(--night);
-  min-height: 680px;
-  align-items: flex-end;
-  overflow: hidden;
-}
-.hero .ph { background: var(--night); overflow: hidden; }
-.hero .hero-slide,
-.hero .hero-slide.hs-nozze,
-.hero .hero-slide.hs-orione,
-.hero .hero-slide.hs-leggio,
-.hero .hs-orione {
-  filter: none;
-  background: var(--night);
-}
-@container (min-aspect-ratio: 185/100) {
-  .hero .hero-slide.hs-nozze,
-  .hero .hero-slide.hs-orione,
-  .hero .hero-slide.hs-leggio { background: var(--night); }
-}
-@container (min-aspect-ratio: 17/10) {
-  .hero .hero-slide.hs-leggio { background: var(--night); }
-}
-.hero .ph::after {
-  background:
-    linear-gradient(90deg, rgba(3, 15, 28, .9) 0%, rgba(3, 15, 28, .55) 34%, rgba(3, 15, 28, 0) 62%),
-    linear-gradient(0deg, rgba(3, 15, 28, .92) 0%, rgba(3, 15, 28, 0) 42%),
-    linear-gradient(180deg, rgba(3, 15, 28, .55) 0%, rgba(3, 15, 28, 0) 22%);
-  z-index: 2;
-}
-/* Zoom lentissimo della foto che si vede */
-@media (prefers-reduced-motion: no-preference) {
-  .hero .hero-slide.is-active {
-    animation: olimpLento 9s var(--ease-out) both;
-  }
-}
-@keyframes olimpLento {
-  from { transform: scale(1.07); }
-  to { transform: scale(1); }
-}
-.hero .txt {
-  padding: 0 0 7.5rem;
-  gap: 1.6rem;
-  max-width: min(760px, calc(100% - 7rem));
-}
-.hero .eyebrow {
-  color: var(--ice);
-  margin: 0;
-}
-.hero .eyebrow::after { flex: 0 0 4rem; }
-.hero h1 {
-  color: #fff;
-  font-size: clamp(3.4rem, 6.4vw, 6.4rem);
-  line-height: .95;
-  max-width: 10ch;
-  text-shadow: 0 2px 40px rgba(3, 15, 28, .4);
-}
-.hero p {
-  color: var(--soft);
-  font-size: 1.08rem;
-  max-width: 40ch;
-}
-.hero .btn {
-  align-self: flex-start;
-  margin-top: .6rem;
-}
-.hero-controls {
-  bottom: 3rem;
-  gap: 6px;
-}
-.hero-dot {
-  width: 46px;
-  height: 30px;
-  padding: 14px 4px;
-}
-.hero-dot::before {
-  width: 100%;
-  height: 2px;
-  border: 0;
-  border-radius: 0;
-  background: rgba(255, 255, 255, .3);
-  transition: background-color .4s ease;
-}
-.hero-dot:hover::before { background: rgba(255, 255, 255, .6); }
-.hero-dot[aria-pressed="true"]::before { background: #fff; }
-.hero-pause {
-  margin-left: .8rem;
-  font: 500 .68rem var(--sans);
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: var(--soft);
 }
 
 /* --- Foto: luce puntata, niente angoli arrotondati --- */
@@ -5134,7 +4632,7 @@ nav .mega-card::before {
 
 /* --- Griglie con foto (Servizi, Prodotti, Collezioni, Album matrimoniali) --- */
 .collections-grid .card .ph .card-cap {
-  background: linear-gradient(to top, rgba(3, 15, 28, .92), rgba(3, 15, 28, .55) 55%, rgba(3, 15, 28, 0));
+  background: linear-gradient(to top, rgba(10, 36, 64, .92), rgba(10, 36, 64, .55) 55%, rgba(10, 36, 64, 0));
   text-shadow: none;
 }
 .collections-grid .card .ph h3,
@@ -5229,7 +4727,7 @@ input,
 textarea,
 select {
   color: var(--ink);
-  background: rgba(3, 15, 28, .35);
+  background: rgba(10, 36, 64, .35);
   border: 0;
   border-bottom: 1px solid var(--line-2);
   border-radius: 0;
@@ -5242,7 +4740,7 @@ textarea:focus,
 select:focus {
   outline: none;
   border-color: var(--ribbon-hi);
-  background: rgba(3, 15, 28, .6);
+  background: rgba(10, 36, 64, .6);
 }
 input::placeholder,
 textarea::placeholder { color: #7F8EA1; }
@@ -5278,7 +4776,7 @@ label.check a { color: var(--ink); text-decoration: underline; text-decoration-c
 .contact-info a { border-bottom-color: var(--line-2); }
 .contact-info a:hover { border-color: var(--ribbon-hi); }
 .contact-info .contact-social-cards a {
-  background: rgba(3, 15, 28, .45);
+  background: rgba(10, 36, 64, .45);
   border: 1px solid var(--line);
   border-radius: 0;
   color: var(--ink);
@@ -5287,7 +4785,7 @@ label.check a { color: var(--ink); text-decoration: underline; text-decoration-c
 .contact-info .contact-social-cards a:focus-visible {
   border-color: var(--c, var(--ribbon-hi));
   color: #fff;
-  background: rgba(3, 15, 28, .8);
+  background: rgba(10, 36, 64, .8);
 }
 .contact-socials a { color: var(--ink); }
 .contact-socials a:focus-visible { outline: 1px solid var(--ink); }
@@ -5358,7 +4856,7 @@ label.check a { color: var(--ink); text-decoration: underline; text-decoration-c
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(0deg, rgba(3, 15, 28, .85), rgba(3, 15, 28, 0) 60%);
+  background: linear-gradient(0deg, rgba(10, 36, 64, .85), rgba(10, 36, 64, 0) 60%);
   pointer-events: none;
 }
 .about-pano blockquote p,
@@ -5404,7 +4902,7 @@ label.check a { color: var(--ink); text-decoration: underline; text-decoration-c
 
 /* --- Formati, campioni, prodotti --- */
 .fmt {
-  background: rgba(3, 15, 28, .45);
+  background: rgba(10, 36, 64, .45);
   border: 1px solid var(--line);
 }
 .fmt h3 { font-size: 1.6rem; }
@@ -5428,12 +4926,12 @@ label.check a { color: var(--ink); text-decoration: underline; text-decoration-c
 .collections-grid .card p { color: var(--mute); }
 .album-gallery h2 { color: var(--ink); }
 .download-card {
-  background: rgba(3, 15, 28, .45);
+  background: rgba(10, 36, 64, .45);
   border: 1px solid var(--line);
 }
 
 /* --- Pagina Grafica & Stampa --- */
-.gs-hero::after { background: linear-gradient(0deg, rgba(3, 15, 28, .9), rgba(3, 15, 28, 0) 60%); }
+.gs-hero::after { background: linear-gradient(0deg, rgba(10, 36, 64, .9), rgba(10, 36, 64, 0) 60%); }
 .gs-intro .graphics-lead::after { background: var(--ribbon); }
 .gs-tablist { border-bottom-color: var(--line); }
 .gs-tablist button {
@@ -5457,7 +4955,7 @@ footer .footer-socials a { color: rgba(201, 211, 223, .5); }
 
 /* --- Visore delle foto (lightbox): sala buia --- */
 .lb {
-  background: rgba(3, 15, 28, .9) !important;
+  background: rgba(10, 36, 64, .9) !important;
 }
 .lb button,
 .lb-cap,
@@ -5467,7 +4965,7 @@ footer .footer-socials a { color: rgba(201, 211, 223, .5); }
 .lb .lb-strip .lb-th.on { border-color: var(--ink); }
 
 /* --- Finestra di ringraziamento, privacy --- */
-.thanks { background: rgba(3, 15, 28, .8); }
+.thanks { background: rgba(10, 36, 64, .8); }
 .thanks-box {
   background: var(--wall-2);
   border: 1px solid var(--line);
@@ -5480,7 +4978,7 @@ footer .footer-socials a { color: rgba(201, 211, 223, .5); }
 .legal mark { background: rgba(224, 122, 110, .28); color: var(--ink); }
 .legal-draft {
   border-left: 1px solid var(--ribbon);
-  background: rgba(3, 15, 28, .45);
+  background: rgba(10, 36, 64, .45);
 }
 .legal-date { color: var(--mute); }
 
@@ -5506,21 +5004,9 @@ footer .footer-socials a { color: rgba(201, 211, 223, .5); }
 @media (max-width: 800px) {
   body { font-size: 1rem; }
   section { padding: 5rem 0; }
-  .hero .txt {
-    max-width: calc(100% - 2.8rem);
-    padding-bottom: 6.5rem;
-  }
-  .hero h1 { font-size: clamp(2.9rem, 13vw, 4.2rem); }
-  .hero-controls { bottom: 1.6rem; }
-  .hero-dot { width: 38px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero .hero-slide.is-active { animation: none; }
 }
 
 /* Ritocchi dopo la prima prova */
-.hero h1 { max-width: none; }
 #azienda .about-steps p,
 .graphics-steps p,
 .card p { font-size: .95rem; line-height: 1.7; }
@@ -5549,8 +5035,309 @@ h1, h2, h3,
 #azienda .about-pano blockquote p,
 .quote p { font-style: normal; font-synthesis: none; }
 h1, h2 { letter-spacing: -.02em; }
-.hero h1 { letter-spacing: -.025em; }
 
 /* 3.38: pulsante «Rivedi» della mappa: fondo chiaro, scritta blu (con il tema scuro era bianca su bianco) */
 .map-replay { color: var(--wall); font-family: var(--sans); }
 .map-replay:hover { color: var(--wall); }
+
+/* ======================================================
+   HERO DELLA HOME (3.41): le scritte non coprono mai l'album
+   La sezione è divisa in due zone che non si toccano:
+   - schermi larghi (computer, tablet e telefono in orizzontale): scritte a sinistra,
+     «palco» dell'album a destra;
+   - schermi stretti o verticali (telefono, tablet in verticale, finestre strette):
+     palco in alto, scritte sotto.
+   Ogni foto è ingrandita e spostata con un calcolo che mette l'album intero al centro del
+   palco, il più grande possibile; il resto della foto si allarga intorno (anche sotto la
+   barra e dietro le scritte, scurito dal velo) e verso i bordi sfuma nel blu notte.
+   Per ogni foto bastano il rapporto larghezza/altezza (--r) e il riquadro dell'album
+   (--ax0 --ay0 --ax1 --ay1: sinistra, alto, destra, basso, in frazioni della foto).
+   Per cambiare una foto: nuovo file, nuovo --r e nuovo riquadro (con un filo di margine).
+   ====================================================== */
+.hero {
+  --hb: 68px;                                               /* barra in alto */
+  --m: max(3.5rem, calc((100vw - 1360px) / 2 + 3.5rem));    /* margine sinistro, come il resto della pagina */
+  --mr: 2rem;                                               /* margine a destra del palco */
+  --sr: var(--mr);                                          /* dal palco al bordo destro dello schermo */
+  --fs: clamp(2.4rem, min(6vw, 11.5svh), 5.75rem);          /* titolo */
+  --tw: clamp(18.5rem, calc(var(--fs) * 6.4), 40rem);       /* larghezza della colonna delle scritte */
+  --gap: clamp(2rem, 5vw, 6rem);                            /* spazio libero tra scritte e palco */
+  --top: calc(var(--hb) + clamp(.75rem, 4svh, 2.5rem));     /* dove inizia il palco */
+  --pb: clamp(3.5rem, 13svh, 7.5rem);                       /* fascia in basso con i trattini */
+  --px: 3cqw;                                               /* aria intorno all'album dentro il palco */
+  --py: max(.75rem, 4cqh);                                  /* (basta anche all'inizio dello zoom lento) */
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--m) var(--tw) var(--gap) minmax(0, 1fr) var(--mr);
+  grid-template-rows: var(--top) 1fr var(--pb);
+  min-height: min(100svh, 1080px);
+  height: auto;
+  max-height: none;
+  padding: 0;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--night);
+}
+
+/* Velo blu notte: scuro dietro le scritte, sparisce prima del palco; leggero sotto la barra e
+   sui trattini. */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg,
+      rgba(10, 36, 64, .92) 0,
+      rgba(10, 36, 64, .8) calc(var(--m) + var(--tw) * .55),
+      rgba(10, 36, 64, .58) calc(var(--m) + var(--tw)),
+      rgba(10, 36, 64, 0) calc(var(--m) + var(--tw) + var(--gap))),
+    linear-gradient(0deg, rgba(10, 36, 64, .75) 0, rgba(10, 36, 64, 0) calc(var(--pb) + 2rem)),
+    linear-gradient(180deg, rgba(10, 36, 64, .5) 0, rgba(10, 36, 64, 0) calc(var(--top) + 2rem));
+}
+
+/* Scritte */
+.hero .txt {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: end;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(.9rem, 2.6svh, 1.6rem);
+  width: auto;
+  min-width: 0;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+}
+.hero .txt a { pointer-events: auto; }
+.hero .eyebrow { color: var(--ice); margin: 0; }
+.hero .eyebrow::after { flex: 0 0 4rem; }
+.hero h1 {
+  color: #fff;
+  font-size: var(--fs);
+  line-height: .95;
+  letter-spacing: -.025em;
+  max-width: none;
+  text-shadow: 0 2px 40px rgba(10, 36, 64, .4);
+}
+.hero p {
+  color: var(--soft);
+  font-size: 1.08rem;
+  max-width: 40ch;
+}
+.hero .btn {
+  align-self: flex-start;
+  margin-top: .6rem;
+}
+
+/* Palco dell'album */
+.hero .ph {
+  grid-column: 4;
+  grid-row: 2;
+  position: relative;
+  inset: auto;
+  z-index: -2;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  background: none;
+  box-shadow: none;
+}
+.hero .ph::after { content: none; }
+.hero .hero-slides {
+  position: absolute;
+  inset: 0;
+  container-type: size;
+}
+.hero .hero-slide {
+  position: absolute;
+  inset: 0;
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 1.1s ease, visibility 1.1s;
+}
+.hero .hero-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Riquadro dell'album in ogni foto */
+.hero .hs-nozze { --r: 1.7768; --ax0: .455; --ay0: .18; --ax1: .886; --ay1: .822; }   /* album-nozze-elisa-andrea.jpg 1672x941 */
+.hero .hs-leggio { --r: 1.6817; --ax0: .378; --ay0: .158; --ax1: .858; --ay1: .826; } /* album-leggio-largo.jpg 1453x864 */
+.hero .hs-orione { --r: 1.7768; --ax0: .474; --ay0: .21; --ax1: .807; --ay1: .81; }   /* album-orione-tavolo.jpg 1672x941 */
+
+/* La foto: larga quanto serve perché l'album stia nel palco (meno l'aria), poi spostata con il
+   centro dell'album al centro del palco (--cx). Se così a destra la foto finirebbe prima del
+   bordo dello schermo (monitor molto larghi), l'album scorre verso destra, sempre dentro il
+   palco. Da ogni lato la foto sfuma nel blu notte, dal bordo fino a poco prima dell'album
+   (l'album resta sempre nitido). */
+.hero .hero-slide img,
+.hero .ph.no-zoom:hover .hero-slide img {
+  --pw: min(calc((100cqw - 2 * var(--px)) / (var(--ax1) - var(--ax0))),
+            calc((100cqh - 2 * var(--py)) * var(--r) / (var(--ay1) - var(--ay0))));
+  --ph: calc(var(--pw) / var(--r));
+  --cx: min(max(50cqw, calc(100cqw + var(--sr) - var(--pw) * (1 - (var(--ax0) + var(--ax1)) / 2))),
+            calc(100cqw - var(--px) - var(--pw) * (var(--ax1) - var(--ax0)) / 2));
+  --sx: linear-gradient(90deg, transparent, #000 calc(var(--ax0) * 75%), #000 calc(100% - (1 - var(--ax1)) * 75%), transparent);
+  --sy: linear-gradient(180deg, transparent, #000 calc(var(--ay0) * 75%), #000 calc(100% - (1 - var(--ay1)) * 75%), transparent);
+  position: absolute;
+  inset: auto;
+  left: calc(var(--cx) - var(--pw) * (var(--ax0) + var(--ax1)) / 2);
+  top: calc(50cqh - var(--ph) * (var(--ay0) + var(--ay1)) / 2);
+  width: var(--pw);
+  height: var(--ph);
+  max-width: none;
+  object-fit: fill;
+  transform: none;
+  transition: none;
+  filter: none;
+  -webkit-mask-image: var(--sx), var(--sy);
+  -webkit-mask-composite: source-in;
+  mask-image: var(--sx), var(--sy);
+  mask-composite: intersect;
+}
+
+/* Zoom lentissimo della foto che si vede (intorno al centro del palco, cioè all'album) */
+@keyframes olimpLento {
+  from { transform: scale(1.07); }
+  to { transform: scale(1); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero .hero-slide.is-active { animation: olimpLento 9s var(--ease-out) both; }
+}
+
+/* Trattini e «Pausa», in basso a destra sotto il palco */
+.hero-controls {
+  grid-column: 4;
+  grid-row: 3;
+  justify-self: end;
+  align-self: center;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  background: none;
+}
+.hero-dot {
+  width: 46px;
+  height: 30px;
+  padding: 14px 4px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.hero-dot::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, .3);
+  transition: background-color .4s ease;
+}
+.hero-dot:hover::before { background: rgba(255, 255, 255, .6); }
+.hero-dot[aria-pressed="true"]::before { background: #fff; }
+.hero-pause {
+  margin-left: .8rem;
+  padding: 10px;
+  border: 0;
+  background: transparent;
+  font: 500 .68rem var(--sans);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--soft);
+  cursor: pointer;
+}
+
+/* Fino a 800 px i margini sono quelli del resto della pagina sul telefono */
+@media (max-width: 800px) {
+  .hero {
+    --m: 1.25rem;
+    --mr: 1.25rem;
+  }
+}
+
+/* Schermi stretti o verticali: palco in alto, largo quanto lo schermo, e scritte sotto. Il palco
+   prende lo spazio che resta (almeno --smin); sotto l'album la foto sfuma prima delle scritte. */
+@media (max-width: 560px), (max-aspect-ratio: 5/4) {
+  .hero {
+    --fs: clamp(2.15rem, min(11.5vw, 7.5svh), 5rem);
+    --smin: clamp(13rem, min(60vw, 40svh), 34rem);
+    --px: var(--m);
+    --py: clamp(1rem, 5cqh, 2rem);
+    --sr: 0px;
+    grid-template-columns: var(--m) minmax(0, 1fr) var(--m);
+    grid-template-rows: var(--hb) minmax(var(--smin), 1fr) auto auto;
+    padding-bottom: clamp(1.25rem, 3.5svh, 3.5rem);
+  }
+  .hero::after {
+    background: linear-gradient(180deg, rgba(10, 36, 64, .5) 0, rgba(10, 36, 64, 0) calc(var(--hb) + 2rem));
+  }
+  .hero .ph {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  .hero-controls {
+    grid-column: 2;
+    grid-row: 3;
+    justify-self: end;
+    margin: .1rem -.6rem .3rem 0;
+  }
+  .hero .txt {
+    grid-column: 2;
+    grid-row: 4;
+    align-self: start;
+    gap: clamp(.7rem, 1.9svh, 1.4rem);
+  }
+  .hero .btn { margin-top: .2rem; }
+  .hero .hero-slide img,
+  .hero .ph.no-zoom:hover .hero-slide img {
+    --sb: linear-gradient(180deg, #000 calc(var(--ph) * var(--ay1)), transparent calc(50cqh + var(--ph) * (var(--ay0) + var(--ay1)) / 2 + 2.5rem));
+    -webkit-mask-image: var(--sx), var(--sy), var(--sb);
+    mask-image: var(--sx), var(--sy), var(--sb);
+  }
+  .hero-dot { width: 38px; }
+}
+
+/* Telefono: la scritta piccola sopra il titolo sta su una riga */
+@media (max-width: 560px) {
+  .hero .eyebrow {
+    font-size: .66rem;
+    letter-spacing: .14em;
+    gap: .8rem;
+  }
+  .hero .eyebrow::after { flex: 1 1 0; min-width: 0; }
+}
+
+/* Schermi bassi (telefono in orizzontale, finestre basse): scritte più compatte, così titolo,
+   testo, pulsante e album stanno nello schermo. */
+@media (max-height: 520px) {
+  .hero {
+    --fs: clamp(1.9rem, 10.5svh, 2.6rem);
+    --tw: clamp(19.75rem, calc(var(--fs) * 6.4), 26rem);
+    --top: calc(var(--hb) + .6rem);
+    --pb: 2.75rem;
+  }
+  .hero .txt { gap: .6rem; }
+  .hero p { font-size: .95rem; line-height: 1.55; }
+  .hero .btn { margin-top: .2rem; min-height: 44px; padding: .75rem 1.25rem; }
+  .hero .eyebrow {
+    font-size: .66rem;
+    letter-spacing: .14em;
+    gap: .8rem;
+  }
+  .hero .eyebrow::after { flex: 1 1 0; min-width: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero .hero-slide.is-active { animation: none; }
+}
