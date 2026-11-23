@@ -1810,3 +1810,9 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                    Se la foto è già della misura giusta la scelta non compare. Avvisi gialli aggiornati
                    per i due modi (anche «molto più grande»); guida «Foto: formati e misure» aggiornata.
                    Worker non toccato.
+
+3.40 (23/11/2026)  Guida dell'area riservata: rifatte le schermate nuova, rinomina, elimina e
+                   fissa-scheda (ora con «Misura giusta: …»); in «nuova» si vede la scelta «Adatta in
+                   automatico / Usa la mia foto così com'è» con il suo anello. Punti che lampeggiano
+                   ricalcolati con riquadri.py. Nei passi «Aggiungere una foto» e «Foto fisse» due
+                   righe sulla scelta della misura.
