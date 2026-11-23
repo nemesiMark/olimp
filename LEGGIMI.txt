@@ -1795,3 +1795,18 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                      non torna mai indietro (altrimenti nomi e contorni non si vedono più).
                    Discesa di 15,5 s invece di 14 (js/mappa.js?v=21). Il pulsante «Rivedi» ha di nuovo
                    la scritta blu (era bianca su bianco, style.css?v=187).
+
+3.39 (23/11/2026)  Area riservata: quando si carica una foto nuova (gallerie e foto fisse) e la sua misura
+                   non è quella giusta del posto, sotto la misura si sceglie come salvarla:
+                   - «Adatta in automatico» (scelta di partenza): ritagliata alla forma del posto con la
+                     parte scelta nell'anteprima (trascinandola e ingrandendola, come prima) e portata
+                     ESATTAMENTE alla misura giusta (es. 1600 × 1200), anche ingrandendola; prima si
+                     riduceva solo a 1600 px sul lato lungo e non si ingrandiva mai. Se il riquadro del
+                     sito ha una forma un po' diversa, la parte scelta si allarga fino alla forma giusta.
+                   - «Usa la mia foto così com'è»: stessi pixel, niente tagli né ridimensionamenti (per chi
+                     la prepara da sé); l'anteprima la mostra intera con il taglio del sito. Si toglie solo
+                     l'EXIF. Se supera i 4 MB accettati dal Worker si abbassa la qualità JPEG (0,92 → 0,75),
+                     e se non basta un messaggio chiede di adattarla o ridurla.
+                   Se la foto è già della misura giusta la scelta non compare. Avvisi gialli aggiornati
+                   per i due modi (anche «molto più grande»); guida «Foto: formati e misure» aggiornata.
+                   Worker non toccato.
