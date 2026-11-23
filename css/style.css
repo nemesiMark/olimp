@@ -4372,7 +4372,8 @@ section { padding: 8rem 0; }
   background-repeat: no-repeat;
   color: var(--ink);
 }
-#azienda {
+#azienda,
+#contatti {   /* contatti con lo stesso fondo di «Chi siamo» (3.48) */
   background: var(--spot), var(--night);
   background-repeat: no-repeat;
   color: var(--ink);

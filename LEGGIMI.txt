@@ -1892,3 +1892,6 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
 
 3.47 (23/11/2026)  Hero della home: invertite le due foto. Ora parte l'album Orione sul tavolo,
                    poi l'album Elisa & Andrea (solo index.html).
+
+3.48 (23/11/2026)  Home: la sezione «Contatti» ha ora lo stesso fondo beige-tortora (#EEE4D4) della
+                   sezione «Chi siamo». style.css?v=194 in tutte le pagine.
