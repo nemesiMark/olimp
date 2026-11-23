@@ -9,15 +9,15 @@
   /* --- stile --- */
   var css='\
 /* Barra a tutta larghezza in fondo alla pagina (proposta C): beige chiaro con linea bordeaux sopra, testo a sinistra e pulsanti a destra. */\
-#ck-banner{position:fixed;left:0;right:0;bottom:0;z-index:9999;background:var(--night,#EEE4D4);color:#3A2E24;border-top:1px solid #aa372e;box-shadow:0 -8px 30px rgba(58,46,36,.15);font:400 .9rem/1.55 "Lato",Arial,sans-serif}\
+#ck-banner{position:fixed;left:0;right:0;bottom:0;z-index:9999;background:var(--night,#EEE4D4);color:#3A2E24;border-top:1px solid #aa372e;box-shadow:0 -8px 30px rgba(58,46,36,.15);font:400 .9rem/1.55 "Inter Tight",Arial,sans-serif}\
 #ck-banner .ck-in{max-width:1360px;margin:0 auto;padding:1rem 3.5rem;display:flex;align-items:center;gap:1rem 2.5rem}\
 #ck-banner .ck-txt{flex:1 1 auto;min-width:0;margin:0;color:#6F5F50;font-size:.85rem}\
-#ck-banner h2{display:inline;font:700 .85rem "Lato",Arial,sans-serif;margin:0;color:#3A2E24}\
+#ck-banner h2{display:inline;font:700 .85rem "Inter Tight",Arial,sans-serif;margin:0;color:#3A2E24}\
 #ck-banner .ck-row{display:flex;gap:.6rem;flex:0 0 auto}\
 #ck-banner .ck-btn{flex:0 0 auto;min-width:120px;border:1.5px solid transparent}\
 #ck-banner [data-ck=no]{background:transparent;color:#3A2E24;border-color:rgba(58,46,36,.5)}\
 #ck-banner [data-ck=yes]{background:#3A2E24;color:#FAF6EE}\
-.ck-btn{flex:1 1 140px;border:0;border-radius:0;padding:.8rem 1.2rem;font:500 .74rem "Lato",Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;background:#3A2E24;color:#FAF6EE}\
+.ck-btn{flex:1 1 140px;border:0;border-radius:0;padding:.8rem 1.2rem;font:500 .74rem "Inter Tight",Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;background:#3A2E24;color:#FAF6EE}\
 /* Pulsanti: al passaggio del mouse un blocco bordeaux sale dal basso e li riempie, testo bianco. */\
 .ck-btn{background-image:linear-gradient(#aa372e,#aa372e)!important;background-repeat:no-repeat!important;background-position:0 100%!important;background-size:100% 0%!important;transition:background-size .4s ease-in-out,color .4s ease-in-out,border-color .4s ease-in-out}\
 .ck-btn:hover,.ck-btn:focus-visible{background-size:100% 100%!important;color:#fff!important;border-color:#aa372e!important}\

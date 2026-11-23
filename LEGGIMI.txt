@@ -1895,3 +1895,20 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
 
 3.48 (23/11/2026)  Home: la sezione «Contatti» ha ora lo stesso fondo beige-tortora (#EEE4D4) della
                    sezione «Chi siamo». style.css?v=194 in tutte le pagine.
+
+3.49 (23/11/2026)  Un solo font per tutto il sito: Inter Tight (titoli, testi, menu, pulsanti, mappa
+                   e barra dei cookie) al posto di Playfair Display e Lato. Caricato da Google Fonts
+                   (pesi 300-800 con corsivo). L'area riservata mantiene i suoi font.
+                   style.css?v=195 e cookie.js?v=17 in tutte le pagine.
+
+3.50 (23/11/2026)  Testo più grande e titoli in grassetto. La misura di base passa da 16 a 18 px,
+                   quindi testi, menu, pulsanti e didascalie crescono del 12,5%. Tutti i titoli
+                   (h1-h4, titolo e numeri delle statistiche) sono in grassetto (700); i due titoli
+                   principali (h1, h2) restano grandi come prima. Regole nel blocco «TESTO PIÙ
+                   GRANDE E TITOLI IN GRASSETTO (3.50)», subito prima del blocco dell'hero.
+                   style.css?v=196 in tutte le pagine.
+
+3.51 (23/11/2026)  Barra in alto: tutte le voci (anche sottomenu e menu del telefono) in grassetto.
+                   Sui computer le voci sono un po' più piccole e meno spaziate (misura che cresce
+                   con lo schermo), così in grassetto ci stanno tutte senza toccare il lucchetto.
+                   style.css?v=197 in tutte le pagine.
