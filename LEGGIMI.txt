@@ -1859,3 +1859,36 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                    Contatti) da #0A2640 a #154068 e #0F2E4C a #1B4B78. Aggiornati allo stesso blu
                    anche i veli sopra le foto, la barra in alto e le finestre (prima in blu notte
                    vecchio). style.css?v=189 e cookie.js?v=14 in tutte le pagine.
+
+3.43 (23/11/2026)  Hero della home: le tre foto sfumano solo dal lato delle scritte (a sinistra; sui
+                   telefoni in basso), con una sfumatura molto più graduale, senza lo «stacco» che si
+                   vedeva prima. Sugli altri tre lati la foto continua fino al bordo della sezione; solo
+                   se la foto finisce prima (finestre alte e strette) sfuma piano invece di tagliarsi.
+                   La sfumatura segue una curva morbida invece di una retta, e il velo blu dietro le
+                   scritte schiarisce poco a poco su un tratto più lungo invece di finire di colpo
+                   all'inizio del palco. style.css?v=190 in tutte le pagine.
+
+3.44 (23/11/2026)  Sfondi chiari in tutto il sito (il blu era ancora troppo scuro): avorio #FAF6EE
+                   per le pagine, beige #F3ECE0 per le fasce alternate, beige-tortora #EEE4D4 per
+                   hero della home, testata delle pagine interne, Chi siamo, piè di pagina, menu e
+                   barra dei cookie, #E8DDCB per i riquadri delle foto in caricamento. Testi passati
+                   a marrone scuro (#3A2E24, secondari #6F5F50) per leggersi sul chiaro; il bordeaux
+                   del logo resta per pulsanti e linee (il rosso chiaro dei collegamenti diventa
+                   #8E2C24). Barra in alto, finestre e velo dell'hero ora beige; restano scuri (in
+                   marrone) solo i veli sopra le foto con scritte bianche. In cima alla home le voci
+                   del menu sono marrone scuro con alone chiaro. Ombre più leggere.
+                   style.css?v=191 e cookie.js?v=15 in tutte le pagine.
+
+3.45 (23/11/2026)  Nuovi font: titoli in Playfair Display (al posto di Gloock), testi in Lato (al
+                   posto di Hanken Grotesk), in tutte le pagine e nella barra dei cookie. Caricati da
+                   Google Fonts (Playfair 400-700 con corsivo, Lato 300/400/700).
+                   style.css?v=192 e cookie.js?v=16 in tutte le pagine.
+
+3.46 (23/11/2026)  Hero della home: tolta la foto dell'album in camoscio grigio sul leggio in legno
+                   (album-leggio-largo.jpg, spostata in images/non-usate/). Restano due foto (album
+                   Elisa & Andrea e album Orione sul tavolo) con due trattini. Tolta anche la sua
+                   regola di posizione (.hs-leggio) dal blocco «HERO DELLA HOME».
+                   style.css?v=193 in tutte le pagine.
+
+3.47 (23/11/2026)  Hero della home: invertite le due foto. Ora parte l'album Orione sul tavolo,
+                   poi l'album Elisa & Andrea (solo index.html).
