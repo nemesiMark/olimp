@@ -5185,6 +5185,33 @@ footer .footer-socials a:focus-visible { color: var(--ribbon); }
    rossa sopra (la sezione non aveva spazio in alto), su telefono e computer */
 .album-gallery { padding-top: clamp(2.5rem, 5vw, 4.5rem); }
 
+/* Visore delle foto sul telefono (3.54): le frecce per cambiare foto stavano sopra la foto e
+   si confondevano con lo sfondo; ora sono due pulsanti tondi affiancati in basso, sopra la
+   fascia delle miniature. La didascalia si ferma sopra le frecce (js/script.js, placeCap). */
+@media (max-width: 700px) {
+  .lb .lb-p,
+  .lb .lb-n {
+    top: auto;
+    bottom: 106px;
+    margin-top: 0;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 4px;
+    font-size: 36px;
+    border: 1px solid rgba(58, 46, 36, .35);
+    border-radius: 50%;
+    background: var(--wall);
+    opacity: 1;
+  }
+  .lb .lb-p { left: calc(50% - 62px); }
+  .lb .lb-n { right: calc(50% - 62px); }
+  .lb:not(.has-strip) .lb-p,
+  .lb:not(.has-strip) .lb-n { bottom: 24px; }
+}
+
 /* ======================================================
    TESTI PIÙ PICCOLI SUL TELEFONO (3.54, richiesta del cliente)
    Fino a 600 px: base 15 px invece di 18 (testo 15-16 px invece di 19, e in proporzione

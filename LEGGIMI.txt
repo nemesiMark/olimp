@@ -1998,3 +1998,7 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                    - Pagine delle linee e Album comunione: spazio sopra il titolo della galleria
                      («Gli album della linea»), che era attaccato alla linea rossa (~38 px sul
                      telefono, ~64 px sul computer). style.css?v=204.
+                   - Visore delle foto sul telefono (fino a 700 px): le frecce per cambiare foto
+                     non stanno più sopra la foto, dove si confondevano, ma sono due pulsanti
+                     tondi affiancati in basso, sopra le miniature; la didascalia si ferma sopra.
+                     style.css?v=205, script.js?v=37.
