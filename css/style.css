@@ -3983,18 +3983,18 @@ nav .mega-card:focus-visible::before {
     transition: transform 1s cubic-bezier(.2, .8, .2, 1) var(--d, 0s), opacity .6s ease var(--d, 0s), filter .8s ease var(--d, 0s);
   }
 
-  /* dalla 3.54 il logo è la 4ª voce: a sinistra 1-3, a destra 5-9 (il 9 è il lucchetto) */
+  /* dalla 3.56 il logo è la 5ª voce: a sinistra 1-4 (Dove è la 4ª), a destra 6-9 (il 9 è il lucchetto) */
   .nav-imp nav > ul > li:nth-child(1) > a { --x: -260px; --y: 230px; --r: -8deg; --d: 0s; }
   .nav-imp nav > ul > li:nth-child(9) > a { --x: 220px; --y: 190px; --r: 8deg; --d: 0s; }
   .nav-imp nav > ul > li:nth-child(2) > a { --x: -200px; --y: 440px; --r: -5deg; --d: .22s; }
   .nav-imp nav > ul > li:nth-child(8) > a { --x: 320px; --y: 320px; --r: 6deg; --d: .22s; }
   .nav-imp nav > ul > li:nth-child(3) > a { --x: -70px; --y: 430px; --r: -2deg; --d: .44s; }
   .nav-imp nav > ul > li:nth-child(7) > a { --x: 220px; --y: 440px; --r: 4deg; --d: .44s; }
-  .nav-imp nav > ul > li:nth-child(6) > a { --x: 150px; --y: 430px; --r: 3deg; --d: .55s; }
-  .nav-imp nav > ul > li:nth-child(5) > a { --x: 90px; --y: 430px; --r: 2deg; --d: .66s; }
-  .nav-imp nav > ul > li:nth-child(4) > a { --x: 0px; --y: 420px; --r: 0deg; --d: 1s; }
+  .nav-imp nav > ul > li:nth-child(4) > a { --x: -40px; --y: 430px; --r: -1deg; --d: .6s; }
+  .nav-imp nav > ul > li:nth-child(6) > a { --x: 90px; --y: 430px; --r: 2deg; --d: .6s; }
+  .nav-imp nav > ul > li.nav-logo > a { --x: 0px; --y: 420px; --r: 0deg; --d: 1s; }
 
-  .nav-imp.go nav > ul > li:nth-child(4) > a {
+  .nav-imp.go nav > ul > li.nav-logo > a {
     transition: transform 1.1s cubic-bezier(.3, 1.4, .4, 1) var(--d), opacity .5s ease var(--d), filter .8s ease var(--d);
   }
 }
@@ -5248,20 +5248,21 @@ footer .footer-socials a:focus-visible { color: var(--ribbon); }
 }
 
 /* ======================================================
-   NAVBAR: SINISTRA LARGA, DESTRA COMPATTA (3.55)
-   Il logo resta al centro dello schermo. A sinistra Servizi, Prodotti e Collezioni si
-   dividono tutta la metà sinistra (ben distanziati); a destra Grafica & Stampa, Chi siamo,
-   Dove, Contatti e il lucchetto stanno in un gruppo compatto attaccato al logo. Il lucchetto
-   non è più in posizione assoluta sul bordo: è l'ultima voce del gruppo. Il vuoto dopo il
-   lucchetto lo calcola js/script.js (centraLogo), così il logo resta al centro.
+   NAVBAR: SINISTRA LARGA, DESTRA COMPATTA (3.55) → LATI A SPECCHIO (3.56)
+   Il logo resta al centro dello schermo. A sinistra Servizi, Prodotti, Collezioni e Dove,
+   a destra Grafica & Stampa, Chi siamo, Contatti e il lucchetto: dalla 3.56 i due lati sono
+   distanziati allo stesso modo (prima la destra era un gruppo compatto attaccato al logo).
+   Il lucchetto non è in posizione assoluta: è l'ultima voce. La piccola differenza di
+   larghezza fra i due lati la pareggia js/script.js (centraLogo), così il logo resta al centro.
    ====================================================== */
 @media (min-width: 1101px) {
   nav > ul { gap: 0; padding-left: 0; padding-right: 0; }
-  nav > ul > li:not(.nav-logo) { flex: 1 1 0; }
-  nav > ul > li.nav-logo ~ li { flex: none; }
-  nav > ul > li.nav-logo + li { margin-left: clamp(1.2rem, 2vw, 2.2rem); }
-  nav > ul > li.nav-logo ~ li + li { margin-left: clamp(.9rem, 1.3vw, 1.5rem); }
-  nav > ul > li.nav-logo ~ li.nav-lock { margin-left: .4rem; }
+  /* dalla 3.56: ogni voce prende la sua larghezza più una parte uguale dello spazio libero,
+     così fra una scritta e l'altra c'è lo stesso vuoto. A sinistra la scritta sta all'inizio
+     della sua parte (vuoto dopo), a destra alla fine (vuoto prima): le due metà sono a
+     specchio, da Servizi al bordo sinistro fino al lucchetto sul bordo destro. */
+  nav > ul > li:not(.nav-logo) { flex: 1 1 auto; }
+  nav > ul > li.nav-logo ~ li { flex-grow: 1; display: flex; justify-content: flex-end; }  /* annulla il 4 contro 3 della 3.54 */
   nav > ul > li.nav-lock { position: static; margin-top: 0; }
 }
 

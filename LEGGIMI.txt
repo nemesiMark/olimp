@@ -405,3 +405,15 @@ ricerca, quando serve sapere perché una cosa è fatta in un certo modo).
                    (style.css?v=207, script.js?v=39). Sotto i 1101 px non cambia niente.
                    (L'area riservata in PHP per Netsons è pronta nel ramo locale netsons-php-locale,
                    non pubblicato: quando andrà online diventerà la 3.56.)
+3.56 (27/11/2026)  Navbar: «Dove» spostato a sinistra, subito dopo Collezioni (su computer ora a
+                   sinistra Servizi, Prodotti, Collezioni e Dove; a destra Grafica & Stampa, Chi siamo,
+                   Contatti e il lucchetto). Nel menu del telefono Dove viene dopo Collezioni. In
+                   tutte le 26 pagine. Aggiornata l'animazione d'ingresso della navbar nella home
+                   (il logo ora è la 5ª voce, preso con .nav-logo). Logo sempre al centro (provato a
+                   1110, 1280, 1440 e 1920 px).
+                   Poi la parte destra distanziata come la sinistra: i due lati sono a specchio
+                   (stesso vuoto fra le scritte, Servizi sul bordo sinistro e lucchetto sul bordo
+                   destro), non più un gruppo compatto attaccato al logo. centraLogo ora pareggia
+                   i lati in tutte e due le direzioni (margine dopo il lucchetto o prima di
+                   Servizi). style.css?v=209, script.js?v=40.
+                   (L'area riservata PHP del ramo netsons-php-locale diventerà la 3.57.)

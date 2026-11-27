@@ -10,8 +10,8 @@ var dropdowns=[].slice.call(nav.querySelectorAll('.dd'));
 function centraLogo(){var ul=nav.querySelector(':scope > ul'),logo=ul&&ul.querySelector(':scope > .nav-logo');if(!logo)return;
 var voci=[].slice.call(ul.children).filter(function(li){return li!==logo}),prima=voci[0],ultima=voci[voci.length-1];
 prima.style.marginLeft='';ultima.style.marginRight='';if(!matchMedia('(min-width:1101px)').matches)return;
-var m=0;for(var i=0;i<5;i++){var u=ul.getBoundingClientRect(),l=logo.getBoundingClientRect(),d=(u.left+u.right)/2-(l.left+l.right)/2;if(Math.abs(d)<.5)break;m=Math.max(0,m-d);
-ultima.style.marginRight=m?m+'px':''}}
+var m=0;for(var i=0;i<12;i++){var u=ul.getBoundingClientRect(),l=logo.getBoundingClientRect(),d=(u.left+u.right)/2-(l.left+l.right)/2;if(Math.abs(d)<.5)break;m-=d;
+ultima.style.marginRight=m>0?m+'px':'';prima.style.marginLeft=m<0?-m+'px':''}}
 function alignDD(){centraLogo();var desk=matchMedia('(min-width:1101px)').matches,rem=parseFloat(getComputedStyle(document.documentElement).fontSize)||16;
 [].slice.call(nav.querySelectorAll(':scope > ul > li.dd')).forEach(function(li){var a=li.querySelector(':scope > a'),ul=li.querySelector(':scope > ul');if(a&&ul)ul.style.left=desk?(a.offsetLeft-1.2*rem)+'px':''})}
 alignDD();window.addEventListener('resize',alignDD);window.addEventListener('load',alignDD);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(alignDD);
