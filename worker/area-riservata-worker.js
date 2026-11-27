@@ -77,6 +77,7 @@ export default {
       if (request.method === "POST" && url.pathname === "/salva") return await salva(request, env, cors);
       if (request.method === "POST" && url.pathname === "/password") return await cambiaPassword(request, env, cors);
       if (request.method === "POST" && url.pathname === "/password-clienti") return await cambiaPasswordClienti(request, env, cors);
+      if (request.method === "POST" && url.pathname === "/carica-pdf") return await caricaPdf(url, request, env, cors);
       return json({ errore: "Indirizzo non valido" }, 404, cors);
     } catch (e) {
       const stato = e && e.stato ? e.stato : 500;
@@ -463,6 +464,36 @@ async function salva(request, env, cors) {
       return json({ gallerie: galNuove, immagini, testi, commit: nuovoCommit.sha }, 200, cors);
     } catch (e) {
       if (e.stato !== 422) throw e; // 422: il ramo è andato avanti, si riprova sul nuovo stato
+    }
+  }
+  throw errore("Il sito è stato modificato nello stesso momento, riprova", 409);
+}
+
+/* ---------- PDF dell'area download (3.54) ----------
+ * L'amministratore sostituisce catalogo o guida: ?f=catalogo.pdf, corpo = il PDF in base64 (testo
+ * semplice, lo prepara il browser: qui non si decodifica, si controlla solo che inizi con «%PDF-»).
+ * Un commit per ogni file; il nome resta uguale, così i clienti scaricano subito quello nuovo. */
+const PDF_CARICABILI = ["catalogo.pdf", "guida.pdf"];
+const MAX_PDF_BYTES = 20 * 1024 * 1024;
+async function caricaPdf(url, request, env, cors) {
+  const nome = url.searchParams.get("f") || "";
+  if (!PDF_CARICABILI.includes(nome)) throw errore("File non valido", 400);
+  const b64 = (await request.text()).replace(/\s+/g, "");
+  if (!b64.startsWith("JVBERi0")) throw errore("Il file non è un PDF", 415); // «%PDF-» in base64
+  if (!/^[A-Za-z0-9+/]+={0,2}$/.test(b64)) throw errore("File non valido", 400);
+  if (b64.length * 3 / 4 > MAX_PDF_BYTES) throw errore("Il PDF è troppo grande (massimo 20 MB)", 413);
+  const blob = await gh(env, "git/blobs", "POST", { content: b64, encoding: "base64" });
+  for (let tentativo = 0; tentativo < 3; tentativo++) {
+    const ref = await gh(env, `git/ref/heads/${env.BRANCH}`);
+    const commit = await gh(env, `git/commits/${ref.object.sha}`);
+    const albero = await gh(env, "git/trees", "POST", { base_tree: commit.tree.sha,
+      tree: [{ path: "downloads/" + nome, mode: "100644", type: "blob", sha: blob.sha }] });
+    const nuovo = await gh(env, "git/commits", "POST", { message: `Area riservata: nuovo PDF downloads/${nome}`, tree: albero.sha, parents: [ref.object.sha] });
+    try {
+      await gh(env, `git/refs/heads/${env.BRANCH}`, "PATCH", { sha: nuovo.sha, force: false });
+      return json({ ok: true, file: nome, commit: nuovo.sha }, 200, cors);
+    } catch (e) {
+      if (e.stato !== 422) throw e;
     }
   }
   throw errore("Il sito è stato modificato nello stesso momento, riprova", 409);

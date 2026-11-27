@@ -468,6 +468,9 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
 .pw-clienti{border:1px solid var(--line);border-radius:6px;background:var(--card);padding:16px 18px;margin:0 0 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}
 .pw-clienti p{flex:1 1 260px;font-size:15px;color:var(--mute)}
 .pw-clienti b{color:var(--ink)}
+.scarica{flex-direction:column;align-items:stretch}
+.pdf-riga{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;border:1px solid var(--line);border-radius:6px;background:var(--card);padding:12px 18px}
+.pdf-riga b{flex:1 1 200px;font-size:15px}
 </style>
 </head>
 <body>
@@ -842,7 +845,23 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
   var NON_ONLINE = ['prodotti-studio-fotografico.html', 'custodie-per-album.html', 'album-bambini-new-born.html', 'album-eventi.html', 'area-download.html'];
   // l'area download è solo qui, dietro la password (3.53); dalla 3.54 i PDF li consegna il Worker
   // (downloads/ non è più sul sito pubblicato) e i clienti entrano con la loro password
-  var SCARICA = [['downloads/catalogo.pdf', 'Scarica il catalogo'], ['downloads/guida.pdf', 'Scarica la guida alla conservazione']];
+  var SCARICA = [['downloads/catalogo.pdf', 'Scarica il catalogo', 'Catalogo'], ['downloads/guida.pdf', 'Scarica la guida alla conservazione', 'Guida alla conservazione']];
+  /* l'admin sostituisce un PDF (stesso nome): il browser lo manda al Worker in base64 */
+  function caricaPdf(file, input) {
+    var f = input.files && input.files[0]; input.value = ''; if (!f) return;
+    var nome = file.replace(/^downloads\//, '');
+    if (!/\.pdf$/i.test(f.name) && f.type !== 'application/pdf') { alert('Scegli un file PDF'); return; }
+    if (f.size > 20 * 1024 * 1024) { alert('Il PDF è troppo grande: al massimo 20 MB'); return; }
+    var T = { ok: 'PDF caricato', okP: 'Da ora i clienti scaricano il file nuovo (' + nome + ').', no: 'PDF non caricato' };
+    inizioSalva('Caricamento di ' + f.name + '…');
+    new Promise(function (ok, no) { var r = new FileReader(); r.onload = function () { ok(String(r.result).split(',')[1] || ''); }; r.onerror = no; r.readAsDataURL(f); })
+      .then(function (b64) {
+        return fetch(API + '/carica-pdf?f=' + encodeURIComponent(nome), { method: 'POST', headers: { 'Content-Type': 'text/plain', Authorization: 'Bearer ' + token }, body: b64 })
+          .then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) {
+            if (r.status === 401) { esci(); throw new Error('Accesso scaduto, entra di nuovo'); }
+            if (!r.ok) throw new Error(d.errore || 'Errore ' + r.status); return d; }); }, function () { throw new Error('Nessuna connessione, riprova'); });
+      }).then(function () { fineSalva(true, '', null, T); }, function (e) { fineSalva(false, e.message, null, T); });
+  }
   function scaricaPdf(file, bottone) {
     var nome = file.replace(/^downloads\//, ''), prima = bottone.textContent, err = $('err-dl');
     bottone.disabled = true; bottone.textContent = 'Download in corso…'; if (err) err.textContent = '';
@@ -1012,8 +1031,15 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     if (p[0] === 'area-download.html') {
       var dl = document.createElement('div'); dl.className = 'scarica';
       SCARICA.forEach(function (f) {
+        var r = document.createElement('div'); r.className = 'pdf-riga';
+        var n = document.createElement('b'); n.textContent = f[2]; r.appendChild(n);
         var x = document.createElement('button'); x.type = 'button'; x.className = 'btn pri'; x.textContent = f[1] + ' ↓';
-        x.onclick = function () { scaricaPdf(f[0], x); }; dl.appendChild(x);
+        x.onclick = function () { scaricaPdf(f[0], x); }; r.appendChild(x);
+        var inp = document.createElement('input'); inp.type = 'file'; inp.accept = 'application/pdf,.pdf'; inp.hidden = true;
+        inp.onchange = function () { caricaPdf(f[0], inp); };
+        var c = document.createElement('button'); c.type = 'button'; c.className = 'btn'; c.textContent = 'Carica un PDF nuovo ↑';
+        c.onclick = function () { inp.click(); }; r.appendChild(c); r.appendChild(inp);
+        dl.appendChild(r);
       });
       var pc = document.createElement('div'); pc.className = 'pw-clienti';
       pc.innerHTML = '<p id="pwc-stato">Password dei clienti: …</p><button class="btn" type="button" id="apri-pwc">Cambia la password dei clienti</button>';

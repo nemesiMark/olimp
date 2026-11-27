@@ -1984,3 +1984,7 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                      «TESTI PIÙ PICCOLI SUL TELEFONO (3.54)».
                    - Footer: link, icone social e «Gestione cookie» diventano rossi (bordeaux del
                      logo) al passaggio del mouse, non più bianchi. style.css?v=202.
+                   - Area riservata, scheda «Area download»: per catalogo e guida, accanto a
+                     «Scarica», il pulsante «Carica un PDF nuovo» sostituisce il file (stesso nome,
+                     massimo 20 MB). Il Worker (/carica-pdf, solo admin) fa un commit su
+                     downloads/; i clienti scaricano subito il file nuovo.
