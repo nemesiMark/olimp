@@ -7,11 +7,20 @@ var dropdowns=[].slice.call(nav.querySelectorAll('.dd'));
 /* Logo al centro (3.55): a sinistra le 3 voci si allargano, a destra il gruppo compatto (4 voci e
    lucchetto) sta attaccato al logo. Si misura di quanto il logo è fuori centro e si aggiunge il
    margine giusto dopo il lucchetto (ultima voce). */
+/* Navbar su computer (3.56): fra una voce e l'altra (logo e lucchetto compresi) lo stesso vuoto, logo al centro esatto.
+Misura le voci senza margini (offsetWidth, che ignora gli ingrandimenti e l'animazione d'ingresso), calcola il vuoto
+uguale e mette a ogni voce il margine sinistro giusto; il lato più corto riceve in più la differenza verso il bordo. */
 function centraLogo(){var ul=nav.querySelector(':scope > ul'),logo=ul&&ul.querySelector(':scope > .nav-logo');if(!logo)return;
-var voci=[].slice.call(ul.children).filter(function(li){return li!==logo}),prima=voci[0],ultima=voci[voci.length-1];
-prima.style.marginLeft='';ultima.style.marginRight='';if(!matchMedia('(min-width:1101px)').matches)return;
-var m=0;for(var i=0;i<12;i++){var u=ul.getBoundingClientRect(),l=logo.getBoundingClientRect(),d=(u.left+u.right)/2-(l.left+l.right)/2;if(Math.abs(d)<.5)break;m-=d;
-ultima.style.marginRight=m>0?m+'px':'';prima.style.marginLeft=m<0?-m+'px':''}}
+var lis=[].slice.call(ul.children);lis.forEach(function(li){li.style.marginLeft='';li.style.marginRight=''});
+if(!matchMedia('(min-width:1101px)').matches){ul.classList.remove('nav-pari');return}
+ul.classList.add('nav-pari');lis.forEach(function(li){li.style.marginLeft='0px';li.style.marginRight='0px'});
+var k=lis.indexOf(logo),W=ul.getBoundingClientRect().width,L=0,R=0,S=0,v=lis.map(function(li,i){var lw=li.getBoundingClientRect().width,w=lw,ins=0,sv=li.classList.contains('nav-lock')&&li.querySelector('svg');
+if(sv&&sv.clientWidth){w=sv.clientWidth;ins=(lw-w)/2}
+var on=li.querySelector(':scope > a.on'),mt=on&&/^matrix\(([\d.]+)/.exec(getComputedStyle(on).transform);if(mt&&+mt[1]>1&&+mt[1]<1.5){w=lw*mt[1];ins=(lw-w)/2}/* voce della pagina attuale, ingrandita: conta la misura che si vede */if(i<k)L+=w;else if(i>k)R+=w;S+=w;return{lw:lw,w:w,ins:ins}});
+/* a e b: spazio fuori dalla prima e dall'ultima voce (almeno il bordo trasparente del lucchetto, che non deve uscire dalla barra) */
+var n=lis.length,a=v[0].ins,b=v[n-1].ins,d=(R+b)-(L+a);a+=Math.max(0,d);b+=Math.max(0,-d);
+var g=Math.max(0,(W-S-a-b)/(n-1)-.02),x=a,pre=0,cum=0;
+lis.forEach(function(li,i){var m=x-v[i].ins-pre-cum;li.style.marginLeft=m+'px';cum+=m;pre+=v[i].lw;x+=v[i].w+g})}
 function alignDD(){centraLogo();var desk=matchMedia('(min-width:1101px)').matches,rem=parseFloat(getComputedStyle(document.documentElement).fontSize)||16;
 [].slice.call(nav.querySelectorAll(':scope > ul > li.dd')).forEach(function(li){var a=li.querySelector(':scope > a'),ul=li.querySelector(':scope > ul');if(a&&ul)ul.style.left=desk?(a.offsetLeft-1.2*rem)+'px':''})}
 alignDD();window.addEventListener('resize',alignDD);window.addEventListener('load',alignDD);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(alignDD);

@@ -5252,8 +5252,9 @@ footer .footer-socials a:focus-visible { color: var(--ribbon); }
    Il logo resta al centro dello schermo. A sinistra Servizi, Prodotti, Collezioni e Dove,
    a destra Grafica & Stampa, Chi siamo, Contatti e il lucchetto: dalla 3.56 i due lati sono
    distanziati allo stesso modo (prima la destra era un gruppo compatto attaccato al logo).
-   Il lucchetto non è in posizione assoluta: è l'ultima voce. La piccola differenza di
-   larghezza fra i due lati la pareggia js/script.js (centraLogo), così il logo resta al centro.
+   Il lucchetto non è in posizione assoluta: è l'ultima voce. Rivista nella 3.56: js/script.js
+   (centraLogo) mette fra tutte le voci, logo e lucchetto compresi, lo stesso vuoto e tiene il
+   logo al centro esatto (classe nav-pari); senza script resta la divisione con flex qui sotto.
    ====================================================== */
 @media (min-width: 1101px) {
   nav > ul { gap: 0; padding-left: 0; padding-right: 0; }
@@ -5263,6 +5264,11 @@ footer .footer-socials a:focus-visible { color: var(--ribbon); }
      specchio, da Servizi al bordo sinistro fino al lucchetto sul bordo destro. */
   nav > ul > li:not(.nav-logo) { flex: 1 1 auto; }
   nav > ul > li.nav-logo ~ li { flex-grow: 1; display: flex; justify-content: flex-end; }  /* annulla il 4 contro 3 della 3.54 */
+  /* quando js/script.js (centraLogo) ha calcolato i vuoti uguali: voci della loro misura, una
+     dopo l'altra, distanziate dai margini che mette lo script */
+  nav > ul.nav-pari { justify-content: flex-start; }
+  nav > ul.nav-pari > li,
+  nav > ul.nav-pari > li.nav-logo ~ li { flex: none; }
   nav > ul > li.nav-lock { position: static; margin-top: 0; }
 }
 

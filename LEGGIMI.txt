@@ -417,3 +417,10 @@ ricerca, quando serve sapere perché una cosa è fatta in un certo modo).
                    i lati in tutte e due le direzioni (margine dopo il lucchetto o prima di
                    Servizi). style.css?v=209, script.js?v=40.
                    (L'area riservata PHP del ramo netsons-php-locale diventerà la 3.57.)
+3.57 (27/11/2026)  Navbar su computer: fra tutte le voci lo stesso vuoto, logo e lucchetto compresi
+                   (prima i vuoti cambiavano fra sinistra e destra, intorno al logo e intorno alla voce
+                   della pagina attuale, che è ingrandita). Lo calcola js/script.js (centraLogo): misura
+                   le voci, mette a ognuna il margine giusto e tiene il logo al centro esatto (classe
+                   nav-pari in style.css). Provato a 1101, 1110, 1280, 1440, 1920 e 2560 px: vuoti
+                   uguali al pixel. Telefono e tablet invariati. style.css?v=210, script.js?v=41.
+                   (L'area riservata PHP del ramo netsons-php-locale diventerà la 3.58.)
