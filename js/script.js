@@ -4,14 +4,14 @@ function sc(){h.classList.toggle('solid',window.scrollY>40)}sc();window.addEvent
 b.addEventListener('click',function(){var o=nav.classList.toggle('open');b.setAttribute('aria-expanded',o)});
 var dropdowns=[].slice.call(nav.querySelectorAll('.dd'));
 /* Su computer le voci sono centrate in spazi uguali: il menu a tendina parte dall'inizio della scritta. */
-/* Logo al centro (3.54): a sinistra del logo ci sono 3 voci e a destra 4, di lunghezze diverse.
-   Si misura di quanto il logo è fuori centro e si aggiunge un margine alla prima voce (logo troppo
-   a sinistra) o all'ultima voce prima del lucchetto (logo troppo a destra). */
+/* Logo al centro (3.55): a sinistra le 3 voci si allargano, a destra il gruppo compatto (4 voci e
+   lucchetto) sta attaccato al logo. Si misura di quanto il logo è fuori centro e si aggiunge il
+   margine giusto dopo il lucchetto (ultima voce). */
 function centraLogo(){var ul=nav.querySelector(':scope > ul'),logo=ul&&ul.querySelector(':scope > .nav-logo');if(!logo)return;
-var voci=[].slice.call(ul.children).filter(function(li){return li!==logo&&!li.classList.contains('nav-lock')}),prima=voci[0],ultima=voci[voci.length-1];
+var voci=[].slice.call(ul.children).filter(function(li){return li!==logo}),prima=voci[0],ultima=voci[voci.length-1];
 prima.style.marginLeft='';ultima.style.marginRight='';if(!matchMedia('(min-width:1101px)').matches)return;
-var m=0;for(var i=0;i<5;i++){var u=ul.getBoundingClientRect(),l=logo.getBoundingClientRect(),d=(u.left+u.right)/2-(l.left+l.right)/2;if(Math.abs(d)<.5)break;m+=2*d;
-prima.style.marginLeft=m>0?m+'px':'';ultima.style.marginRight=m<0?(-m)+'px':''}}
+var m=0;for(var i=0;i<5;i++){var u=ul.getBoundingClientRect(),l=logo.getBoundingClientRect(),d=(u.left+u.right)/2-(l.left+l.right)/2;if(Math.abs(d)<.5)break;m=Math.max(0,m-d);
+ultima.style.marginRight=m?m+'px':''}}
 function alignDD(){centraLogo();var desk=matchMedia('(min-width:1101px)').matches,rem=parseFloat(getComputedStyle(document.documentElement).fontSize)||16;
 [].slice.call(nav.querySelectorAll(':scope > ul > li.dd')).forEach(function(li){var a=li.querySelector(':scope > a'),ul=li.querySelector(':scope > ul');if(a&&ul)ul.style.left=desk?(a.offsetLeft-1.2*rem)+'px':''})}
 alignDD();window.addEventListener('resize',alignDD);window.addEventListener('load',alignDD);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(alignDD);

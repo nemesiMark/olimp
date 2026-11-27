@@ -5248,6 +5248,24 @@ footer .footer-socials a:focus-visible { color: var(--ribbon); }
 }
 
 /* ======================================================
+   NAVBAR: SINISTRA LARGA, DESTRA COMPATTA (3.55)
+   Il logo resta al centro dello schermo. A sinistra Servizi, Prodotti e Collezioni si
+   dividono tutta la metà sinistra (ben distanziati); a destra Grafica & Stampa, Chi siamo,
+   Dove, Contatti e il lucchetto stanno in un gruppo compatto attaccato al logo. Il lucchetto
+   non è più in posizione assoluta sul bordo: è l'ultima voce del gruppo. Il vuoto dopo il
+   lucchetto lo calcola js/script.js (centraLogo), così il logo resta al centro.
+   ====================================================== */
+@media (min-width: 1101px) {
+  nav > ul { gap: 0; padding-left: 0; padding-right: 0; }
+  nav > ul > li:not(.nav-logo) { flex: 1 1 0; }
+  nav > ul > li.nav-logo ~ li { flex: none; }
+  nav > ul > li.nav-logo + li { margin-left: clamp(1.2rem, 2vw, 2.2rem); }
+  nav > ul > li.nav-logo ~ li + li { margin-left: clamp(.9rem, 1.3vw, 1.5rem); }
+  nav > ul > li.nav-logo ~ li.nav-lock { margin-left: .4rem; }
+  nav > ul > li.nav-lock { position: static; margin-top: 0; }
+}
+
+/* ======================================================
    HERO DELLA HOME (3.41): le scritte non coprono mai l'album
    La sezione è divisa in due zone che non si toccano:
    - schermi larghi (computer, tablet e telefono in orizzontale): scritte a sinistra,

@@ -395,3 +395,13 @@ ricerca, quando serve sapere perché una cosa è fatta in un certo modo).
                    - LEGGIMI alleggerito: le versioni da 1.0 a 3.53 spostate in STORICO-VERSIONI.txt
                      (da 161 KB a circa 28 KB). LEGGIMI e STORICO non si pubblicano più online
                      (scripts/non-online.txt).
+
+3.55 (27/11/2026)  Navbar su computer: a sinistra Servizi, Prodotti e Collezioni si dividono tutta
+                   la metà sinistra (più distanziati); a destra Grafica & Stampa, Chi siamo, Dove,
+                   Contatti e il lucchetto in un gruppo compatto attaccato al logo; il lucchetto non
+                   sta più da solo sul bordo. Il logo resta al centro dello schermo (verificato a
+                   1110, 1280, 1440 e 1920 px): js/script.js (centraLogo) mette il margine dopo il
+                   lucchetto. CSS nel blocco «NAVBAR: SINISTRA LARGA, DESTRA COMPATTA (3.55)»
+                   (style.css?v=207, script.js?v=39). Sotto i 1101 px non cambia niente.
+                   (L'area riservata in PHP per Netsons è pronta nel ramo locale netsons-php-locale,
+                   non pubblicato: quando andrà online diventerà la 3.56.)
