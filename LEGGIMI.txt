@@ -2002,3 +2002,8 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                      non stanno più sopra la foto, dove si confondevano, ma sono due pulsanti
                      tondi affiancati in basso, sopra le miniature; la didascalia si ferma sopra.
                      style.css?v=205, script.js?v=37.
+                   - Visore delle foto sul telefono: tutte le foto ingrandite sono grandi uguali
+                     (su iPhone alcune, es. Modello Vienna, uscivano più piccole di Modello Mood
+                     perché un calcolo in JS le rimpiccioliva). Fino a 700 px le misure le decide
+                     solo il CSS (larghezza 92% dello schermo, altezza che lascia spazio a
+                     didascalia, frecce e miniature). style.css?v=206, script.js?v=38.

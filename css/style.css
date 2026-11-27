@@ -5210,6 +5210,22 @@ footer .footer-socials a:focus-visible { color: var(--ribbon); }
   .lb .lb-n { right: calc(50% - 62px); }
   .lb:not(.has-strip) .lb-p,
   .lb:not(.has-strip) .lb-n { bottom: 24px; }
+
+  /* Tutte le foto grandi uguali (prima su iPhone alcune, es. Modello Vienna, uscivano più
+     piccole perché il calcolo in JS le rimpiccioliva): misure fisse decise qui, senza JS.
+     La foto sta al centro della zona fra la X (64 px in alto) e lo spazio in basso per
+     didascalia (~74 px), frecce e miniature (172 px); svh = schermo con le barre di Safari. */
+  .lb.has-strip { padding: 64px 0 246px; }
+  .lb.has-strip img {
+    max-width: 92vw;
+    max-height: calc(100vh - 310px);
+    max-height: calc(100svh - 310px);
+  }
+  .lb:not(.has-strip) { padding: 64px 0 100px; }
+  .lb:not(.has-strip) img {
+    max-height: calc(100vh - 164px);
+    max-height: calc(100svh - 164px);
+  }
 }
 
 /* ======================================================
