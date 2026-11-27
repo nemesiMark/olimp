@@ -1,7 +1,7 @@
 # Olimp (cartella e repository «olimp», prima «trama»)
 
 Sito statico (HTML, CSS, JavaScript) di Olimp: album, fotolibri e prodotti per fotografi.
-Dettagli completi in **LEGGIMI.txt**: leggilo prima di modifiche non banali.
+Dettagli in **LEGGIMI.txt** (guida + versioni dalla 3.54, circa 8.000 token): leggilo prima di modifiche non banali. Le versioni 1.0-3.53 sono in `STORICO-VERSIONI.txt` (circa 38.000 token): mai leggerlo tutto, solo `grep` quando serve.
 
 - Online: https://nemesimark.github.io/olimp/
 - Codice: github.com/nemesiMark/olimp, ramo `main`; pubblicazione con GitHub Actions (`.github/workflows/pubblica.yml`).
@@ -11,7 +11,7 @@ Dettagli completi in **LEGGIMI.txt**: leggilo prima di modifiche non banali.
 
 ## Regole di lavoro
 - Rispondi sempre in italiano; anche LEGGIMI, commenti e messaggi di commit in italiano.
-- Ogni modifica va annotata in fondo a LEGGIMI.txt, sezione VERSIONI: numero successivo, data (gg/mm/aaaa), descrizione semplice. Se cambiano `css/style.css` o `js/script.js`, aggiorna il `?v=` nelle pagine.
+- Ogni modifica va annotata in fondo a LEGGIMI.txt, sezione VERSIONI (aggiungere in coda con `cat >>` o leggendo solo la fine, senza rileggere tutto il file): numero successivo, data (gg/mm/aaaa), descrizione semplice. Se cambiano `css/style.css` o `js/script.js`, aggiorna il `?v=` nelle pagine.
 - Niente commit/push di tua iniziativa: Mark prova prima in locale. Commit e push solo su richiesta o con «g».
 - «g» = commit e push: `git pull --rebase --autostash`, poi `python3 scripts/genera_contenuti.py` (riallinea le pagine ai salvataggi del cliente) e solo dopo `--check`; `git add -A`, commit in italiano (cita le pagine riallineate), `git push`; attendi GitHub Actions e verifica.
 
@@ -34,6 +34,7 @@ Dettagli completi in **LEGGIMI.txt**: leggilo prima di modifiche non banali.
 - Prodotti per lo studio, Custodie, Linea New Born, Album eventi e Area download restano nel repository ma non si pubblicano: elenco in `scripts/non-online.txt`, link commentati con «NON ONLINE (3.53)», testi con «nascosto» in `data/testi.json`. L'area download si apre solo dall'area riservata.
 
 ## In sospeso
+- Dominio definitivo www.olimpitalia.com su hosting Netsons (cPanel, utente egbxbvje): per ora solo la pagina «sito in costruzione» (`netsons-in-costruzione/`). Pubblicare lì il sito intero (FTP da GitHub Actions, ORIGINS del Worker, `DOMINIO-DEL-SITO`) solo dopo l'ok del cliente. La posta di olimpitalia.com sta sullo stesso hosting: non toccarla.
 - Foto del fotolibro professionale: il cliente pensa di averle mandate, Mark deve recuperarle.
 - Accesso con email + codice (Cloudflare Access) al posto della password: decide il cliente.
 - privacy.html è una bozza; ragione sociale, P.IVA e PDF reali da ricevere (vedi LEGGIMI, «DA COMPLETARE»).

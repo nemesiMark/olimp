@@ -1,0 +1,1645 @@
+OLIMP — STORICO DELLE VERSIONI (1.0 - 3.53)
+===========================================
+
+Versioni vecchie spostate qui da LEGGIMI.txt il 27/11/2026 (3.54) perché il LEGGIMI
+era diventato troppo lungo da rileggere (circa 160 KB). Non si aggiorna più: le versioni
+nuove si scrivono in fondo a LEGGIMI.txt. Per cercare qualcosa: grep, non leggerlo tutto.
+
+1.0  (29/10/2026)  Stato del sito fino alla revisione di coerenza e all'aggiornamento
+                   del LEGGIMI (vedi la cronologia su GitHub per i passaggi precedenti).
+1.1  (29/10/2026)  Area download: l'avviso verde sotto il pulsante ora dice solo
+                   «File scaricato.». Script aggiornato a script.js?v=8 in tutte le pagine.
+1.2  (29/10/2026)  LEGGIMI: spiegato perché aprendo il sito dal computer il PDF si
+                   apre in una scheda invece di scaricarsi, e come provare l'Area
+                   download con un piccolo server locale (python3 -m http.server).
+1.3  (29/10/2026)  Area download: l'avviso verde sotto il pulsante ora dice
+                   «Download completato.». Script aggiornato a script.js?v=9 in tutte le pagine.
+1.4  (29/10/2026)  Home, sezione Chi siamo: la frase tra virgolette «Custodire il
+                   tempo…» ora è in grassetto (resta in corsivo).
+1.5  (29/10/2026)  Cookie: nel modulo contatti l'avviso rosso ora dice «Per inviare la
+                   richiesta devi prima accettare i cookie» con sotto il pulsantino
+                   «Gestisci cookie» che apre la finestra omonima. Nel footer di tutte
+                   le pagine «Privacy e cookie» è sostituito da «Gestione cookie», che
+                   apre la finestra omonima. Il testo della finestra rimanda a
+                   «Gestione cookie» e alla pagina Privacy e cookie. Aggiornati
+                   style.css?v=11 e cookie.js?v=2 in tutte le pagine.
+1.6  (29/10/2026)  Footer di tutte le pagine: aggiunto di nuovo il link «Privacy e
+                   cookie» accanto a «Gestione cookie». I quattro elementi (copyright
+                   ed email, social, Privacy e cookie, Gestione cookie) sono distribuiti
+                   su tutta la larghezza; sotto i 1000px di larghezza vanno uno sotto
+                   l'altro, centrati. Aggiornato style.css?v=12 in tutte le pagine.
+1.7  (29/10/2026)  Footer: «Gestione cookie» diventa bianco al passaggio del cursore
+                   come gli altri elementi cliccabili (email, social, Privacy e cookie).
+                   Aggiornato style.css?v=13 in tutte le pagine.
+1.8  (29/10/2026)  Footer di tutte le pagine: l'email va a capo sotto
+                   «© anno Olimp – Album fotografici» invece di stare sulla stessa riga.
+1.9  (29/10/2026)  Finestra Gestione cookie con nuovo design (proposta B): riquadro
+                   bianco con ombra morbida, testo più breve, «Rifiuta» con bordo blu e
+                   «Accetta» blu pieno, stessa grandezza. Aggiornato cookie.js?v=3 in
+                   tutte le pagine.
+1.10 (29/10/2026)  Footer di nuovo a fondo pagina anche con la finestra dei cookie
+                   aperta: lo spazio che evita che la finestra copra i contenuti ora è
+                   dentro il footer (che si allunga) invece che sotto di esso, dove
+                   lasciava una fascia bianca. Aggiornato cookie.js?v=4 in tutte le pagine.
+1.11 (29/10/2026)  Finestra Gestione cookie con nuovo design (proposta C): barra blu
+                   a tutta larghezza in fondo alla pagina, con linea bordeaux sopra,
+                   testo a sinistra e pulsanti «Rifiuta» (bordo bianco) e «Accetta»
+                   (azzurro) a destra; su telefono i pulsanti vanno sotto il testo.
+                   Se si prova a inviare il modulo senza aver accettato, la barra
+                   lampeggia di bordeaux. Corretta la grossa fascia blu nel footer che
+                   compariva con la finestra aperta (es. in incognito): ora il footer
+                   resta della sua altezza normale e lo spazio sotto di esso è alto
+                   esattamente quanto la barra, che lo copre. Aggiornato cookie.js?v=5
+                   in tutte le pagine.
+1.12 (29/10/2026)  Finestra Gestione cookie: lampeggia due volte di rosso ogni volta
+                   che si apre (alla prima visita, da «Gestione cookie» nel footer, da
+                   «Gestisci cookie» nel modulo o nella pagina Privacy e cookie, e se si
+                   prova a inviare il modulo senza aver accettato). Aggiornati
+                   cookie.js?v=6 e script.js?v=10 in tutte le pagine.
+1.13 (29/10/2026)  Finestra Gestione cookie: ogni volta che si apre lampeggia tre
+                   volte di rosso invece di due. Aggiornato cookie.js?v=7 in tutte le pagine.
+1.14 (29/10/2026)  Finestra Gestione cookie: ogni volta che si apre lampeggia due
+                   volte di rosso, a partire da 2 secondi dopo l'apertura. Aggiornato
+                   cookie.js?v=8 in tutte le pagine.
+1.15 (29/10/2026)  Finestra Gestione cookie: il primo dei due lampeggi rossi parte
+                   1 secondo dopo l'apertura invece di 2. Aggiornato cookie.js?v=9 in
+                   tutte le pagine.
+1.16 (29/10/2026)  Home, sezione Dove siamo: il testo ora è «La nostra sede si trova a
+                   Canicattì», con «Canicattì» in grassetto bordeaux sottolineato e
+                   cliccabile: apre in una nuova scheda Google Maps sull'indirizzo della
+                   sede (Viale della Vittoria 111, Canicattì). Tolta la frase sui
+                   professionisti in tutta Italia. Aggiornato style.css?v=14 in tutte le pagine.
+1.17 (29/10/2026)  Home, sezione Dove siamo: blocco di testo uniformato. La frase, l'indirizzo
+                   e «Riservato a professionisti con partita IVA» hanno ora stesso carattere,
+                   stessa dimensione e stesso colore grigio; resta in evidenza solo
+                   «Canicattì». L'indirizzo diventa blu scuro al passaggio del cursore.
+                   Aggiornato style.css?v=15 in tutte le pagine.
+1.18 (29/10/2026)  Home, sezione Chi siamo rifatta come la proposta 09 bis: in alto
+                   «03 / Il laboratorio» e il titolo; sotto la foto panoramica che sfuma
+                   nel blu, con la citazione «Custodire il tempo…» scritta dentro, centrata
+                   in bianco corsivo; poi il testo diviso in quattro tappe con un titoletto
+                   ciascuna (Dal 1969, Materiali e dettagli, Ispirati dalla moda, Maestri
+                   artigiani) e una linea bordeaux sopra. Su tablet le tappe vanno su due
+                   colonne, su telefono una sotto l'altra. Nel testo «uptodate» è diventato
+                   «aggiornate» e sono stati tolti due spazi doppi. Il titolo «Un po' di
+                   numeri» è ora allineato a sinistra. Aggiornato style.css?v=16 in tutte
+                   le pagine.
+1.19 (29/10/2026)  Home, sezione Chi siamo: «Un po' di numeri» e i numeri sotto sono
+                   stati spostati più in alto, più vicini alle quattro tappe (spazio
+                   sopra il titolo ridotto da 5,5 a 3 su computer e da 3,5 a 2,2 su
+                   telefono). Aggiornato style.css?v=17 in tutte le pagine.
+1.20 (30/10/2026)  Linea Fashion: sostituita la foto illustrativa con le foto vere degli
+                   album inviate dal cliente. In alto a destra ora c'è l'album
+                   «Elisa & Andrea»; sotto è stata aggiunta la sezione «Gli album della
+                   linea» con tutti e 9 gli album (si aprono a schermo intero con un
+                   clic). Le foto sono in images/linea-fashion-1.jpg … linea-fashion-9.jpg,
+                   ridotte a 1600×1200 per il web. Aggiornati anche il riquadro Linea
+                   Fashion nella pagina Album matrimoniali e l'anteprima per i social
+                   della pagina Linea Fashion.
+1.21 (30/10/2026)  Riordino di file e cartelle. Lo stile è ora in css/style.css, gli
+                   script in js/script.js e js/cookie.js. Le foto sono divise in
+                   sottocartelle di images/, una per ogni pagina con lo stesso nome
+                   del file html; il logo è in images/comune/, le foto non usate in
+                   images/non-usate/. Le foto usate da più pagine sono state copiate
+                   nella cartella di ciascuna pagina. Aggiornati tutti i percorsi
+                   nelle pagine. Pagine html, LEGGIMI e cartella downloads restano
+                   dove erano.
+1.22 (30/10/2026)  Linea Fashion: le foto hanno ora il nome del modello, preso dai file
+                   originali del cliente (Flower, Curve, Fun, Mood, Vision, Onda, Split,
+                   Parigi, Vienna), es. images/linea-fashion/modello-flower.jpg. Tolti
+                   i vecchi file linea-fashion-1…9.jpg. Nella galleria il nome del
+                   modello compare in bianco in basso su ogni foto; anche le
+                   descrizioni delle foto lo riportano. Il riquadro Linea Fashion in
+                   Album matrimoniali usa il modello Curve. Gli originali a piena
+                   dimensione sono fuori dal sito, in Desktop/olimp-originali-linea-fashion.
+                   Aggiornato css/style.css?v=18 in tutte le pagine.
+1.23 (30/10/2026)  Linea Glamour: sostituita la foto illustrativa con le foto vere del
+                   cliente, rinominate con il nome del modello (es.
+                   images/linea-glamour/modello-ice.jpg; gli scatti in più dello
+                   stesso modello sono modello-ice-2.jpg, modello-ice-3.jpg). Modelli:
+                   Ice, Unique, Tex, Tex Wooden, Clear, Notch, Madrid, Londra, Happy.
+                   In alto a destra il modello Ice; sotto, nuova sezione «Gli album
+                   della linea» con 15 foto, il nome del modello su ogni foto e le
+                   descrizioni. Il riquadro Linea Glamour in Album matrimoniali usa ora
+                   il modello Ice; la vecchia foto album-tessuto.jpg è in
+                   images/non-usate. Originali a piena dimensione in
+                   Desktop/olimp-originali-linea-glamour.
+1.24 (30/10/2026)  Effetto di comparsa «Sipario» su tutte le pagine: quando entrano
+                   nello schermo, titoli, testi, foto, riquadri, elenchi, pulsanti e
+                   footer salgono dal basso come da dietro un bordo invisibile (1,1
+                   secondi), uno dopo l'altro se arrivano insieme. Gli elementi sono
+                   scelti in automatico da js/script.js, non serve aggiungere classi
+                   nelle pagine. Sostituisce la vecchia comparsa della home (classe
+                   «rv», tolta da index.html e da style.css). Con «riduci movimento»
+                   attivo nel sistema o senza JavaScript il sito resta fermo e
+                   visibile. Aggiornati css/style.css?v=19 e js/script.js?v=11 in
+                   tutte le pagine.
+1.25 (30/10/2026)  Correzioni all'effetto Sipario. Il footer non si anima più: torna
+                   fermo e sempre visibile, con le icone social (prima restavano
+                   nascoste) e di nuovo esattamente a fondo pagina, senza spazio
+                   bianco sotto. Arrivando in fondo alla pagina compaiono comunque gli
+                   ultimi elementi. A fine animazione ogni elemento viene messo al suo
+                   posto in ogni caso, così nessun testo o foto può restare nascosto.
+                   Le foto si aprono di nuovo a schermo intero anche da tastiera
+                   (Invio) come prima. Aggiornati css/style.css?v=21 e
+                   js/script.js?v=13 in tutte le pagine.
+1.26 (30/10/2026)  Linea Trendy: eliminata la foto illustrativa album-divano.jpg e
+                   aggiunte le foto vere del cliente, rinominate con il nome del
+                   modello: images/linea-trendy/modello-frame.jpg, modello-orione.jpg,
+                   modello-ailanto.jpg. In alto a destra il modello Frame; sotto, nuova
+                   sezione «Gli album della linea» con le 3 foto e il nome del modello
+                   su ciascuna. Il riquadro Linea Trendy in Album matrimoniali usa ora
+                   il modello Frame (la sua vecchia copia di album-divano.jpg è in
+                   images/non-usate). Originali a piena dimensione in
+                   Desktop/olimp-originali-linea-trendy.
+1.27 (30/10/2026)  Effetto Sipario sulle foto (gallerie Fashion, Glamour, Trendy e
+                   tutte le altre): mentre la foto sale il riquadro resta trasparente
+                   e senza ombra, così non si vede più il rettangolo grigio chiaro
+                   vuoto; a foto arrivata l'ombra ricompare con una breve dissolvenza.
+                   Ripristinato anche il piccolo sollevamento delle foto della galleria
+                   al passaggio del mouse. Aggiornato css/style.css?v=22 in tutte le
+                   pagine.
+1.28 (30/10/2026)  Foto a schermo intero: in basso a sinistra compare una didascalia
+                   con il nome della pagina (es. «LINEA GLAMOUR»), il nome del modello
+                   (es. «Modello Clear», preso dalla scritta sulla foto o dalla sua
+                   descrizione) e il numero della foto (es. «11 / 16»). Vale anche per
+                   le foto che verranno aggiunte. La foto a schermo intero è un po'
+                   più bassa (78% dello schermo) per lasciare spazio alla didascalia,
+                   e ora resta sopra la barra dei cookie anche quando questa è aperta.
+                   Aggiornati css/style.css?v=23 e js/script.js?v=14 in tutte le pagine.
+1.29 (30/10/2026)  Foto a schermo intero: la didascalia (pagina, modello, numero) è ora
+                   a destra della foto, allineata al bordo superiore della foto. La
+                   posizione si adatta alla dimensione della foto; se a destra non c'è
+                   spazio (schermi stretti, telefono) va subito sotto la foto, allineata
+                   a sinistra. Aggiornati css/style.css?v=24 e js/script.js?v=15 in
+                   tutte le pagine.
+1.30 (30/10/2026)  Foto a schermo intero: didascalia più grande (nome del modello da
+                   1,6 a 2,4; nome della pagina da 0,72 a 0,95) e tolta la numerazione
+                   delle foto (es. «6 / 16»). Aggiornati css/style.css?v=25 e
+                   js/script.js?v=16 in tutte le pagine.
+1.31 (30/10/2026)  Foto a schermo intero: in basso una fascia con le miniature di tutte
+                   le foto della pagina. Si scorre in orizzontale (trackpad, dito o
+                   rotellina del mouse); la miniatura della foto aperta è evidenziata
+                   con un bordo bianco e portata al centro; cliccando una miniatura si
+                   apre quella foto. La foto grande è un po' più bassa per lasciare
+                   spazio alla fascia. Nelle pagine con una sola foto la fascia non
+                   compare. Aggiornati css/style.css?v=26 e js/script.js?v=18 in tutte
+                   le pagine.
+1.32 (30/10/2026)  Foto a schermo intero: le miniature della fascia in basso sono
+                   centrate quando ci stanno tutte (se sono tante si scorrono come
+                   prima). Su schermi medi e stretti, dove il nome del modello va sotto
+                   la foto, la foto si riduce quel tanto che basta perché il nome non
+                   finisca coperto dalla fascia. Aggiornati css/style.css?v=27 e
+                   js/script.js?v=19 in tutte le pagine.
+1.33 (30/10/2026)  La foto accanto alla descrizione (in alto nelle pagine delle linee,
+                   degli album, dei prodotti e delle sezioni sposi/fotografi) non è più
+                   cliccabile né ingrandibile: niente manina al passaggio del mouse e
+                   non compare tra le miniature della foto a schermo intero. Le foto
+                   delle gallerie e dei riquadri restano ingrandibili. Vale anche per
+                   le pagine future con la stessa impaginazione. Aggiornato
+                   js/script.js?v=20 in tutte le pagine.
+1.34 (30/10/2026)  Linea Trendy: la foto accanto alla descrizione è ora il Modello
+                   Orione (prima Frame); aggiornata anche l'immagine di anteprima per
+                   la condivisione (og:image). La galleria resta invariata.
+1.35 (30/10/2026)  Titolo sopra le gallerie («Gli album della linea» nelle pagine delle
+                   linee, «Le fotografie» negli album bambini, comunione ed eventi):
+                   più grande (da 2 a 3, un po' meno su telefono) e in grassetto.
+                   Aggiornato css/style.css?v=28 in tutte le pagine.
+1.36 (30/10/2026)  Spazio bianco tra la foto accanto alla descrizione e il titolo della
+                   galleria («Gli album della linea» / «Le fotografie») ridotto di
+                   circa il 40% (tolto il margine superiore della galleria). Vale in
+                   tutte le pagine con la galleria. Aggiornato css/style.css?v=29 in
+                   tutte le pagine.
+1.37 (30/10/2026)  Effetto Sipario anche per gli elementi di inizio pagina: prima
+                   comparivano subito tutti insieme all'apertura. Ora restano nascosti
+                   finché l'effetto è pronto e poi salgono uno dopo l'altro (partenza
+                   dopo 0,25 s, uno ogni 0,16 s); scorrendo la pagina resta tutto come
+                   prima. In ogni pagina è stata aggiunta nel <head> una riga che li
+                   nasconde all'apertura, con sicurezza: dopo 2,5 s ricompaiono comunque.
+                   Chi ha attivato «riduci movimento» vede la pagina senza effetto.
+                   Aggiornati css/style.css?v=30 e js/script.js?v=21 in tutte le pagine.
+1.38 (30/10/2026)  Effetto Sipario più dinamico: anche i riquadri (schede di Area
+                   download, card di collezioni, prodotti e custodie, formati) salgono
+                   dal basso, e subito dopo il loro contenuto compare un elemento alla
+                   volta (titolo, testo, pulsante, foto). Prima i riquadri erano già
+                   visibili e si muoveva solo il contenuto. A fine animazione i
+                   riquadri tornano normali (resta l'effetto al passaggio del mouse).
+                   Vale per tutte le pagine. Aggiornati css/style.css?v=31 e
+                   js/script.js?v=22 in tutte le pagine.
+1.39 (30/10/2026)  Effetto Sipario corretto e più veloce. Correzione: all'apertura della
+                   pagina gli elementi scendevano lentamente nella posizione nascosta
+                   (1 s) e quelli in alto ripartivano verso l'alto quando erano ancora
+                   quasi al loro posto, per cui sembravano fermi (es. Linea Fashion).
+                   Ora vengono nascosti all'istante e l'animazione c'è solo in salita.
+                   Più veloce: salita del testo da 1,1 a 0,9 s, riquadri e pulsanti da
+                   1 a 0,8 s; all'apertura partenza dopo 0,12 s e un elemento ogni
+                   0,1 s (prima 0,25 e 0,16); scorrendo uno ogni 0,08 s (prima 0,09).
+                   Aggiornati css/style.css?v=32 e js/script.js?v=23 in tutte le pagine.
+1.40 (30/10/2026)  Home: la foto grande in alto (immagini che scorrono) non ha più
+                   l'effetto Sipario, quindi all'apertura del sito si vede subito senza
+                   lo sfondo blu che compariva prima che la foto salisse. Titolo, testo
+                   e pulsante accanto continuano a salire. Aggiornati
+                   css/style.css?v=33 e js/script.js?v=24 in tutte le pagine.
+1.41 (30/10/2026)  Home: ripristinato l'effetto di salita sulla foto grande in alto, ma
+                   senza sfondo blu. La foto parte un po' più in basso e leggermente
+                   ingrandita e sale al suo posto in 1,6 s, riempiendo sempre tutto il
+                   riquadro (lo sfondo blu non si vede mai). Aggiornati
+                   css/style.css?v=34 e js/script.js?v=25 in tutte le pagine.
+1.42 (30/10/2026)  iPhone: le foto delle gallerie («Gli album della linea», «Le
+                   fotografie», card di collezioni e prodotti) non comparivano. Sono
+                   foto a caricamento ritardato («lazy») e Safari non le caricava
+                   perché, prima di salire, sono nascoste dall'effetto Sipario. Ora
+                   ogni foto viene caricata nel momento in cui il suo riquadro inizia a
+                   salire. Inoltre: lo scorrimento viene rilevato anche dentro gli
+                   elementi della pagina e alla rotazione del telefono; la galleria si
+                   adatta anche agli schermi più stretti di 320 px (iPhone piccoli).
+                   Vale per tutte le pagine. Aggiornati css/style.css?v=35 e
+                   js/script.js?v=26 in tutte le pagine.
+1.43 (30/10/2026)  Pulsanti con effetto come leecougan.com: al passaggio del mouse (o
+                   con la tastiera) un blocco di colore bordeaux del logo (#aa372e)
+                   sale dal basso e riempie il pulsante in 0,4 s, il testo diventa
+                   bianco; togliendo il mouse il colore riscende. Vale per tutti i
+                   pulsanti: «Scopri le collezioni» in home, Scarica il catalogo /
+                   la guida, Invia del modulo contatti, Gestisci cookie della pagina
+                   privacy, Accetta / Rifiuta della barra dei cookie e «Accetta e
+                   mostra la mappa». Il pulsantino bianco sull'avviso rosso si riempie
+                   di blu scuro. Tolto il piccolo sollevamento che i pulsanti avevano
+                   prima. Chi ha attivato «riduci movimento» vede il cambio di colore
+                   senza animazione. Aggiornati css/style.css?v=37 e js/cookie.js?v=10
+                   in tutte le pagine.
+1.44 (30/10/2026)  iPhone, gallerie ancora invisibili: la causa vera era nel CSS. Il
+                   riquadro di ogni foto della galleria prende l'altezza solo dalla
+                   proporzione 4:3 (foto e nome sono sovrapposti e non occupano
+                   spazio) e aveva anche «align-self: stretch». Safari dà la
+                   precedenza a «stretch», la riga era alta 0 e quindi le foto
+                   sparivano; Chrome invece usava la proporzione. Tolto «stretch» (ora
+                   «start») e aggiunta un'altezza 4:3 di riserva per i Safari più
+                   vecchi di iOS 15. Vale per tutte le gallerie (linee e album
+                   bambini, comunione, eventi). Aggiornato css/style.css?v=38 in tutte
+                   le pagine.
+1.45 (30/10/2026)  Home: la prima foto dello slideshow in alto è ora il Modello Orione
+                   della Linea Trendy (copia in images/index/modello-orione.jpg) al
+                   posto di fineart.jpg. Su computer la foto sta a destra, appoggiata
+                   in basso e un po' più piccola del riquadro, con l'album intero
+                   accanto al testo; i bordi sinistro e superiore sfumano nei colori
+                   del muro e del ripiano. Su telefono riempie tutto il riquadro come
+                   le altre. fineart.jpg resta nel riquadro «Album matrimoniali» più in
+                   basso nella home. Tolte le regole CSS che spostavano fineart.jpg.
+                   Aggiornato css/style.css?v=39 in tutte le pagine.
+1.46 (30/10/2026)  Home: invertito l'ordine delle tre foto che scorrono in alto. Ora:
+                   1) tradizionale.jpg (montaggio di un album tradizionale), 2)
+                   album1.jpg (album aperto su doppia pagina), 3) Modello Orione.
+1.47 (30/10/2026)  Album matrimoniali: il riquadro della Linea Trendy mostra ora il
+                   Modello Orione (images/album-matrimoniali/modello-orione.jpg) al
+                   posto del Modello Frame. Eliminata la copia non più usata
+                   images/album-matrimoniali/modello-frame.jpg (l'originale resta in
+                   images/linea-trendy/).
+1.48 (30/10/2026)  Fascia in alto delle pagine interne (21 pagine con «page-hero»)
+                   rifatta come proposta 06: resta blu ma è molto più bassa (spazio
+                   sotto il menu ridotto, da 8,5 a 7,4 rem sopra e da 3 a 1,8 sotto),
+                   titolo più piccolo a sinistra (max 2,8 rem invece di 4,2), percorso
+                   (es. «Olimp / Prodotti») a destra sulla stessa riga e un filo
+                   bordeaux del logo (4 px, #aa372e) sotto la fascia. Il sottotitolo di
+                   Collezioni, Prodotti, Servizi e Privacy va su una riga a sé sotto il
+                   titolo. Su telefono il percorso torna sopra il titolo. La pagina di
+                   prova con le 10 alternative (prova-testate.html) è stata eliminata.
+                   Aggiornato css/style.css?v=41 in tutte le pagine.
+1.49 (30/10/2026)  Fascia in alto delle pagine interne (21 pagine) rifatta come
+                   proposta 20 «accento verticale»: niente più blu scuro, fondo
+                   azzurro chiaro del sito (--ice), percorso blu sopra e titolo blu
+                   scuro sotto (max 3 rem), sottotitolo grigio dove c'è (Collezioni,
+                   Prodotti, Servizi, Privacy) e una barra verticale bordeaux del logo
+                   (#aa372e, 6 px; 5 px su telefono) a sinistra del testo, allineata al
+                   bordo della pagina. Tolto il filo bordeaux orizzontale della 1.48.
+                   Eliminata la pagina di prova con le 20 alternative. Aggiornato
+                   css/style.css?v=42 in tutte le pagine.
+1.50 (30/10/2026)  Home: all'inizio di ogni sezione (Collezioni, Grafica & Stampa, Chi
+                   siamo, Dove siamo, Contatti) c'è la stessa barra verticale bordeaux
+                   della fascia delle pagine interne, accanto a percorso, titolo ed
+                   eventuale sottotitolo. Nell'index percorso e titolo sono stati
+                   raccolti in un contenitore «sec-head»; la barra sale con l'effetto
+                   Sipario prima del testo. Aggiornati css/style.css?v=43 e
+                   js/script.js?v=27 in tutte le pagine.
+1.51 (30/10/2026)  Home, Dove siamo: tolto lo spazio bianco comparso tra «La nostra sede
+                   si trova a Canicattì» e l'indirizzo dopo la 1.50 (il blocco con la
+                   barra bordeaux occupava una sola riga della griglia a due colonne).
+                   Ora percorso e titolo stanno a sinistra su due righe e frase e
+                   indirizzo a destra uno sotto l'altro, come prima. Aggiornato
+                   css/style.css?v=44 in tutte le pagine.
+1.52 (31/10/2026)  Home, Contatti: il modulo non è più nella colonna di destra ma sotto
+                   testo e recapiti, a tutta larghezza della pagina. Nome ed Email sono
+                   affiancati sulla stessa riga; messaggio, consenso privacy, avviso
+                   cookie, pulsante «Invia richiesta» (a sinistra, largo almeno 280 px)
+                   e nota sotto. Su telefono tutto in colonna come prima. Aggiornato
+                   css/style.css?v=45 in tutte le pagine.
+1.53 (31/10/2026)  Home, Contatti (corregge la 1.52): titolo e testo in alto; sotto, a
+                   sinistra i recapiti (Referente, Email, Cellulare, Indirizzo,
+                   Telefono) e a destra, alla stessa altezza, il modulo con i campi uno
+                   sotto l'altro come in origine. Su telefono recapiti e poi modulo in
+                   colonna. Aggiornato css/style.css?v=47 in tutte le pagine.
+1.54 (31/10/2026)  Home, Contatti: il testo introduttivo («Olimp oggi è presente…») ora
+                   occupa tutta la larghezza della sezione e arriva fino al bordo destro
+                   del modulo (prima si fermava a circa metà pagina). Aggiornato
+                   css/style.css?v=48 in tutte le pagine.
+1.55 (31/10/2026)  Sezione sposi e Sezione fotografi: in fondo alla pagina un invito al
+                   contatto (proposta 07): domanda grande e, sotto, un collegamento
+                   bordeaux con freccia che si sposta al passaggio del mouse e porta al
+                   modulo Contatti della home (index.html#contatti). Sposi: «Pronti a
+                   creare il vostro album?» → «Scrivici». Fotografi: «Vuoi vedere il
+                   nostro campionario?» → «Richiedi una visita». Sale con l'effetto
+                   Sipario. Eliminata la pagina di prova prova-cta.html. Aggiornati
+                   css/style.css?v=49 e js/script.js?v=28 in tutte le pagine.
+1.56 (31/10/2026)  Sezione sposi e Sezione fotografi: meno spazio bianco tra testo/foto e
+                   la domanda finale (margine sotto la parte con testo e foto da 7 a 2,5
+                   rem, tolta l'altezza minima; margine sopra la domanda da 2 a 1,5 rem).
+                   Aggiornato css/style.css?v=50 in tutte le pagine.
+1.57 (31/10/2026)  Sezione sposi e Sezione fotografi: spazio tra testo/foto e domanda
+                   finale ridotto ancora (in tutto 3 rem su computer, 2,5 su telefono:
+                   tolti i margini sotto la parte con testo e foto). Aggiornato
+                   css/style.css?v=51 in tutte le pagine.
+1.58 (31/10/2026)  Sezione sposi e Sezione fotografi: spazio tra testo/foto e domanda
+                   finale leggermente aumentato rispetto alla 1.57 (5 rem su computer
+                   invece di 3; 3,5 su telefono invece di 2,5). Aggiornato
+                   css/style.css?v=52 in tutte le pagine.
+1.59 (31/10/2026)  Sezione sposi e Sezione fotografi: meno spazio bianco tra la fascia in
+                   alto e testo/foto (margine sopra la parte con testo e foto da 4 a 1,5
+                   rem). Aggiornato css/style.css?v=53 in tutte le pagine.
+1.60 (31/10/2026)  Home: il titolo «Grafica & Stampa» ha ora lo stesso carattere (Manrope)
+                   e la stessa dimensione degli altri titoli di sezione (es.
+                   «Collezioni»). Corretto un errore nato con l'effetto Sipario: la
+                   regola che metteva solo la «&» in corsivo Georgia colpiva anche il
+                   contenitore dell'effetto e rendeva corsivo tutto il titolo (anche
+                   nel titolo grande della pagina grafica-stampa.html, che ora è in
+                   Manrope dritto). Aggiornato css/style.css?v=54 in tutte le pagine.
+1.61 (31/10/2026)  Home, Contatti: unite in un solo paragrafo le prime due frasi («Olimp
+                   oggi è presente…» e «Contattando direttamente la nostra Sede…»), così
+                   la seconda continua sulla stessa riga invece di andare a capo.
+1.62 (31/10/2026)  Home, Contatti: unita anche la terza frase («Se sei possessore di
+                   Partita Iva…»): ora il testo introduttivo è un unico paragrafo senza
+                   a capo.
+1.63 (31/10/2026)  Home: meno spazio bianco tra la foto grande in alto e la sezione
+                   Collezioni (margine sopra la sezione da 7 a 4 rem; su telefono da 4
+                   a 2,5). Aggiornato css/style.css?v=55 in tutte le pagine.
+1.64 (31/10/2026)  Home, sezione Collezioni: i quattro riquadri diventano quattro strisce
+                   verticali affiancate (proposta 17); passando col mouse su una, si
+                   allarga e mostra la frase. Su telefono le strisce sono una sotto
+                   l'altra con la frase sempre visibile. Le altre pagine non cambiano.
+                   Aggiornato css/style.css?v=56 in tutte le pagine.
+1.65 (31/10/2026)  Home, Contatti: la scritta «Servizio riservato a professionisti…» è
+                   subito sotto il pulsante Invia richiesta, e c'è meno spazio tra il
+                   modulo e il piè di pagina (margine in fondo alla sezione da 7 a 3 rem).
+                   Aggiornato css/style.css?v=57 in tutte le pagine.
+1.66 (31/10/2026)  Home, Collezioni: le foto delle quattro strisce sono in bianco e nero e
+                   si colorano passandoci sopra col mouse (su telefono e tablet restano a
+                   colori). Aggiornato css/style.css?v=58 in tutte le pagine.
+1.67 (31/10/2026)  Home, Chi siamo: la foto grande è sempre in bianco e nero (anche al
+                   passaggio del mouse e su telefono). Aggiornato css/style.css?v=60 in
+                   tutte le pagine.
+1.68 (31/10/2026)  Home, Chi siamo: sfondo avorio caldo (proposta 09) al posto del blu
+                   notte; titoli, tappe e numeri in blu scuro, sopratitolo in bordeaux.
+                   La parte bassa della foto con la citazione resta blu notte.
+                   Aggiornato css/style.css?v=61 in tutte le pagine.
+1.69 (31/10/2026)  Home, Chi siamo: tolta la sfumatura blu dalla foto grande; la citazione
+                   bianca ha un'ombra più decisa per restare leggibile sulla foto.
+                   Aggiornato css/style.css?v=62 in tutte le pagine.
+1.70 (31/10/2026)  Home, Collezioni: tolta la sfumatura blu in fondo alle quattro foto;
+                   titoli e frasi bianchi con un'ombra più decisa per restare leggibili.
+                   Aggiornato css/style.css?v=63 in tutte le pagine.
+1.71 (31/10/2026)  Home, Chi siamo: sfondo testa di moro scuro (#2a1f19) al posto
+                   dell'avorio; titoli, tappe e numeri bianchi, testi e sopratitolo color
+                   crema. Aggiornato css/style.css?v=64 in tutte le pagine.
+1.72 (31/10/2026)  Home, Chi siamo: sfondo caramello bruciato (#917261) al posto del testa
+                   di moro scuro; tutte le scritte della sezione in bianco (titoli, testi,
+                   sopratitolo, numeri ed etichette). Aggiornato css/style.css?v=65 in
+                   tutte le pagine.
+1.73 (31/10/2026)  Home, Chi siamo: foto grande scurita (luminosità al 60%, contrasto un
+                   po' più alto) perché la citazione bianca si legga meglio; nessuna
+                   sfumatura colorata. Aggiornato css/style.css?v=66 in tutte le pagine.
+1.74 (31/10/2026)  Home, Collezioni: titoli e frasi dentro le quattro foto con un contorno
+                   blu scuro attorno alle lettere, per leggerli anche sulle parti chiare.
+                   Aggiornato css/style.css?v=67 in tutte le pagine.
+1.75 (31/10/2026)  Home, Collezioni: tolto il contorno blu dalle scritte; al suo posto una
+                   sfumatura nera in fondo alle quattro foto (proposta 05: nero all'80% che
+                   sale fino a metà foto, il resto resta intatto; su telefono più bassa).
+                   Aggiornato css/style.css?v=68 in tutte le pagine.
+1.76 (31/10/2026)  Home, Chi siamo: la citazione dentro la foto grande è spostata in basso a
+                   destra e allineata a destra (prima era centrata). Aggiornato
+                   css/style.css?v=70 in tutte le pagine.
+1.77 (31/10/2026)  Home, foto di apertura: provata la sfumatura color caramello al posto del
+                   blu notte, poi annullata: resta tutto come nella 1.76 (sfumatura blu
+                   notte). Aggiornato css/style.css?v=72 in tutte le pagine.
+1.78 (31/10/2026)  Riquadro «Ogni dettaglio, la vostra firma.» (home, sezione Grafica &
+                   Stampa, e pagina Grafica & Stampa): sfondo caramello come Chi siamo
+                   (#917261) al posto del blu notte, tutte le scritte bianche. Aggiornato
+                   css/style.css?v=73 in tutte le pagine.
+1.79 (31/10/2026)  Piè di pagina di tutte le pagine color caramello come Chi siamo (#917261)
+                   al posto del blu notte, scritte bianche. Aggiornato css/style.css?v=74 in
+                   tutte le pagine.
+1.80 (31/10/2026)  Home, foto di apertura: sfumatura sopra le foto color caramello come Chi
+                   siamo (#917261) invece che blu notte, su computer (da sinistra) e su
+                   telefono (dal basso); anche il fondo dietro le foto è caramello.
+                   Aggiornato css/style.css?v=75 in tutte le pagine.
+1.81 (31/10/2026)  Home, foto di apertura: sfumatura caramello più leggera (su computer dal
+                   94% al 75% a sinistra, su telefono dal 92% al 75% in basso). Aggiornato
+                   css/style.css?v=76 in tutte le pagine.
+1.82 (31/10/2026)  Piè di pagina di tutte le pagine di nuovo blu scuro (annullata la 1.79).
+                   Aggiornato css/style.css?v=77 in tutte le pagine.
+1.83 (31/10/2026)  Home, foto di apertura: pulsante «Scopri le collezioni» blu scuro con
+                   scritta bianca (prima azzurro); al passaggio resta l'effetto di
+                   riempimento bordeaux dal basso. Aggiornato css/style.css?v=78 in tutte
+                   le pagine.
+1.84 (31/10/2026)  Pagina Collezioni: i quattro riquadri diventano le stesse strisce della
+                   home (foto in bianco e nero con sfumatura nera in basso; al passaggio la
+                   striscia si allarga, la foto si colora e compare la frase). Usate le foto
+                   della cartella images/collezioni. Nessuna modifica al CSS.
+1.85 (31/10/2026)  Riquadro «Ogni dettaglio, la vostra firma.» (home e pagina Grafica &
+                   Stampa) di nuovo blu scuro come prima della 1.78. Aggiornato
+                   css/style.css?v=79 in tutte le pagine.
+1.86 (31/10/2026)  Home, sezione Contatti: la scritta sopra il titolo «05 / Un confronto tra
+                   professionisti» diventa «05 / Contattaci».
+1.87 (31/10/2026)  Home, sezione Contatti: nuovo testo introduttivo «Per maggiori
+                   informazioni siamo a vostra completa disposizione, potete contattarci
+                   tramite mail, cellulare e social. Oppure compilando l’apposito form qui
+                   in basso.» al posto di «Olimp oggi è presente…».
+1.88 (31/10/2026)  Home, Dove siamo (proposta 05): la mappa è in bianco e nero e si colora
+                   passandoci sopra col mouse, come le Collezioni (su telefono e tablet
+                   resta a colori). Impaginazione invariata. Aggiornato css/style.css?v=80
+                   in tutte le pagine.
+1.89 (31/10/2026)  Home, Dove siamo: nascosta la scheda bianca di Google in alto a sinistra
+                   della mappa (indirizzo e «Apri in Maps»). La mappa è 180 px più alta del
+                   riquadro e spostata in su, così la scheda resta fuori dalla parte
+                   visibile; il segnaposto resta nel riquadro. Aggiornato css/style.css?v=81
+                   in tutte le pagine.
+1.90 (31/10/2026)  Home, foto di apertura: le tre foto che scorrono sono in bianco e nero;
+                   al posto della sfumatura caramello c'è lo stesso velo nero delle foto
+                   delle Collezioni (nero all'80% che sfuma; su computer da sinistra, su
+                   telefono dal basso). Fondo dietro le foto di nuovo blu notte. Aggiornato
+                   css/style.css?v=82 in tutte le pagine.
+1.91 (31/10/2026)  Home, foto di apertura: pulsante «Scopri le collezioni» con i colori
+                   invertiti, sfondo bianco e scritta blu scuro; al passaggio resta il
+                   riempimento bordeaux dal basso. Aggiornato css/style.css?v=83 in tutte
+                   le pagine.
+1.92 (31/10/2026)  Home, foto di apertura: pulsante «Scopri le collezioni» rosso come il logo
+                   (#aa372e) con scritta bianca; al passaggio del mouse si riempie di blu
+                   scuro dal basso. Aggiornato css/style.css?v=84 in tutte le pagine.
+1.93 (31/10/2026)  Home, Dove siamo: la mappa torna a colori (annullato il bianco e nero
+                   della 1.88); resta nascosta la scheda bianca di Google (1.89).
+                   Aggiornato css/style.css?v=85 in tutte le pagine.
+1.94 (31/10/2026)  Area download: pulsanti «Scarica il catalogo» e «Scarica la guida» rossi
+                   come il logo (#aa372e) con scritta bianca; al passaggio del mouse si
+                   riempiono di blu scuro dal basso, come «Scopri le collezioni».
+                   Aggiornato css/style.css?v=86 in tutte le pagine.
+1.95 (31/10/2026)  Home, foto di apertura: tolta la capsula grigia dietro i pallini e
+                   «Pausa» (proposta 01), restano solo pallini e scritta bianchi.
+                   Aggiornato css/style.css?v=87 in tutte le pagine.
+1.96 (31/10/2026)  Home, Dove siamo: tolta la riga «Riservato a professionisti con partita
+                   IVA» sotto l'indirizzo.
+1.97 (31/10/2026)  Home, Chi siamo: sfondo avorio (#f3eee6) al posto del caramello, senza
+                   cornice; titoli, tappe e numeri in blu scuro, testi grigio-blu. La
+                   citazione sulla foto resta bianca. Aggiornato css/style.css?v=91 in tutte
+                   le pagine.
+1.98 (31/10/2026)  Fascia in alto delle pagine interne (titolo, percorso e barra bordeaux):
+                   sfondo grigio-azzurro chiaro (--paper, #edf2f7), lo stesso dei riquadri
+                   dell'Area download, al posto dell'azzurro ghiaccio. Aggiornato
+                   css/style.css?v=92 in tutte le pagine.
+1.99 (31/10/2026)  Finestra che si apre cliccando una foto (lightbox), in tutte le pagine:
+                   sfondo grigio-azzurro chiaro come la fascia in alto (--paper) invece del
+                   blu notte; nome della linea, nome del modello, X, frecce e bordo della
+                   miniatura attiva in blu scuro; striscia delle miniature leggermente più
+                   scura. Aggiornato css/style.css?v=93 in tutte le pagine.
+2.00 (31/10/2026)  Home, Dove siamo: accanto all'indirizzo, allineate a destra, due scritte
+                   cliccabili in bordeaux, «Apri Google Maps» (apre la sede su Google Maps)
+                   e «Ottieni indicazioni» (apre il percorso fino alla sede); si aprono in
+                   una nuova scheda, la freccia scorre al passaggio del mouse. Aggiornato
+                   css/style.css?v=96 in tutte le pagine.
+2.01 (31/10/2026)  Home, Dove siamo: «Canicattì» nella frase «La nostra sede si trova a…» non
+                   è più cliccabile, resta solo in grassetto (blu scuro). Aggiornato
+                   css/style.css?v=97 in tutte le pagine.
+2.02 (31/10/2026)  Finestra delle foto ingrandite (lightbox), in tutte le pagine: sfondo
+                   senza colore con effetto vetro (la pagina dietro si vede sfocata, velo
+                   bianco al 25%) al posto del grigio-azzurro pieno; scritte e comandi
+                   restano blu scuro. Aggiornato css/style.css?v=98 in tutte le pagine.
+2.03 (31/10/2026)  Foto che non si aprono a schermo intero (foto accanto alla descrizione
+                   nelle pagine delle linee, Grafica & Stampa, Chi siamo, foto di apertura
+                   ecc.): tolto il leggero ingrandimento al passaggio del cursore. Restano
+                   l'ingrandimento delle foto cliccabili (gallerie) e le strisce delle
+                   Collezioni. Aggiornato css/style.css?v=99 in tutte le pagine.
+2.04 (31/10/2026)  Linea Glamour: tolte dalla galleria le foto di dettaglio, così resta una
+                   sola foto per modello: seconda e terza del Modello Ice, seconda e terza
+                   del Modello Unique, seconda del Modello Clear e seconda del Modello
+                   Notch. I file (modello-ice-2/3, modello-unique-2/3, modello-clear-2,
+                   modello-notch-2) restano in images/linea-glamour ma non sono più usati.
+2.05 (31/10/2026)  Piè di pagina: icone social (Facebook, Instagram, WhatsApp) più spente da
+                   ferme; al passaggio del cursore si accendono di bianco e salgono appena,
+                   così l'effetto si vede. Aggiornato css/style.css?v=100 in tutte le pagine.
+2.06 (02/11/2026)  Pagina Grafica & Stampa rifatta (proposta 02 con le schede della 16):
+                   - in alto la foto grande del campionario colore con velo scuro in basso
+                     e il titolo «Grafica & Stampa» bianco in basso a destra;
+                   - sotto, il testo introduttivo;
+                   - le quattro fasi (Selezione degli scatti, Sviluppo RAW, Fotoritocco,
+                     Impaginazione) come schede: si clicca il nome e compare quella fase
+                     con foto grande e testo (anche con le frecce della tastiera); su
+                     telefono le schede si scorrono in orizzontale.
+                   Tolto da questa pagina il riquadro blu «Ogni dettaglio, la vostra firma.»
+                   (resta nella home). Effetto Sipario escluso dalle schede nascoste.
+                   Aggiornati css/style.css?v=101 e js/script.js?v=29 in tutte le pagine.
+2.07 (02/11/2026)  Grafica & Stampa: nelle schede delle quattro fasi il testo ora sta a
+                   sinistra e la foto a destra; titolo, numero e testo più grandi e
+                   leggibili (su telefono la foto resta sopra il testo).
+                   Navbar più stretta in tutte le pagine: logo da 84 a 58 px, barra da
+                   88 a 68 px (su telefono logo da 64 a 50 px); spazi sotto la barra
+                   adeguati di conseguenza. Aggiornato css/style.css?v=102 in tutte le pagine.
+2.08 (02/11/2026)  Grafica & Stampa: il testo «Creiamo album fotografici… per noi è
+                   importante.» ora sta prima della foto principale ed è più grande
+                   (frase principale molto più grande, seconda frase più grande e in blu
+                   scuro). Aggiornato css/style.css?v=103 in tutte le pagine.
+2.09 (02/11/2026)  Grafica & Stampa: le quattro schede passano da sole da 01 a 04 e poi
+                   ricominciano, ogni 6 secondi. Sotto la scheda attiva la linea rossa si
+                   riempie da sinistra a destra e, quando arriva in fondo, si passa alla
+                   scheda successiva. Il passaggio parte solo quando le schede sono
+                   visibili sullo schermo e si ferma finché il mouse è sopra le schede o
+                   sulla foto (si può sempre cliccare una scheda a mano). Chi ha
+                   impostato «riduci movimento» nel sistema vede le schede ferme.
+                   Aggiornati css/style.css?v=104 e js/script.js?v=30 in tutte le pagine.
+2.10 (02/11/2026)  Grafica & Stampa: foto principale più stretta (altezza da 520 a 380 px
+                   su computer, da 380 a 300 px su telefono). Aggiornato
+                   css/style.css?v=105 in tutte le pagine.
+2.11 (02/11/2026)  Grafica & Stampa: nuovo aspetto del testo prima della foto principale
+                   (testo invariato): frase principale grande a sinistra, seconda frase a
+                   destra con una linea rossa al lato; su telefono una sotto l'altra.
+                   Aggiornato css/style.css?v=106 in tutte le pagine.
+2.12 (02/11/2026)  Grafica & Stampa: nelle schede delle quattro fasi la foto torna a
+                   sinistra e il testo a destra (testo sempre grande); su telefono foto
+                   sopra e testo sotto. Aggiornato css/style.css?v=107 in tutte le pagine.
+2.13 (02/11/2026)  Grafica & Stampa: la frase «Creiamo album fotografici…» ora sta su tre
+                   righe (colonna più larga, carattere appena più piccolo). Aggiornato
+                   css/style.css?v=108 in tutte le pagine.
+2.14 (02/11/2026)  Grafica & Stampa: cliccando una scheda (da 01 a 04) la linea rossa
+                   riparte da capo e il passaggio automatico continua. Prima il mouse
+                   sopra le schede metteva in pausa la linea; ora si ferma solo con il
+                   mouse sopra foto e testo. Aggiornati css/style.css?v=109 e
+                   js/script.js?v=31 in tutte le pagine.
+2.15 (02/11/2026)  Grafica & Stampa: la linea rossa delle schede non si ferma più con il
+                   mouse sopra foto o testo (resta solo l'avvio quando le schede sono
+                   visibili sullo schermo). Aggiornato css/style.css?v=110 in tutte le pagine.
+2.16 (02/11/2026)  Grafica & Stampa: il passaggio automatico delle schede ora avviene
+                   ogni 8 secondi (prima 6). Aggiornato css/style.css?v=112 in tutte le pagine.
+2.17 (02/11/2026)  Grafica & Stampa: la foto della scheda «Sviluppo RAW» ora si vede intera,
+                   senza tagli ai lati (riquadro con le proporzioni della foto, 1280×695).
+                   Aggiornato css/style.css?v=113 in tutte le pagine.
+2.18 (02/11/2026)  Grafica & Stampa: nuova foto per la scheda «Selezione degli scatti»
+                   (images/grafica-stampa/selezione.jpg, 1424×745, più grande e nitida);
+                   la vecchia spostata in images/non-usate/selezione-vecchia.jpg. Foto
+                   mostrata intera, senza tagli (riquadro con le sue proporzioni).
+                   Aggiornato css/style.css?v=114 in tutte le pagine.
+2.19 (02/11/2026)  Grafica & Stampa: nuova foto per la scheda «Fotoritocco»
+                   (images/grafica-stampa/fotoritocco.jpg, 1024×508); la vecchia spostata
+                   in images/non-usate/fotoritocco-vecchia.jpg. Foto mostrata intera,
+                   senza tagli. Aggiornato css/style.css?v=115 in tutte le pagine.
+2.20 (02/11/2026)  Grafica & Stampa: nuovo design del testo prima della foto principale
+                   (proposta 01, testo invariato): tutto centrato, frase principale grande
+                   e trattino rosso tra le due frasi. Aggiornato css/style.css?v=116 in
+                   tutte le pagine.
+2.21 (02/11/2026)  Home, le tre foto di apertura: cliccando un pallino si va a quella foto e
+                   dopo 5 secondi si passa comunque alla successiva, anche se prima era
+                   stato premuto «Pausa» (il clic fa ripartire il giro). Il pallino
+                   cliccato non ferma più il giro. Aggiornato js/script.js?v=32 in tutte
+                   le pagine.
+2.22 (02/11/2026)  Home, foto di apertura: il tasto «Scopri le collezioni» ora è largo
+                   quanto il titolo «La fotografia prende forma.» (arriva fino alla fine
+                   di «forma.»), con la scritta al centro; resta rosso e al passaggio si
+                   riempie di blu scuro. Aggiornato css/style.css?v=117 in tutte le pagine.
+2.23 (02/11/2026)  Menu «Collezioni» su computer (proposta 11 modificata): passando sopra
+                   «Collezioni» si apre una banda larga quanto lo schermo con effetto vetro
+                   trasparente e le quattro foto (Album matrimoniali, bambini, comunione,
+                   eventi) con il nome scritto dentro la foto su velo nero; al passaggio la
+                   foto si ingrandisce appena e il nome si sottolinea di rosso. Tolto da
+                   computer l'elenco delle linee matrimoniali (restano nella pagina Album
+                   matrimoniali). Su tablet e telefono il menu resta il solito elenco.
+                   Foto ridotte per il menu in images/comune/menu/. La sfocatura della barra
+                   in alto è stata spostata su un livello a parte (aspetto invariato) perché
+                   il vetro della banda funzioni. Aggiornato css/style.css?v=118 in tutte le
+                   pagine.
+2.24 (02/11/2026)  Menu «Servizi» e «Prodotti» su computer come «Collezioni»: banda larga
+                   quanto lo schermo con effetto vetro e le foto con il nome dentro.
+                   Servizi: Sezione sposi e Sezione fotografi (due foto larghe, inquadrate
+                   sui volti). Prodotti: Fotolibro professionale, Album tradizionale
+                   professionale, Prodotti per il tuo studio fotografico, Custodie per
+                   album. Foto prese dalle pagine Servizi e Prodotti, ridotte in
+                   images/comune/menu/. Su tablet e telefono resta il solito elenco.
+                   Aggiornato css/style.css?v=120 in tutte le pagine.
+2.25 (02/11/2026)  Nuova foto «Album eventi» (album aperto con foto di compleanno) nella
+                   home, nella pagina Collezioni e nella banda del menu Collezioni:
+                   images/index/album-eventi-compleanno.jpg,
+                   images/collezioni/album-eventi-compleanno.jpg e
+                   images/comune/menu/eventi-compleanno.jpg. Le vecchie foto spostate in
+                   images/non-usate/ (albumEventi-index-vecchia.jpg,
+                   albumEventi-collezioni-vecchia.jpg, eventi-menu-vecchia.jpg).
+2.26 (02/11/2026)  Nuova foto del fotografo con videocamera al posto di fotografa.jpg nella
+                   pagina Servizi, nella pagina Sezione fotografi (anche og:image) e nella
+                   banda del menu Servizi: images/servizi/fotografo-videocamera.jpg,
+                   images/sezione-fotografi/fotografo-videocamera.jpg e
+                   images/comune/menu/fotografo-videocamera.jpg; testo alternativo
+                   aggiornato. Foto verticale inquadrata sul viso nei riquadri orizzontali.
+                   Le vecchie foto spostate in images/non-usate/. Aggiornato
+                   css/style.css?v=121 in tutte le pagine.
+2.27 (02/11/2026)  Sezione sposi: nuova foto degli sposi che si baciano in un campo al
+                   posto di sposi-ritratto.jpg (anche og:image):
+                   images/sezione-sposi/sposi-bacio-campo.jpg, ridotta a 1600 px; testo
+                   alternativo aggiornato. La vecchia spostata in
+                   images/non-usate/sposi-ritratto-vecchia.jpg.
+2.28 (02/11/2026)  Banda del menu Servizi: nuova foto degli sposi nel campo anche qui
+                   (images/comune/menu/sposi-bacio-campo.jpg; la vecchia in
+                   images/non-usate/sposi-menu-vecchia.jpg). Le due foto di Servizi non
+                   sono più larghe e basse (si vedevano tagliate): ora hanno la stessa
+                   misura delle foto di Prodotti e Collezioni e stanno al centro della
+                   banda. Aggiornato css/style.css?v=122 in tutte le pagine.
+2.29 (02/11/2026)  Sezione fotografi: la foto del fotografo (verticale) ora sta in un
+                   riquadro verticale e si vede quasi intera, con cappello, viso e
+                   videocamera, invece di essere tagliata e ingrandita. Aggiornato
+                   css/style.css?v=123 in tutte le pagine.
+2.30 (02/11/2026)  Banda del menu Servizi: ogni riquadro ha la forma della sua foto, con
+                   la stessa altezza delle altre bande (sposi orizzontale, fotografo
+                   verticale), così entrambe le foto si vedono quasi intere senza effetto
+                   zoom. Aggiornato css/style.css?v=124 in tutte le pagine.
+2.31 (02/11/2026)  Banda del menu Servizi: i due riquadri (Sezione sposi e Sezione
+                   fotografi) ora hanno la stessa dimensione (forma 5:4, stessa altezza
+                   delle altre bande), con le foto inquadrate su sposi e fotografo.
+                   Aggiornato css/style.css?v=125 in tutte le pagine.
+2.32 (02/11/2026)  Sezione fotografi: foto del fotografo di nuovo della misura di prima
+                   (larga come le altre foto accanto al testo, appena più alta), inquadrata
+                   in modo da tenerne il più possibile: cappello, viso e videocamera.
+                   Aggiornato css/style.css?v=126 in tutte le pagine.
+2.33 (02/11/2026)  Home, sezione Dove siamo, solo su schermi piccoli (telefono e tablet):
+                   più spazio tra il titolo «Dove siamo» e la frase «La nostra sede si trova
+                   a Canicattì», che prima erano quasi attaccati. Su computer invariato.
+                   Aggiornato css/style.css?v=127 in tutte le pagine.
+2.34 (02/11/2026)  Menu su telefono e tablet più chiaro: voci principali a tutta larghezza
+                   separate da righe sottili; accanto a Servizi, Prodotti, Collezioni e
+                   Album matrimoniali un + rosso che diventa − quando il sottomenu è
+                   aperto (e la voce aperta diventa rossa); primo livello rientrato con una
+                   riga grigia a sinistra; le linee degli album matrimoniali in un riquadro
+                   chiaro con riga rossa, più piccole e grigie; tolto il blocco rosso pieno
+                   sulla voce aperta. La pagina in cui ci si trova è segnata in rosso. Su
+                   computer invariato. Aggiornato css/style.css?v=128 in tutte le pagine.
+2.35 (02/11/2026)  Menu su telefono: toccando + su «Album matrimoniali» la scritta spariva
+                   (diventava bianca su fondo bianco); ora resta visibile in rosso, come
+                   le altre voci aperte. Aggiornato css/style.css?v=129 in tutte le pagine.
+2.36 (02/11/2026)  Home, foto di apertura su telefono: la prima foto (album aperto) ora è
+                   inquadrata sulla coppia che salta, con tutti e due gli sposi visibili;
+                   la terza (modello Orione) sta in alto con l'album quasi intero e la
+                   coppia sotto il pontile ben visibile sopra il testo, e sfuma in basso
+                   nel colore del ripiano. Su computer invariato. Aggiornato
+                   css/style.css?v=131 in tutte le pagine.
+2.37 (03/11/2026)  Servizi, scheda "Sezione sposi": messa la stessa foto del sottomenu
+                   (sposi che si baciano nel campo, images/servizi/sposi-bacio-campo.jpg)
+                   al posto della foto degli sposi in giardino, anche nell'anteprima per
+                   i social. La foto vecchia è in images/non-usate/sposi-esterno-servizi-vecchia.jpg.
+2.38 (03/11/2026)  Servizi, schede "Sezione sposi" e "Sezione fotografi": ora sono quadrate
+                   invece che orizzontali, così la foto verticale del fotografo si vede di
+                   più (videocamera e mani comprese); gli sposi restano ben inquadrati.
+                   Aggiornato css/style.css?v=132 in tutte le pagine.
+2.39 (03/11/2026)  Schede con foto e testo (Servizi, Prodotti, Album matrimoniali): il testo
+                   non sta più sotto la foto; ora è dentro la foto, sotto il titolo, e con
+                   il mouse compare solo passando sopra la scheda (il titolo sale per fargli
+                   posto). Su telefono e tablet, dove il passaggio del mouse non c'è, il
+                   testo resta sempre visibile dentro la foto.
+                   Tutte le foto cliccabili (schede, strisce della home, foto che si
+                   ingrandiscono, riquadri dei menu) mostrano un bordo rosso col cursore
+                   sopra. Aggiornato css/style.css?v=133 in tutte le pagine.
+2.40 (03/11/2026)  Tasti rossi: al passaggio del cursore non si riempiono più di blu ma
+                   diventano bianchi con bordo e scritta rossi (proposta 02): "Scopri le
+                   collezioni" nella home e tasti dell'Area download. Il tasto bianco
+                   "Gestisci cookie" sull'avviso rosso del modulo contatti al passaggio si
+                   svuota e resta il bordo bianco.
+                   Aggiornato css/style.css?v=137 in tutte le pagine.
+2.41 (03/11/2026)  Tasti rossi ("Scopri le collezioni" nella home e tasti dell'Area
+                   download): al passaggio del cursore compare una freccia dopo la scritta
+                   e il tasto si ingrandisce leggermente. Chi ha chiesto meno animazioni
+                   al proprio dispositivo vede la freccia ma non l'ingrandimento.
+                   Aggiornato css/style.css?v=138 in tutte le pagine.
+2.42 (03/11/2026)  Menu Collezioni su computer, riquadro "Album bambini": foto un po'
+                   ingrandita e spostata verso l'alto a destra, così si vede bene il volto
+                   del bambino in basso a sinistra. Gli altri riquadri sono invariati.
+                   Aggiornato css/style.css?v=139 in tutte le pagine.
+2.43 (03/11/2026)  Home e Collezioni, striscia "Album bambini": foto ingrandita e spostata
+                   verso l'alto a destra come nel menu, così si vede bene il volto del
+                   bambino in basso a sinistra. Su telefono e tablet, dove la striscia è
+                   bassa e larga, la foto è ingrandita di più per tenere il volto sopra la
+                   scritta. Aggiornato css/style.css?v=142 in tutte le pagine.
+2.44 (03/11/2026)  Home, apertura della pagina su computer: le voci della barra arrivano dal
+                   basso e dai lati con un effetto "implosione", a coppie dall'esterno verso
+                   il centro (1 Grafica & Stampa e Area download, 2 Servizi e Contatti,
+                   3 Prodotti e Dove, 4 Collezioni e Chi siamo) e per ultimo il logo, che
+                   sale dritto con un piccolo rimbalzo. Durata circa 2 secondi; poi la barra
+                   torna normale. Niente effetto su telefono/tablet né per chi ha chiesto
+                   meno animazioni al proprio dispositivo. Le altre pagine sono invariate.
+                   Aggiornato css/style.css?v=143 in tutte le pagine.
+2.45 (03/11/2026)  Barra su computer, in tutte le pagine: dopo Servizi, Prodotti e Collezioni
+                   c'è un triangolino pieno (proposta 02) per far capire che c'è un menu a
+                   tendina; quando il menu si apre il triangolino si capovolge. Su telefono
+                   e tablet resta il + / − già presente. Aggiornato css/style.css?v=144 in
+                   tutte le pagine.
+2.46 (03/11/2026)  Home, sezione Contatti: sotto Telefono c'è una nuova riga "Social" con tre
+                   riquadri bianchi affiancati (Facebook, Instagram, WhatsApp) con icona e
+                   nome (proposta 08, senza scritta d'invito). Al passaggio del cursore bordo
+                   e testo diventano rossi e il riquadro sale un po'. Le icone del piè di
+                   pagina restano. Aggiornato css/style.css?v=145 in tutte le pagine.
+2.47 (03/11/2026)  Home, sezione Contatti, riquadri dei social: icona e nome nei colori
+                   originali (Facebook blu, Instagram rosa, WhatsApp verde; proposta 02).
+                   Al passaggio del cursore anche il bordo prende il colore del social.
+                   Aggiornato css/style.css?v=146 in tutte le pagine.
+2.48 (03/11/2026)  Home, modulo contatti: tolta la scritta «Servizio riservato a
+                   professionisti e aziende con partita IVA.» sotto il tasto Invia richiesta.
+                   Tolto «con partita IVA» anche dalle descrizioni della home per Google, per
+                   l'anteprima sui social e dalla scheda azienda per i motori di ricerca.
+                   Aggiornato css/style.css?v=147 in tutte le pagine.
+2.49 (03/11/2026)  «Sud Italia» sostituito con «Italia» («in tutta Italia») in tutto il sito:
+                   testo di Sezione fotografi e di Servizi (introduzione e scheda Sezione
+                   fotografi), descrizioni per Google e per l'anteprima sui social della home
+                   e di Sezione fotografi, zona servita nella scheda azienda per i motori di
+                   ricerca.
+2.50 (03/11/2026)  Sezione fotografi: la foto accanto al testo ora è per lungo e intera
+                   (si vedono anche le mani e la videocamera), larga al massimo 440px così
+                   non diventa troppo alta. Solo in questa pagina. Aggiornato
+                   css/style.css?v=148 in tutte le pagine.
+2.51 (03/11/2026)  Home su computer: in cima alla pagina la barra non ha sfondo, sfocatura né
+                   ombra; voci bianche con un'ombra scura marcata per leggersi sulla foto
+                   (proposta 02, ombra più forte), logo invariato. Appena si scende torna la
+                   barra di sempre con il testo blu scuro (dissolvenza di 0,4 secondi).
+                   Le altre pagine e il telefono restano come prima. L'effetto implosione
+                   delle voci all'apertura (2.44) resta com'era. Al passaggio del cursore
+                   (e col menu aperto) voce, triangolino e sottolineatura diventano rossi
+                   come nel resto del sito. Aggiornato css/style.css?v=151 in tutte le pagine.
+2.52 (03/11/2026)  Barra su computer, in tutte le pagine: quando il cursore è dentro il menu
+                   a tendina di Servizi, Prodotti o Collezioni, la voce in alto resta rossa,
+                   sottolineata e ingrandita come al passaggio. Aggiornato
+                   css/style.css?v=152 in tutte le pagine.
+2.53 (03/11/2026)  Visore delle foto (tutte le gallerie): passando a un'altra foto con
+                   frecce, miniature o tastiera, la nuova compare sfocata e si mette a fuoco
+                   in 0,7 secondi (proposta 04). All'apertura del visore nessun cambiamento;
+                   niente effetto per chi ha chiesto meno animazioni. Per sicurezza dopo un
+                   secondo la foto è comunque nitida. Aggiornato css/style.css?v=153 e
+                   js/script.js?v=34 in tutte le pagine.
+2.54 (03/11/2026)  Nuova foto per l'album tradizionale (album aperto con foto di sposi in
+                   bianco e nero su tavolo di legno), rinominata album-tradizionale-sposi.jpg:
+                   - menu Prodotti, riquadro "Album tradizionale professionale", in tutte le
+                     pagine (copia ridotta in images/comune/menu/);
+                   - Prodotti, scheda "Album tradizionale professionale";
+                   - Album tradizionale professionale, foto principale accanto al testo e
+                     anteprima per i social.
+                   Foto vecchie in images/non-usate/ (tradizionale-menu-vecchia.jpg,
+                   album-foto-angolini-prodotti-vecchia.jpg,
+                   album-foto-angolini-tradizionale-vecchia.jpg).
+                   Poi sostituita con una versione con le pagine bianche e la copertina in
+                   pelle marrone (stesso nome file); la prima versione, con le pagine color
+                   crema, è in images/non-usate/album-tradizionale-sposi-pagine-crema-vecchia.jpg.
+2.55 (03/11/2026)  Nuova foto per le custodie (cofanetto effetto legno con scritta "The
+                   Wedding"), rinominata cofanetto-legno-the-wedding.jpg, al posto della foto
+                   del pacco col nastro rosso:
+                   - menu Prodotti, riquadro "Custodie per album", in tutte le pagine (copia
+                     ridotta in images/comune/menu/);
+                   - Prodotti, scheda "Custodie per album";
+                   - Custodie per album, riquadro "Cofanetti" della galleria.
+                   La foto principale di Custodie per album (confezioni regalo) è invariata.
+                   Foto vecchie in images/non-usate/ (custodie-menu-vecchia.jpg,
+                   confezione-nastro-prodotti-vecchia.jpg, confezione-nastro-custodie-vecchia.jpg).
+2.56 (03/11/2026)  Nuova foto per il fotolibro (fotolibro aperto con foto di una coppia in
+                   spiaggia), rinominata fotolibro-coppia-spiaggia.jpg e ridotta da 6000 a
+                   1600 pixel, al posto della foto dell'album sfogliato:
+                   - menu Prodotti, riquadro "Fotolibro professionale", in tutte le pagine
+                     (copia ridotta in images/comune/menu/);
+                   - Prodotti, scheda "Fotolibro professionale" e anteprima per i social;
+                   - Fotolibro professionale, foto principale accanto al testo e anteprima
+                     per i social.
+                   Foto vecchie in images/non-usate/ (fotolibro-menu-vecchia.jpg,
+                   album-sfogliato-prodotti-vecchia.jpg, album-sfogliato-fotolibro-vecchia.jpg).
+2.57 (03/11/2026)  Nuova foto per Album eventi (album aperto con la foto di una festa di 18
+                   anni e scritta "happy birthday"), rinominata album-eventi-diciottesimo.jpg,
+                   al posto della foto del compleanno del bambino:
+                   - menu Collezioni, riquadro "Album eventi", in tutte le pagine (copia
+                     ridotta in images/comune/menu/);
+                   - strisce "Album eventi" della home e di Collezioni, inquadrate sulla parte
+                     destra della foto (dove c'è la festa).
+                   La foto principale della pagina Album eventi (sala-fiori.jpg) è invariata.
+                   Foto vecchie in images/non-usate/ (eventi-compleanno-menu-vecchia.jpg,
+                   album-eventi-compleanno-index-vecchia.jpg,
+                   album-eventi-compleanno-collezioni-vecchia.jpg).
+                   Aggiornato css/style.css?v=154 in tutte le pagine.
+2.58 (03/11/2026)  Album bambini, Album comunione e Album eventi: la foto principale accanto
+                   al testo (e l'anteprima per i social) è ora la stessa del riquadro nel
+                   menu Collezioni:
+                   - Album bambini: album-bambini-sfogliato.jpg, inquadrata sul volto del
+                     bambino (prima neonato-dorme.jpg, ora in images/non-usate/neonato-dorme-vecchia.jpg);
+                   - Album comunione: album-comunione-collage.jpg (la foto del bambino in
+                     preghiera resta nella galleria della pagina);
+                   - Album eventi: album-eventi-diciottesimo.jpg, inquadrata sulla festa
+                     (prima sala-fiori.jpg, ora in images/non-usate/sala-fiori-vecchia.jpg).
+                   Aggiornato css/style.css?v=155 in tutte le pagine.
+2.59 (03/11/2026)  Custodie per album: la foto principale accanto al testo (e l'anteprima per
+                   i social) è ora la stessa del riquadro nel menu Prodotti, il cofanetto
+                   effetto legno "The Wedding" (cofanetto-legno-the-wedding.jpg). La foto
+                   delle confezioni regalo è in images/non-usate/confezioni-custodie-vecchia.jpg.
+2.60 (09/11/2026)  Linea Cuoio Fiorentino: messe le foto vere dei 4 album (modello-volute,
+                   modello-cornice-rilievo, modello-greca, modello-cinturino.jpg, nomi
+                   descrittivi) nella galleria «Gli album della linea» con didascalia; la
+                   foto principale accanto al testo, l'anteprima per i social e il riquadro
+                   in Album matrimoniali (cuoio-fiorentino-volute.jpg) sono ora l'album con
+                   le volute. Le vecchie foto illustrative sono in images/non-usate/
+                   (fiorentino-...-vecchia.jpg); originali in Desktop/olimp-originali-linea-cuoio-fiorentino.
+                   Le foto dei modelli (e quella del riquadro) si vedono intere su fondo
+                   bianco, senza ritaglio. Aggiornato css/style.css?v=156 in tutte le pagine.
+2.61 (09/11/2026)  Album comunione: la galleria (ora «I modelli») mostra le foto vere dei 7
+                   album con il nome sotto (modello-baby-deluxe, -fascia-rosa,
+                   -azzurro-medaglia, -pergamena-cornice-legno, -pergamena-rose,
+                   -pergamena-libro, -calice-pane.jpg; nomi descrittivi tranne Baby Deluxe)
+                   al posto delle 3 foto di esempio, spostate in images/non-usate/
+                   (comunione-...-vecchia.jpg). Originali in Desktop/olimp-originali-album-comunione.
+2.62 (09/11/2026)  Album bambini: la galleria «Le fotografie» diventa la sezione «Linea Deluxe»
+                   (prima delle tre linee) con le foto vere degli 8 album e il nome sotto
+                   (deluxe-nuvole, -targa-legno, -plex-fiori, -ghirlanda, -cicogna,
+                   -bianco-strass, -fucsia-piedini, -baby-foto.jpg; nomi descrittivi). Le 6
+                   foto di esempio sono in images/non-usate/ (bambini-...-vecchia.jpg).
+                   Originali in Desktop/olimp-originali-album-bambini.
+2.63 (09/11/2026)  Album bambini: aggiunta sotto la Linea Deluxe la sezione «Linea Baby» con le
+                   foto vere dei 13 album e il nome sotto (baby-bandierine, -orsetto-stelle,
+                   -mongolfiera, -orsetto-rosa, -cornice-foto, -due-finestre, -finestra-suede,
+                   -finestra-sagomata, -cuori-azzurri, -cuori-rosa, -palloncino, -quattro-foto,
+                   -fiocco.jpg; nomi descrittivi). Originali in Desktop/olimp-originali-album-bambini.
+2.64 (09/11/2026)  Album bambini divisa in tre linee, come Album matrimoniali: la pagina ora
+                   mostra, sotto il testo, tre riquadri «Le nostre linee» (Linea Deluxe,
+                   Linea Baby, Linea New Born) che portano alle tre pagine nuove
+                   album-bambini-deluxe.html, album-bambini-baby.html e
+                   album-bambini-new-born.html, fatte come le pagine delle linee matrimoniali
+                   (testo, foto principale, galleria «Gli album della linea»). Foto spostate
+                   in images/album-bambini-deluxe/, -baby/ e -new-born/ (modello-...jpg);
+                   foto dei riquadri in images/album-bambini/linea-*.jpg. Linea New Born con
+                   le 2 foto nuove. Nel menu Collezioni «Album bambini» ha ora il sottomenu
+                   con le tre linee, in tutte le pagine. I testi delle tre pagine sono
+                   provvisori, scritti guardando le foto. Aggiornato css/style.css?v=157.
+                   Le tre pagine nuove sono aggiunte anche in sitemap.xml.
+2.65 (09/11/2026)  Corretti i nomi dei modelli con quelli veri del cliente (presi dai file
+                   originali in Downloads/myairbridge-S38vTvYGSUj): rinominate le foto,
+                   le didascalie e i testi alternativi.
+                   Cuoio Fiorentino: Ambra, Ares, Greca, Scrigno (riquadro in Album
+                   matrimoniali: cuoio-fiorentino-ambra.jpg).
+                   Comunione: Emma, Bonnie, Clyde, 948, Carpetta Comunione 3, Carpetta
+                   Comunione Cresima 4, Carpetta Comunione Cresima 5.
+                   Linea Deluxe: Nuvola, Adele, Parigi Baby, Alberto, Vittorio, Loris, Alice,
+                   Dylan. Linea Baby: Tommy, Sam, Wooden Mongolfiera, Wooden Orsetto, Alex,
+                   Marc, Frame Baby, Ronald, Eliseo, Iole, Baby Mask 1, 2 e 3.
+                   Linea New Born: Soffietto (2 foto). I nomi scritti nelle versioni
+                   2.60-2.64 sono quindi superati.
+2.66 (09/11/2026)  Album comunione: la foto principale accanto al testo (e l'anteprima per i
+                   social) e la foto del riquadro «Album comunione» nel menu Collezioni sono
+                   ora il modello Emma (modello-emma.jpg; nel menu
+                   images/comune/menu/album-comunione-emma.jpg). Le foto di prima sono in
+                   images/non-usate/ (album-comunione-collage-vecchia.jpg,
+                   comunione-menu-vecchia.jpg).
+2.67 (09/11/2026)  Album bambini: la foto principale accanto al testo (e l'anteprima per i
+                   social) e la foto del riquadro «Album bambini» nel menu Collezioni sono
+                   ora il modello Soffietto della Linea New Born, la stessa del riquadro
+                   della linea (nel menu images/comune/menu/album-bambini-soffietto.jpg).
+                   Le foto di prima sono in images/non-usate/ (album-bambini-sfogliato-
+                   vecchia.jpg, bambini-menu-vecchia.jpg); tolte le regole CSS che le
+                   inquadravano. Aggiornato css/style.css?v=158.
+2.68 (09/11/2026)  Album matrimoniali: la foto del riquadro «Album matrimoniali» nel menu
+                   Collezioni (in tutte le pagine) e l'anteprima per i social della pagina
+                   sono ora il modello Curve della Linea Fashion (nel menu
+                   images/comune/menu/album-matrimoniali-curve.jpg). Le foto di prima sono in
+                   images/non-usate/ (matrimoniali-menu-vecchia.jpg,
+                   album-matrimoniali-copertina-vecchia.jpg).
+2.69 (09/11/2026)  Album comunione: nuova foto del modello Emma (sfondo scuro) al posto della
+                   precedente, nella galleria, come foto principale, nell'anteprima per i
+                   social e nel riquadro del menu Collezioni (stessi nomi di file:
+                   modello-emma.jpg e menu/album-comunione-emma.jpg). La foto di prima è in
+                   images/non-usate/modello-emma-vecchia.jpg.
+2.70 (09/11/2026)  Home e Collezioni: le quattro strisce delle collezioni usano ora le stesse
+                   foto del menu: modello Curve (matrimoniali), modello Soffietto (bambini),
+                   modello Emma (comunione) e l'album eventi del diciottesimo; scritti anche
+                   i testi alternativi. Le vecchie foto (fineart, albumBambini,
+                   primaComunione) sono in images/non-usate/ (index-... e collezioni-...-
+                   vecchia.jpg); tolte le regole CSS che inquadravano albumBambini.
+                   Aggiornato css/style.css?v=159.
+                   Inquadratura delle nuove foto nelle strisce spostata sui soggetti.
+2.71 (09/11/2026)  Home, foto di apertura:
+                   - la prima foto è ora l'album di nozze «Elisa & Andrea» su un piedistallo
+                     specchiato, a tutto schermo (images/index/album-nozze-elisa-andrea.jpg,
+                     da "Album di nozze Elisa & Andrea.png" nei Download). Su computer
+                     l'album è spostato un po' a destra senza ingrandire la foto (a sinistra
+                     la stessa foto specchiata) e resta fermo al passaggio del mouse; su
+                     telefono è inquadrata sugli sposi. La vecchia foto dell'album
+                     tradizionale è in images/non-usate/index-tradizionale-vecchia.jpg.
+                   - la seconda foto è ora l'album matrimoniale in camoscio grigio sul leggio
+                     in legno, a tutto schermo (images/index/album-leggio.jpg, da
+                     Gemini_Generated_Image_7uk3sz7uk3sz7uk3.jpeg), inquadrata un po' più in
+                     alto così su computer l'album appare leggermente più in basso. Provata
+                     prima la foto
+                     verticale del cliente (NIC_1138.jpg), ora in
+                     images/non-usate/index-album-leggio-verticale-vecchia.jpg. La vecchia
+                     foto dell'album aperto è in images/non-usate/index-album1-vecchia.jpg.
+                   Aggiornato css/style.css?v=160.
+2.72 (09/11/2026)  Home, foto di apertura: la terza foto che scorre è ora l'album Orione in
+                   piedi su un tavolo in legno, foto larga a tutto schermo
+                   (images/index/album-orione-tavolo.jpg, da "Album fotografico su tavolo in
+                   legno.png" nei Download); su computer l'album è
+                   spostato leggermente a destra e in basso senza ingrandire la foto; le
+                   strisce rimaste libere a sinistra e in alto sono riempite dalla stessa
+                   foto specchiata. Al
+                   passaggio del mouse la foto resta ferma (nessun effetto).
+                   Tolte le regole CSS
+                   che mettevano la vecchia foto Orione a destra con lo sfondo a sfumatura.
+                   Le foto scartate sono in images/non-usate/ (index-modello-orione-vecchia.jpg
+                   e index-album-orione-tavolo-vecchia.jpg, versione 4:3 provata prima). Solo
+                   la home: la pagina della Linea Trendy non cambia.
+2.73 (09/11/2026)  Modello Emma: nuova foto (album color sabbia davanti al legno scuro, da
+                   "Album ricordo della Prima Comunione.png"; copia in
+                   Desktop/olimp-originali-album-comunione/) ovunque compariva: foto
+                   principale e galleria di Album comunione, anteprima per i social, riquadro
+                   del menu Collezioni, strisce della home e di Collezioni (stessi nomi di
+                   file). Le foto di prima sono in images/non-usate/ (...-emma-vecchia-2.jpg).
+                   Inquadratura della striscia centrata sull'album. Aggiornato
+                   css/style.css?v=161.
+2.74 (09/11/2026)  Prodotti per il tuo studio fotografico: tolto il riquadro «Porta DVD» (ora
+                   sei riquadri su due file da tre) e tolta la parola «porta DVD» dalla frase
+                   introduttiva e dalle descrizioni per Google e social.
+2.75 (09/11/2026)  Home su telefono: le tre foto di apertura non riempiono più tutto lo schermo
+                   (erano ingrandite di circa 2,5 volte e si vedevano sgranate e tagliate):
+                   ora stanno in alto, larghe quanto lo schermo e alte metà, con l'album
+                   intero e in basso sfumano nel nero sotto il testo; nessuno spostamento né
+                   effetto al passaggio. Su computer non cambia niente. Aggiornato
+                   css/style.css?v=162.
+                   Nota per le prove: Chrome senza finestra non scende sotto ~600 px di
+                   larghezza; per vedere la pagina come su iPhone va caricata in un iframe
+                   largo 390 px.
+
+2.76 (10/11/2026)  Home, sezione «Dove siamo»: al posto della mappa di Google c'è una mappa
+                   animata (js/mappa.js). Si parte dalla Terra vista dallo spazio e si
+                   scende in verticale fino alla sede, su foto satellitari a colori (Esri);
+                   verso la fine compaiono il contorno del comune di Canicattì
+                   (OpenStreetMap) e il suo nome; all'arrivo il segnaposto «Olimp» e la
+                   scritta «Viale della Vittoria». Pulsante «Rivedi» per ripartire; alla
+                   fine la mappa si può muovere (Ctrl/⌘ + rotellina o due dita per
+                   ingrandire). Su telefono l'arrivo è un po' più largo e i crediti restano
+                   chiusi. Con «riduci movimento» si vede subito l'arrivo.
+                   La libreria delle mappe (MapLibre 5.6.0) è dentro il sito:
+                   js/maplibre-gl-5.6.0.js e css/maplibre-gl-5.6.0.css; si carica solo
+                   quando la sezione si avvicina.
+                   Come prima, la mappa parte solo dopo il consenso ai cookie: senza
+                   consenso c'è il riquadro «Accetta e mostra la mappa». Aggiornati i testi
+                   del banner e della pagina Privacy (Esri e OpenFreeMap al posto di Google
+                   Maps). Il segnaposto è a metà di Viale della Vittoria (il civico 111
+                   non è sulle mappe libere): per spostarlo si cambia SEDE in js/mappa.js.
+                   Aggiornati css/style.css?v=163, js/cookie.js?v=11, js/mappa.js?v=1.
+
+2.77 (10/11/2026)  Mappa di «Dove siamo»: la scritta «Olimp» sul segnaposto è più grande
+                   (18 px, in grassetto), su fondo bordeaux del sito con bordo bianco e
+                   ombra, così si legge bene sul satellite; il pallino che lampeggia resta.
+                   Premendo la scritta si apre la sede in Google Maps in una nuova scheda.
+                   Aggiornati css/style.css?v=164 e js/mappa.js?v=2.
+
+2.78 (10/11/2026)  Mappa di «Dove siamo»: il pallino del segnaposto e l'anello che lampeggia
+                   sono bordeaux come la scritta; la scritta «Olimp» è più grande (22 px).
+                   Aggiornato css/style.css?v=165.
+
+2.79 (10/11/2026)  Mappa di «Dove siamo» più fluida: mentre ci si avvicina alla sezione il
+                   sito precarica le foto satellitari attorno alla sede a ogni livello della
+                   discesa (circa 220 immagini, al massimo 4 secondi di attesa), così
+                   durante il volo arrivano dalla memoria del browser; più immagini tenute
+                   in memoria e dissolvenza più morbida quando compaiono. Aggiornato
+                   js/mappa.js?v=3. Tolta la pagina di prova prova-dove-siamo.html.
+
+2.80 (10/11/2026)  Mappa di «Dove siamo»: la scritta «Viale della Vittoria» ora è centrata
+                   sulla strada (punto preso dalla linea del viale su OpenStreetMap, 60 m a
+                   sinistra della sede, inclinata come la strada). Allontanando lo zoom
+                   dopo l'arrivo i testi spariscono al contrario di come compaiono: prima
+                   svanisce il nome del viale, poi ricompaiono contorno e nome di
+                   Canicattì; da lontano la scritta «Olimp» svanisce e resta il pallino
+                   rosso che lampeggia, così non copre il nome della città.
+                   Aggiornati css/style.css?v=166 e js/mappa.js?v=5.
+
+2.81 (10/11/2026)  Mappa di «Dove siamo»: tolta la scritta «Viale della Vittoria». Allontanando
+                   lo zoom (sotto il livello 14) svanisce tutto il segnaposto, pallino
+                   compreso, e si vedono contorno e nome di Canicattì; riavvicinandosi
+                   ricompare. Aggiornati css/style.css?v=167 e js/mappa.js?v=6.
+
+2.82 (10/11/2026)  Mappa di «Dove siamo»: scendendo si evidenziano una dopo l'altra Europa
+                   (azzurro), Italia (verde), Sicilia (arancio), provincia di Agrigento
+                   (viola) e Canicattì (bianco), ognuna con velo colorato, bordo e nome;
+                   ogni area compare al suo livello di zoom e svanisce quando arriva la
+                   successiva, e allontanando lo zoom ricompaiono al contrario. Confini
+                   semplificati e salvati in js/mappa.js: Europa da Natural Earth;
+                   Italia, Sicilia e provincia da OpenStreetMap, ritagliate sulla costa di
+                   Natural Earth per togliere le acque territoriali. Aggiornato
+                   js/mappa.js?v=7.
+
+2.83 (10/11/2026)  Mappa di «Dove siamo» in stile «neon» (scelto tra 10 prove): fondo notte
+                   con filo sottile intorno, satellite un po' scurito e meno saturo, aree
+                   con contorno luminoso del loro colore e velo leggero (Europa azzurro,
+                   Italia verde, Sicilia oro, provincia di Agrigento rosa, Canicattì
+                   bianco), nomi in maiuscolo dello stesso colore. Segnaposto rosa
+                   luminoso: scritta «OLIMP» su fondo scuro con bordo e alone rosa, pallino
+                   e anello rosa. Aggiornati css/style.css?v=168 e js/mappa.js?v=8.
+
+2.84 (10/11/2026)  Mappa di «Dove siamo»: il segnaposto resta in stile «neon» ma con il rosso
+                   del sito (#aa372e) al posto del rosa: bordo e alone della scritta
+                   «OLIMP», punta, pallino (con un leggero alone) e anello che lampeggia.
+                   Aggiornato css/style.css?v=169.
+
+2.85 (10/11/2026)  Mappa di «Dove siamo»: la provincia di Agrigento è arancione neon (#ff7a1a)
+                   al posto del rosa. Tolta la pagina di prova dei 10 design
+                   (prova-dove-siamo-design.html). Aggiornato js/mappa.js?v=9.
+
+2.86 (10/11/2026)  Mappa di «Dove siamo»: l'area di Canicattì è nel rosso del sito (#aa372e):
+                   velo, bordo e alone luminoso; il nome «CANICATTÌ» ha lettere chiare con
+                   alone rosso, così si legge sul satellite scuro. Aggiornato
+                   js/mappa.js?v=10.
+
+2.87 (11/11/2026)  Mappa di «Dove siamo»: tolta l'evidenziazione dell'Europa, la discesa
+                   inizia a evidenziare dall'Italia. Italia, Sicilia e provincia di Agrigento
+                   sono ora nello stesso rosso neon del sito (#aa372e) usato per Canicattì:
+                   velo, bordo e alone luminoso rossi, nomi con lettere chiare e alone
+                   rosso. Aggiornato js/mappa.js?v=11.
+
+2.88 (11/11/2026)  Home, le tre foto di apertura sugli schermi larghi e bassi (monitor da 27",
+                   finestra a tutta larghezza, anche i comuni 1920 pixel): prima la foto
+                   riempiva la larghezza e veniva tagliata sopra e sotto, così l'album restava
+                   mozzato. Ora ogni foto si vede intera, alta quanto la sezione e appoggiata a
+                   destra; il vuoto a sinistra, sotto il velo scuro del testo, è riempito dalla
+                   stessa foto (specchiata per l'album di nozze, con il bordo allungato e sfumato
+                   per leggio e Orione). Su portatile e telefono non cambia nulla. Aggiornato
+                   css/style.css?v=170 in tutte le pagine.
+
+2.89 (11/11/2026)  Home, foto del leggio e di Orione sugli schermi larghi: tolto il bordo della
+                   foto allungato e sfumato sul lato sinistro; ora a sinistra la foto sfuma nel
+                   nero, come il fondo scuro dell'album di nozze. Aggiornato
+                   css/style.css?v=171 in tutte le pagine.
+
+2.90 (11/11/2026)  Home, foto del leggio sugli schermi larghi: l'album sta più verso il centro,
+                   senza fasce nere a destra. La foto originale finisce subito dopo la base di
+                   legno, quindi è stata creata una versione allargata a destra
+                   (images/index/album-leggio-largo.jpg, 1453x864: muro e tavolo ricostruiti,
+                   base di legno chiusa, leggera ombra) usata solo sugli schermi larghi; a
+                   sinistra sfuma nel nero. Su portatile e telefono resta la foto di prima.
+                   Aggiornato css/style.css?v=172 in tutte le pagine.
+
+2.91 (11/11/2026)  Home, foto del leggio sui portatili (13"-15", schermi fino a 1800 px di
+                   larghezza): l'album è un po' più a destra e più in basso, così si stacca
+                   dalla scritta; la foto è appena più grande (108%) per non lasciare vuoti in
+                   alto. Sui monitor grandi resta com'era. Aggiornato css/style.css?v=173 in
+                   tutte le pagine.
+
+2.92 (11/11/2026)  Home, foto del leggio sui portatili (fino a 1800 px): album spostato ancora
+                   leggermente a destra. Aggiornato css/style.css?v=174 in tutte le pagine.
+
+2.93 (11/11/2026)  Home, foto del leggio: corretto il simbolo «&» del monogramma inciso sulla
+                   copertina (prima sembrava una «8»/«ß»): cancellato e ridisegnato sottile
+                   come la A e la D, così si legge «A & D». Corretta sia
+                   images/index/album-leggio.jpg sia la versione allargata
+                   images/index/album-leggio-largo.jpg (entrambe ?v=2). Aggiornato
+                   css/style.css?v=175 in tutte le pagine.
+
+2.94 (12/11/2026)  Mappa di «Dove siamo»: nel segnaposto, sotto la scritta «OLIMP», c'è ora
+                   l'indirizzo completo più in piccolo su due righe («Viale della Vittoria,
+                   111» e «92024 Canicattì (AG)»); tutta l'etichetta continua ad aprire Google
+                   Maps. Aggiornati js/mappa.js?v=12 e css/style.css?v=176 in tutte le pagine.
+
+2.95 (12/11/2026)  Collezioni: tolto un «</div>» di troppo nel codice e corretta la foto
+                   dell'anteprima per i social (og:image), che puntava a
+                   images/collezioni/fineart.jpg non più esistente: ora usa
+                   images/collezioni/album-matrimoniali-curve.jpg. Nessun cambiamento visibile.
+
+2.96 (12/11/2026)  Album tradizionale professionale, sezione «Su ordinazione»: tolti i due
+                   riquadri foto «Blocco bianco» e «Velina GSK liscia» sotto l'elenco. Le due
+                   foto provvisorie che mostravano sono ora in images/non-usate
+                   (album-spirale-tradizionale-vecchia.jpg, album-sfogliato-tradizionale-
+                   vecchia.jpg); tolti dall'elenco delle foto da ricevere
+                   tradizionale-blocco-bianco.jpg e tradizionale-velina-gsk.jpg.
+
+2.97 (12/11/2026)  Album tradizionale professionale, sezione «Colori e fogli»: tolti i due
+                   riquadri foto «Blocchi colorati» e «Velina pergamena goffrata». Le due foto
+                   provvisorie che mostravano sono ora in images/non-usate
+                   (album-bianco-nero-tradizionale-vecchia.jpg, album-vintage-collezione-
+                   tradizionale-vecchia.jpg); tolti dall'elenco delle foto da ricevere
+                   tradizionale-blocchi-colorati.jpg e tradizionale-velina.jpg (e
+                   tradizionale-album.jpg, già non più usata): la pagina non aspetta più foto.
+
+2.98 (12/11/2026)  Album tradizionale professionale, sezione «Colori e fogli»: sotto la frase
+                   sui colori ci sono quattro riquadri, uno per colore dei fogli, con il nome
+                   sotto (Avorio, Avorio nuvolato, Nero, Blu); l'avorio nuvolato ha un leggero
+                   effetto a nuvole. Su telefono restano tutti e quattro sulla stessa riga.
+                   Le tinte sono indicative: si possono sostituire con le foto dei campioni
+                   veri. Aggiornato css/style.css?v=177 in tutte le pagine.
+
+2.99 (12/11/2026)  Album tradizionale professionale, sezione «Su ordinazione»: la frase
+                   iniziale ora dice «Su ordinazione è possibile:» (tolto «particolare»).
+
+3.00 (12/11/2026)  Nuova foto per l'album tradizionale (album con copertina in pelle marrone
+                   aperto su un tavolo di legno, con tre foto grandi di sposi in bianco e
+                   nero), rinominata album-tradizionale-pelle-marrone.jpg (1264x843; copia da
+                   800 px per il menu):
+                   - menu Prodotti, riquadro "Album tradizionale professionale", in tutte le
+                     pagine (images/comune/menu/);
+                   - Prodotti, scheda "Album tradizionale professionale" (images/prodotti/);
+                   - Album tradizionale professionale, foto principale accanto al testo e
+                     anteprima per i social (images/album-tradizionale-professionale/).
+                   Aggiornate le descrizioni della foto (alt). Foto vecchie in images/non-usate/
+                   (album-tradizionale-sposi-pelle-scura-vecchia.jpg,
+                   album-tradizionale-sposi-menu-vecchia.jpg). Originale in
+                   Desktop/olimp-originali-album-tradizionale-professionale/ (lì anche una
+                   prima proposta scartata, con il tavolo più chiaro).
+
+3.01 (12/11/2026)  Nuova foto per il fotolibro professionale (fotolibro aperto su un piano in
+                   graniglia, con le foto di una coppia al mare), rinominata
+                   fotolibro-aperto-coppia-mare.jpg (1264x842; copia da 800 px per il menu):
+                   - menu Prodotti, riquadro "Fotolibro professionale", in tutte le pagine
+                     (images/comune/menu/);
+                   - Prodotti, scheda "Fotolibro professionale" e anteprima per i social della
+                     pagina (images/prodotti/);
+                   - Fotolibro professionale, foto principale accanto al testo e anteprima per
+                     i social (images/fotolibro-professionale/).
+                   Aggiornate le descrizioni della foto (alt), tolto «immagine illustrativa».
+                   Foto vecchie in images/non-usate/ (fotolibro-coppia-spiaggia-vecchia.jpg,
+                   fotolibro-coppia-spiaggia-menu-vecchia.jpg). Originale in
+                   Desktop/olimp-originali-fotolibro-professionale/.
+
+3.02 (12/11/2026)  Album tradizionale professionale: nuovo ordine delle sezioni finali, dopo
+                   «I formati» viene «Altri blocchi disponibili» e per ultima «Su ordinazione».
+
+3.03 (12/11/2026)  Album tradizionale professionale, «Altri blocchi disponibili»: il testo
+                   sotto il titolo occupa tutta la larghezza invece di andare a capo dopo circa
+                   60 caratteri (su MacBook e monitor sta su una riga sola; nelle finestre più
+                   strette va a capo da solo). Aggiornato css/style.css?v=178 in tutte le pagine.
+
+3.04 (13/11/2026)  Foto a schermo intero: nella fascia delle miniature in basso le foto che
+                   non esistono ancora (quelle con l'immagine provvisoria in data-fallback, es.
+                   Prodotti per il tuo studio fotografico, Album eventi, Custodie per album)
+                   comparivano vuote; ora mostrano anche loro l'immagine provvisoria, come i
+                   riquadri della pagina. Aggiornato js/script.js?v=35 in tutte le pagine.
+
+3.05 (13/11/2026)  Tolte dalla Scrivania le cartelle olimp-originali-album-tradizionale-
+                   professionale e olimp-originali-fotolibro-professionale citate nelle versioni
+                   3.00 e 3.01 (contenevano solo le copie delle foto mandate in chat). Nessun
+                   cambiamento al sito.
+
+3.06 (13/11/2026)  Album tradizionale professionale: nuova foto (lo stesso album in pelle
+                   marrone con le tre foto degli sposi in bianco e nero, ora su legno chiaro),
+                   ritagliata in 4:3 e salvata come album-tradizionale-sposi-bianco-nero.jpg in
+                   images/album-tradizionale-professionale/, images/prodotti/ e (da 800 px)
+                   images/comune/menu/. Sostituita nella pagina, nell'anteprima per i social,
+                   nella scheda di Prodotti e nel menu di tutte le pagine. La foto precedente è
+                   in images/non-usate (album-tradizionale-pelle-marrone-vecchia.jpg e
+                   -menu-vecchia.jpg).
+
+3.07 (13/11/2026)  Album eventi: nuova foto (album con copertina scura aperto su un tavolo di
+                   legno, con la foto di amici che brindano tra palloncini blu e oro) al posto
+                   di quella del diciottesimo, salvata come album-eventi-festa-palloncini.jpg in
+                   images/album-eventi/, images/index/, images/collezioni/ e (da 800 px)
+                   images/comune/menu/. Sostituita nella pagina, nell'anteprima per i social,
+                   nella striscia di Album eventi in home e in Collezioni e nel menu di tutte le
+                   pagine; aggiornate le descrizioni (alt) e le regole di inquadratura in
+                   css/style.css?v=179 (aggiornato in tutte le pagine). La foto precedente è in
+                   images/non-usate (album-eventi-diciottesimo-vecchia.jpg e -menu-vecchia.jpg).
+
+3.08 (18/11/2026)  Area riservata (copia di quella di inkubo, adattata): area-riservata.html
+                   con una scheda per ognuna delle 24 pagine, 9 gallerie (data/gallerie.json)
+                   e 61 foto fisse (data/immagini.json, data-slot sulle <img>), guida con
+                   12 schermate in images/guida/, worker/area-riservata-worker.js,
+                   scripts/genera_contenuti.py, .github/workflows/pubblica.yml e
+                   js/vendor/sortable/. Lucchetto «Area riservata» in fondo alla navbar di
+                   tutte le pagine (css/style.css?v=180 in tutte le pagine). Worker pubblicato
+                   su Cloudflare (olimp-area-riservata.nemesi-mark.workers.dev, impostazioni
+                   in worker/wrangler.toml) con tutti i secret, e scritto in
+                   <meta name="ar-api">. Vedi la sezione AREA RISERVATA.
+
+3.09 (18/11/2026)  Mappa animata di «Dove siamo» (home): i nomi Italia, Sicilia, Provincia di
+                   Agrigento e Canicattì ora hanno lo stesso carattere e stile della mappa di
+                   inkubo (Inter Tight grassetto, bianco con ombra scura, non più maiuscolo
+                   Noto Sans col bordo rosso). Sono scritte HTML sopra la mappa (js/mappa.js,
+                   nomiStretti, come in inkubo) che seguono il loro punto restando dentro il
+                   riquadro, più grandi su computer; i contorni rossi delle aree restano come
+                   prima. Inter Tight caricato da Google Fonts solo in index.html; nuova regola
+                   .map-nome in css/style.css?v=181 (aggiornato in tutte le pagine);
+                   js/mappa.js?v=13.
+
+3.10 (18/11/2026)  Area riservata: la lunga fila di 24 schede in alto è diventata un menu a
+                   livelli come la navbar del sito (Home, Grafica & Stampa, Servizi,
+                   Prodotti, Collezioni; sotto le sottopagine, e per Matrimoniali e Bambini
+                   le loro linee), con la freccetta sulle voci che hanno sottopagine e la
+                   voce aperta in nero. Le righe vanno a capo invece di scorrere di lato; sul
+                   telefono il menu non resta attaccato in alto. Rifatte le 12 schermate
+                   della guida in images/guida/ (con il nuovo menu) e aggiornati data-punti
+                   e i testi della guida che parlano delle schede.
+
+3.11 (18/11/2026)  Area riservata: al posto dell'arancione c'è il rosso bordeaux del sito
+                   (#aa372e, più scuro #8c2b23 al passaggio del mouse), con il testo bianco
+                   sopra: riga sotto la barra in alto, pulsanti principali, scheda scelta nel
+                   menu, numeri dei blocchi, foto selezionata che lampeggia, barra in basso,
+                   barra del salvataggio, guida. Rifatte le 12 schermate della guida e
+                   corretti i testi che dicevano «in arancio».
+
+3.12 (18/11/2026)  Area riservata: il cliente cambia anche i testi di tutte le pagine (362
+                   testi in 26 pagine, divisi per pagina e sezione; nei pulsanti e nei testi
+                   cliccabili anche l'indirizzo). In ogni pagina dell'area riservata c'è la
+                   scelta Foto / Testi; aggiunte le schede Area download e Privacy. Nuovo
+                   data/testi.json, data-testo sugli elementi di testo delle pagine (nessun
+                   cambiamento visibile: controllato pagina per pagina che testo e
+                   formattazione restino identici), testi in scripts/genera_contenuti.py e
+                   nel Worker (da ripubblicare su Cloudflare). Guida: nuova sezione «Cambiare
+                   i testi» con 3 schermate, rifatte le altre 12 (c'è il pulsante Foto/Testi).
+
+3.13 (18/11/2026)  Area riservata: nella finestra di una foto fissa ci sono anche i «Testi
+                   accanto alla foto» (titolo e descrizione del riquadro, paragrafi vicini alla
+                   foto principale), da cambiare insieme alla foto; in data/immagini.json ogni
+                   voce ha l'elenco «testi». Nei pulsanti e nei testi cliccabili «Dove porta il
+                   clic» resta visibile ma non si cambia più (bloccato anche nel Worker).
+                   Guida aggiornata (testi e 2 schermate).
+
+3.14 (18/11/2026)  Area riservata: tolti i pulsanti Grassetto e Testo cliccabile; il cliente
+                   cambia solo le parole. I testi con grassetto, evidenziato o link si vedono
+                   divisi in parti, una per campo, senza simboli; il grassetto e i link restano
+                   com'erano (controllo anche nel Worker). Vale anche per i «Testi accanto alla
+                   foto». Guida aggiornata (testo e 4 schermate).
+
+3.15 (18/11/2026)  Navbar su computer: più spazio fra «Area download» e il lucchetto
+                   dell'area riservata (52 px di margine a destra della fila di voci, e lo
+                   stesso a sinistra perché il logo resti al centro), in css/style.css?v=182
+                   (aggiornato in tutte le pagine).
+
+3.16 (18/11/2026)  Area riservata: nuova scheda «Menu» per i sottomenu della navbar. Il
+                   cliente cambia le 10 foto dei riquadri (Servizi, Prodotti, Collezioni) e
+                   le loro scritte, e le 25 voci dell'elenco a tendina (linee comprese); le
+                   voci principali e gli indirizzi restano fissi. Una modifica vale per tutte
+                   le pagine: voci con "pagina": "menu" in data/immagini.json e
+                   data/testi.json, data-slot / data-testo nell'intestazione di ogni pagina,
+                   scripts/genera_contenuti.py le applica a tutte le pagine. Worker: ammesse
+                   le foto in una sottocartella di images/ (images/comune/menu/). Guida: nuova
+                   sezione «Cambiare foto e scritte dei menu».
+
+3.17 (18/11/2026)  Area riservata: indicazioni sulle foto. In ogni finestra per aggiungere
+                   o cambiare una foto: forma e misura consigliate per quel posto (es.
+                   orizzontale 4:3, almeno 1600 × 1200), formati accettati (JPG, PNG, WebP,
+                   HEIC) e peso massimo (30 MB); anteprima con la forma che avrà sul sito;
+                   avviso giallo se la foto è piccola o ha un'altra forma; rifiutate le foto
+                   sotto 500 px, oltre 30 MB, i video e gli altri formati, con un messaggio
+                   chiaro (anche per le HEIC fuori da Safari). Guida: nuova sezione «Foto:
+                   formati e misure» con la tabella delle forme.
+
+3.18 (18/11/2026)  Area riservata, Menu → Testi: ogni voce del menu è una scheda sola con le
+                   due scritte, «Computer» (sotto la foto del riquadro) e «Tablet e telefono»
+                   (voce dell'elenco), che si cambiano insieme nella stessa finestra (coppie
+                   prese dai «testi» delle foto del menu in data/immagini.json). Sezioni
+                   Servizi, Prodotti, Collezioni e le linee di Album matrimoniali e Album
+                   bambini (solo tablet e telefono: sul computer il menu ha solo i riquadri).
+                   Tolto «Menu» davanti ai nomi delle foto del menu; guida aggiornata.
+                   Foto: niente più «almeno», la finestra dà la misura esatta da preparare
+                   (es. «Prepara la foto a 1067 × 1600 pixel (verticale 2:3), in formato
+                   JPG/JPEG o PNG»); avviso se la forma è diversa o la foto è più piccola.
+                   Formati accettati solo JPG e PNG (HEIC, WebP e GIF rifiutati con un
+                   messaggio); le PNG trasparenti diventano JPG su fondo bianco.
+
+3.19 (18/11/2026)  Area riservata: riquadro «Spazio per le foto» in cima, con la barra dello
+                   spazio usato su 1 GB, la percentuale e quante foto ci stanno ancora; si
+                   aggiorna dopo ogni salvataggio, diventa gialla all'80% e rossa al 95%.
+                   Worker: nuova richiesta GET /spazio (sito pubblicato e repository GitHub,
+                   conta il più grande). Guida: voce «Spazio».
+
+3.20 (18/11/2026)  Area riservata, Testi: ogni scheda (e la finestra) dice su quali schermi si
+                   vede il testo: «Computer, tablet e telefono» per i testi delle pagine (sono
+                   uno solo per tutti gli schermi, controllato a 1440 e 390 px: nessun testo
+                   è nascosto su un tipo di schermo), «Tablet e telefono» per le linee del
+                   menu; nel Menu le voci restano a coppie Computer / Tablet e telefono.
+                   Guida aggiornata. Aggiungere o eliminare testi e voci del menu: no, si
+                   cambiano solo le parole.
+
+3.21 (18/11/2026)  Area riservata, Cambia password: dopo «Cambia password» si apre la stessa
+                   finestra del salvataggio, con la barra che avanza («Cambio della password
+                   in corso…», almeno 1,5 secondi) e alla fine «Password cambiata
+                   correttamente» in verde con «OK». Se non riesce (es. password attuale
+                   sbagliata) «Password non cambiata» con il motivo e il pulsante «Correggi»,
+                   che riapre la finestra della password con quanto scritto.
+
+3.22 (18/11/2026)  Area riservata: durante un salvataggio o un cambio password, se si prova a
+                   chiudere, ricaricare o lasciare la pagina il browser chiede conferma
+                   (prima lo faceva solo con una foto spostata e non confermata).
+
+3.23 (18/11/2026)  Area riservata, pagina di accesso: la frase sotto «Area riservata» ora è
+                   un elenco: «Entra per:» · aggiungere, eliminare e riordinare le foto ·
+                   modificare i testi · cambiare la password.
+
+3.24 (18/11/2026)  Area riservata, sicurezza: blocco dei tentativi sbagliati nel Worker. Gli
+                   errori si contano tutti insieme nel KV DATI (il sito lo gestisce una persona
+                   sola): dopo 5 password sbagliate (accesso o «password attuale» del cambio
+                   password) l'area riservata si blocca per tutti, da qualunque dispositivo e
+                   rete, per 15 minuti, anche con la password giusta («Troppi tentativi
+                   sbagliati: per sicurezza riprova tra N minuti»); al 3° e 4° errore il
+                   messaggio dice quanti tentativi restano. Con l'accesso giusto il conto si
+                   azzera. Resta il rallentamento di 1,2 s per ogni errore. Chi è già dentro
+                   continua a lavorare (il blocco vale per l'accesso e il cambio password).
+
+3.25 (18/11/2026)  Mappa in home: la discesa è più lenta e continua, senza fermate. La mappa
+                   scende sempre ma rallenta molto mentre si legge un nome (Italia, Sicilia,
+                   provincia di Agrigento, Canicattì: circa 3-5 s ciascuno) e accelera nei tratti
+                   in mezzo; la velocità cambia con dolcezza (circa 25 s in tutto invece di 12).
+                   «Rivedi» ferma la discesa in corso e riparte da capo. I nomi sulla mappa
+                   stanno su una targhetta scura semitrasparente con una sottile linea rossa,
+                   quindi si leggono su qualunque foto satellitare. js/mappa.js?v=14,
+                   style.css?v=183.
+
+3.26 (18/11/2026)  Mappa in home più veloce: circa 14 s invece di 25, sempre continua e più
+                   lenta sui nomi: Italia, Sicilia e provincia di Agrigento restano leggibili
+                   1,5 s ciascuno, Canicattì 2,5 s (velocità in LENTO, js/mappa.js). Privacy: tolto OpenFreeMap, la mappa usa solo le foto
+                   satellitari di Esri (testi privacy-t027 e privacy-t031 in data/testi.json).
+                   js/mappa.js?v=15.
+
+3.27 (19/11/2026)  Area riservata: l'anteprima della foto (foto fisse e gallerie) è esattamente
+                   come sul sito. Quando si apre una foto, l'area apre di nascosto la pagina vera
+                   larga come un computer (1440 px) e come un telefono (390 px) e legge forma,
+                   inquadratura (object-position, es. «68% 50%» per le strisce delle Collezioni),
+                   «contenuta» o «riempita», bianco e nero e colore di fondo. L'anteprima grande è
+                   il computer (etichetta «Computer»); sotto, più piccole, «Telefono» e, per le
+                   strisce della Home, «Computer, col mouse sopra». Se sono uguali diventa una sola
+                   («Computer e telefono»). Per una foto nuova vale l'inquadratura che avrà sul
+                   sito (le foto caricate hanno un nome nuovo, quindi niente regole fatte per la
+                   foto di prima). Se la pagina non si può leggere resta la forma di prima. Guida
+                   («Formati e misure») aggiornata.
+
+3.28 (19/11/2026)  Area riservata, anteprima come sul sito: la vista «Computer» si misura larga
+                   come la finestra di chi guarda (stesso schermo con cui vede il sito; 1440 px se
+                   la finestra è più stretta di 900 px). Nelle strisce delle Collezioni in Home la
+                   vista grande è quella con il mouse sopra (la striscia si allarga e la foto si
+                   vede quasi intera, a colori); sotto, piccole, «Computer, senza mouse sopra» e
+                   «Telefono». Misura chiesta per le strisce: 1600 × 1200 pixel (orizzontale 4:3,
+                   come le foto attuali) invece di 1067 × 1600, anche nella tabella della guida.
+
+3.29 (19/11/2026)  Area riservata allineata alla skill «crea area riservata» (novità nate in
+                   inkubo):
+                   - inquadratura libera: nella foto grande dell'anteprima (vista Computer) la foto
+                     si trascina in tutte le direzioni e si ingrandisce (barra − / + sotto il
+                     riquadro, due dita, rotellina, frecce e + / -), sia per le foto nuove sia in
+                     Modifica e per le foto fisse già pubblicate; parte dall'inquadratura che la
+                     foto ha sul sito. Le viste piccole (Telefono, Computer senza mouse sopra)
+                     mostrano subito il risultato. Al salvataggio si salva esattamente la parte
+                     che si vede, come foto nuova (taglio fatto subito con toDataURL: con toBlob
+                     Chrome a volte non rispondeva e il salvataggio restava fermo). Dove il sito
+                     mostra la foto intera (Cuoio Fiorentino, object-fit: contain) non si
+                     trascina. Il riquadro usa --r e width:min(100%, 46svh * var(--r)).
+                   - guida a schede: in alto Foto | Testi | Menu (ferme scorrendo), sotto gli
+                     argomenti della scheda; «In generale» in fondo. Testi della guida aggiornati
+                     (trascinare e ingrandire); rifatte le schermate nuova, rinomina, elimina e
+                     fissa-scheda con i punti calcolati dagli anelli viola.
+
+3.30 (19/11/2026)  Area riservata, come inkubo 6.12 (deciso da Mark): nell'anteprima c'è sempre anche
+                   la vista «Telefono», pure quando è uguale al computer (prima le due viste uguali
+                   diventavano una sola, «Computer e telefono»). Guida aggiornata e schermate nuova,
+                   rinomina, elimina e fissa-scheda rifatte con la vista Telefono.
+
+3.31 (19/11/2026)  Area riservata, come inkubo 6.14 (skill «crea area riservata» aggiornata da
+                   inkubo): nell'anteprima da trascinare «Cambia foto» sta in alto a destra, più
+                   piccolo, così non copre più «✥ Trascina la foto». Rifatte le schermate della
+                   guida nuova, rinomina, elimina e fissa-scheda (i riquadri che lampeggiano non
+                   cambiano posto).
+3.32 (19/11/2026)  Mappa di «Dove siamo», come Rain Ink 6.17 (skill mappa-uni): il passaggio dalla
+                   provincia di Agrigento a Canicattì è centrato e fluido. La vista si centra sul
+                   territorio del comune (baricentro, MEZZO_COMUNE), dove sta anche la scritta
+                   «Canicattì»; Canicattì si avvicina al centro in modo regolare invece di scivolare
+                   di lato ed è già al centro quando il nome è acceso; al computer la vista della
+                   provincia è spostata verso Canicattì; la discesa rallenta da quando compare il
+                   contorno del comune (js/mappa.js; mappa.js?v=16). Aggiunto CLAUDE.md (note per Claude,
+                   escluso dalla pubblicazione).
+3.33 (20/11/2026)  Area riservata, testi, come inkubo 6.24 e 6.25 (skill area-ris aggiornata da inkubo):
+                   nella finestra di un testo l'anteprima «Come si vedrà sul sito» non è più un
+                   riquadro con le sole parole, ma la pagina vera in piccolo, come per le foto: a
+                   sinistra sul computer, a destra (sotto, su schermi stretti) sul telefono. Mentre
+                   si scrive, il testo nuovo prende il posto di quello del sito, contornato da un
+                   tratteggio rosso, e la vista si centra su di lui; nell'anteprima l'effetto
+                   «Sipario» e la barra dei cookie sono spenti. Per le voci del menu che si vedono
+                   solo su tablet e telefono l'anteprima apre la Home con il menu e il sottomenu
+                   aperti sul telefono, e sul computer dice «Su questo schermo questo testo non si
+                   vede». Se la pagina non si apre resta il riquadro semplice di prima. La frase
+                   d'aiuto sotto il campo ora dice solo «Puoi cambiare solo le parole. Per andare a
+                   capo premi Invio.». Guida: testo aggiornato e rifatte le schermate
+                   «testo-modifica» e «testo-link» con i punti che lampeggiano ricalcolati.
+3.34 (20/11/2026)  Mappa di «Dove siamo» rifatta come quella di Rain Ink 6.26 (skill mappa-uni): la
+                   discesa alterna soste e voli morbidi, tutti con la stessa dolcezza, e dura 14 s.
+                   A ogni sosta l'area del momento (Italia, Sicilia, provincia di Agrigento,
+                   Canicattì) resta con i colori veri del satellite e il contorno al neon nel rosso
+                   bordeaux del logo, mentre tutto il resto va in ombra (niente più velo colorato).
+                   Il nome compare al centro, fermo, con sopra il livello (Nazione, Regione,
+                   Provincia, Comune), al posto della targhetta agganciata all'area; Canicattì resta
+                   3 s. Inquadrature uguali su computer e telefono; della provincia di Agrigento
+                   conta solo la parte sulla Sicilia (senza Lampedusa e Lampione), così la vista è
+                   centrata. Segnaposto «Olimp» e consenso ai cookie come prima; riquadro della mappa
+                   alto 500 px sotto i 1020 px e 440 px sotto gli 800 px (prima 380)
+                   (js/mappa.js?v=17, style.css?v=184).
+
+3.35 (22/11/2026)  Repository rinominato da «trama» a «olimp», come la cartella: il sito ora è
+                   online su https://nemesimark.github.io/olimp/ (il vecchio /trama/ non risponde
+                   più). Area riservata e Worker puntano a nemesiMark/olimp.
+
+3.36 (22/11/2026)  Restyling di tutto il sito «Galleria notturna»: il sito come una mostra di sera.
+                   Pareti nel blu Olimp (#051D34) e in un blu notte più profondo (#030F1C) per
+                   hero, fasce in alto delle pagine, Chi siamo e piè di pagina; parete più chiara
+                   (#0A2640) per Grafica & Stampa e Contatti. Testi bianco caldo (#F3EFE8) e
+                   grigio azzurro (#AEB9C7). Titoli in Bodoni Moda (al posto di Manrope), testi,
+                   menu ed etichette in Jost. Il bordeaux del logo (#AA372E) resta per pulsanti,
+                   linee sottili e voce attiva; sul blu, dove serve un bordeaux leggibile come
+                   testo, si usa #E07A6E.
+                   - Tutte le foto ora sono a colori: le tre del hero (con uno zoom lentissimo
+                     e una sfumatura blu notte dietro il titolo), le strisce delle Collezioni e
+                     la foto di Chi siamo (scurita appena per leggere la citazione).
+                   - Le scritte piccole sopra i titoli (es. «01 / Album», «Olimp / Prodotti»)
+                     sono la «targa della sala»: lettere spaziate e una riga sottile fino in
+                     fondo. Tolte le barre rosse verticali accanto ai titoli.
+                   - Strisce delle Collezioni e gallerie dei modelli: nome sotto la foto, come la
+                     didascalia di una mostra (prima stava sulla foto con la sfumatura nera); al
+                     passaggio del mouse le altre strisce si abbassano di luce.
+                   - Pulsanti squadrati con lettere spaziate: bordeaux che al passaggio si
+                     riempie di bianco caldo; quello del hero è bianco caldo e diventa bordeaux.
+                   - Campi del modulo con la sola riga sotto; menu, tendine, menu del telefono,
+                     visore delle foto, finestra di ringraziamento e barra dei cookie sul blu
+                     notte. Puntini del hero diventati trattini.
+                   Tutto in un blocco in fondo a css/style.css («RESTYLING 4.0»), più il carattere
+                   Jost al posto di Manrope nel resto del file e nella barra dei cookie
+                   (js/cookie.js). Area riservata non toccata (la sua anteprima mostra già il
+                   nuovo stile); le schermate della guida in images/guida/ mostrano ancora il
+                   vecchio aspetto. style.css?v=185 e cookie.js?v=12 in tutte le pagine.
+
+3.37 (22/11/2026)  Caratteri cambiati: titoli in Gloock (serif da moda, più pieno e leggibile del
+                   Bodoni sul blu), testi, menu ed etichette in Hanken Grotesk (al posto di Jost),
+                   anche nella barra dei cookie. Gloock non ha il corsivo: frasi d'apertura e
+                   citazione di Chi siamo ora sono dritte. style.css?v=186 e cookie.js?v=13 in
+                   tutte le pagine.
+
+3.38 (22/11/2026)  Mappa di «Dove siamo»: il passaggio da Italia a Sicilia era troppo brusco (il volo
+                   durava 0,3 s, ma la vista doveva spostarsi molto verso sud, e lo zoom frenava di
+                   colpo). Ora:
+                   - ogni volo dura almeno quanto serve perché lo spostamento sullo schermo resti
+                     lento (in media al massimo 220 pixel al secondo su computer, 140 sul telefono):
+                     Italia → Sicilia dura circa 0,9 s, con lo spostamento che parte e finisce piano;
+                   - nella sosta sull'Italia e sulla Sicilia lo zoom avanza più piano (Italia dal 50%
+                     all'80% del riquadro, Sicilia dal 36% al 62%), così durante il volo la velocità
+                     dello zoom resta quasi uguale (0,45 → 0,33 → 0,52 livelli al secondo) invece di
+                     frenare di colpo;
+                   - se in futuro un volo dovesse durare tanto con poco zoom da fare, lo zoom rallenta
+                     dolcemente fino a fermarsi, la mappa scivola verso la meta e lo zoom riparte:
+                     non torna mai indietro (altrimenti nomi e contorni non si vedono più).
+                   Discesa di 15,5 s invece di 14 (js/mappa.js?v=21). Il pulsante «Rivedi» ha di nuovo
+                   la scritta blu (era bianca su bianco, style.css?v=187).
+
+3.39 (23/11/2026)  Area riservata: quando si carica una foto nuova (gallerie e foto fisse) e la sua misura
+                   non è quella giusta del posto, sotto la misura si sceglie come salvarla:
+                   - «Adatta in automatico» (scelta di partenza): ritagliata alla forma del posto con la
+                     parte scelta nell'anteprima (trascinandola e ingrandendola, come prima) e portata
+                     ESATTAMENTE alla misura giusta (es. 1600 × 1200), anche ingrandendola; prima si
+                     riduceva solo a 1600 px sul lato lungo e non si ingrandiva mai. Se il riquadro del
+                     sito ha una forma un po' diversa, la parte scelta si allarga fino alla forma giusta.
+                   - «Usa la mia foto così com'è»: stessi pixel, niente tagli né ridimensionamenti (per chi
+                     la prepara da sé); l'anteprima la mostra intera con il taglio del sito. Si toglie solo
+                     l'EXIF. Se supera i 4 MB accettati dal Worker si abbassa la qualità JPEG (0,92 → 0,75),
+                     e se non basta un messaggio chiede di adattarla o ridurla.
+                   Se la foto è già della misura giusta la scelta non compare. Avvisi gialli aggiornati
+                   per i due modi (anche «molto più grande»); guida «Foto: formati e misure» aggiornata.
+                   Worker non toccato.
+
+3.40 (23/11/2026)  Guida dell'area riservata: rifatte le schermate nuova, rinomina, elimina e
+                   fissa-scheda (ora con «Misura giusta: …»); in «nuova» si vede la scelta «Adatta in
+                   automatico / Usa la mia foto così com'è» con il suo anello. Punti che lampeggiano
+                   ricalcolati con riquadri.py. Nei passi «Aggiungere una foto» e «Foto fisse» due
+                   righe sulla scelta della misura.
+
+3.41 (23/11/2026)  Home, le tre foto in alto (hero): le scritte non coprono più l'album, su nessuno
+                   schermo. Controllate tutte e tre le foto su 52 misure di schermo: telefoni piccoli e
+                   grandi (anche in orizzontale e pieghevoli), tablet in verticale e in orizzontale,
+                   finestre a metà schermo, portatili, monitor fino a 5120 px.
+                   Prima ogni foto riempiva la sezione e veniva solo tagliata in modo diverso a seconda
+                   dello schermo, con correzioni fatte una misura alla volta: su telefono il titolo
+                   copriva l'album, su tablet in verticale l'album finiva sotto le scritte, su portatili
+                   e tablet in orizzontale il titolo toccava l'album, sui monitor molto larghi compariva
+                   una copia specchiata dell'album.
+                   Ora la sezione è divisa in due zone che non si toccano:
+                   - schermi larghi (computer, tablet e telefono in orizzontale): scritte a sinistra,
+                     album a destra;
+                   - schermi stretti o verticali (telefono, tablet in verticale, finestre più strette
+                     di 5:4): album in alto, scritte sotto.
+                   Ogni foto viene ingrandita e spostata con un calcolo che mette l'album intero al
+                   centro della sua zona, il più grande possibile; il resto della foto si allarga
+                   intorno (dietro le scritte resta scurito dal velo blu) e verso i bordi sfuma nel blu
+                   notte. Sui monitor molto larghi l'album scorre verso destra finché la foto arriva al
+                   bordo dello schermo. Il calcolo lascia spazio anche per lo zoom lentissimo della
+                   foto; l'entrata della foto all'apertura è più leggera (sale del 5% e parte
+                   ingrandita dell'8%, prima 10% e 22%), così l'album non passa mai sotto le scritte o
+                   sotto la barra.
+                   Telefono: la scritta piccola sopra il titolo sta su una riga e gli spazi sono più
+                   stretti, così album, titolo, testo e pulsante stanno nello schermo (sui telefoni più
+                   piccoli il pulsante resta appena sotto). Schermi bassi (telefono in orizzontale,
+                   finestre basse): scritte più compatte, tutto in una schermata. Il titolo sugli
+                   schermi grandi arriva al massimo a 92 px (prima 102).
+                   La foto del leggio usa sempre la versione allargata (images/index/album-leggio-
+                   largo.jpg); quella stretta, non più usata, è in
+                   images/non-usate/index-album-leggio-stretta.jpg.
+                   Tutte le regole della hero, prima sparse in sei punti di css/style.css che si
+                   sovrascrivevano, sono in un unico blocco «HERO DELLA HOME (3.41)» in fondo al file.
+                   Per cambiare una delle tre foto: il file, il rapporto larghezza/altezza (--r) e il
+                   riquadro dell'album nella foto (--ax0 --ay0 --ax1 --ay1, in frazioni della foto).
+                   style.css?v=188 in tutte le pagine.
+
+3.42 (23/11/2026)  Sfondo delle pagine più chiaro (era troppo scuro): blu delle pagine da #051D34 a
+                   #0F3557, blu notte (sezione in alto della home, Chi siamo, piè di pagina, menu,
+                   barra dei cookie) da #030F1C a #0A2440, fasce più chiare (Grafica & Stampa,
+                   Contatti) da #0A2640 a #154068 e #0F2E4C a #1B4B78. Aggiornati allo stesso blu
+                   anche i veli sopra le foto, la barra in alto e le finestre (prima in blu notte
+                   vecchio). style.css?v=189 e cookie.js?v=14 in tutte le pagine.
+
+3.43 (23/11/2026)  Hero della home: le tre foto sfumano solo dal lato delle scritte (a sinistra; sui
+                   telefoni in basso), con una sfumatura molto più graduale, senza lo «stacco» che si
+                   vedeva prima. Sugli altri tre lati la foto continua fino al bordo della sezione; solo
+                   se la foto finisce prima (finestre alte e strette) sfuma piano invece di tagliarsi.
+                   La sfumatura segue una curva morbida invece di una retta, e il velo blu dietro le
+                   scritte schiarisce poco a poco su un tratto più lungo invece di finire di colpo
+                   all'inizio del palco. style.css?v=190 in tutte le pagine.
+
+3.44 (23/11/2026)  Sfondi chiari in tutto il sito (il blu era ancora troppo scuro): avorio #FAF6EE
+                   per le pagine, beige #F3ECE0 per le fasce alternate, beige-tortora #EEE4D4 per
+                   hero della home, testata delle pagine interne, Chi siamo, piè di pagina, menu e
+                   barra dei cookie, #E8DDCB per i riquadri delle foto in caricamento. Testi passati
+                   a marrone scuro (#3A2E24, secondari #6F5F50) per leggersi sul chiaro; il bordeaux
+                   del logo resta per pulsanti e linee (il rosso chiaro dei collegamenti diventa
+                   #8E2C24). Barra in alto, finestre e velo dell'hero ora beige; restano scuri (in
+                   marrone) solo i veli sopra le foto con scritte bianche. In cima alla home le voci
+                   del menu sono marrone scuro con alone chiaro. Ombre più leggere.
+                   style.css?v=191 e cookie.js?v=15 in tutte le pagine.
+
+3.45 (23/11/2026)  Nuovi font: titoli in Playfair Display (al posto di Gloock), testi in Lato (al
+                   posto di Hanken Grotesk), in tutte le pagine e nella barra dei cookie. Caricati da
+                   Google Fonts (Playfair 400-700 con corsivo, Lato 300/400/700).
+                   style.css?v=192 e cookie.js?v=16 in tutte le pagine.
+
+3.46 (23/11/2026)  Hero della home: tolta la foto dell'album in camoscio grigio sul leggio in legno
+                   (album-leggio-largo.jpg, spostata in images/non-usate/). Restano due foto (album
+                   Elisa & Andrea e album Orione sul tavolo) con due trattini. Tolta anche la sua
+                   regola di posizione (.hs-leggio) dal blocco «HERO DELLA HOME».
+                   style.css?v=193 in tutte le pagine.
+
+3.47 (23/11/2026)  Hero della home: invertite le due foto. Ora parte l'album Orione sul tavolo,
+                   poi l'album Elisa & Andrea (solo index.html).
+
+3.48 (23/11/2026)  Home: la sezione «Contatti» ha ora lo stesso fondo beige-tortora (#EEE4D4) della
+                   sezione «Chi siamo». style.css?v=194 in tutte le pagine.
+
+3.49 (23/11/2026)  Un solo font per tutto il sito: Inter Tight (titoli, testi, menu, pulsanti, mappa
+                   e barra dei cookie) al posto di Playfair Display e Lato. Caricato da Google Fonts
+                   (pesi 300-800 con corsivo). L'area riservata mantiene i suoi font.
+                   style.css?v=195 e cookie.js?v=17 in tutte le pagine.
+
+3.50 (23/11/2026)  Testo più grande e titoli in grassetto. La misura di base passa da 16 a 18 px,
+                   quindi testi, menu, pulsanti e didascalie crescono del 12,5%. Tutti i titoli
+                   (h1-h4, titolo e numeri delle statistiche) sono in grassetto (700); i due titoli
+                   principali (h1, h2) restano grandi come prima. Regole nel blocco «TESTO PIÙ
+                   GRANDE E TITOLI IN GRASSETTO (3.50)», subito prima del blocco dell'hero.
+                   style.css?v=196 in tutte le pagine.
+
+3.51 (23/11/2026)  Barra in alto: tutte le voci (anche sottomenu e menu del telefono) in grassetto.
+                   Sui computer le voci sono un po' più piccole e meno spaziate (misura che cresce
+                   con lo schermo), così in grassetto ci stanno tutte senza toccare il lucchetto.
+                   style.css?v=197 in tutte le pagine.
+
+3.52 (23/11/2026)  Linea al neon rosso (#FF3B2F, sottile, con un leggero alone verso il basso) tra
+                   le sezioni: sopra ogni sezione che ne segue un'altra, sotto la testata delle
+                   pagine interne (al posto della riga beige) e sopra il piè di pagina. Blocco
+                   «LINEA AL NEON TRA LE SEZIONI (3.52)», prima del blocco dell'hero.
+                   style.css?v=198 in tutte le pagine.
+
+3.53 (27/11/2026)  Correzioni del cliente (documento «Testi Sito Olimp»).
+                   - Mappa: segnaposto spostato sulla posizione di «O.L.I.M.P.» su Google Maps
+                     (js/mappa.js, SEDE; mappa.js?v=22); «Apri Google Maps» e l'indirizzo portano
+                     al link del cliente, «Ottieni indicazioni» alle stesse coordinate.
+                   - Contatti: referente solo «Alessandro»; email info@olimpitalia.com e cellulare
+                     (0039) 348 226 6531 (anche WhatsApp) in tutte le pagine; il fisso resta.
+                   - Modulo contatti: due campi nuovi obbligatori, «Paese» e «Telefono»
+                     (testi index-t095 e index-t096).
+                   - Chi siamo: «oltre 200» studi partner e «oltre 10.000» album l'anno.
+                   - Album tradizionale: tolta la sezione «Colori e fogli»; nei formati «Il blocco,
+                     nero o avorio, può essere composto da 50 o 60 fogli nelle seguenti misure:»;
+                     negli altri blocchi solo avorio da 240 gr/m2; su ordinazione solo il bianco.
+                   - Non più online (restano nel repository e modificabili dall'area riservata):
+                     Prodotti per lo studio, Custodie, Linea New Born, Album eventi e Area download.
+                     Elenco in scripts/non-online.txt (lo legge pubblica.yml); i link e le schede
+                     che portavano lì sono nelle pagine dentro i commenti «NON ONLINE (3.53)» e i
+                     loro testi hanno «nascosto» in data/testi.json. Menu Prodotti con 2 riquadri
+                     e Collezioni con 3 (classi mega-2 e mega-3), Album bambini con 2 linee.
+                   - Area download: si apre solo dall'area riservata (scheda «Area download», con i
+                     pulsanti per scaricare catalogo e guida). I PDF in downloads/ restano
+                     pubblicati, ma nessuna pagina del sito li collega.
+                   - Linee matrimoniali e per bambini: sotto il titolo una barra per passare
+                     subito da una linea all'altra («Tutte le linee», poi le linee; quella aperta
+                     in bordeaux; sul telefono scorre di lato).
+                   - Linea Trendy: nella galleria Orione ha una foto nuova con l'album più piccolo,
+                     proporzionato a Frame e Ailanto (modello-orione-galleria.jpg); la foto
+                     principale della pagina resta quella di prima.
+                   - Titoli più piccoli (h1, h2 e titolo delle pagine interne) e testate e prima
+                     sezione meno alte sui computer: aprendo una pagina si vede subito anche il
+                     testo sotto. Blocco «CORREZIONI DEL CLIENTE (3.53)» prima del blocco
+                     dell'hero. style.css?v=199 in tutte le pagine.
+                   - In attesa: le foto del fotolibro professionale (da ricevere).
+

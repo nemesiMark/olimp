@@ -9,3 +9,8 @@
 /area-download.html
 # i PDF li consegna il Worker solo a chi è entrato con la password dei clienti o dell'amministratore (3.54)
 /downloads/
+# pagina «sito in costruzione» da caricare a mano su Netsons (olimpitalia.com), non va su GitHub Pages (3.54)
+/netsons-in-costruzione/
+# documenti di lavoro: non servono ai visitatori (3.54)
+/LEGGIMI.txt
+/STORICO-VERSIONI.txt
