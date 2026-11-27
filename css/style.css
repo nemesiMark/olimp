@@ -5181,6 +5181,10 @@ footer button:focus-visible,
 footer .footer-socials a:hover,
 footer .footer-socials a:focus-visible { color: var(--ribbon); }
 
+/* Galleria delle linee (3.54): il titolo «Gli album della linea» era attaccato alla linea
+   rossa sopra (la sezione non aveva spazio in alto), su telefono e computer */
+.album-gallery { padding-top: clamp(2.5rem, 5vw, 4.5rem); }
+
 /* ======================================================
    TESTI PIÙ PICCOLI SUL TELEFONO (3.54, richiesta del cliente)
    Fino a 600 px: base 15 px invece di 18 (testo 15-16 px invece di 19, e in proporzione

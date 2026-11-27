@@ -1995,3 +1995,6 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                      normale 15 px, introduzioni ~16 px); titoli invariati (ora scritti in px),
                      campi del modulo fermi a 16 px perché l'iPhone non ingrandisca la pagina.
                      style.css?v=203.
+                   - Pagine delle linee e Album comunione: spazio sopra il titolo della galleria
+                     («Gli album della linea»), che era attaccato alla linea rossa (~38 px sul
+                     telefono, ~64 px sul computer). style.css?v=204.
