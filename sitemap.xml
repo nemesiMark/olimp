@@ -29,14 +29,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://DOMINIO-DEL-SITO/prodotti-studio-fotografico.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://DOMINIO-DEL-SITO/custodie-per-album.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://DOMINIO-DEL-SITO/collezioni.html</loc>
     <priority>0.8</priority>
   </url>
@@ -81,23 +73,11 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://DOMINIO-DEL-SITO/album-bambini-new-born.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://DOMINIO-DEL-SITO/album-comunione.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://DOMINIO-DEL-SITO/album-eventi.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://DOMINIO-DEL-SITO/grafica-stampa.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://DOMINIO-DEL-SITO/area-download.html</loc>
     <priority>0.8</priority>
   </url>
   <url>

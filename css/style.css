@@ -3309,13 +3309,17 @@ img[src*="fotografo-videocamera"] {
 
   /* Servizi ha due voci: stessa altezza delle altre bande, due riquadri uguali con
      stessa forma (5:4) per tutte e due, inquadrate su sposi e fotografo */
-  .mega-2 .mega-in {
+  .mega-2 .mega-in,
+  .mega-3 .mega-in {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
   }
 
-  .mega-2 .mega-card {
+  /* Prodotti (2 voci) e Collezioni (3 voci) dalla 3.53, con le pagine non online nascoste:
+     stessi riquadri di Servizi */
+  .mega-2 .mega-card,
+  .mega-3 .mega-card {
     flex: none;
     aspect-ratio: 5 / 4;
   }
@@ -5076,6 +5080,59 @@ footer {
   box-shadow: inset 0 1px 0 rgba(255, 120, 100, .9), inset 0 7px 14px -7px rgba(255, 59, 47, .55) !important;
 }
 .page-hero { border-bottom: 0 !important; }
+
+/* ======================================================
+   CORREZIONI DEL CLIENTE (3.53)
+   - Titoli più piccoli: aprendo una pagina si vede subito anche il testo sotto.
+   - Barra delle linee (pagine delle linee matrimoniali e per bambini): si passa
+     da una linea all'altra senza tornare indietro.
+   ====================================================== */
+h1 { font-size: clamp(2.3rem, 4.3vw, 4rem); }
+h2 { font-size: clamp(1.85rem, 3.2vw, 3rem); }
+@media (min-width: 801px) {
+  .page-hero h1 { font-size: clamp(2rem, 3.6vw, 3.4rem); }
+  .page-hero { padding-top: 5.4rem; padding-bottom: 1.6rem; margin-bottom: 2.4rem; }
+  /* la prima sezione sotto la testata parte più in alto */
+  main > .page-hero + section { padding-top: 4rem; }
+  main > .page-hero + .product-body { padding-top: 3rem; }
+}
+
+.linee-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: 1.1rem;
+}
+.linee-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.4rem;
+  padding: .3rem 1rem;
+  border: 1px solid rgba(58, 46, 36, .22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .55);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+}
+/* Album bambini con la New Born non online: due linee, più larghe e centrate */
+@media (min-width: 801px) {
+  .collections-grid.tre-linee.due-linee { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 62rem; margin-inline: auto; }
+}
+.linee-nav a:hover { border-color: var(--ribbon); color: var(--ribbon); }
+.linee-nav a[aria-current="page"] { background: var(--ribbon); border-color: var(--ribbon); color: #fff; }
+.linee-nav a.linee-tutte { background: transparent; border-style: dashed; }
+.linee-nav a.linee-tutte::before { content: '←'; margin-right: .45rem; }
+/* sul telefono la barra scorre di lato invece di andare su più righe */
+@media (max-width: 700px) {
+  .linee-nav { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-right: -1.25rem; padding-right: 1.25rem; }
+  .linee-nav::-webkit-scrollbar { display: none; }
+}
 
 /* ======================================================
    HERO DELLA HOME (3.41): le scritte non coprono mai l'album

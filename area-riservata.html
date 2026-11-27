@@ -87,6 +87,9 @@ input:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px rgba(0,0,0
 .pag-head h1{font:700 clamp(26px,4vw,34px)/1.1 var(--head);letter-spacing:-.01em}
 .pag-head h1 small{font:500 15px Inter;color:var(--mute);margin-left:8px;font-variant-numeric:tabular-nums}
 .vedi{color:var(--red);font-weight:500;font-size:15px;text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+.non-online{color:var(--mute);font-size:15px;min-height:44px;display:inline-flex;align-items:center}
+.tab.off{opacity:.55}
+.scarica{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 20px}
 .blocchi{list-style:none;padding-bottom:48px}
 .blocchi>li{padding:18px 0 22px;border-top:1px solid var(--line)}
 .blocchi h2{font:700 19px/1.2 var(--head);margin-bottom:10px;display:flex;align-items:center;gap:10px}
@@ -728,7 +731,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
   var PAGINE = [
     ['index.html', 'Home', 'Home', [
       { t: 'Prima schermata', nota: 'Le tre foto grandi che scorrono in cima alla Home hanno regolazioni particolari per ogni tipo di schermo: per cambiarle chiedi a chi cura il sito.' },
-      { t: 'Collezioni', slots: ['home-coll-matrimoniali', 'home-coll-bambini', 'home-coll-comunione', 'home-coll-eventi'] },
+      { t: 'Collezioni', slots: ['home-coll-matrimoniali', 'home-coll-bambini', 'home-coll-comunione'] },
       { t: 'Grafica & Stampa', slots: ['home-grafica'] },
       { t: 'Chi siamo', slots: ['home-chisiamo'] }]],
     ['servizi.html', 'Servizi', 'Servizi', [{ t: 'I servizi', slots: ['servizi-sposi', 'servizi-fotografi'] }]],
@@ -736,14 +739,14 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     ['sezione-fotografi.html', 'Fotografi', 'Sezione fotografi', [{ t: P, slots: ['fotografi-principale'] }]],
     ['grafica-stampa.html', 'Grafica & Stampa', 'Grafica & Stampa', [{ t: P, slots: ['grafica-principale'] },
       { t: 'Le fasi del lavoro', slots: ['grafica-selezione', 'grafica-sviluppo', 'grafica-fotoritocco', 'grafica-impaginazione'] }]],
-    ['prodotti.html', 'Prodotti', 'Prodotti', [{ t: 'I prodotti', slots: ['prodotti-fotolibro', 'prodotti-tradizionale', 'prodotti-studio', 'prodotti-custodie'] }]],
+    ['prodotti.html', 'Prodotti', 'Prodotti', [{ t: 'I prodotti', slots: ['prodotti-fotolibro', 'prodotti-tradizionale'] }]],
     ['fotolibro-professionale.html', 'Fotolibro', 'Fotolibro professionale', [{ t: P, slots: ['fotolibro-principale'] }]],
     ['album-tradizionale-professionale.html', 'Tradizionale', 'Album tradizionale professionale', [{ t: P, slots: ['tradizionale-principale'] }]],
     ['prodotti-studio-fotografico.html', 'Studio fotografico', 'Prodotti per il tuo studio fotografico', [{ t: P, slots: ['studio-principale'] },
       { t: 'I nostri accessori', slots: ['studio-raccoglitori', 'studio-albumini', 'studio-portafoto', 'studio-porta-tessera', 'studio-porta-carta', 'studio-nastro'] }]],
     ['custodie-per-album.html', 'Custodie', 'Custodie per album', [{ t: P, slots: ['custodie-principale'] },
       { t: 'Le nostre custodie', slots: ['custodie-valigia-classica', 'custodie-valigia-pers', 'custodie-cofanetti', 'custodie-box', 'custodie-teca-plex', 'custodie-valigia-bambini', 'custodie-valigia-scrigno'] }]],
-    ['collezioni.html', 'Collezioni', 'Collezioni', [{ t: 'Le collezioni', slots: ['coll-matrimoniali', 'coll-bambini', 'coll-comunione', 'coll-eventi'] }]],
+    ['collezioni.html', 'Collezioni', 'Collezioni', [{ t: 'Le collezioni', slots: ['coll-matrimoniali', 'coll-bambini', 'coll-comunione'] }]],
     ['album-matrimoniali.html', 'Matrimoniali', 'Album matrimoniali', [{ t: 'Le nostre linee', slots: ['matr-fashion', 'matr-glamour', 'matr-trendy', 'matr-cuoio-fiorentino', 'matr-amarcord-pers', 'matr-amarcord'] }]],
     ['linea-fashion.html', 'Fashion', 'Linea Fashion', [{ t: P, slots: ['fashion-principale'] }, { t: 'Gli album della linea', galleria: 'linea-fashion' }]],
     ['linea-glamour.html', 'Glamour', 'Linea Glamour', [{ t: P, slots: ['glamour-principale'] }, { t: 'Gli album della linea', galleria: 'linea-glamour' }]],
@@ -751,7 +754,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     ['linea-cuoio-fiorentino.html', 'Cuoio Fiorentino', 'Linea Cuoio Fiorentino', [{ t: P, slots: ['fiorentino-principale'] }, { t: 'Gli album della linea', galleria: 'linea-cuoio-fiorentino' }]],
     ['linea-cuoio-amarcord-islandese.html', 'Amarcord', 'Linea Cuoio Amarcord & Cuoio Islandese', [{ t: P, slots: ['amarcord-principale'] }]],
     ['linea-cuoio-amarcord-islandese-personalizzato.html', 'Amarcord personalizzato', 'Linea Cuoio Amarcord & Cuoio Islandese personalizzato', [{ t: P, slots: ['amarcord-pers-principale'] }]],
-    ['album-bambini.html', 'Bambini', 'Album bambini', [{ t: P, slots: ['bambini-principale'] }, { t: 'Le nostre linee', slots: ['bambini-deluxe', 'bambini-baby', 'bambini-new-born'] }]],
+    ['album-bambini.html', 'Bambini', 'Album bambini', [{ t: P, slots: ['bambini-principale'] }, { t: 'Le nostre linee', slots: ['bambini-deluxe', 'bambini-baby'] }]],
     ['album-bambini-deluxe.html', 'Deluxe', 'Linea Deluxe', [{ t: P, slots: ['deluxe-principale'] }, { t: 'Gli album della linea', galleria: 'album-bambini-deluxe' }]],
     ['album-bambini-baby.html', 'Baby', 'Linea Baby', [{ t: P, slots: ['baby-principale'] }, { t: 'Gli album della linea', galleria: 'album-bambini-baby' }]],
     ['album-bambini-new-born.html', 'New Born', 'Linea New Born', [{ t: P, slots: ['new-born-principale'] }, { t: 'Gli album della linea', galleria: 'album-bambini-new-born' }]],
@@ -763,9 +766,14 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     [MENU, 'Menu', 'Menu della barra in alto', [
       { t: 'Che cosa si cambia qui', nota: 'Le foto e le scritte dei menu che si aprono da Servizi, Prodotti e Collezioni. Sono uguali in tutte le pagine del sito: una modifica fatta qui vale ovunque. Sul computer si vedono i riquadri con foto, su tablet e telefono l\'elenco delle voci (nei Testi).' },
       { t: 'Servizi', slots: ['menu-sposi', 'menu-fotografi'] },
-      { t: 'Prodotti', slots: ['menu-fotolibro', 'menu-tradizionale', 'menu-studio', 'menu-custodie'] },
-      { t: 'Collezioni', slots: ['menu-matrimoniali', 'menu-bambini', 'menu-comunione', 'menu-eventi'] }]]
+      { t: 'Prodotti', slots: ['menu-fotolibro', 'menu-tradizionale'] },
+      { t: 'Collezioni', slots: ['menu-matrimoniali', 'menu-bambini', 'menu-comunione'] }]]
   ];
+  /* pagine che restano modificabili ma non si pubblicano (3.53, scripts/non-online.txt); le loro foto e i
+     loro testi nelle altre pagine (schede, menu) sono nascosti: nei JSON hanno «nascosto», qui non si vedono */
+  var NON_ONLINE = ['prodotti-studio-fotografico.html', 'custodie-per-album.html', 'album-bambini-new-born.html', 'album-eventi.html', 'area-download.html'];
+  // l'area download ora è solo qui, dietro la password (3.53)
+  var SCARICA = [['downloads/catalogo.pdf', 'Scarica il catalogo'], ['downloads/guida.pdf', 'Scarica la guida alla conservazione']];
 
   /* ---------- chiamate al servizio ---------- */
   function chiama(percorso, corpo) {
@@ -891,7 +899,15 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     var h1 = document.createElement('h1'); h1.textContent = p[2] + ' ';
     var sm = document.createElement('small'); sm.textContent = p[0] === MENU ? 'tutte le pagine' : p[0]; h1.appendChild(sm);
     var a = document.createElement('a'); a.className = 'vedi'; a.target = '_blank'; a.rel = 'noopener'; a.href = new URL(p[0] === MENU ? 'index.html' : p[0], location.href).href; a.textContent = 'Vedi la pagina ↗';
+    if (NON_ONLINE.indexOf(p[0]) >= 0) { a = document.createElement('span'); a.className = 'non-online'; a.textContent = 'Non pubblicata sul sito'; b.classList.add('off'); }
     h.appendChild(h1); h.appendChild(a); s.appendChild(h);
+    if (p[0] === 'area-download.html') {
+      var dl = document.createElement('div'); dl.className = 'scarica';
+      SCARICA.forEach(function (f) {
+        var x = document.createElement('a'); x.className = 'btn pri'; x.href = f[0]; x.setAttribute('download', ''); x.textContent = f[1] + ' ↓'; dl.appendChild(x);
+      });
+      s.appendChild(dl);
+    }
     var ol = document.createElement('ol'); ol.className = 'blocchi';
     p[3].forEach(function (bl, k) {
       var li = document.createElement('li'), h2 = document.createElement('h2');
@@ -1092,7 +1108,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
       var ol = $('testi-' + p[0]); ol.innerHTML = '';
       var sezioni = [], per = {};
       testi.forEach(function (v) {
-        if (v.pagina !== p[0]) return;
+        if (v.pagina !== p[0] || v.nascosto) return;
         if (!per[v.sezione]) { per[v.sezione] = []; sezioni.push(v.sezione); }
         per[v.sezione].push(v);
       });
@@ -1110,7 +1126,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
         });
         li.appendChild(h2); li.appendChild(u); ol.appendChild(li);
       });
-      var nT = testi.filter(function (v) { return v.pagina === p[0] && (!COPPIE[v.id] || COPPIE[v.id].voci[0] === v); }).length;
+      var nT = testi.filter(function (v) { return v.pagina === p[0] && !v.nascosto && (!COPPIE[v.id] || COPPIE[v.id].voci[0] === v); }).length;
       $('modo-testi-' + p[0]).querySelector('small').textContent = nT ? '(' + nT + ')' : '';
       $('modo-foto-' + p[0]).querySelector('small').textContent = '';
     });

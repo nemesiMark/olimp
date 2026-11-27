@@ -1918,3 +1918,36 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                    pagine interne (al posto della riga beige) e sopra il piè di pagina. Blocco
                    «LINEA AL NEON TRA LE SEZIONI (3.52)», prima del blocco dell'hero.
                    style.css?v=198 in tutte le pagine.
+
+3.53 (27/11/2026)  Correzioni del cliente (documento «Testi Sito Olimp»).
+                   - Mappa: segnaposto spostato sulla posizione di «O.L.I.M.P.» su Google Maps
+                     (js/mappa.js, SEDE; mappa.js?v=22); «Apri Google Maps» e l'indirizzo portano
+                     al link del cliente, «Ottieni indicazioni» alle stesse coordinate.
+                   - Contatti: referente solo «Alessandro»; email info@olimpitalia.com e cellulare
+                     (0039) 348 226 6531 (anche WhatsApp) in tutte le pagine; il fisso resta.
+                   - Modulo contatti: due campi nuovi obbligatori, «Paese» e «Telefono»
+                     (testi index-t095 e index-t096).
+                   - Chi siamo: «oltre 200» studi partner e «oltre 10.000» album l'anno.
+                   - Album tradizionale: tolta la sezione «Colori e fogli»; nei formati «Il blocco,
+                     nero o avorio, può essere composto da 50 o 60 fogli nelle seguenti misure:»;
+                     negli altri blocchi solo avorio da 240 gr/m2; su ordinazione solo il bianco.
+                   - Non più online (restano nel repository e modificabili dall'area riservata):
+                     Prodotti per lo studio, Custodie, Linea New Born, Album eventi e Area download.
+                     Elenco in scripts/non-online.txt (lo legge pubblica.yml); i link e le schede
+                     che portavano lì sono nelle pagine dentro i commenti «NON ONLINE (3.53)» e i
+                     loro testi hanno «nascosto» in data/testi.json. Menu Prodotti con 2 riquadri
+                     e Collezioni con 3 (classi mega-2 e mega-3), Album bambini con 2 linee.
+                   - Area download: si apre solo dall'area riservata (scheda «Area download», con i
+                     pulsanti per scaricare catalogo e guida). I PDF in downloads/ restano
+                     pubblicati, ma nessuna pagina del sito li collega.
+                   - Linee matrimoniali e per bambini: sotto il titolo una barra per passare
+                     subito da una linea all'altra («Tutte le linee», poi le linee; quella aperta
+                     in bordeaux; sul telefono scorre di lato).
+                   - Linea Trendy: nella galleria Orione ha una foto nuova con l'album più piccolo,
+                     proporzionato a Frame e Ailanto (modello-orione-galleria.jpg); la foto
+                     principale della pagina resta quella di prima.
+                   - Titoli più piccoli (h1, h2 e titolo delle pagine interne) e testate e prima
+                     sezione meno alte sui computer: aprendo una pagina si vede subito anche il
+                     testo sotto. Blocco «CORREZIONI DEL CLIENTE (3.53)» prima del blocco
+                     dell'hero. style.css?v=199 in tutte le pagine.
+                   - In attesa: le foto del fotolibro professionale (da ricevere).

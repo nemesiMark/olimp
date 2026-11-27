@@ -205,7 +205,8 @@
     "sezione": "Le nostre linee",
     "descrizione": "Titolo",
     "tipo": "testo",
-    "testo": "Linea New Born"
+    "testo": "Linea New Born",
+    "nascosto": true
   },
   {
     "id": "album-bambini-t012",
@@ -213,7 +214,8 @@
     "sezione": "Le nostre linee",
     "descrizione": "Paragrafo",
     "tipo": "testo",
-    "testo": "Piccoli album in tela per le prime foto del neonato, con nome e data in copertina."
+    "testo": "Piccoli album in tela per le prime foto del neonato, con nome e data in copertina.",
+    "nascosto": true
   },
   {
     "id": "album-comunione-t001",
@@ -488,62 +490,6 @@
     "testo": "Il blocco interno dell’album è realizzato in cartoncino da 280 gr/m2 risvoltato a singola pattina in maniera da compensare lo spessore delle foto con fodere in carta imitlin o stoffa."
   },
   {
-    "id": "album-tradizionale-professionale-t006",
-    "pagina": "album-tradizionale-professionale.html",
-    "sezione": "Colori e fogli",
-    "descrizione": "Titolo della sezione",
-    "tipo": "testo",
-    "testo": "Colori e fogli"
-  },
-  {
-    "id": "album-tradizionale-professionale-t007",
-    "pagina": "album-tradizionale-professionale.html",
-    "sezione": "Colori e fogli",
-    "descrizione": "Paragrafo",
-    "tipo": "testo",
-    "testo": "Il blocco può essere composto sia da 50 che da 60 fogli di colore avorio, avorio nuvolato, nero e blu."
-  },
-  {
-    "id": "album-tradizionale-professionale-t008",
-    "pagina": "album-tradizionale-professionale.html",
-    "sezione": "Colori e fogli",
-    "descrizione": "Voce dell'elenco",
-    "tipo": "semplice",
-    "testo": "Avorio"
-  },
-  {
-    "id": "album-tradizionale-professionale-t009",
-    "pagina": "album-tradizionale-professionale.html",
-    "sezione": "Colori e fogli",
-    "descrizione": "Voce dell'elenco",
-    "tipo": "semplice",
-    "testo": "Avorio nuvolato"
-  },
-  {
-    "id": "album-tradizionale-professionale-t010",
-    "pagina": "album-tradizionale-professionale.html",
-    "sezione": "Colori e fogli",
-    "descrizione": "Voce dell'elenco",
-    "tipo": "semplice",
-    "testo": "Nero"
-  },
-  {
-    "id": "album-tradizionale-professionale-t011",
-    "pagina": "album-tradizionale-professionale.html",
-    "sezione": "Colori e fogli",
-    "descrizione": "Voce dell'elenco",
-    "tipo": "semplice",
-    "testo": "Blu"
-  },
-  {
-    "id": "album-tradizionale-professionale-t012",
-    "pagina": "album-tradizionale-professionale.html",
-    "sezione": "Colori e fogli",
-    "descrizione": "Paragrafo",
-    "tipo": "testo",
-    "testo": "I fogli di cartoncino sono intervallati da velina pergamena goffrata."
-  },
-  {
     "id": "album-tradizionale-professionale-t013",
     "pagina": "album-tradizionale-professionale.html",
     "sezione": "I formati",
@@ -557,7 +503,7 @@
     "sezione": "I formati",
     "descrizione": "Paragrafo",
     "tipo": "testo",
-    "testo": "Il blocco è realizzato nelle seguenti misure."
+    "testo": "Il blocco, nero o avorio, può essere composto da 50 o 60 fogli nelle seguenti misure:"
   },
   {
     "id": "album-tradizionale-professionale-t015",
@@ -661,7 +607,7 @@
     "sezione": "Altri blocchi disponibili",
     "descrizione": "Paragrafo",
     "tipo": "testo",
-    "testo": "Sono disponibili, inoltre, blocchi in cartoncino avorio da 240 gr/m2 e nero da 280 gr/m2 con interni che variano da un minimo di 30 ad un massimo di 60, nelle misure:"
+    "testo": "Sono disponibili, inoltre, blocchi in cartoncino avorio da 240 gr/m2 con interni che variano da un minimo di 30 ad un massimo di 60, nelle misure:"
   },
   {
     "id": "album-tradizionale-professionale-t028",
@@ -781,7 +727,7 @@
     "sezione": "Su ordinazione",
     "descrizione": "Voce dell'elenco",
     "tipo": "testo",
-    "testo": "richiedere blocchi di colore bianco o tabacco"
+    "testo": "richiedere blocchi di colore bianco"
   },
   {
     "id": "album-tradizionale-professionale-t043",
@@ -975,7 +921,8 @@
     "sezione": "Un album per ogni momento importante",
     "descrizione": "Titolo",
     "tipo": "testo",
-    "testo": "Album eventi"
+    "testo": "Album eventi",
+    "nascosto": true
   },
   {
     "id": "collezioni-t014",
@@ -983,7 +930,8 @@
     "sezione": "Un album per ogni momento importante",
     "descrizione": "Paragrafo",
     "tipo": "testo",
-    "testo": "Le occasioni importanti raccontate attraverso le fotografie."
+    "testo": "Le occasioni importanti raccontate attraverso le fotografie.",
+    "nascosto": true
   },
   {
     "id": "custodie-per-album-t001",
@@ -1416,7 +1364,8 @@
     "sezione": "Collezioni",
     "descrizione": "Titolo",
     "tipo": "testo",
-    "testo": "Album eventi"
+    "testo": "Album eventi",
+    "nascosto": true
   },
   {
     "id": "index-t015",
@@ -1424,7 +1373,8 @@
     "sezione": "Collezioni",
     "descrizione": "Paragrafo",
     "tipo": "testo",
-    "testo": "Le occasioni importanti raccontate attraverso le fotografie."
+    "testo": "Le occasioni importanti raccontate attraverso le fotografie.",
+    "nascosto": true
   },
   {
     "id": "index-t016",
@@ -1704,7 +1654,7 @@
     "sezione": "Chi siamo",
     "descrizione": "Descrizione del numero",
     "tipo": "testo",
-    "testo": "Album realizzati"
+    "testo": "Album l’anno"
   },
   {
     "id": "index-t051",
@@ -1745,7 +1695,7 @@
     "descrizione": "Testo cliccabile (testo e link)",
     "tipo": "testo",
     "testo": "Viale della Vittoria, 111\n92024 Canicattì (AG) – Italy",
-    "link": "https://www.google.com/maps/search/?api=1&query=Viale+della+Vittoria+111+92024+Canicatt%C3%AC+AG+Italy"
+    "link": "https://maps.app.goo.gl/txNwzVP2yNML6ZPp7"
   },
   {
     "id": "index-t056",
@@ -1754,7 +1704,7 @@
     "descrizione": "Testo cliccabile (testo e link)",
     "tipo": "semplice",
     "testo": "Apri Google Maps",
-    "link": "https://www.google.com/maps/search/?api=1&query=Viale+della+Vittoria+111+92024+Canicatt%C3%AC+AG+Italy"
+    "link": "https://maps.app.goo.gl/txNwzVP2yNML6ZPp7"
   },
   {
     "id": "index-t057",
@@ -1763,7 +1713,7 @@
     "descrizione": "Testo cliccabile (testo e link)",
     "tipo": "semplice",
     "testo": "Ottieni indicazioni",
-    "link": "https://www.google.com/maps/dir/?api=1&destination=Viale+della+Vittoria+111+92024+Canicatt%C3%AC+AG+Italy"
+    "link": "https://www.google.com/maps/dir/?api=1&destination=37.3509905,13.840177"
   },
   {
     "id": "index-t058",
@@ -1803,7 +1753,7 @@
     "sezione": "Contatti",
     "descrizione": "Voce dell'elenco",
     "tipo": "testo",
-    "testo": "**Referente**Alessandro Ingrassia"
+    "testo": "**Referente**Alessandro"
   },
   {
     "id": "index-t063",
@@ -1819,8 +1769,8 @@
     "sezione": "Contatti",
     "descrizione": "Testo cliccabile (testo e link)",
     "tipo": "testo",
-    "testo": "alessandro.olimp@gmail.com",
-    "link": "mailto:alessandro.olimp@gmail.com"
+    "testo": "info@olimpitalia.com",
+    "link": "mailto:info@olimpitalia.com"
   },
   {
     "id": "index-t065",
@@ -1836,8 +1786,8 @@
     "sezione": "Contatti",
     "descrizione": "Testo cliccabile (testo e link)",
     "tipo": "testo",
-    "testo": "(0039) 348 3105574",
-    "link": "tel:+393483105574"
+    "testo": "(0039) 348 226 6531",
+    "link": "tel:+393482266531"
   },
   {
     "id": "index-t067",
@@ -1854,7 +1804,7 @@
     "descrizione": "Testo cliccabile (testo e link)",
     "tipo": "testo",
     "testo": "Viale della Vittoria, 111\n92024 Canicattì (AG) – Italy",
-    "link": "https://www.google.com/maps/search/?api=1&query=Viale+della+Vittoria+111+92024+Canicatt%C3%AC+AG+Italy"
+    "link": "https://maps.app.goo.gl/txNwzVP2yNML6ZPp7"
   },
   {
     "id": "index-t069",
@@ -1920,6 +1870,22 @@
     "descrizione": "Etichetta del modulo",
     "tipo": "semplice",
     "testo": "Email"
+  },
+  {
+    "id": "index-t095",
+    "pagina": "index.html",
+    "sezione": "Contatti",
+    "tipo": "semplice",
+    "descrizione": "Modulo: etichetta del campo Paese",
+    "testo": "Paese"
+  },
+  {
+    "id": "index-t096",
+    "pagina": "index.html",
+    "sezione": "Contatti",
+    "tipo": "semplice",
+    "descrizione": "Modulo: etichetta del campo Telefono",
+    "testo": "Telefono"
   },
   {
     "id": "index-t077",
@@ -2247,7 +2213,7 @@
     "sezione": "1. Titolare del trattamento",
     "descrizione": "Paragrafo",
     "tipo": "testo",
-    "testo": "Per qualsiasi richiesta sui tuoi dati puoi scrivere a [alessandro.olimp@gmail.com](mailto:alessandro.olimp@gmail.com) oppure telefonare allo 0922 853031."
+    "testo": "Per qualsiasi richiesta sui tuoi dati puoi scrivere a [info@olimpitalia.com](mailto:info@olimpitalia.com) oppure telefonare allo 0922 853031."
   },
   {
     "id": "privacy-t008",
@@ -2703,7 +2669,8 @@
     "sezione": "Prodotti pensati per il tuo studio",
     "descrizione": "Titolo",
     "tipo": "testo",
-    "testo": "Prodotti per il tuo studio fotografico"
+    "testo": "Prodotti per il tuo studio fotografico",
+    "nascosto": true
   },
   {
     "id": "prodotti-t012",
@@ -2711,7 +2678,8 @@
     "sezione": "Prodotti pensati per il tuo studio",
     "descrizione": "Paragrafo",
     "tipo": "testo",
-    "testo": "Portafoto, portatessera e porta carta di credito per conservare fotografie e documenti."
+    "testo": "Portafoto, portatessera e porta carta di credito per conservare fotografie e documenti.",
+    "nascosto": true
   },
   {
     "id": "prodotti-t013",
@@ -2719,7 +2687,8 @@
     "sezione": "Prodotti pensati per il tuo studio",
     "descrizione": "Titolo",
     "tipo": "testo",
-    "testo": "Custodie per album"
+    "testo": "Custodie per album",
+    "nascosto": true
   },
   {
     "id": "prodotti-t014",
@@ -2727,7 +2696,8 @@
     "sezione": "Prodotti pensati per il tuo studio",
     "descrizione": "Paragrafo",
     "tipo": "testo",
-    "testo": "Valigie, cofanetti e box in coordinato per proteggere i tuoi ricordi."
+    "testo": "Valigie, cofanetti e box in coordinato per proteggere i tuoi ricordi.",
+    "nascosto": true
   },
   {
     "id": "servizi-t001",
@@ -2966,7 +2936,8 @@
     "descrizione": "Su tablet e telefono: voce dell'elenco del menu.",
     "tipo": "semplice",
     "testo": "PRODOTTI PER IL TUO STUDIO FOTOGRAFICO",
-    "link": "prodotti-studio-fotografico.html"
+    "link": "prodotti-studio-fotografico.html",
+    "nascosto": true
   },
   {
     "id": "menu-t008",
@@ -2975,7 +2946,8 @@
     "descrizione": "Su tablet e telefono: voce dell'elenco del menu.",
     "tipo": "semplice",
     "testo": "CUSTODIE PER ALBUM",
-    "link": "custodie-per-album.html"
+    "link": "custodie-per-album.html",
+    "nascosto": true
   },
   {
     "id": "menu-t009",
@@ -2999,7 +2971,8 @@
     "sezione": "Prodotti",
     "descrizione": "Sul computer: scritta sotto la foto del riquadro.",
     "tipo": "semplice",
-    "testo": "Prodotti per il tuo studio fotografico"
+    "testo": "Prodotti per il tuo studio fotografico",
+    "nascosto": true
   },
   {
     "id": "menu-t012",
@@ -3007,7 +2980,8 @@
     "sezione": "Prodotti",
     "descrizione": "Sul computer: scritta sotto la foto del riquadro.",
     "tipo": "semplice",
-    "testo": "Custodie per album"
+    "testo": "Custodie per album",
+    "nascosto": true
   },
   {
     "id": "menu-t013",
@@ -3106,7 +3080,8 @@
     "descrizione": "Linea nell'elenco del menu (solo tablet e telefono: sul computer il menu mostra i riquadri con foto).",
     "tipo": "semplice",
     "testo": "LINEA NEW BORN",
-    "link": "album-bambini-new-born.html"
+    "link": "album-bambini-new-born.html",
+    "nascosto": true
   },
   {
     "id": "menu-t024",
@@ -3124,7 +3099,8 @@
     "descrizione": "Su tablet e telefono: voce dell'elenco del menu.",
     "tipo": "semplice",
     "testo": "ALBUM EVENTI",
-    "link": "album-eventi.html"
+    "link": "album-eventi.html",
+    "nascosto": true
   },
   {
     "id": "menu-t026",
@@ -3156,6 +3132,7 @@
     "sezione": "Collezioni",
     "descrizione": "Sul computer: scritta sotto la foto del riquadro.",
     "tipo": "semplice",
-    "testo": "Album eventi"
+    "testo": "Album eventi",
+    "nascosto": true
   }
 ]

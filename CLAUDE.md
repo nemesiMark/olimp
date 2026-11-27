@@ -26,6 +26,10 @@ Dettagli completi in **LEGGIMI.txt**: leggilo prima di modifiche non banali.
 - Originali del cliente in `~/Downloads/myairbridge-S38vTvYGSUj/`. Non creare cartelle sulla Scrivania.
 - Foto non più usate in `images/non-usate/`.
 
+## Pagine non online (dalla 3.53)
+- Prodotti per lo studio, Custodie, Linea New Born, Album eventi e Area download restano nel repository ma non si pubblicano: elenco in `scripts/non-online.txt`, link commentati con «NON ONLINE (3.53)», testi con «nascosto» in `data/testi.json`. L'area download si apre solo dall'area riservata.
+
 ## In sospeso
+- Foto del fotolibro professionale: il cliente pensa di averle mandate, Mark deve recuperarle.
 - Accesso con email + codice (Cloudflare Access) al posto della password: decide il cliente.
 - privacy.html è una bozza; ragione sociale, P.IVA e PDF reali da ricevere (vedi LEGGIMI, «DA COMPLETARE»).

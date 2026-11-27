@@ -1,0 +1,9 @@
+# Pagine che restano nel repository ma NON si pubblicano (3.53, richiesta del cliente).
+# Le legge .github/workflows/pubblica.yml (rsync --exclude-from). Per rimetterne una online:
+# toglierla da qui e togliere i commenti «NON ONLINE (3.53)» attorno ai suoi link nelle pagine.
+/prodotti-studio-fotografico.html
+/custodie-per-album.html
+/album-bambini-new-born.html
+/album-eventi.html
+# l'area download ora si apre solo dall'area riservata (i PDF in downloads/ restano pubblicati)
+/area-download.html
