@@ -1988,3 +1988,6 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                      «Scarica», il pulsante «Carica un PDF nuovo» sostituisce il file (stesso nome,
                      massimo 20 MB). Il Worker (/carica-pdf, solo admin) fa un commit su
                      downloads/; i clienti scaricano subito il file nuovo.
+                     Il pulsante «Area download» tra le schede non sembra più disattivato.
+                     Le pagine non online (Studio fotografico, Custodie, New Born, Album eventi)
+                     non hanno più la scheda nell'area riservata: tornano togliendole da NON_ONLINE.

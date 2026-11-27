@@ -843,6 +843,9 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
   /* pagine che restano modificabili ma non si pubblicano (3.53, scripts/non-online.txt); le loro foto e i
      loro testi nelle altre pagine (schede, menu) sono nascosti: nei JSON hanno «nascosto», qui non si vedono */
   var NON_ONLINE = ['prodotti-studio-fotografico.html', 'custodie-per-album.html', 'album-bambini-new-born.html', 'album-eventi.html', 'area-download.html'];
+  // dalla 3.54 le pagine non online non hanno più la scheda (restano nel codice per quando torneranno);
+  // l'area download sì, perché la vedono i clienti
+  function nascosta(id) { return NON_ONLINE.indexOf(id) >= 0 && id !== 'area-download.html'; }
   // l'area download è solo qui, dietro la password (3.53); dalla 3.54 i PDF li consegna il Worker
   // (downloads/ non è più sul sito pubblicato) e i clienti entrano con la loro password
   var SCARICA = [['downloads/catalogo.pdf', 'Scarica il catalogo', 'Catalogo'], ['downloads/guida.pdf', 'Scarica la guida alla conservazione', 'Guida alla conservazione']];
@@ -1026,7 +1029,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     var h1 = document.createElement('h1'); h1.textContent = p[2] + ' ';
     var sm = document.createElement('small'); sm.textContent = p[0] === MENU ? 'tutte le pagine' : p[0]; h1.appendChild(sm);
     var a = document.createElement('a'); a.className = 'vedi'; a.target = '_blank'; a.rel = 'noopener'; a.href = new URL(p[0] === MENU ? 'index.html' : p[0], location.href).href; a.textContent = 'Vedi la pagina ↗';
-    if (NON_ONLINE.indexOf(p[0]) >= 0) { a = document.createElement('span'); a.className = 'non-online'; a.textContent = p[0] === 'area-download.html' ? 'La vedono solo i clienti, con la loro password' : 'Non pubblicata sul sito'; b.classList.add('off'); }
+    if (NON_ONLINE.indexOf(p[0]) >= 0) { a = document.createElement('span'); a.className = 'non-online'; a.textContent = p[0] === 'area-download.html' ? 'La vedono solo i clienti, con la loro password' : 'Non pubblicata sul sito'; if (nascosta(p[0])) b.hidden = true; }
     h.appendChild(h1); h.appendChild(a); s.appendChild(h);
     if (p[0] === 'area-download.html') {
       var dl = document.createElement('div'); dl.className = 'scarica';
@@ -1087,7 +1090,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
   ORDINE_PRIMA.forEach(function (id) { RIGHE[''].appendChild($('tab-' + id)); }); // stesso ordine della navbar del sito
   function mostraPagina(id) {
     if (sel) confermaScelta(); // cambiando pagina la foto selezionata resta dov'è
-    if (!$('pag-' + id)) id = 'index.html';
+    if (!$('pag-' + id) || nascosta(id)) id = 'index.html';
     tabAttiva = id; mem.set('ar-tab', id);
     var c = catena(id);
     PAGINE.forEach(function (p) {
