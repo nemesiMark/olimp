@@ -1981,4 +1981,6 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                      li aveva ridotti solo sui computer): base 16 px invece di 18 (testo ~17 px),
                      titolo delle pagine 36 px (prima 50), titolo della home ~38 px (prima 43-49),
                      titoli delle sezioni 28 px (prima 33-47), sottotitoli grandi 24 px. Blocco
-                     «TESTI PIÙ PICCOLI SUL TELEFONO (3.54)». style.css?v=201.
+                     «TESTI PIÙ PICCOLI SUL TELEFONO (3.54)».
+                   - Footer: link, icone social e «Gestione cookie» diventano rossi (bordeaux del
+                     logo) al passaggio del mouse, non più bianchi. style.css?v=202.

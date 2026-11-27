@@ -1740,7 +1740,7 @@ footer .wrap {
   }
 }
 
-/* Tutti gli elementi cliccabili del footer (link e pulsante Gestione cookie) diventano bianchi al passaggio del cursore. */
+/* Tutti gli elementi cliccabili del footer diventano bianchi al passaggio del cursore (dalla 3.54 rossi: vedi in fondo). */
 footer a:hover,
 footer button:hover {
   color: white;
@@ -5169,6 +5169,17 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 3rem); }
   border-color: var(--ribbon);
   box-shadow: 0 0 0 3px rgba(170, 55, 46, .16);
 }
+
+/* Footer (3.54): link, icone social e «Gestione cookie» si illuminano di rosso (bordeaux del
+   logo) al passaggio del mouse, non più di bianco (sul fondo chiaro non si vedevano). */
+footer a,
+footer button { transition: color .25s ease, transform .3s ease; }
+footer a:hover,
+footer button:hover,
+footer a:focus-visible,
+footer button:focus-visible,
+footer .footer-socials a:hover,
+footer .footer-socials a:focus-visible { color: var(--ribbon); }
 
 /* ======================================================
    TESTI PIÙ PICCOLI SUL TELEFONO (3.54, richiesta del cliente)
