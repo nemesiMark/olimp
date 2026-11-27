@@ -5183,17 +5183,21 @@ footer .footer-socials a:focus-visible { color: var(--ribbon); }
 
 /* ======================================================
    TESTI PIÙ PICCOLI SUL TELEFONO (3.54, richiesta del cliente)
-   Fino a 600 px: base 16 px invece di 18 (testo ~17 px invece di 19, e in proporzione
+   Fino a 600 px: base 15 px invece di 18 (testo 15-16 px invece di 19, e in proporzione
    pulsanti ed etichette), titolo delle pagine 36 px, titolo della home ~38 px, titoli
    delle sezioni al massimo 28 px. I titoli già più piccoli (es. privacy) restano così.
    ====================================================== */
 @media (max-width: 600px) {
-  html { font-size: 100%; }
-  main h1:not(.hero h1) { font-size: 2.25rem !important; }
-  html .hero { --fs: clamp(2.2rem, min(10vw, 7.5svh), 2.4rem); }
-  main h2:not(.legal h2) { font-size: 1.75rem !important; }
+  /* base 15 px (prima 16, richiesta del cliente): testo normale 15 px, introduzioni ~16 px;
+     i titoli restano alle misure qui sotto, in px, e i campi del modulo a 16 px
+     (sotto i 16 px l'iPhone ingrandisce la pagina quando ci si tocca dentro) */
+  html { font-size: 93.75%; }
+  main h1:not(.hero h1) { font-size: 36px !important; }
+  html .hero { --fs: clamp(35px, min(10vw, 7.5svh), 38px); }
+  main h2:not(.legal h2) { font-size: 28px !important; }
   /* i sottotitoli più grandi (fasi di Grafica & Stampa, numeri di Chi siamo) */
-  .gs-panel h3, .graphics-steps h3, main h3.stats-title { font-size: 1.5rem !important; }
+  .gs-panel h3, .graphics-steps h3, main h3.stats-title { font-size: 24px !important; }
+  input, textarea, select { font-size: 16px !important; }
 }
 
 /* ======================================================

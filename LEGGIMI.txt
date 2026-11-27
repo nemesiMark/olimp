@@ -1991,3 +1991,7 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                      Il pulsante «Area download» tra le schede non sembra più disattivato.
                      Le pagine non online (Studio fotografico, Custodie, New Born, Album eventi)
                      non hanno più la scheda nell'area riservata: tornano togliendole da NON_ONLINE.
+                   - Testo sul telefono ancora un po' più piccolo: base 15 px invece di 16 (testo
+                     normale 15 px, introduzioni ~16 px); titoli invariati (ora scritti in px),
+                     campi del modulo fermi a 16 px perché l'iPhone non ingrandisca la pagina.
+                     style.css?v=203.
