@@ -22,6 +22,13 @@
  *                            chiaro). Finché nessuno la cambia vale ADMIN_PASSWORD.
  *                            Nello stesso KV si contano i tentativi sbagliati: dopo 5 errori
  *                            l'area riservata si blocca per tutti per 15 minuti.
+ * Due modi di entrare (dalla 3.54), scelti con l'interruttore «Modalità admin» della pagina:
+ *   admin    password dell'amministratore (sopra): modifica tutto il sito.
+ *   cliente  password dei clienti (una sola, uguale per tutti): vede solo l'area download e
+ *            scarica i PDF di downloads/, che il Worker legge dal repository (sul sito pubblicato
+ *            downloads/ non c'è più). La sceglie l'amministratore dall'area riservata e sta nel
+ *            KV DATI alla voce «password-clienti» (impronta PBKDF2). Gli errori dei clienti si
+ *            contano a parte, per indirizzo IP: non bloccano mai l'amministratore.
  * Nessuna chiave è scritta in questo file.
  */
 
@@ -60,11 +67,16 @@ export default {
     try {
       const url = new URL(request.url);
       if (request.method === "POST" && url.pathname === "/login") return await login(request, env, cors);
-      if (!(await accessoValido(request, env))) return json({ errore: "Accesso scaduto, entra di nuovo" }, 401, cors);
+      const ruolo = await accessoValido(request, env);
+      if (!ruolo) return json({ errore: "Accesso scaduto, entra di nuovo" }, 401, cors);
+      if (request.method === "GET" && url.pathname === "/area-download") return await leggiAreaDownload(env, cors);
+      if (request.method === "GET" && url.pathname === "/download") return await scarica(url, env, cors);
+      if (ruolo !== "admin") return json({ errore: "Questa parte è solo per l'amministratore" }, 403, cors);
       if (request.method === "GET" && url.pathname === "/contenuti") return await leggiContenuti(env, cors);
       if (request.method === "GET" && url.pathname === "/spazio") return await leggiSpazio(env, cors);
       if (request.method === "POST" && url.pathname === "/salva") return await salva(request, env, cors);
       if (request.method === "POST" && url.pathname === "/password") return await cambiaPassword(request, env, cors);
+      if (request.method === "POST" && url.pathname === "/password-clienti") return await cambiaPasswordClienti(request, env, cors);
       return json({ errore: "Indirizzo non valido" }, 404, cors);
     } catch (e) {
       const stato = e && e.stato ? e.stato : 500;
@@ -76,9 +88,11 @@ export default {
 /* ---------- accesso ---------- */
 
 async function login(request, env, cors) {
+  const corpo = await request.json().catch(() => ({}));
+  // senza «modo» è la pagina di prima della 3.54, che aveva solo l'accesso dell'amministratore
+  if (corpo.modo === "cliente") return await loginCliente(request, env, cors, corpo);
   const attesa = await bloccato(request, env);
   if (attesa) return json({ errore: messaggioBlocco(attesa) }, 429, cors);
-  const corpo = await request.json().catch(() => ({}));
   const pw = await passwordSalvata(env);
   if (!(await passwordGiusta(corpo.password, pw, env))) {
     await new Promise((r) => setTimeout(r, 1200)); // rallenta i tentativi a raffica
@@ -90,32 +104,53 @@ async function login(request, env, cors) {
   return json(await nuovoAccesso(env, pw ? pw.versione : 0), 200, cors);
 }
 
+async function loginCliente(request, env, cors, corpo) {
+  const k = chiaveTentativi(request, "cliente");
+  const attesa = await bloccato(request, env, k);
+  if (attesa) return json({ errore: messaggioBlocco(attesa) }, 429, cors);
+  const pwc = await passwordClienti(env);
+  if (!pwc) return json({ errore: "L'area clienti non è ancora attiva: la password la sceglie Olimp" }, 403, cors);
+  const giusta = typeof corpo.password === "string" && corpo.password.length > 0 && corpo.password.length <= PW_MAX &&
+    (await ugualiCostante(await impronta(corpo.password, pwc.sale, pwc.iterazioni), pwc.impronta));
+  if (!giusta) {
+    await new Promise((r) => setTimeout(r, 1200));
+    const restano = await tentativoSbagliato(request, env, k);
+    if (!restano) return json({ errore: messaggioBlocco(BLOCCO_S) }, 429, cors);
+    return json({ errore: "Password non corretta" + (restano <= 2 ? ` (ancora ${restano} ${restano === 1 ? "tentativo" : "tentativi"}, poi si aspettano 15 minuti)` : "") }, 401, cors);
+  }
+  await azzeraTentativi(request, env, k);
+  return json({ ...(await nuovoAccesso(env, 0, "cliente", pwc.versione)), ruolo: "cliente" }, 200, cors);
+}
+
 /* tentativi sbagliati: contati tutti insieme nel KV DATI (il sito lo gestisce una persona sola
    e le modifiche sono rare): dopo MAX_ERRORI l'area riservata si blocca per tutti per
    BLOCCO_S secondi, da qualunque dispositivo o rete (conta anche la password attuale sbagliata
    nel cambio password). Senza il KV resta solo il rallentamento di 1,2 secondi. */
 const MAX_ERRORI = 5;
 const BLOCCO_S = 15 * 60;
-function chiaveTentativi() { return "tentativi"; }
+// amministratore: un contatore solo per tutti; clienti: uno per indirizzo IP
+function chiaveTentativi(request, ruolo) {
+  return ruolo === "cliente" ? "tentativi-clienti:" + (request.headers.get("CF-Connecting-IP") || "?") : "tentativi";
+}
 function messaggioBlocco(s) { const m = Math.max(1, Math.ceil(s / 60)); return `Troppi tentativi sbagliati: per sicurezza riprova tra ${m} ${m === 1 ? "minuto" : "minuti"}`; }
-async function bloccato(request, env) {
+async function bloccato(request, env, k = chiaveTentativi(request)) {
   if (!env.DATI) return 0;
-  const t = await env.DATI.get(chiaveTentativi(request), "json");
+  const t = await env.DATI.get(k, "json");
   const ora = Math.floor(Date.now() / 1000);
   return t && t.n >= MAX_ERRORI && t.fino > ora ? t.fino - ora : 0;
 }
-async function tentativoSbagliato(request, env) { // restituisce quanti tentativi restano (0 = bloccato)
+async function tentativoSbagliato(request, env, k = chiaveTentativi(request)) { // restituisce quanti tentativi restano (0 = bloccato)
   if (!env.DATI) return MAX_ERRORI;
-  const k = chiaveTentativi(request), t = (await env.DATI.get(k, "json")) || { n: 0 };
+  const t = (await env.DATI.get(k, "json")) || { n: 0 };
   const n = t.n + 1, fino = Math.floor(Date.now() / 1000) + BLOCCO_S;
   await env.DATI.put(k, JSON.stringify({ n, fino }), { expirationTtl: BLOCCO_S });
   return Math.max(0, MAX_ERRORI - n);
 }
-async function azzeraTentativi(request, env) { if (env.DATI) await env.DATI.delete(chiaveTentativi(request)); }
+async function azzeraTentativi(request, env, k = chiaveTentativi(request)) { if (env.DATI) await env.DATI.delete(k); }
 
-async function nuovoAccesso(env, versione) {
+async function nuovoAccesso(env, versione, ruolo = "admin", versioneClienti = 0) {
   const scade = Math.floor(Date.now() / 1000) + DURATA_ACCESSO_S;
-  const dati = b64url(new TextEncoder().encode(JSON.stringify({ scade, v: versione })));
+  const dati = b64url(new TextEncoder().encode(JSON.stringify(ruolo === "cliente" ? { scade, r: "cliente", vc: versioneClienti } : { scade, v: versione })));
   return { token: dati + "." + (await firma(dati, env)), scade };
 }
 
@@ -125,6 +160,29 @@ async function nuovoAccesso(env, versione) {
 async function passwordSalvata(env) {
   if (!env.DATI) return null;
   return await env.DATI.get("password", "json");
+}
+
+/* password dei clienti (3.54): solo nel KV, la sceglie l'amministratore. «versione» cresce a
+   ogni cambio: i clienti entrati con la password vecchia devono entrare di nuovo. */
+async function passwordClienti(env) {
+  if (!env.DATI) return null;
+  return await env.DATI.get("password-clienti", "json");
+}
+
+async function cambiaPasswordClienti(request, env, cors) {
+  if (!env.DATI) throw errore("Password dei clienti non ancora attiva: manca il collegamento DATI su Cloudflare", 501);
+  const corpo = await request.json().catch(() => ({}));
+  const nuova = corpo.nuova;
+  if (typeof nuova !== "string" || nuova.length < PW_MIN) throw errore(`La password dei clienti deve avere almeno ${PW_MIN} caratteri`, 400);
+  if (nuova.length > PW_MAX) throw errore("La password dei clienti è troppo lunga", 400);
+  const admin = await passwordSalvata(env);
+  if (await passwordGiusta(nuova, admin, env)) throw errore("La password dei clienti deve essere diversa da quella dell'amministratore", 400);
+  const vecchia = await passwordClienti(env);
+  const sale = b64url(crypto.getRandomValues(new Uint8Array(16)));
+  const cambiata = new Date().toISOString();
+  await env.DATI.put("password-clienti", JSON.stringify({ sale, iterazioni: PW_ITERAZIONI, impronta: await impronta(nuova, sale, PW_ITERAZIONI),
+    versione: (vecchia ? vecchia.versione : 0) + 1, cambiata }));
+  return json({ ok: true, cambiata }, 200, cors);
 }
 
 async function passwordGiusta(tentativo, pw, env) {
@@ -155,24 +213,32 @@ async function cambiaPassword(request, env, cors) {
   if (typeof nuova !== "string" || nuova.length < PW_MIN) throw errore(`La password nuova deve avere almeno ${PW_MIN} caratteri`, 400);
   if (nuova.length > PW_MAX) throw errore("La password nuova è troppo lunga", 400);
   if (nuova === corpo.attuale) throw errore("La password nuova è uguale a quella attuale", 400);
+  const pwc = await passwordClienti(env);
+  if (pwc && (await ugualiCostante(await impronta(nuova, pwc.sale, pwc.iterazioni), pwc.impronta)))
+    throw errore("La password dell'amministratore deve essere diversa da quella dei clienti", 400);
   const sale = b64url(crypto.getRandomValues(new Uint8Array(16)));
   const versione = (pw ? pw.versione : 0) + 1;
   await env.DATI.put("password", JSON.stringify({ sale, iterazioni: PW_ITERAZIONI, impronta: await impronta(nuova, sale, PW_ITERAZIONI), versione, cambiata: new Date().toISOString() }));
   return json(await nuovoAccesso(env, versione), 200, cors);
 }
 
+// restituisce il ruolo («admin» o «cliente») se l'accesso è valido, altrimenti null
 async function accessoValido(request, env) {
   const h = request.headers.get("Authorization") || "";
   const token = h.startsWith("Bearer ") ? h.slice(7) : "";
   const [dati, sig] = token.split(".");
-  if (!dati || !sig || !env.SESSION_SECRET) return false;
-  if (!(await ugualiCostante(sig, await firma(dati, env)))) return false;
+  if (!dati || !sig || !env.SESSION_SECRET) return null;
+  if (!(await ugualiCostante(sig, await firma(dati, env)))) return null;
   try {
-    const { scade, v } = JSON.parse(new TextDecoder().decode(daB64url(dati)));
-    if (!(typeof scade === "number" && scade > Date.now() / 1000)) return false;
+    const { scade, v, r, vc } = JSON.parse(new TextDecoder().decode(daB64url(dati)));
+    if (!(typeof scade === "number" && scade > Date.now() / 1000)) return null;
+    if (r === "cliente") {
+      const pwc = await passwordClienti(env);
+      return pwc && vc === pwc.versione ? "cliente" : null;
+    }
     const pw = await passwordSalvata(env);
-    return (v || 0) === (pw ? pw.versione : 0);
-  } catch { return false; }
+    return (v || 0) === (pw ? pw.versione : 0) ? "admin" : null;
+  } catch { return null; }
 }
 
 async function firma(testo, env) {
@@ -193,8 +259,29 @@ async function ugualiCostante(a, b) {
 /* ---------- lettura ---------- */
 
 async function leggiContenuti(env, cors) {
-  const { gallerie, immagini, testi } = await statoAttuale(env);
-  return json({ gallerie, immagini, testi }, 200, cors);
+  const [{ gallerie, immagini, testi }, pwc] = await Promise.all([statoAttuale(env), passwordClienti(env)]);
+  return json({ gallerie, immagini, testi, clienti: { attiva: !!pwc, cambiata: pwc ? pwc.cambiata : null } }, 200, cors);
+}
+
+/* area download (3.54): i testi della pagina area-download.html, per la vista dei clienti */
+async function leggiAreaDownload(env, cors) {
+  const testi = await leggiJson(env, FILE_TESTI, env.BRANCH).catch(() => []);
+  const out = (Array.isArray(testi) ? testi : []).filter((t) => t && t.pagina === "area-download.html")
+    .map((t) => ({ id: t.id, testo: String(t.testo || ""), ...(t.link ? { link: String(t.link) } : {}) }));
+  return json({ testi: out }, 200, cors);
+}
+
+/* un PDF di downloads/, letto dal repository (fino a 100 MB con il formato «raw» di GitHub) */
+const PDF_VALIDO = /^[A-Za-z0-9][A-Za-z0-9._-]{0,100}\.pdf$/;
+async function scarica(url, env, cors) {
+  const nome = url.searchParams.get("f") || "";
+  if (!PDF_VALIDO.test(nome) || nome.includes("..")) throw errore("File non valido", 400);
+  const r = await fetch(`https://api.github.com/repos/${env.REPO}/contents/downloads/${encodeURIComponent(nome)}?ref=${encodeURIComponent(env.BRANCH)}`,
+    { headers: { ...intestazioniGh(env), Accept: "application/vnd.github.raw" } });
+  if (r.status === 404) throw errore("File non trovato", 404);
+  if (!r.ok) throw errore("Download non riuscito, riprova tra poco", 502);
+  return new Response(r.body, { status: 200, headers: { ...cors, "Content-Type": "application/pdf",
+    "Content-Disposition": `attachment; filename="${nome}"`, "Cache-Control": "no-store" } });
 }
 
 /**

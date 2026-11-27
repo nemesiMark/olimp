@@ -446,6 +446,28 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
 .testi-foto textarea:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px rgba(0,0,0,.08)}
 .testi-foto .campo .aiuto{margin:4px 0 0;word-break:break-all}
 @media (max-width:480px){.testo{grid-template-columns:1fr}.testo .btn{justify-self:start}}
+
+/* 3.54: interruttore «Modalità admin» all'ingresso, vista dei clienti (solo download),
+   password dei clienti nella scheda Area download */
+.switch-admin{display:flex;align-items:center;gap:12px;margin:0 0 18px;padding:12px 14px;border:1px solid var(--line);border-radius:4px;background:#f6f5f2;cursor:pointer;font-size:15px;font-weight:600}
+.switch-admin input{position:absolute;opacity:0;width:1px;height:1px}
+.switch-admin .sw{position:relative;flex:none;width:44px;height:26px;border-radius:13px;background:#c9c7c1;transition:background-color .2s ease}
+.switch-admin .sw::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:transform .2s var(--ease)}
+.switch-admin input:checked + .sw{background:var(--acc)}
+.switch-admin input:checked + .sw::after{transform:translateX(18px)}
+.switch-admin input:focus-visible + .sw{outline:2px solid var(--acc);outline-offset:2px}
+.switch-admin small{display:block;font-weight:400;color:var(--mute);font-size:13px}
+.area-dl{padding:40px 0 64px}
+.area-dl .occhiello{display:block;color:var(--mute);font-size:14px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.area-dl h1{font:600 clamp(28px,4vw,40px)/1.1 var(--head);text-transform:uppercase;letter-spacing:.02em;margin-bottom:28px}
+.dl-griglia{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.dl-card{display:flex;flex-direction:column;gap:12px;background:var(--card);border:1px solid var(--line);border-top:4px solid var(--acc);border-radius:6px;padding:24px}
+.dl-card h2{font:600 20px/1.2 var(--head);text-transform:uppercase;letter-spacing:.02em}
+.dl-card p{color:var(--mute);flex:1}
+.dl-card .btn{align-self:flex-start}
+.pw-clienti{border:1px solid var(--line);border-radius:6px;background:var(--card);padding:16px 18px;margin:0 0 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}
+.pw-clienti p{flex:1 1 260px;font-size:15px;color:var(--mute)}
+.pw-clienti b{color:var(--ink)}
 </style>
 </head>
 <body>
@@ -463,12 +485,16 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
 <main class="login" id="vista-login">
   <form id="f-login" novalidate>
     <h1>Area riservata</h1>
-    <p class="login-intro">Entra per:</p>
-    <ul class="login-elenco">
-      <li>aggiungere, eliminare e riordinare le foto</li>
-      <li>modificare i testi</li>
-      <li>cambiare la password</li>
-    </ul>
+    <label class="switch-admin" for="modo-admin"><input type="checkbox" role="switch" id="modo-admin" aria-describedby="intro-cliente intro-admin"><span class="sw" aria-hidden="true"></span><span>Modalità admin<small id="modo-stato">Disattivata: accesso dei clienti</small></span></label>
+    <p id="intro-cliente">Entra con la password che ti ha dato Olimp per scaricare il catalogo e la guida alla conservazione dell'album.</p>
+    <div id="intro-admin" hidden>
+      <p class="login-intro">Entra come amministratore per:</p>
+      <ul class="login-elenco">
+        <li>aggiungere, eliminare e riordinare le foto</li>
+        <li>modificare i testi di tutte le pagine</li>
+        <li>cambiare la tua password e quella dei clienti</li>
+      </ul>
+    </div>
     <div class="campo">
       <label for="pw">Password</label>
       <input type="password" id="pw" autocomplete="current-password" required>
@@ -477,6 +503,27 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     <p class="errore" id="err-login" role="alert"></p>
     <button class="btn pri" type="submit" id="entra">Entra</button>
   </form>
+</main>
+
+<!-- area download dei clienti (3.54): i testi arrivano da data/testi.json (pagina area-download.html) -->
+<main class="area-dl" id="vista-download" hidden>
+  <div class="wrap">
+    <span class="occhiello" data-dl="area-download-t001">Olimp / Risorse</span>
+    <h1 data-dl="area-download-t002">Area download</h1>
+    <div class="dl-griglia">
+      <article class="dl-card">
+        <h2 data-dl="area-download-t003">Catalogo</h2>
+        <p data-dl="area-download-t004">Scarica il catalogo dei nostri prodotti e scopri le ultime novità!</p>
+        <button class="btn pri" type="button" data-dl="area-download-t005" data-file="downloads/catalogo.pdf">Scarica il catalogo</button>
+      </article>
+      <article class="dl-card">
+        <h2 data-dl="area-download-t006">Informazioni per la corretta conservazione del tuo album</h2>
+        <p data-dl="area-download-t007">Prenditi cura dei tuoi ricordi: scarica subito la pratica guida per la corretta conservazione del tuo album Olimp.</p>
+        <button class="btn pri" type="button" data-dl="area-download-t008" data-file="downloads/guida.pdf">Scarica la guida</button>
+      </article>
+    </div>
+    <p class="errore" id="err-dl" role="alert" style="margin-top:16px"></p>
+  </div>
 </main>
 
 <!-- pagine del sito: le sezioni le scrive lo script (PAGINE) -->
@@ -614,6 +661,27 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
   </form>
 </dialog>
 
+<dialog id="d-pwc" aria-labelledby="pwc-t">
+  <form id="f-pwc" method="dialog" novalidate>
+    <h2 id="pwc-t">Password dei clienti</h2>
+    <p class="nota-pw">È la password che dai ai clienti per entrare nell'area download (con «Modalità admin» spenta). È una sola, uguale per tutti, e deve essere diversa dalla tua. Quando la cambi, i clienti già entrati devono entrare di nuovo con quella nuova.</p>
+    <div class="campo">
+      <label for="pwc-nuova">Password nuova <span class="facoltativo">(almeno 8 caratteri)</span></label>
+      <input type="password" id="pwc-nuova" autocomplete="off" minlength="8" maxlength="128" required>
+    </div>
+    <div class="campo">
+      <label for="pwc-ripeti">Ripeti la password nuova</label>
+      <input type="password" id="pwc-ripeti" autocomplete="off" maxlength="128" required>
+    </div>
+    <label class="mostra-tutte"><input type="checkbox" id="pwc-mostra"> Mostra le password</label>
+    <p class="errore" id="err-pwc" role="alert"></p>
+    <div class="azioni">
+      <button class="btn" type="button" id="pwc-annulla">Annulla</button>
+      <button class="btn pri" type="submit">Salva la password</button>
+    </div>
+  </form>
+</dialog>
+
 <dialog id="d-guida" aria-labelledby="g-t">
   <div class="g-testa">
     <h2 id="g-t" tabindex="-1">Guida</h2>
@@ -716,7 +784,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
   var API = meta('ar-api').replace(/\/+$/, ''), REPO = meta('ar-repo'), RAMO = meta('ar-branch') || 'main';
   var $ = function (id) { return document.getElementById(id); };
 
-  var gallerie = {}, immagini = [], testi = [], anteprimeLocali = {}, token = null;
+  var gallerie = {}, immagini = [], testi = [], anteprimeLocali = {}, token = null, clienti = null;
   var SOLO_FOTO = 'image/jpeg,image/png';
   // nel browser si ricordano accesso, scheda e guida vista; il prefisso evita di confondersi con
   // altri siti pubblicati sullo stesso indirizzo (nemesimark.github.io)
@@ -772,8 +840,22 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
   /* pagine che restano modificabili ma non si pubblicano (3.53, scripts/non-online.txt); le loro foto e i
      loro testi nelle altre pagine (schede, menu) sono nascosti: nei JSON hanno «nascosto», qui non si vedono */
   var NON_ONLINE = ['prodotti-studio-fotografico.html', 'custodie-per-album.html', 'album-bambini-new-born.html', 'album-eventi.html', 'area-download.html'];
-  // l'area download ora è solo qui, dietro la password (3.53)
+  // l'area download è solo qui, dietro la password (3.53); dalla 3.54 i PDF li consegna il Worker
+  // (downloads/ non è più sul sito pubblicato) e i clienti entrano con la loro password
   var SCARICA = [['downloads/catalogo.pdf', 'Scarica il catalogo'], ['downloads/guida.pdf', 'Scarica la guida alla conservazione']];
+  function scaricaPdf(file, bottone) {
+    var nome = file.replace(/^downloads\//, ''), prima = bottone.textContent, err = $('err-dl');
+    bottone.disabled = true; bottone.textContent = 'Download in corso…'; if (err) err.textContent = '';
+    return fetch(API + '/download?f=' + encodeURIComponent(nome), { headers: { Authorization: 'Bearer ' + token } }).then(function (r) {
+      if (r.status === 401) { esci(); throw new Error('Accesso scaduto, entra di nuovo'); }
+      if (!r.ok) return r.json().catch(function () { return {}; }).then(function (d) { throw new Error(d.errore || 'Download non riuscito'); });
+      return r.blob();
+    }, function () { throw new Error('Nessuna connessione, riprova'); }).then(function (b) {
+      var u = URL.createObjectURL(b), a = document.createElement('a'); a.href = u; a.download = nome;
+      document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(u); }, 60000);
+    }).catch(function (e) { if (err && !$('vista-download').hidden) err.textContent = e.message; else alert(e.message); })
+      .then(function () { bottone.disabled = false; bottone.textContent = prima; });
+  }
 
   /* ---------- chiamate al servizio ---------- */
   function chiama(percorso, corpo) {
@@ -794,7 +876,8 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
   function mostraVista(nome) {
     $('vista-login').hidden = nome !== 'login';
     $('vista-lavori').hidden = nome !== 'lavori';
-    $('esci').hidden = nome !== 'lavori';
+    $('vista-download').hidden = nome !== 'download';
+    $('esci').hidden = nome !== 'lavori' && nome !== 'download';
     $('apri-pw').hidden = nome !== 'lavori';
     $('apri-guida').hidden = nome !== 'lavori';
   }
@@ -804,20 +887,45 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     var vis = $('pw').type === 'password'; $('pw').type = vis ? 'text' : 'password';
     this.textContent = vis ? 'Nascondi' : 'Mostra'; this.setAttribute('aria-pressed', vis);
   };
+  // interruttore «Modalità admin»: spento (di partenza) = accesso dei clienti, acceso = amministratore
+  $('modo-admin').onchange = function () {
+    var on = this.checked;
+    $('intro-cliente').hidden = on; $('intro-admin').hidden = !on;
+    $('modo-stato').textContent = on ? 'Attivata: modifichi tutto il sito' : 'Disattivata: accesso dei clienti';
+    $('err-login').textContent = ''; $('pw').focus();
+  };
   $('f-login').onsubmit = function (e) {
     e.preventDefault();
     var pw = $('pw').value; if (!pw) { $('err-login').textContent = 'Scrivi la password'; $('pw').focus(); return; }
+    var modo = $('modo-admin').checked ? 'admin' : 'cliente';
     $('entra').disabled = true; $('entra').textContent = 'Controllo…'; $('err-login').textContent = '';
-    chiama('/login', { password: pw }).then(function (d) {
-      token = d.token; mem.set('ar-token', { token: d.token, scade: d.scade }); carica();
+    chiama('/login', { password: pw, modo: modo }).then(function (d) {
+      token = d.token; mem.set('ar-token', { token: d.token, scade: d.scade, ruolo: modo });
+      $('pw').value = ''; modo === 'cliente' ? caricaDownload() : carica();
     }).catch(function (err) { $('err-login').textContent = err.message; $('pw').select(); })
       .then(function () { $('entra').disabled = false; $('entra').textContent = 'Entra'; });
   };
 
+  /* vista dei clienti: i testi aggiornati dell'area download (se non arrivano restano quelli scritti qui) */
+  function testoSemplice(t) { return String(t).replace(/\[([^\]\n]+)\]\(([^)\s]+)\)/g, '$1').replace(/\*\*|==|`/g, ''); }
+  function caricaDownload() {
+    mostraVista('download');
+    chiama('/area-download').then(function (d) {
+      (d.testi || []).forEach(function (t) {
+        var el = document.querySelector('[data-dl="' + t.id + '"]'); if (!el || !t.testo) return;
+        el.textContent = testoSemplice(t.testo);
+        if (el.dataset.file && /^downloads\/[A-Za-z0-9._-]+\.pdf$/.test(t.link || '')) el.dataset.file = t.link;
+      });
+    }).catch(function () {});
+  }
+  [].forEach.call(document.querySelectorAll('#vista-download [data-file]'), function (b) {
+    b.onclick = function () { scaricaPdf(b.dataset.file, b); };
+  });
+
   function carica() {
     mostraVista('lavori'); centraTab(); stato('lav', 'Caricamento delle foto…');
     chiama('/contenuti').then(function (d) {
-      gallerie = d.gallerie || {}; immagini = d.immagini || []; testi = d.testi || [];
+      gallerie = d.gallerie || {}; immagini = d.immagini || []; testi = d.testi || []; clienti = d.clienti || null; disegnaClienti();
       disegna(); stato('', ''); aggiornaSpazio();
       if (!mem.get('ar-guida-vista')) apriGuida(); // la prima volta si apre da sola
     })
@@ -899,14 +1007,17 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     var h1 = document.createElement('h1'); h1.textContent = p[2] + ' ';
     var sm = document.createElement('small'); sm.textContent = p[0] === MENU ? 'tutte le pagine' : p[0]; h1.appendChild(sm);
     var a = document.createElement('a'); a.className = 'vedi'; a.target = '_blank'; a.rel = 'noopener'; a.href = new URL(p[0] === MENU ? 'index.html' : p[0], location.href).href; a.textContent = 'Vedi la pagina ↗';
-    if (NON_ONLINE.indexOf(p[0]) >= 0) { a = document.createElement('span'); a.className = 'non-online'; a.textContent = 'Non pubblicata sul sito'; b.classList.add('off'); }
+    if (NON_ONLINE.indexOf(p[0]) >= 0) { a = document.createElement('span'); a.className = 'non-online'; a.textContent = p[0] === 'area-download.html' ? 'La vedono solo i clienti, con la loro password' : 'Non pubblicata sul sito'; b.classList.add('off'); }
     h.appendChild(h1); h.appendChild(a); s.appendChild(h);
     if (p[0] === 'area-download.html') {
       var dl = document.createElement('div'); dl.className = 'scarica';
       SCARICA.forEach(function (f) {
-        var x = document.createElement('a'); x.className = 'btn pri'; x.href = f[0]; x.setAttribute('download', ''); x.textContent = f[1] + ' ↓'; dl.appendChild(x);
+        var x = document.createElement('button'); x.type = 'button'; x.className = 'btn pri'; x.textContent = f[1] + ' ↓';
+        x.onclick = function () { scaricaPdf(f[0], x); }; dl.appendChild(x);
       });
-      s.appendChild(dl);
+      var pc = document.createElement('div'); pc.className = 'pw-clienti';
+      pc.innerHTML = '<p id="pwc-stato">Password dei clienti: …</p><button class="btn" type="button" id="apri-pwc">Cambia la password dei clienti</button>';
+      s.appendChild(pc); s.appendChild(dl);
     }
     var ol = document.createElement('ol'); ol.className = 'blocchi';
     p[3].forEach(function (bl, k) {
@@ -2171,12 +2282,46 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     });
   };
 
+  /* ---------- password dei clienti (3.54) ---------- */
+  var dpwc = $('d-pwc');
+  function disegnaClienti() {
+    var p = $('pwc-stato'), b = $('apri-pwc'); if (!p || !b) return;
+    var c = clienti || {};
+    p.innerHTML = '';
+    var forte = document.createElement('b'); forte.textContent = 'Password dei clienti: ';
+    p.appendChild(forte);
+    p.appendChild(document.createTextNode(c.attiva ? 'attiva' + (c.cambiata ? ', cambiata il ' + new Date(c.cambiata).toLocaleDateString('it-IT') : '') + '. I clienti entrano con «Modalità admin» spenta.'
+      : 'non ancora scelta: finché non la imposti i clienti non possono entrare.'));
+    b.textContent = c.attiva ? 'Cambia la password dei clienti' : 'Imposta la password dei clienti';
+    b.onclick = function () { $('f-pwc').reset(); $('err-pwc').textContent = ''; mostraPwc(false); dpwc.showModal(); $('pwc-nuova').focus(); };
+  }
+  function mostraPwc(v) { ['pwc-nuova', 'pwc-ripeti'].forEach(function (id) { $(id).type = v ? 'text' : 'password'; }); }
+  $('pwc-mostra').onchange = function () { mostraPwc(this.checked); };
+  $('pwc-annulla').onclick = function () { dpwc.close(); };
+  $('f-pwc').onsubmit = function (e) {
+    e.preventDefault();
+    var nuova = $('pwc-nuova').value, rip = $('pwc-ripeti').value;
+    var err = nuova.length < 8 ? ['La password deve avere almeno 8 caratteri', 'pwc-nuova'] : nuova !== rip ? ['Le due password non sono uguali', 'pwc-ripeti'] : null;
+    if (err) { $('err-pwc').textContent = err[0]; $(err[1]).focus(); return; }
+    $('err-pwc').textContent = ''; dpwc.close(); inizioSalva('Salvataggio della password dei clienti…');
+    var T = { ok: 'Password dei clienti salvata', okP: 'Dalla prossima volta i clienti entrano con la password nuova (con «Modalità admin» spenta).', no: 'Password dei clienti non salvata' };
+    var minimo = new Promise(function (r) { setTimeout(r, 1500); });
+    Promise.all([chiama('/password-clienti', { nuova: nuova }), minimo]).then(function (a) {
+      clienti = { attiva: true, cambiata: a[0].cambiata }; disegnaClienti(); $('f-pwc').reset(); fineSalva(true, '', null, T);
+    }).catch(function (er) {
+      minimo.then(function () {
+        fineSalva(false, er.message, function () { dsv.close(); $('err-pwc').textContent = er.message; dpwc.showModal(); $('pwc-nuova').focus(); }, T);
+        $('sv-riprova').textContent = 'Correggi';
+      });
+    });
+  };
+
   /* ---------- avvio ---------- */
   if (!API || API.indexOf('INSERIRE') === 0) {
     $('err-login').textContent = 'Area riservata non ancora attivata.'; $('entra').disabled = true;
   } else {
     var t = mem.get('ar-token');
-    if (t && t.token && t.scade > Date.now() / 1000) { token = t.token; carica(); } else mostraVista('login');
+    if (t && t.token && t.scade > Date.now() / 1000) { token = t.token; t.ruolo === 'cliente' ? caricaDownload() : carica(); } else mostraVista('login');
   }
 })();
 </script>

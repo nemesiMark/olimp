@@ -26,6 +26,10 @@ Dettagli completi in **LEGGIMI.txt**: leggilo prima di modifiche non banali.
 - Originali del cliente in `~/Downloads/myairbridge-S38vTvYGSUj/`. Non creare cartelle sulla Scrivania.
 - Foto non più usate in `images/non-usate/`.
 
+## Area riservata con due password (dalla 3.54)
+- All'ingresso l'interruttore «Modalità admin» (spento di partenza). Spento: password dei clienti, solo area download (PDF consegnati dal Worker, `downloads/` non si pubblica). Acceso: password dell'amministratore, modifica tutto.
+- La password dei clienti la imposta l'admin nella scheda «Area download» (KV DATI, voce `password-clienti`). Dopo ogni modifica a `worker/` serve `npx wrangler deploy` dalla cartella `worker/`.
+
 ## Pagine non online (dalla 3.53)
 - Prodotti per lo studio, Custodie, Linea New Born, Album eventi e Area download restano nel repository ma non si pubblicano: elenco in `scripts/non-online.txt`, link commentati con «NON ONLINE (3.53)», testi con «nascosto» in `data/testi.json`. L'area download si apre solo dall'area riservata.
 

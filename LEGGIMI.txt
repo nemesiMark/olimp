@@ -1951,3 +1951,34 @@ Ogni modifica al sito viene annotata qui con numero di versione e descrizione.
                      testo sotto. Blocco «CORREZIONI DEL CLIENTE (3.53)» prima del blocco
                      dell'hero. style.css?v=199 in tutte le pagine.
                    - In attesa: le foto del fotolibro professionale (da ricevere).
+
+3.54 (27/11/2026)  Navbar, modulo dei contatti e area riservata con due password.
+                   - Navbar: nuovo ordine Servizi, Prodotti, Collezioni | logo | Grafica & Stampa,
+                     Chi siamo, Dove, Contatti, lucchetto (in tutte le pagine). Il logo sta al
+                     centro dello schermo: nel CSS le voci di sinistra crescono di più (blocco
+                     «NAVBAR CON IL LOGO AL CENTRO (3.54)») e js/script.js (centraLogo) misura e
+                     pareggia il resto con un margine. Animazione d'ingresso della home
+                     aggiornata (il logo ora è la 4ª voce). script.js?v=36.
+                   - Modulo dei contatti: ogni campo è un riquadro bianco con il bordo tutto
+                     intorno (non più solo la linea sotto); mentre si scrive il bordo diventa
+                     bordeaux con un alone leggero.
+                   - Area riservata: all'ingresso l'interruttore «Modalità admin», spento di
+                     partenza. Spento = accesso dei clienti con la loro password: vedono solo
+                     l'area download (stessi testi di area-download.html, modificabili
+                     dall'admin) e scaricano catalogo e guida. Acceso = amministratore, con la
+                     password di sempre: modifica tutto il sito. Nella scheda «Area download»
+                     l'admin imposta o cambia la password dei clienti (una sola per tutti,
+                     diversa dalla sua; cambiandola i clienti già entrati devono rientrare).
+                   - Worker: login con «modo» (admin/cliente; senza modo = admin, come prima),
+                     accesso firmato con il ruolo, nuove chiamate /area-download, /download e
+                     /password-clienti (KV DATI, voce «password-clienti»). I clienti non possono
+                     usare le chiamate dell'admin. Gli errori dei clienti si contano per
+                     indirizzo IP e non bloccano mai l'admin.
+                   - downloads/ non si pubblica più (scripts/non-online.txt): i PDF li consegna
+                     solo il Worker a chi è entrato. Restano visibili nel repository GitHub, che
+                     è pubblico.
+                   - Testi più piccoli sul telefono (fino a 600 px, richiesta del cliente: la 3.53
+                     li aveva ridotti solo sui computer): base 16 px invece di 18 (testo ~17 px),
+                     titolo delle pagine 36 px (prima 50), titolo della home ~38 px (prima 43-49),
+                     titoli delle sezioni 28 px (prima 33-47), sottotitoli grandi 24 px. Blocco
+                     «TESTI PIÙ PICCOLI SUL TELEFONO (3.54)». style.css?v=201.

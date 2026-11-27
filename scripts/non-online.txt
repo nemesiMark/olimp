@@ -5,5 +5,7 @@
 /custodie-per-album.html
 /album-bambini-new-born.html
 /album-eventi.html
-# l'area download ora si apre solo dall'area riservata (i PDF in downloads/ restano pubblicati)
+# l'area download si apre solo dall'area riservata (3.53)
 /area-download.html
+# i PDF li consegna il Worker solo a chi è entrato con la password dei clienti o dell'amministratore (3.54)
+/downloads/

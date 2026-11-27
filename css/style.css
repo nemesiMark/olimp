@@ -3967,7 +3967,7 @@ nav .mega-card:focus-visible::before {
    HOME: VOCI DELLA BARRA CHE IMPLODONO ALL'APERTURA
    ====================================================== */
 /* Solo su computer e solo nella home. Le voci arrivano dal basso e dai lati, a coppie
-   dall'esterno verso il centro (Grafica & Stampa e Area download per prime), e il logo
+   dall'esterno verso il centro (Servizi e il lucchetto per primi), e il logo
    arriva per ultimo. Le classi nav-imp e go le mette lo script nella <head> di index.html. */
 @media (min-width: 1101px) {
   .nav-imp nav > ul > li > a {
@@ -3983,17 +3983,18 @@ nav .mega-card:focus-visible::before {
     transition: transform 1s cubic-bezier(.2, .8, .2, 1) var(--d, 0s), opacity .6s ease var(--d, 0s), filter .8s ease var(--d, 0s);
   }
 
+  /* dalla 3.54 il logo è la 4ª voce: a sinistra 1-3, a destra 5-9 (il 9 è il lucchetto) */
   .nav-imp nav > ul > li:nth-child(1) > a { --x: -260px; --y: 230px; --r: -8deg; --d: 0s; }
   .nav-imp nav > ul > li:nth-child(9) > a { --x: 220px; --y: 190px; --r: 8deg; --d: 0s; }
-  .nav-imp nav > ul > li:nth-child(2) > a { --x: -320px; --y: 420px; --r: -6deg; --d: .22s; }
+  .nav-imp nav > ul > li:nth-child(2) > a { --x: -200px; --y: 440px; --r: -5deg; --d: .22s; }
   .nav-imp nav > ul > li:nth-child(8) > a { --x: 320px; --y: 320px; --r: 6deg; --d: .22s; }
-  .nav-imp nav > ul > li:nth-child(3) > a { --x: -120px; --y: 460px; --r: -4deg; --d: .44s; }
+  .nav-imp nav > ul > li:nth-child(3) > a { --x: -70px; --y: 430px; --r: -2deg; --d: .44s; }
   .nav-imp nav > ul > li:nth-child(7) > a { --x: 220px; --y: 440px; --r: 4deg; --d: .44s; }
-  .nav-imp nav > ul > li:nth-child(4) > a { --x: -70px; --y: 430px; --r: -2deg; --d: .66s; }
-  .nav-imp nav > ul > li:nth-child(6) > a { --x: 110px; --y: 430px; --r: 2deg; --d: .66s; }
-  .nav-imp nav > ul > li:nth-child(5) > a { --x: 0px; --y: 420px; --r: 0deg; --d: 1s; }
+  .nav-imp nav > ul > li:nth-child(6) > a { --x: 150px; --y: 430px; --r: 3deg; --d: .55s; }
+  .nav-imp nav > ul > li:nth-child(5) > a { --x: 90px; --y: 430px; --r: 2deg; --d: .66s; }
+  .nav-imp nav > ul > li:nth-child(4) > a { --x: 0px; --y: 420px; --r: 0deg; --d: 1s; }
 
-  .nav-imp.go nav > ul > li:nth-child(5) > a {
+  .nav-imp.go nav > ul > li:nth-child(4) > a {
     transition: transform 1.1s cubic-bezier(.3, 1.4, .4, 1) var(--d), opacity .5s ease var(--d), filter .8s ease var(--d);
   }
 }
@@ -5132,6 +5133,56 @@ h2 { font-size: clamp(1.85rem, 3.2vw, 3rem); }
 @media (max-width: 700px) {
   .linee-nav { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-right: -1.25rem; padding-right: 1.25rem; }
   .linee-nav::-webkit-scrollbar { display: none; }
+}
+
+/* ======================================================
+   NAVBAR CON IL LOGO AL CENTRO (3.54)
+   Ordine: Servizi, Prodotti, Collezioni | logo | Grafica & Stampa, Chi siamo, Dove,
+   Contatti (+ lucchetto, fuori dal conto perché è in posizione assoluta).
+   A sinistra 3 voci e a destra 4: le voci di sinistra crescono di 4 parti e quelle di
+   destra di 3, così i due lati sono quasi larghi uguali. Il resto lo pareggia js/script.js
+   (centraLogo): misura il logo e aggiunge un margine alla prima o all'ultima voce.
+   ====================================================== */
+@media (min-width: 1101px) {
+  nav > ul > li:not(.nav-logo) { flex-grow: 4; }
+  nav > ul > li.nav-logo ~ li { flex-grow: 3; }
+}
+
+/* Modulo dei contatti (3.54): ogni campo è un riquadro con il bordo tutto intorno e il
+   fondo bianco, non più solo la linea sotto; quando ci scrivi dentro il bordo diventa
+   bordeaux e compare un alone leggero. */
+#contact-form input:not([type="checkbox"]):not([type="hidden"]),
+#contact-form textarea {
+  background: #fff;
+  border: 1.5px solid rgba(58, 46, 36, .32);
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(58, 46, 36, .06);
+  margin-top: .2rem;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+#contact-form input:not([type="checkbox"]):not([type="hidden"]):hover,
+#contact-form textarea:hover { border-color: rgba(58, 46, 36, .55); }
+#contact-form input:not([type="checkbox"]):not([type="hidden"]):focus,
+#contact-form textarea:focus {
+  outline: none;
+  background: #fff;
+  border-color: var(--ribbon);
+  box-shadow: 0 0 0 3px rgba(170, 55, 46, .16);
+}
+
+/* ======================================================
+   TESTI PIÙ PICCOLI SUL TELEFONO (3.54, richiesta del cliente)
+   Fino a 600 px: base 16 px invece di 18 (testo ~17 px invece di 19, e in proporzione
+   pulsanti ed etichette), titolo delle pagine 36 px, titolo della home ~38 px, titoli
+   delle sezioni al massimo 28 px. I titoli già più piccoli (es. privacy) restano così.
+   ====================================================== */
+@media (max-width: 600px) {
+  html { font-size: 100%; }
+  main h1:not(.hero h1) { font-size: 2.25rem !important; }
+  html .hero { --fs: clamp(2.2rem, min(10vw, 7.5svh), 2.4rem); }
+  main h2:not(.legal h2) { font-size: 1.75rem !important; }
+  /* i sottotitoli più grandi (fasi di Grafica & Stampa, numeri di Chi siamo) */
+  .gs-panel h3, .graphics-steps h3, main h3.stats-title { font-size: 1.5rem !important; }
 }
 
 /* ======================================================
