@@ -14,3 +14,6 @@
 # documenti di lavoro: non servono ai visitatori (3.54)
 /LEGGIMI.txt
 /STORICO-VERSIONI.txt
+# le due linee Amarcord, tolte da Album matrimoniali (3.58)
+/linea-cuoio-amarcord-islandese.html
+/linea-cuoio-amarcord-islandese-personalizzato.html

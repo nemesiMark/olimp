@@ -818,7 +818,7 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
     ['custodie-per-album.html', 'Custodie', 'Custodie per album', [{ t: P, slots: ['custodie-principale'] },
       { t: 'Le nostre custodie', slots: ['custodie-valigia-classica', 'custodie-valigia-pers', 'custodie-cofanetti', 'custodie-box', 'custodie-teca-plex', 'custodie-valigia-bambini', 'custodie-valigia-scrigno'] }]],
     ['collezioni.html', 'Collezioni', 'Collezioni', [{ t: 'Le collezioni', slots: ['coll-matrimoniali', 'coll-bambini', 'coll-comunione'] }]],
-    ['album-matrimoniali.html', 'Matrimoniali', 'Album matrimoniali', [{ t: 'Le nostre linee', slots: ['matr-fashion', 'matr-glamour', 'matr-trendy', 'matr-cuoio-fiorentino', 'matr-amarcord-pers', 'matr-amarcord'] }]],
+    ['album-matrimoniali.html', 'Matrimoniali', 'Album matrimoniali', [{ t: 'Le nostre linee', slots: ['matr-fashion', 'matr-glamour', 'matr-trendy', 'matr-cuoio-fiorentino'] }]],  // Amarcord non online dalla 3.58
     ['linea-fashion.html', 'Fashion', 'Linea Fashion', [{ t: P, slots: ['fashion-principale'] }, { t: 'Gli album della linea', galleria: 'linea-fashion' }]],
     ['linea-glamour.html', 'Glamour', 'Linea Glamour', [{ t: P, slots: ['glamour-principale'] }, { t: 'Gli album della linea', galleria: 'linea-glamour' }]],
     ['linea-trendy.html', 'Trendy', 'Linea Trendy', [{ t: P, slots: ['trendy-principale'] }, { t: 'Gli album della linea', galleria: 'linea-trendy' }]],
@@ -842,7 +842,8 @@ input[type=text],input[type=password]{border-radius:3px;background:#fff;border-c
   ];
   /* pagine che restano modificabili ma non si pubblicano (3.53, scripts/non-online.txt); le loro foto e i
      loro testi nelle altre pagine (schede, menu) sono nascosti: nei JSON hanno «nascosto», qui non si vedono */
-  var NON_ONLINE = ['prodotti-studio-fotografico.html', 'custodie-per-album.html', 'album-bambini-new-born.html', 'album-eventi.html', 'area-download.html'];
+  var NON_ONLINE = ['prodotti-studio-fotografico.html', 'custodie-per-album.html', 'album-bambini-new-born.html', 'album-eventi.html', 'area-download.html',
+    'linea-cuoio-amarcord-islandese.html', 'linea-cuoio-amarcord-islandese-personalizzato.html'];  // le due Amarcord dalla 3.58
   // dalla 3.54 le pagine non online non hanno più la scheda (restano nel codice per quando torneranno);
   // l'area download sì, perché la vedono i clienti
   function nascosta(id) { return NON_ONLINE.indexOf(id) >= 0 && id !== 'area-download.html'; }

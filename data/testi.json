@@ -423,7 +423,8 @@
     "sezione": "Le nostre linee",
     "descrizione": "Titolo",
     "tipo": "testo",
-    "testo": "Linea Cuoio Amarcord &\nCuoio Islandese personalizzato"
+    "testo": "Linea Cuoio Amarcord &\nCuoio Islandese personalizzato",
+    "nascosto": true
   },
   {
     "id": "album-matrimoniali-t017",
@@ -431,7 +432,8 @@
     "sezione": "Le nostre linee",
     "descrizione": "Paragrafo",
     "tipo": "testo",
-    "testo": "Album in cuoio Amarcord e Islandese, in versione personalizzata."
+    "testo": "Album in cuoio Amarcord e Islandese, in versione personalizzata.",
+    "nascosto": true
   },
   {
     "id": "album-matrimoniali-t018",
@@ -439,7 +441,8 @@
     "sezione": "Le nostre linee",
     "descrizione": "Titolo",
     "tipo": "testo",
-    "testo": "Linea Cuoio Amarcord &\nCuoio Islandese"
+    "testo": "Linea Cuoio Amarcord &\nCuoio Islandese",
+    "nascosto": true
   },
   {
     "id": "album-matrimoniali-t019",
@@ -447,7 +450,8 @@
     "sezione": "Le nostre linee",
     "descrizione": "Paragrafo",
     "tipo": "testo",
-    "testo": "Album in cuoio Amarcord e Islandese."
+    "testo": "Album in cuoio Amarcord e Islandese.",
+    "nascosto": true
   },
   {
     "id": "album-tradizionale-professionale-t001",
@@ -3035,7 +3039,8 @@
     "descrizione": "Linea nell'elenco del menu (solo tablet e telefono: sul computer il menu mostra i riquadri con foto).",
     "tipo": "testo",
     "testo": "LINEA CUOIO AMARCORD &\nCUOIO ISLANDESE PERSONALIZZATO",
-    "link": "linea-cuoio-amarcord-islandese-personalizzato.html"
+    "link": "linea-cuoio-amarcord-islandese-personalizzato.html",
+    "nascosto": true
   },
   {
     "id": "menu-t019",
@@ -3044,7 +3049,8 @@
     "descrizione": "Linea nell'elenco del menu (solo tablet e telefono: sul computer il menu mostra i riquadri con foto).",
     "tipo": "testo",
     "testo": "LINEA CUOIO AMARCORD &\nCUOIO ISLANDESE",
-    "link": "linea-cuoio-amarcord-islandese.html"
+    "link": "linea-cuoio-amarcord-islandese.html",
+    "nascosto": true
   },
   {
     "id": "menu-t020",

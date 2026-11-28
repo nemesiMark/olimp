@@ -31,7 +31,7 @@ Dettagli in **LEGGIMI.txt** (guida + versioni dalla 3.54, circa 8.000 token): le
 - La password dei clienti la imposta l'admin nella scheda «Area download» (KV DATI, voce `password-clienti`). Dopo ogni modifica a `worker/` serve `npx wrangler deploy` dalla cartella `worker/`.
 
 ## Pagine non online (dalla 3.53)
-- Prodotti per lo studio, Custodie, Linea New Born, Album eventi e Area download restano nel repository ma non si pubblicano: elenco in `scripts/non-online.txt`, link commentati con «NON ONLINE (3.53)», testi con «nascosto» in `data/testi.json`. L'area download si apre solo dall'area riservata.
+- Prodotti per lo studio, Custodie, Linea New Born, Album eventi, Area download e (dalla 3.58, commenti «NON ONLINE (3.58)») le due linee Cuoio Amarcord & Islandese restano nel repository ma non si pubblicano: elenco in `scripts/non-online.txt`, link commentati con «NON ONLINE (3.53)», testi con «nascosto» in `data/testi.json`. L'area download si apre solo dall'area riservata.
 
 ## In sospeso
 - Dominio definitivo www.olimpitalia.com su hosting Netsons (cPanel, utente egbxbvje): per ora solo la pagina «sito in costruzione» (`netsons-in-costruzione/`). Pubblicare lì il sito intero (FTP da GitHub Actions, ORIGINS del Worker, `DOMINIO-DEL-SITO`) solo dopo l'ok del cliente. La posta di olimpitalia.com sta sullo stesso hosting: non toccarla.

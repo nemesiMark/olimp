@@ -424,3 +424,21 @@ ricerca, quando serve sapere perché una cosa è fatta in un certo modo).
                    nav-pari in style.css). Provato a 1101, 1110, 1280, 1440, 1920 e 2560 px: vuoti
                    uguali al pixel. Telefono e tablet invariati. style.css?v=210, script.js?v=41.
                    (L'area riservata PHP del ramo netsons-php-locale diventerà la 3.58.)
+3.58 (28/11/2026)  Album matrimoniali: tolte le due schede «Linea Cuoio Amarcord & Cuoio Islandese
+                   personalizzato» e «Linea Cuoio Amarcord & Cuoio Islandese» (ora 4 linee, 2 file
+                   da 2). Le due pagine non sono più online, come quelle della 3.53: restano nel
+                   repository, elencate in scripts/non-online.txt e tolte da sitemap.xml. In tutte le
+                   26 pagine le due voci del menu Collezioni e, nelle pagine delle linee, i due link
+                   della barra «Tutte le linee» stanno nei commenti «NON ONLINE (3.58)»; testi
+                   album-matrimoniali-t016…t019, menu-t018 e menu-t019 con «nascosto» in
+                   data/testi.json. Area riservata: tolte le due foto dalla scheda «Matrimoniali» e le
+                   due pagine aggiunte a NON_ONLINE (niente più schede proprie). Per rimetterle online:
+                   togliere i commenti «NON ONLINE (3.58)», i «nascosto», le righe in non-online.txt
+                   e in NON_ONLINE, e rimettere le voci nella sitemap. CSS e JS invariati.
+                   (L'area riservata PHP del ramo netsons-php-locale diventerà la 3.60.)
+3.59 (28/11/2026)  Pagine interne su computer (Servizi, Prodotti, Collezioni e tutte le altre con la
+                   fascia beige in alto): la linea rossa ora sta sul bordo fra la fascia beige e il
+                   fondo chiaro, non più 2,4rem più in basso nel bianco. Tolto il margine sotto la
+                   .page-hero (era della 3.53) e aggiunti 2,4rem sopra la prima sezione (6,4rem; 5,4rem
+                   per le pagine prodotto), così il contenuto resta dov'era. Blocco «CORREZIONI DEL
+                   CLIENTE (3.53)» di css/style.css. Telefono e tablet invariati. style.css?v=211.
