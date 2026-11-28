@@ -4163,8 +4163,13 @@ nav .mega-card:focus-visible::before {
   background: #fff;
 }
 
-.gallery .ph img[src*="linea-cuoio-fiorentino/modello-"] {
-  padding: 1rem 0 3.6rem;
+/* 3.60: la regola generale delle gallerie (object-fit: cover, più in basso) li ritagliava;
+   con :hover anche dopo il tocco sul telefono. Qui vince sempre «contain»: album intero */
+.gallery .ph img[src*="linea-cuoio-fiorentino/modello-"],
+.gallery .ph:hover img[src*="linea-cuoio-fiorentino/modello-"] {
+  object-fit: contain;
+  background: #fff;
+  padding: 1rem;
 }
 
 .card .ph img[src*="cuoio-fiorentino-ambra"] {

@@ -435,10 +435,15 @@ ricerca, quando serve sapere perché una cosa è fatta in un certo modo).
                    due pagine aggiunte a NON_ONLINE (niente più schede proprie). Per rimetterle online:
                    togliere i commenti «NON ONLINE (3.58)», i «nascosto», le righe in non-online.txt
                    e in NON_ONLINE, e rimettere le voci nella sitemap. CSS e JS invariati.
-                   (L'area riservata PHP del ramo netsons-php-locale diventerà la 3.60.)
+                   (L'area riservata PHP del ramo netsons-php-locale diventerà la 3.61.)
 3.59 (28/11/2026)  Pagine interne su computer (Servizi, Prodotti, Collezioni e tutte le altre con la
                    fascia beige in alto): la linea rossa ora sta sul bordo fra la fascia beige e il
                    fondo chiaro, non più 2,4rem più in basso nel bianco. Tolto il margine sotto la
                    .page-hero (era della 3.53) e aggiunti 2,4rem sopra la prima sezione (6,4rem; 5,4rem
                    per le pagine prodotto), così il contenuto resta dov'era. Blocco «CORREZIONI DEL
                    CLIENTE (3.53)» di css/style.css. Telefono e tablet invariati. style.css?v=211.
+3.60 (28/11/2026)  Linea Cuoio Fiorentino, «Gli album della linea»: gli album (Ambra, Ares, Greca,
+                   Scrigno) si vedono interi, su fondo bianco, anche sul telefono. La regola generale
+                   delle gallerie (object-fit: cover, anche in :hover, che sull'iPhone resta attivo dopo
+                   il tocco) li ritagliava sopra e sotto; ora per queste foto vince «contain», con
+                   1rem di margine intorno. style.css?v=212.
